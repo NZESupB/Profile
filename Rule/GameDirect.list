@@ -1,0 +1,54 @@
+# Steam Download Direct
+DOMAIN-SUFFIX,steamserver.net
+DOMAIN-SUFFIX,cm.steampowered.com
+DOMAIN,csgo.wmsj.cn
+DOMAIN,dl.steam.clngaa.com
+DOMAIN,dl.steam.ksyna.com
+DOMAIN,dota2.wmsj.cn
+DOMAIN,st.dl.bscstorage.net
+DOMAIN,st.dl.eccdnx.com
+DOMAIN,st.dl.pinyuncloud.com
+DOMAIN,steampipe.steamcontent.tnkjmec.com
+DOMAIN,dl.steam.clngaa.com
+DOMAIN,trts.baishancdnx.cn
+DOMAIN,steampowered.com.8686c.com
+DOMAIN,steamstatic.com.8686c.com
+DOMAIN,wmsjsteam.com
+DOMAIN-SUFFIX,steamchina.com
+DOMAIN-SUFFIX,steamcontent.com
+DOMAIN-SUFFIX,steamusercontent.com
+DOMAIN,xz.pphimalayanrt.com
+
+# https://gitlab.com/lodepuly/vpn_tool/-/blob/main/Tool/Clash/Rule/ChineseGameDownload.yaml
+
+# EPIC Download Direct
+DOMAIN,epicgames-download1-1251447533.file.myqcloud.com
+DOMAIN,account-public-service-prod03.ol.epicgames.com
+DOMAIN,launcher-public-service-prod06.ol.epicgames.com
+DOMAIN,epicgames-download1.akamaized.net
+DOMAIN,download.epicgames.com
+
+# BattleDirect
+DOMAIN-SUFFIX,battlenet.com.cn
+
+# GOGDirect
+
+# MicrosoftStoreShopDirect
+DOMAIN-SUFFIX,xboxlive.cn
+DOMAIN,dl.delivery.mp.microsoft.com
+DOMAIN,tlu.dl.delivery.mp.microsoft.com
+
+# UBisoftDirect
+DOMAIN-SUFFIX,ubionline.com.cn
+
+# OriginDirect
+
+# EADirect
+
+# Microsoft AppCheck
+DOMAIN,checkappexec.microsoft.com
+
+# LOL国际服大厅
+DOMAIN,feapp.pbe1.lol.pvp.net
+DOMAIN,feapp.jp1.lol.pvp.net
+DOMAIN,feapp.tw2.lol.pvp.net

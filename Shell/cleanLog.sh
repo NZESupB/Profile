@@ -1,0 +1,22 @@
+#!/bin/sh
+# 0 4 15 */1 * bash /root/cleanLog.sh >> /var/log/cleanLog.log 2>&1
+echo "======== 准备清理Docker日志 ========"
+
+logs=$(find /var/lib/docker/containers/ -name *-json.log)
+
+for log in $logs
+        do
+                echo "clean logs : $log"
+                cat /dev/null > $log
+        done
+
+echo "======== 清理Docker日志完成 ========"
+
+# 清理超过50M的内核日志
+journalctl --vacuum-size=50M
+
+# 仅保留一周的内核日志
+#journalctl --vacuum-time=1w
+
+# 清理其他日志
+find /var/log -type f -name "*.gz" -delete

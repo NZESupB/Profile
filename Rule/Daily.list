@@ -1,0 +1,346 @@
+# 谷歌全家桶
+PROCESS-NAME,com.google.android.apps.googlevoice
+PROCESS-NAME,com.google.android.apps.cloudconsole
+PROCESS-NAME,com.google.android.apps.docs
+PROCESS-NAME,com.google.android.play.games
+
+# Shell
+PROCESS-NAME,fjava.exe
+PROCESS-NAME,Xshell.exe
+PROCESS-NAME,Termius.exe
+PROCESS-NAME,WindTerm.exe
+
+# MyServices
+DOMAIN,air.nzes.cf
+DOMAIN,node.nxnow.top
+
+# 资讯
+DOMAIN-SUFFIX,dwnews.com
+DOMAIN-SUFFIX,udn.com
+DOMAIN-SUFFIX,mtonews.com
+DOMAIN-SUFFIX,gamerch.com
+
+# soga文档
+DOMAIN,aagit.yougotme.cc
+
+# > Cloudflare
+DOMAIN-SUFFIX,cloudflareapps.com
+DOMAIN-SUFFIX,cloudflare.com
+
+# > Vercel
+DOMAIN-SUFFIX,vercel.com
+
+# > NextTrace Api
+DOMAIN,api.leo.moe
+
+# > 漫画源
+DOMAIN-SUFFIX,qiximh3.com
+DOMAIN-SUFFIX,baozimh.com
+DOMAIN-SUFFIX,wuqimh.net
+DOMAIN-SUFFIX,comicabc.com
+DOMAIN-SUFFIX,manhuagui.com
+DOMAIN-SUFFIX,colamanhua.com
+DOMAIN-SUFFIX,baozimh.org
+DOMAIN-SUFFIX,godamanga.com
+DOMAIN-SUFFIX,baozimh.com
+
+
+# > ProtonMail
+DOMAIN-SUFFIX,protonmail.com
+DOMAIN-SUFFIX,proton.me
+
+DOMAIN-SUFFIX,yahoo.com
+DOMAIN-SUFFIX,tgstat.com
+DOMAIN-SUFFIX,quickfever.com
+DOMAIN-SUFFIX,tenor.com
+DOMAIN-SUFFIX,zfaka.xyz
+DOMAIN-SUFFIX,api.lfyouse.org
+DOMAIN-SUFFIX,grafana.com
+DOMAIN-SUFFIX,giveawayoftheday.com
+DOMAIN-SUFFIX,ssaa.best
+DOMAIN-SUFFIX,nssurge.com
+DOMAIN-SUFFIX,cppreference.com
+DOMAIN-SUFFIX,deviantart.com
+DOMAIN-SUFFIX,nyacdn.com
+DOMAIN-SUFFIX,duangks.com
+DOMAIN-SUFFIX,sprov.xyz
+DOMAIN-SUFFIX,hostbuf.com
+DOMAIN-SUFFIX,discord.com
+DOMAIN-SUFFIX,rclone.org
+DOMAIN-SUFFIX,riffsy.com
+DOMAIN-SUFFIX,bitly.com
+DOMAIN-SUFFIX,giphy.com
+DOMAIN-SUFFIX,embydata.com
+DOMAIN-SUFFIX,termux.com
+DOMAIN-SUFFIX,io-oi.me
+DOMAIN-SUFFIX,bgp.he.net
+DOMAIN-SUFFIX,curl.se
+DOMAIN-SUFFIX,curl.haxx.se
+DOMAIN-SUFFIX,gitbook.io
+DOMAIN-SUFFIX,crisp.chat
+DOMAIN-SUFFIX,sourceforge.net
+DOMAIN-SUFFIX,osboxes.org
+DOMAIN-SUFFIX,huaien.co
+DOMAIN-SUFFIX,zetup.net
+DOMAIN-SUFFIX,mixplorer.com
+DOMAIN-SUFFIX,code.jquery.com
+DOMAIN-SUFFIX,vpskp.com
+DOMAIN-SUFFIX,vikacg.com
+DOMAIN-SUFFIX,cablemap.info
+DOMAIN-SUFFIX,submarinecablemap.com
+DOMAIN-SUFFIX,mega.co.nz
+DOMAIN-SUFFIX,pximg.net
+DOMAIN-SUFFIX,lg-firmwares.com
+DOMAIN-SUFFIX,pypi.org
+DOMAIN-SUFFIX,emojipedia.org
+DOMAIN-SUFFIX,timwhitlock.info
+DOMAIN-SUFFIX,eyny.com
+DOMAIN-SUFFIX,nya-ani.me
+DOMAIN-SUFFIX,sekirei-tv.com
+DOMAIN-SUFFIX,cssgradient.io
+DOMAIN-SUFFIX,oneplus.net
+DOMAIN-SUFFIX,hotbak.net
+DOMAIN-SUFFIX,larix.cc
+DOMAIN-SUFFIX,vpsdx.com
+DOMAIN-SUFFIX,loli.net
+DOMAIN-SUFFIX,arkoselabs.com
+DOMAIN-SUFFIX,thenounproject.com
+DOMAIN-SUFFIX,starwindsoftware.com
+DOMAIN-SUFFIX,fuchsia.dev
+DOMAIN-SUFFIX,911997.xyz
+DOMAIN,rsshub.app
+DOMAIN-SUFFIX,tvapk.net
+DOMAIN-SUFFIX,pastebin.com
+DOMAIN-SUFFIX,futaacg.com
+DOMAIN-SUFFIX,raidrive.com
+DOMAIN-SUFFIX,archive.vn
+DOMAIN-SUFFIX,leancloud.app
+DOMAIN-SUFFIX,wiktionary.org
+DOMAIN-SUFFIX,the.earth.li
+DOMAIN-SUFFIX,playbeasts.com
+DOMAIN-SUFFIX,mp3juices.cc
+DOMAIN-SUFFIX,flyzy2005.com
+DOMAIN-SUFFIX,letsencrypt.org
+DOMAIN-SUFFIX,hi-linux.com
+DOMAIN-SUFFIX,bnbstatic.com
+DOMAIN-SUFFIX,git.io
+DOMAIN-SUFFIX,do.co
+DOMAIN,flowerss-bot.now.sh
+DOMAIN-SUFFIX,programmersought.com
+DOMAIN-SUFFIX,gogodl.com
+DOMAIN-SUFFIX,lih.kg
+DOMAIN-SUFFIX,larksuite.com
+
+# BanCN
+DOMAIN-SUFFIX,engadget.com
+DOMAIN,blog.aiservices.tech
+
+# 小工具
+DOMAIN-SUFFIX,regex101.com
+DOMAIN-SUFFIX,composerize.com
+
+#EA游戏测试 https://www.game-debate.com/can-I-run/?EA
+DOMAIN-SUFFIX,game-debate.com
+DOMAIN,securepubads.g.doubleclick.net
+DOMAIN,pagead2.googlesyndication.com
+
+# 头像cdn
+DOMAIN-SUFFIX,gravatar.com
+
+# 论坛/Wiki/Blog
+DOMAIN-SUFFIX,imdb.com
+DOMAIN-SUFFIX,duangvps.com
+DOMAIN-SUFFIX,stackoverflow.com
+DOMAIN-SUFFIX,merlinblog.xyz
+DOMAIN-SUFFIX,ssr.tools
+DOMAIN-SUFFIX,duyaoss.com
+DOMAIN-SUFFIX,v2rayssr.com
+DOMAIN-SUFFIX,v2ex.com
+DOMAIN-SUFFIX,jike.info
+DOMAIN-SUFFIX,xda-developers.com
+DOMAIN-SUFFIX,merc.wiki
+DOMAIN-SUFFIX,tap.io
+DOMAIN-SUFFIX,blog.kiseki.moe
+DOMAIN-SUFFIX,hoyolab.com
+DOMAIN-SUFFIX,sspanel.host
+DOMAIN-SUFFIX,lbyczf.com
+DOMAIN-SUFFIX,zzbd.org
+DOMAIN-SUFFIX,graph.org
+DOMAIN-SUFFIX,fig.io
+DOMAIN-SUFFIX,9to5mac.com
+DOMAIN-SUFFIX,fwqzdm.com
+DOMAIN-SUFFIX,hostphb.com
+DOMAIN-SUFFIX,6parkbbs.com
+DOMAIN-SUFFIX,6park.com
+DOMAIN-SUFFIX,teepr.com
+DOMAIN-SUFFIX,crowdin.com
+DOMAIN-SUFFIX,js.org
+DOMAIN-SUFFIX,lvv2.com
+DOMAIN-SUFFIX,pixnet.net
+DOMAIN-SUFFIX,mokeedev.com
+DOMAIN-SUFFIX,longmabook.com
+DOMAIN-SUFFIX,lala.im
+DOMAIN-SUFFIX,hotexamples.com
+DOMAIN-SUFFIX,dalao.im
+DOMAIN-SUFFIX,igotp.com
+DOMAIN-SUFFIX,teddit.net
+DOMAIN-SUFFIX,y4er.com
+DOMAIN-SUFFIX,igorslab.de
+DOMAIN-SUFFIX,vpsxb.net
+DOMAIN-SUFFIX,mirror.xyz
+DOMAIN-SUFFIX,mirror-api.com
+DOMAIN-SUFFIX,qoo-app.com
+DOMAIN-SUFFIX,moec.top
+DOMAIN-SUFFIX,noisyfox.io
+DOMAIN-SUFFIX,fanqiangdang.com
+
+# mirror wss connect
+DOMAIN-SUFFIX,walletlink.org
+DOMAIN-SUFFIX,walletconnect.org
+
+DOMAIN-SUFFIX,notion.site
+
+# ServerStatusRust 
+DOMAIN-SUFFIX,ssr.rs
+
+# Reddit
+DOMAIN-SUFFIX,reddit.com
+DOMAIN-SUFFIX,redditmedia.com
+DOMAIN-SUFFIX,redditstatic.com
+DOMAIN-SUFFIX,redd.it
+
+# Nitter
+DOMAIN-SUFFIX,nitter.net
+
+#CPUInfo
+DOMAIN-SUFFIX,technical.city
+DOMAIN-SUFFIX,cpu-monkey.com
+
+# Git
+DOMAIN-SUFFIX,gitlab.com
+DOMAIN-SUFFIX,gitea.io
+DOMAIN-SUFFIX,gitlab-static.net
+DOMAIN-SUFFIX,avatars.githubusercontent.com
+
+DOMAIN-SUFFIX,ocd0522.tk
+DOMAIN-SUFFIX,ni-co.moe
+DOMAIN-SUFFIX,opensource.builders
+
+# Intel网站加速
+DOMAIN-SUFFIX,intel.com
+
+# > 品云
+DOMAIN-SUFFIX,52.mk
+DOMAIN-SUFFIX,3o.hk
+DOMAIN-SUFFIX,vps.wf
+DOMAIN-SUFFIX,id9.cc
+
+# > 机场订阅
+DOMAIN-SUFFIX,immtel.com
+DOMAIN-SUFFIX,semitelecom.net
+DOMAIN-SUFFIX,tomlink.org
+DOMAIN-SUFFIX,abc-net.us
+DOMAIN-SUFFIX,j01.best
+DOMAIN-SUFFIX,no626.com
+
+# VPS/转发
+DOMAIN-SUFFIX,nnr.moe
+DOMAIN-SUFFIX,polocloud.xyz
+DOMAIN-SUFFIX,586678.xyz
+DOMAIN-SUFFIX,898868.xyz
+DOMAIN-SUFFIX,digitalocean.com
+DOMAIN-SUFFIX,idc.wiki
+
+# VPS评测 & 论坛
+DOMAIN-SUFFIX,liyuans.com
+DOMAIN-SUFFIX,2047.one
+DOMAIN-SUFFIX,vpsoff.net
+
+DOMAIN-SUFFIX,hostloc.com
+DOMAIN-SUFFIX,xiu.ee
+DOMAIN-SUFFIX,hostevaluate.com
+DOMAIN-SUFFIX,mjjhome.net
+
+# 发卡
+DOMAIN-SUFFIX,hxsj.us
+DOMAIN-SUFFIX,32v.shop
+DOMAIN-SUFFIX,blzs.me
+DOMAIN-SUFFIX,azaggo.com
+DOMAIN-SUFFIX,awen35u.net
+DOMAIN-SUFFIX,masta.store
+DOMAIN-SUFFIX,peiqishop.me
+DOMAIN-SUFFIX,ciii.cloud
+# DOMAIN-SUFFIX,azfa.me
+
+DOMAIN-SUFFIX,wombo.art
+DOMAIN-SUFFIX,rooot.fan
+
+# 短连接
+DOMAIN-SUFFIX,goo.gl
+DOMAIN-SUFFIX,blankrefer.com
+DOMAIN-SUFFIX,is.gd
+DOMAIN-SUFFIX,urlzs.com
+DOMAIN-SUFFIX,ume.la
+DOMAIN-SUFFIX,req.mx
+DOMAIN-SUFFIX,gstatic.com
+DOMAIN-SUFFIX,short-ly.co
+DOMAIN-SUFFIX,tinyurl.com
+DOMAIN-SUFFIX,tny.im
+DOMAIN-SUFFIX,bit.ly
+
+# 虚拟货币
+DOMAIN-SUFFIX,hi.com
+
+# > emby破解验证
+DOMAIN-SUFFIX,embycrack.tk
+
+# 磁力搜索站
+DOMAIN-SUFFIX,nyaa.si
+DOMAIN-SUFFIX,tmdb.org
+DOMAIN,share.acgnx.se
+DOMAIN-SUFFIX,ptt.cc
+
+# 羊毛api
+DOMAIN-SUFFIX,windfgg.cf
+DOMAIN-SUFFIX,fakermetaverse.xyz
+DOMAIN-SUFFIX,kingran.cf
+DOMAIN-SUFFIX,imagic.eu.org
+DOMAIN-SUFFIX,ailoveu.eu.org
+DOMAIN-SUFFIX,api.nolanstore.top
+DOMAIN,lic.nolanhhhh.eu.org
+DOMAIN,129888.xyz
+
+# 教程加速
+DOMAIN-SUFFIX,wpf-tutorial.com
+DOMAIN,net-tutorials.onfastspring.com
+
+# 蛇皮验证码
+DOMAIN-SUFFIX,recaptcha.net
+
+# 同步服务
+DOMAIN,immersive-translate.owenyoung.com
+
+# Codeium加速
+DOMAIN-SUFFIX,codeium.com
+
+# Public DashBoard
+DOMAIN,clash.razord.top
+DOMAIN,yacd.haishan.me
+DOMAIN,yacd.metacubex.one
+DOMAIN,ariang.mayswind.net
+
+# 加速
+DOMAIN-SUFFIX,ft.com
+
+# FullTClash
+DOMAIN,em-content.zobj.net
+
+# Poe AI
+DOMAIN-SUFFIX,poe.com
+
+# TessdataOCR
+DOMAIN-SUFFIX,projectnaptha.com
+
+# 位置跟踪
+DOMAIN-SUFFIX,jmapinode.cc
+DOMAIN-SUFFIX,jmapiproxy3.cc

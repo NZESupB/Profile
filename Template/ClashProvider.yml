@@ -1,0 +1,363 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+# ipv6: false
+external-controller: 127.0.0.1:9090
+# profile:
+#   tracing: true
+#secret: password
+# authentication:
+#  - "user1:pass1"
+hosts:
+  # hkdns: 202.14.67.4,202.14.67.14
+  'services.googleapis.cn': services.googleapis.com
+  # 142.250.196.131
+  '.googleapis.cn': googleapis.com
+  '.google.cn': google.com
+  
+# 不开启tun没必要启用
+#dns:
+  #enable: true
+  #enhanced-mode: fake-ip
+  #nameserver:
+    #- https://doh.pub/dns-query
+    #- https://dns.alidns.com/dns-query
+    #- https://doh.dns.sb/dns-query
+  #fake-ip-filter:
+    #- +.*
+#tun:
+  #enable: false
+  #stack: system #gvisor system
+  #dns-hijack:
+    #- any:53
+  #auto-route: true
+  #auto-detect-interface: true
+  ##auto-redir: true #Linux专属自动路由
+    
+proxies:
+#单独节点
+  - {name: Trojan节点, server: localhost, port: 80, type: trojan, password: trojanpassword, sni: windows.sni.com, skip-cert-verify: true, udp: true}
+  - {name: Shadowsocks节点, server: localhost, port: 81, type: ss, cipher: aes-128-gcm, password: sspassword, udp: true}
+  - {name: Vmess节点, server: localhost, port: 82, type: vmess, uuid: vmessuuid, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /path, headers: {Host: windows.host.com}}}
+  - {name: Socks5节点, server: localhost, port: 83, type: socks5, username: username, password: password}
+  - {name: Http节点, server: localhost, port: 84, type: http, username: username, password: password, tls: false}
+
+#模块订阅, ABCloud_Game这类可自行重命名,path后的文件名也需要重命名不重复,url可自行修改订阅链接,或者用我后端精简
+proxy-providers:
+  ABCloud_Game:
+    type: http
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=游戏"
+    interval: 43200
+    path: ./Proxy/ABCloud_Game.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://cp.cloudflare.com/generate_204
+  TomLink_HK:
+    type: http
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=港|HKT|AGA"
+    interval: 43200
+    path: ./Proxy/TomLink_HK.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://cp.cloudflare.com/generate_204 
+  TomLink_US:
+    type: http
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=美"
+    interval: 43200
+    path: ./Proxy/TomLink_US.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://cp.cloudflare.com/generate_204 
+  TomLink_SGP:
+    type: http
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=坡"
+    interval: 43200
+    path: ./Proxy/TomLink_SGP.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://cp.cloudflare.com/generate_204
+  TomLink_JP:
+    type: http
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=日"
+    interval: 43200
+    path: ./Proxy/TomLink_JP.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://cp.cloudflare.com/generate_204
+  TomLink_TW:
+    type: http
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=台"
+    interval: 43200
+    path: ./Proxy/TomLink_TW.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://cp.cloudflare.com/generate_204
+  NetEaseUnlock:
+    type: http
+    url: "https://z.nxnow.top/csub?url=https://raw.githubusercontent.com/NZESupB/Profile/main/NetEaseSub"
+    interval: 43200
+    path: ./Proxy/NetEaseUnlock.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://interface3.music.163.com
+
+
+proxy-groups:
+    - name: "🚀 全球互联"
+      type: select
+      use:
+      proxies:
+          - 🇭🇰 香港
+          - 🇯🇵 日本
+          - 🇺🇸 美国
+          - 🇹🇼 台湾
+    - name: "🎮 游戏娱乐"
+      type: select
+      use:
+          - ABCloud_Game
+          - TomLink_HK
+      proxies:
+          - 🇭🇰 香港
+          - 🇯🇵 日本
+          - 🇺🇸 美国
+          - 🇹🇼 台湾
+          - DIRECT
+    - name: "🌍 国外媒体"
+      type: select
+      use:
+      proxies:
+          - 🇭🇰 香港
+          - 🇹🇼 台湾
+          - 🇯🇵 日本
+          - 🇺🇸 美国
+          - 🇸🇬 新加坡
+    - name: "⏬ 测速下载"
+      type: select
+      use:
+      proxies:
+          - DIRECT
+          - 🇭🇰 香港
+          - 🇹🇼 台湾
+          - 🇯🇵 日本
+          - 🇺🇸 美国
+          - 🇸🇬 新加坡
+          - 🚀 全球互联
+    - name: "🇭🇰 香港"
+      type: select
+      use:
+          - Kitony_HK
+      proxies:
+    - name: "🇯🇵 日本"
+      type: select
+      proxies:
+      use:
+          - TomLink_JP
+    - name: "🇸🇬 新加坡"
+      type: select
+      use:
+          - TomLink_SGP
+    - name: "🇺🇸 美国"
+      type: select
+      use:
+          - TomLink_US
+    - name: "🇹🇼 台湾"
+      type: select
+      use:
+          - TomLink_TW
+    - name: "🛑 广告拦截"
+      type: select
+      proxies:
+          - REJECT
+          - DIRECT
+    - name: "🐟 漏网之鱼"
+      type: select
+      proxies:
+          - DIRECT
+          - 🚀 全球互联
+    - name: "📲 Telegram"
+      type: select
+      use:
+      proxies:
+          - 📲 TelegramFallBack
+          - 🚀 全球互联
+          - 🌍 国外媒体
+    - name: "📲 TelegramFallBack"
+      type: fallback
+      proxies:
+      use:
+          - TomLink_HK
+          - TomLink_SGP
+      url: "http://telesco.pe"
+      interval: 600
+      tolerance: 2000
+
+rule-providers:
+    💻 本地保留:
+        type: http
+        behavior: classical
+        path: ./RuleSet/Local_Area_Network.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RpbmR5MjAxMy9zdWJjb252ZXJ0ZXIvbWFzdGVyL2Jhc2UvcnVsZXMvTG9jYWxBcmVhTmV0d29yay5saXN0
+        interval: 43200
+    📲 Telegram:
+        type: http
+        behavior: classical
+        path: ./RuleSet/Telegram.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JsYWNrbWF0cml4Ny9pb3NfcnVsZV9zY3JpcHQvbWFzdGVyL3J1bGUvU3VyZ2UvVGVsZWdyYW0vVGVsZWdyYW0ubGlzdA
+        interval: 43200
+    🌍 国外媒体:
+        type: http
+        behavior: classical
+        path: ./RuleSet/Streaming.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmcubGlzdA
+        interval: 43200
+    🌏 国内媒体:
+        type: http
+        behavior: classical
+        path: ./RuleSet/StreamingCN.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmdDTi5saXN0
+        interval: 43200
+    🛑 广告拦截:
+        type: http
+        behavior: classical
+        path: ./RuleSet/Advertising.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvQmFuQUQubGlzdA
+        interval: 43200
+    🛑 Anti_AD:
+        type: http
+        behavior: domain
+        path: ./RuleSet/Anti_AD.yaml
+        url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9hbnRpLWFkLm5ldC9zdXJnZS50eHQ
+        interval: 43200
+    🚀 全局规则:
+        type: http
+        behavior: classical
+        path: ./RuleSet/Global.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUHJveHlMaXRlLmxpc3Q
+        interval: 43200
+    Ⓜ️ 微软服务:
+        type: http
+        behavior: domain
+        path: ./RuleSet/Microsoft.yaml
+        url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JsYWNrbWF0cml4Ny9pb3NfcnVsZV9zY3JpcHQvbWFzdGVyL3J1bGUvU3VyZ2UvTWljcm9zb2Z0L01pY3Jvc29mdC5saXN0
+        interval: 43200
+    🎯 国内直连:
+        type: http
+        behavior: classical
+        path: ./RuleSet/China.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvQ2hpbmFEb21haW4ubGlzdA
+        interval: 43200
+    🎯 IP段直连:
+        type: http
+        behavior: ipcidr
+        path: ./RuleSet/ChinaIP.yaml
+        url: https://z.nxnow.top/iprule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JsYWNrbWF0cml4Ny9pb3NfcnVsZV9zY3JpcHQvbWFzdGVyL3J1bGUvU3VyZ2UvQ2hpbmFJUHMvQ2hpbmFJUHNfUmVzb2x2ZS5saXN0
+        interval: 43200
+    🎯 其他直连:
+        type: http
+        behavior: domain
+        path: ./RuleSet/OtherDirect.yaml
+        url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGlyZWN0Lmxpc3Q
+        interval: 43200
+    🇬 GoogleFCM:
+        type: http
+        behavior: classical
+        path: ./RuleSet/GoogleFCM.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUnVsZXNldC9Hb29nbGVGQ00ubGlzdA
+        interval: 43200
+    🎮 游戏娱乐:
+        type: http
+        behavior: classical
+        path: ./RuleSet/Game.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvR2FtZXMubGlzdA
+        interval: 43200
+    🎮 游戏直连:
+        type: http
+        behavior: domain
+        path: ./RuleSet/GameDirect.yaml
+        url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvR2FtZURpcmVjdC5saXN0
+        interval: 43200
+    ⏬ 海外下载:
+        type: http
+        behavior: classical
+        path: ./RuleSet/Download.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRG93bmxvYWQubGlzdA
+        interval: 43200
+    🌏 其他媒体:
+        type: http
+        behavior: domain
+        path: ./RuleSet/Video.yaml
+        url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvVmlkZW8ubGlzdA
+        interval: 43200
+    ⚡ SpeedTest:
+        type: http
+        behavior: classical
+        path: ./RuleSet/SpeedTest.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvU3BlZWR0ZXN0Lmxpc3Q
+        interval: 43200
+    🌍 轻量浏览:
+        type: http
+        behavior: classical
+        path: ./RuleSet/Daily.yaml
+        url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGFpbHkubGlzdA
+        interval: 43200
+    🇺🇸 US_List:
+        type: http
+        behavior: domain
+        path: ./RuleSet/US_Rule.yaml
+        url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvdXMubGlzdA
+        interval: 43200
+    🇯🇵 JP_List:
+        type: http
+        behavior: domain
+        path: ./RuleSet/JP_Rule.yaml
+        url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvanAubGlzdA
+        interval: 43200
+
+# 脚本
+script:
+  shortcuts:
+    bilibilishit: any([word in host for word in ['biliapi', 'bilibili']]) and any([word in host for word in ['-live-tracker-', 'p2p', 'pcdn']])
+    douyushit: (network == 'udp' or 'p2p' in host) and 'douyu' in host
+    udpshit: network == "udp" and match_provider("🌍 国外媒体")
+    #quic: network == 'udp' and dst_port == 443 #禁用443udp,微信可能会使用443udp导致误杀
+    #22.11.25后内核
+    #ping: resolve_process_name() == 'ping'
+    curl: resolve_process_path() == '/usr/bin/curl'
+# 规则
+rules:
+    - DOMAIN-SUFFIX,local,DIRECT,no-resolve
+    - RULE-SET,💻 本地保留,DIRECT
+    - SCRIPT,bilibilishit,REJECT
+    - SCRIPT,douyushit,REJECT
+    - SCRIPT,udpshit,REJECT,no-resolve
+    #- SCRIPT,ping,DIRECT
+    - RULE-SET,🎯 其他直连,DIRECT
+    - RULE-SET,🎮 游戏直连,DIRECT
+    - RULE-SET,🎮 游戏娱乐,🎮 游戏娱乐
+    - RULE-SET,🛑 广告拦截,🛑 广告拦截
+    # AntiAD自行考虑是否添加,有可能会误杀
+    - RULE-SET,🛑 Anti_AD,🛑 广告拦截
+    - RULE-SET,🌏 其他媒体,🌍 国外媒体
+    - RULE-SET,🇺🇸 US_List,🇺🇸 美国
+    - RULE-SET,🇯🇵 JP_List,🇯🇵 日本
+    - RULE-SET,📲 Telegram,📲 Telegram
+    - RULE-SET,🇬 GoogleFCM,🚀 全球互联
+    - RULE-SET,⏬ 海外下载,⏬ 测速下载
+    - RULE-SET,⚡ SpeedTest,⏬ 测速下载
+    - RULE-SET,🌍 轻量浏览,🚀 全球互联
+    - RULE-SET,🌏 国内媒体,DIRECT
+    - RULE-SET,🌍 国外媒体,🌍 国外媒体
+    - RULE-SET,🚀 全局规则,🚀 全球互联
+    - RULE-SET,🎯 国内直连,DIRECT
+    - RULE-SET,🎯 IP段直连,DIRECT
+    - RULE-SET,Ⓜ️ 微软服务,⏬ 测速下载
+    - MATCH,🐟 漏网之鱼

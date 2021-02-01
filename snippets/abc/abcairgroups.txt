@@ -1,0 +1,6 @@
+全球互联`select`.*
+视频媒体`select`.*
+ChatGPT`select`.*
+Telegram`select`.*
+广告拦截`select`[]REJECT`[]DIRECT
+规则外路由选择`select`[]DIRECT`[]全球互联

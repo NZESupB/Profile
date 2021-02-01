@@ -1,0 +1,276 @@
+# GooglePlay
+PROCESS-NAME,com.android.vending
+DOMAIN-SUFFIX,googleapis.cn
+DOMAIN-SUFFIX,googleapis.com
+DOMAIN-SUFFIX,googleusercontent.com
+DOMAIN-SUFFIX,xn--ngstr-lra8j.com
+
+# https://ruleset.skk.moe/List/non_ip/cdn.conf cdn参考规则
+# DigitalOcean OSS
+DOMAIN-SUFFIX,cdn.digitaloceanspaces.com
+
+# ChromeApp
+DOMAIN-SUFFIX,chromiumapp.org
+
+# Vultr OSS
+DOMAIN-SUFFIX,vultrobjects.com
+
+# Yandex
+DOMAIN-SUFFIX,storage.yandexcloud.net
+
+# Linode
+DOMAIN-SUFFIX,linodeobjects.com
+
+# dweb.link IPFS Gateway
+DOMAIN-SUFFIX,dweb.link
+
+# BitBucket Pages
+DOMAIN-SUFFIX,bitbucket.io
+
+# Cloudflare Worker
+DOMAIN-SUFFIX,workers.dev
+DOMAIN-SUFFIX,pages.dev
+
+# Cloudflare IPFS Gateway
+DOMAIN-SUFFIX,cloudflare-ipfs.com
+DOMAIN-SUFFIX,cf-ipfs.com
+
+# Vercel CDN
+DOMAIN-SUFFIX,vercel.app
+DOMAIN-SUFFIX,now.sh
+DOMAIN-SUFFIX,vercel.dev
+
+# >> Render.com
+DOMAIN-SUFFIX,app.render.com
+DOMAIN-SUFFIX,onrender.com
+
+# >> Netlify
+DOMAIN-SUFFIX,netlify.app
+
+# >> Surge.sh
+DOMAIN-SUFFIX,surge.sh
+
+# >> Firebase Hosting
+DOMAIN-SUFFIX,web.app
+DOMAIN-SUFFIX,firebaseapp.com
+
+# >> Codesandbox
+DOMAIN-SUFFIX,csb.app
+
+# >> Microsoft Azure
+DOMAIN-SUFFIX,azurestaticapps.net
+
+DOMAIN-SUFFIX,tmp.link
+
+# > Sync
+PROCESS-NAME,com.resilio.sync
+# DOMAIN-SUFFIX,getsync.com
+# DOMAIN-SUFFIX,resilio.com
+
+#Magisk
+DOMAIN-SUFFIX,magiskmanager.com
+
+#AuroraStore
+DOMAIN,aefd.nelreports.net
+DOMAIN,reports.exodus-privacy.eu.org
+DOMAIN-SUFFIX,goolag.store
+PROCESS-NAME,com.aurora.store
+DOMAIN,ftp.fau.de
+DOMAIN-SUFFIX,auroraoss.com
+
+DOMAIN-SUFFIX,pureapk.com
+DOMAIN-SUFFIX,apkpure.net
+
+# LOLSkin
+DOMAIN-SUFFIX,modskinpro.com
+DOMAIN-SUFFIX,leagueskin.net
+DOMAIN-SUFFIX,modskinlolvn.com
+
+# OPGG
+DOMAIN,legendspatch-lol.cdn.x-cdn.com
+DOMAIN-SUFFIX,op.gg
+DOMAIN,opgg-desktop-patch.akamaized.net
+DOMAIN,opgg-desktop-data.akamaized.net
+DOMAIN,opgg-static.akamaized.net
+
+#F-Droid
+DOMAIN-SUFFIX,f-droid.org
+DOMAIN-SUFFIX,guardianproject.info
+DOMAIN,mirror.cyberbits.eu
+DOMAIN,ftp.lysator.liu.se
+
+# 下载地址
+DOMAIN-SUFFIX,apk-cloud.com
+DOMAIN-SUFFIX,xiaomemeindex.com
+DOMAIN,zh.savefrom.net
+DOMAIN,dl.fevr.top
+DOMAIN,download.sysinternals.com
+DOMAIN-SUFFIX,typora.io
+DOMAIN-SUFFIX,uptodown.com
+DOMAIN-SUFFIX,bitvise.com
+DOMAIN-SUFFIX,apklinker.com
+DOMAIN-SUFFIX,androidfilehost.com
+DOMAIN-SUFFIX,apkadmin.com
+DOMAIN-SUFFIX,mediafire.com
+DOMAIN-SUFFIX,wintun.net
+DOMAIN-SUFFIX,openwrt.org
+DOMAIN-SUFFIX,github-releases.githubusercontent.com
+DOMAIN-SUFFIX,actions.githubusercontent.com
+DOMAIN-SUFFIX,objects.githubusercontent.com
+DOMAIN-SUFFIX,fydeos.io
+DOMAIN-SUFFIX,cloudfront.net
+DOMAIN-SUFFIX,neverware.com
+DOMAIN-SUFFIX,helge-keck.com
+DOMAIN-SUFFIX,y2mate.com
+DOMAIN-SUFFIX,havoc-os.com
+DOMAIN-SUFFIX,vancedapp.com
+DOMAIN-SUFFIX,deepnetdisk.club
+DOMAIN-SUFFIX,winscp.net
+DOMAIN,winscp-static-746341.c.cdn77.org
+DOMAIN-SUFFIX,apkmirror.com
+DOMAIN-SUFFIX,golang.org
+DOMAIN-SUFFIX,pypi.org
+DOMAIN-SUFFIX,filezilla-project.org
+DOMAIN-SUFFIX,freedownloadmanager.org
+DOMAIN-SUFFIX,vmware.com
+DOMAIN-SUFFIX,win2socks.com
+DOMAIN-SUFFIX,npmjs.org
+DOMAIN-SUFFIX,bgm.tv
+DOMAIN-SUFFIX,4kjia.com
+DOMAIN-SUFFIX,coolhub.top
+DOMAIN-SUFFIX,dhtclub.com
+DOMAIN-SUFFIX,steamworkshopdownloader.io
+DOMAIN-SUFFIX,mylivewallpapers.com
+DOMAIN-SUFFIX,desktophut.com
+DOMAIN-SUFFIX,bt4g.org
+DOMAIN-SUFFIX,btbtt.biz
+DOMAIN-SUFFIX,winudf.com
+DOMAIN-SUFFIX,playmods.net
+DOMAIN-SUFFIX,station-drivers.com
+DOMAIN,edgedl.me.gvt1.com
+DOMAIN-SUFFIX,cloud.unity3d.com
+DOMAIN-SUFFIX,python.org
+DOMAIN-SUFFIX,pythonhosted.org
+DOMAIN-SUFFIX,emeditor.info
+DOMAIN-SUFFIX,teamspeak-services.com
+DOMAIN-SUFFIX,teamspeak.com
+
+DOMAIN-SUFFIX,libsyn.com
+DOMAIN-SUFFIX,jkisoft.com
+DOMAIN,ftp.ni.com
+
+# Termux
+DOMAIN-SUFFIX,termux.dev
+DOMAIN-SUFFIX,termux-mirror.ml
+DOMAIN-SUFFIX,bintray.com
+DOMAIN-SUFFIX,grimler.se
+DOMAIN-SUFFIX,kcubeterm.me
+
+# ROM
+DOMAIN-SUFFIX,lineageos.org
+
+# Linux
+DOMAIN-SUFFIX,debian.org
+DOMAIN,debian.map.fastlydns.net
+
+# Nodejs
+DOMAIN-SUFFIX,nodejs.org
+
+# Download CDN
+DOMAIN-SUFFIX,b-cdn.net
+DOMAIN-SUFFIX,discourse-cdn.com
+DOMAIN-SUFFIX,jsdelivr.net
+DOMAIN-SUFFIX,imgur.com
+DOMAIN-SUFFIX,pictoa.com
+DOMAIN-SUFFIX,yimg.com
+DOMAIN-SUFFIX,larksuitecdn.com
+# DOMAIN,ka-p.fontawesome.com
+DOMAIN-SUFFIX,fontawesome.com
+DOMAIN-SUFFIX,alpinelinux.org
+DOMAIN,cdn.tailwindcss.com
+DOMAIN,sb.adtidy.org
+DOMAIN,dl-cdn.alpinelinux.org
+DOMAIN-SUFFIX,ftp.acc.umu.se
+DOMAIN-SUFFIX,fedorapeople.org
+
+# Docker / Images
+DOMAIN-SUFFIX,ghcr.io
+DOMAIN-SUFFIX,lscr.io
+DOMAIN-SUFFIX,docker.com
+DOMAIN-SUFFIX,docker.io
+
+# Java Download
+DOMAIN-SUFFIX,oracle.com
+DOMAIN-SUFFIX,java.net
+DOMAIN-SUFFIX,maven.org
+
+# 软件下载
+DOMAIN-SUFFIX,screentogif.com
+DOMAIN-SUFFIX,netsarang.net
+DOMAIN-SUFFIX,apkmb.com
+DOMAIN-SUFFIX,modyolo.com
+DOMAIN-SUFFIX,moddroid.co
+DOMAIN-SUFFIX,dbeaver.io
+
+DOMAIN-SUFFIX,proxmox.com
+DOMAIN-SUFFIX,ti.com
+DOMAIN-SUFFIX,blackhawk-dsp.com
+DOMAIN-SUFFIX,segger.com
+DOMAIN,download.amd.com
+DOMAIN-SUFFIX,deepl.com
+
+#WebOS
+DOMAIN-SUFFIX,macos.now.sh
+DOMAIN-SUFFIX,codecanyon.net
+DOMAIN-SUFFIX,spagreen.net
+
+#ios模拟器
+DOMAIN-SUFFIX,appetize.io
+
+# 网盘
+DOMAIN-SUFFIX,terabox.com
+DOMAIN-SUFFIX,dubox.com
+DOMAIN-SUFFIX,filen.io
+DOMAIN-SUFFIX,filen.net
+DOMAIN-SUFFIX,filen-1.net
+DOMAIN-SUFFIX,filen-2.net
+DOMAIN-SUFFIX,filen-3.net
+DOMAIN-SUFFIX,filen-4.net
+DOMAIN-SUFFIX,filen-5.net
+DOMAIN-SUFFIX,filen-6.net
+DOMAIN-SUFFIX,storjshare.io
+DOMAIN-SUFFIX,mypikpak.com
+DOMAIN-SUFFIX,mypikpak.net
+DOMAIN-SUFFIX,pikpak.me
+DOMAIN-SUFFIX,dropgalaxy.com
+
+# UUPDump
+DOMAIN-SUFFIX,uupdump.net
+
+# 未墙加速
+DOMAIN-SUFFIX,spacedesk.net
+
+# 电台
+DOMAIN-SUFFIX,radio.garden
+
+# 两个抓包软件下载
+DOMAIN,plug-mirror.rcac.purdue.edu
+DOMAIN-SUFFIX,charlesproxy.com
+
+# FixLocationMap
+DOMAIN-SUFFIX,openstreetmap.org
+
+# 安卓模拟器国际版
+DOMAIN-SUFFIX,bluestacks.com
+DOMAIN-SUFFIX,bignox.com
+DOMAIN-SUFFIX,appmeasurements.com
+
+DOMAIN-SUFFIX,freemp3downloads.online
+
+# OpenWrt
+DOMAIN-SUFFIX,immortalwrt.org
+
+# Global Music
+DOMAIN-SUFFIX,linkfire.com
+DOMAIN-SUFFIX,ncs.io
+DOMAIN,ncs.lnk.to

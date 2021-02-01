@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  hbbs:
+    image: rustdesk/rustdesk-server:latest
+    network_mode: host
+    container_name: hbbs
+    environment:
+      - KEY=_
+    command: hbbs -r hbbr:21117
+    volumes:
+      - /home/rustdesk:/root
+    depends_on:
+      - hbbr
+    restart: unless-stopped
+  hbbr:
+    image: rustdesk/rustdesk-server:latest
+    network_mode: host
+    container_name: hbbr
+    environment:
+      - KEY=_
+    command: hbbr
+    volumes:
+      - /home/rustdesk:/root
+    restart: unless-stopped
+# 自动更新docker
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    #环境变量,设置为上海时区
+    environment:
+        - TZ=Asia/Shanghai
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: watchtower hbbr hbbs --cleanup --schedule "0 0 4 * * *" 
+volumes:
+  hbbr:
+  hbbs:

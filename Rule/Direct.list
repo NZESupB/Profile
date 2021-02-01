@@ -1,0 +1,33 @@
+# Ti CDN
+DOMAIN,downloads.ti.com
+
+# Speedtest CN
+DOMAIN-SUFFIX,speedtest.cn
+
+# 国内Ip补漏
+DOMAIN-SUFFIX,caixin.com
+DOMAIN-SUFFIX,hellogithub.com
+DOMAIN-SUFFIX,lenovo.com
+DOMAIN-SUFFIX,aliyundrive.net
+DOMAIN,cdn.bootcdn.net
+DOMAIN-SUFFIX,mydrivers.com
+DOMAIN-SUFFIX,nvidia.cn
+DOMAIN,ip.sb
+
+# Anti-AD误杀
+#DOMAIN,ynuf.aliapp.org
+#DOMAIN,hm.baidu.com
+#DOMAIN,dwz.hm.baidu.com
+#DOMAIN,mtj.baidu.com
+#DOMAIN,c.duomai.com
+#DOMAIN-SUFFIX,jd.com
+#DOMAIN-SUFFIX,jpush.cn
+
+# 无需代理的国际域名
+DOMAIN-SUFFIX,tampermonkey.net
+DOMAIN-SUFFIX,gochitchat.ai
+DOMAIN,crl4.digicert.com
+DOMAIN,ocsp.digicert.com
+DOMAIN,statusf.digitalcertvalidation.com
+DOMAIN,ocsp.verisign.com
+DOMAIN,static.assetlab.io
