@@ -1,0 +1,444 @@
+# 打开此页面请Ctrl+S保存到本地,且将.txt删除后再修改,而不是复制粘贴
+mixed-port: 7890
+# 局域网共享身份验证
+# authentication:
+#  - "user1:pass1"
+allow-lan: true
+# '*': bind all IP addresses
+# 192.168.122.11: bind a single IPv4 address
+# "[aaaa::a8aa:ff:fe09:57d8]": bind a single IPv6 address
+bind-address: '*'
+mode: rule
+# info / warning / error / debug / silent
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+
+# e.g. foo.example.com > *.example.com > .example.com
+# P.S. +.foo.com equals to .foo.com and foo.com
+hosts:
+  #'mtalk.google.com': 108.177.125.188
+  #'t.cn': 203.107.55.116
+  # '*.clash.dev': 127.0.0.1
+  # '.dev': 127.0.0.1
+  # 'alpha.clash.dev': '::1'
+  # Google阉割套件重定向
+  services.googleapis.cn: 172.217.161.170
+
+#不在提供API,以下API均已失效
+proxies:
+proxy-providers:
+  SSRCloud_HK:
+    type: http
+    url: "https://hksub.nxnow.xyz/nxclash?url=薯条sub&include=港&exclude=游戏"
+    interval: 14400
+    path: ./Proxy/SSRCloud_HK.yaml
+    health-check:
+      enable: true
+      interval: 7200
+      url: http://www.gstatic.com/generate_204
+  SSRCloud_Game:
+    type: http
+    url: "https://hksub.nxnow.xyz/nxclash?url=薯条sub&include=游戏加速"
+    interval: 14400
+    path: ./Proxy/SSRCloud_Game.yaml
+    health-check:
+      enable: true
+      interval: 7200
+      url: http://www.gstatic.com/generate_204
+  AirPort1_HK:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub1&include=港"
+    interval: 14400
+    path: ./Proxy/AirPort1_HK.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204 
+  AirPort1_US:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub1&include=美"
+    interval: 14400
+    path: ./Proxy/AirPort1_US.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204 
+  AirPort1_SGP:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub1&include=坡"
+    interval: 14400
+    path: ./Proxy/AirPort1_SGP.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204
+  AirPort1_JP:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub1&include=日"
+    interval: 14400
+    path: ./Proxy/AirPort1_JP.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204
+  AirPort1_TW:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub1&include=台"
+    interval: 14400
+    path: ./Proxy/AirPort1_TW.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204
+  AirPort2_HK:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub2&include=香"
+    interval: 14400
+    path: ./Proxy/AirPort2_HK.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204 
+  AirPort2_US:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub2&include=美"
+    interval: 14400
+    path: ./Proxy/AirPort2_US.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204 
+  AirPort2_SGP:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub2&include=坡"
+    interval: 14400
+    path: ./Proxy/AirPort2_SGP.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204
+  AirPort2_JP:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub2&include=日"
+    interval: 14400
+    path: ./Proxy/AirPort2_JP.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204
+  AirPort2_TW:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub2&include=台"
+    interval: 14400
+    path: ./Proxy/AirPort2_TW.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204
+  AirPort3_HK:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub3&include=港"
+    interval: 14400
+    path: ./Proxy/AirPort3_HK.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204 
+  AirPort3_US:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub3&include=美"
+    interval: 14400
+    path: ./Proxy/AirPort3_US.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204 
+  AirPort3_SGP:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub3&include=坡"
+    interval: 14400
+    path: ./Proxy/AirPort3_SGP.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204
+  AirPort3_JP:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub3&include=日"
+    interval: 14400
+    path: ./Proxy/AirPort3_JP.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204
+  AirPort3_TW:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=sub3&include=台"
+    interval: 14400
+    path: ./Proxy/AirPort3_TW.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      url: http://www.gstatic.com/generate_204
+  SSRCloud_CN:
+    type: http
+    url: "https://hksub.nxnow.xyz/nxclash?url=薯条sub&include=回国"
+    interval: 86400
+    path: ./Proxy/SSRCloud_CN.yaml
+    health-check:
+      enable: false
+      interval: 3600
+      url: http://www.gstatic.com/generate_204
+  NetEase_Proxy:
+    type: http
+    url: "https://sub.nxnow.cf/nxclash?url=https://raw.githubusercontent.com/NZESupB/SubConver-Clash-Profile/master/NetEaseSub"
+    path: ./Proxy/NetEase_Proxy.yaml
+    interval: 14400
+    health-check:
+      enable: false
+      interval: 3600
+      url: http://www.gstatic.com/generate_204
+
+proxy-groups:
+  - name: "🚀 节点选择"
+    type: select
+    use:
+    proxies:
+      - 🇭🇰 香港
+      - 🇯🇵 日本
+      - 🇺🇲 美国
+      - 🇹🇼 台湾
+      - 🎯 全球直连
+  - name: "🎮 游戏娱乐"
+    type: select
+    use:
+      - SSRCloud_Game
+    proxies:
+      - 🇭🇰 香港
+      - 🇯🇵 日本
+      - 🇺🇲 美国
+      - 🇹🇼 台湾
+  - name: "⚡ 网速测试"
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🇭🇰 香港
+      - 🇯🇵 日本
+      - 🇺🇲 美国
+      - 🇹🇼 台湾
+      - 🇸🇬 新加坡
+    disable-udp: true
+  - name: "🌍 国外媒体"
+    type: select
+    use:
+    proxies:
+      - 🚀 节点选择
+      - 🇭🇰 香港
+      - 🇯🇵 日本
+      - 🇺🇲 美国
+      - 🇸🇬 新加坡
+      - 🎯 全球直连
+    disable-udp: true
+  - name: "🎶 网易云音乐"
+    type: select
+    use:
+      - SSRCloud_CN
+      - NetEase_Proxy
+    proxies:
+      - 🎯 全球直连
+    disable-udp: true
+  - name: "🌏 国内媒体"
+    type: select
+    use:
+    proxies:
+      - 🎯 全球直连
+      - 🇹🇼 台湾
+      - 🇭🇰 香港
+      - 🚀 节点选择
+    disable-udp: true
+  - name: "Ⓜ️ 微软服务"
+    type: select
+    use:
+    proxies:
+      - 🎯 全球直连
+      - 🚀 节点选择
+      - 🇭🇰 香港
+      - 🇯🇵 日本
+      - 🇺🇲 美国
+    disable-udp: true
+  - name: "🇭🇰 香港"
+    type: select
+    use:
+      - SSRCloud_HK
+      - AirPort1_HK
+      - AirPort2_HK
+      - AirPort3_HK
+    proxies:
+  - name: "🇯🇵 日本"
+    type: select
+    use:
+      - AirPort1_JP
+      - AirPort2_JP
+      - AirPort3_JP
+  - name: "🇺🇲 美国"
+    type: select
+    use:
+      - AirPort1_US
+      - AirPort2_US
+      - AirPort3_US
+  - name: "🇹🇼 台湾"
+    type: select
+    use:
+      - AirPort1_TW
+      - AirPort2_TW
+      - AirPort3_TW
+  - name: "🇸🇬 新加坡"
+    type: select
+    use:
+      - AirPort1_SGP
+      - AirPort2_SGP
+      - AirPort3_SGP
+  - name: "🎯 全球直连"
+    type: select
+    proxies:
+      - DIRECT
+    disable-udp: true
+  - name: "🛑 广告拦截"
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+    disable-udp: true
+  - name: "🐟 漏网之鱼"
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+  - name: "📲 Telegram"
+    type: load-balance
+    use:
+      - AirPort1_HK
+      - AirPort2_HK
+      - AirPort3_HK
+    strategy: round-robin
+    disable-udp: true
+    
+# 关于 Rule Provider 请查阅：https://lancellc.gitbook.io/clash/clash-config-file/rule-provider
+rule-providers:
+  💻 本地保留:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Local_Area_Network.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RpbmR5MjAxMy9zdWJjb252ZXJ0ZXIvbWFzdGVyL2Jhc2UvcnVsZXMvTG9jYWxBcmVhTmV0d29yay5saXN0
+    interval: 86400
+  🎶 网易云音乐:
+    type: http
+    behavior: classical
+    path: ./RuleSet/NetEaseMusic.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUnVsZXNldC9OZXRFYXNlTXVzaWMubGlzdA
+    interval: 86400
+  📲 Telegram:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Telegram.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9FeHRyYS9UZWxlZ3JhbS9UZWxlZ3JhbS5saXN0
+    interval: 86400
+  🌍 国外媒体:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Streaming.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmcubGlzdA
+    interval: 86400
+  🌏 国内媒体1:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/StreamingSE.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmdTRS5saXN0
+    interval: 86400
+  🌏 国内媒体2:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/StreamingCN.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmdDTi5saXN0
+    interval: 86400
+  🛑 广告拦截1:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/Advertising.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9HdWFyZC9BZHZlcnRpc2luZy5saXN0
+    interval: 86400
+  🛑 广告拦截2:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/Hijacking.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9HdWFyZC9IaWphY2tpbmcubGlzdA
+    interval: 86400
+  🛑 强力拦截:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/Anti_AD.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3ByaXZhY3ktcHJvdGVjdGlvbi10b29scy9hbnRpLUFEL21hc3Rlci9hbnRpLWFkLXN1cmdlLnR4dA
+    interval: 86400
+  🚀 节点选择:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/Global.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9HbG9iYWwubGlzdA
+    interval: 86400
+  Ⓜ️ 微软:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/Microsoft.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUnVsZXNldC9NaWNyb3NvZnQubGlzdA
+    interval: 86400
+  🎯 直连1:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/China.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9DaGluYS5saXN0
+    interval: 86400
+  🎯 直连2:
+    type: http 
+    behavior: ipcidr
+    path: ./RuleSet/ChinaIP.yaml
+    url: https://sub.nxnow.cf/claship?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9FeHRyYS9DaGluYUlQLmxpc3Q
+    interval: 86400
+  🎮 游戏娱乐:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/Game.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvU3ViQ29udmVyLUNsYXNoLVByb2ZpbGUvbWFzdGVyL015cnVsZXMvR2FtZXNPckRvd25sb2FkLmxpc3Q
+    interval: 86400
+  ⚡ SpeedTest:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/SpeedTest.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvU3ViQ29udmVyLUNsYXNoLVByb2ZpbGUvbWFzdGVyL015cnVsZXMvU3BlZWR0ZXN0Lmxpc3Q
+    interval: 86400
+  🌍 Myrule:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/Myrule.yaml
+    url: https://sub.nxnow.cf/clashrule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvU3ViQ29udmVyLUNsYXNoLVByb2ZpbGUvbWFzdGVyL015cnVsZXMvTXlydWxlLmxpc3Q
+    interval: 86400
+# 规则
+rules:
+  - DOMAIN-SUFFIX,local,DIRECT,no-resolve
+  - RULE-SET,💻 本地保留,🎯 全球直连
+  - RULE-SET,🎶 网易云音乐,🎶 网易云音乐
+  - RULE-SET,📲 Telegram,📲 Telegram
+  - RULE-SET,⚡ SpeedTest,⚡ 网速测试
+  - RULE-SET,🌍 国外媒体,🌍 国外媒体
+  - RULE-SET,🌏 国内媒体1,🌏 国内媒体
+  - RULE-SET,🌏 国内媒体2,🌏 国内媒体
+  - RULE-SET,Ⓜ️ 微软,Ⓜ️ 微软服务
+  - RULE-SET,🎮 游戏娱乐,🎮 游戏娱乐
+  - RULE-SET,🚀 节点选择,🚀 节点选择
+  - RULE-SET,🌍 Myrule,🚀 节点选择
+  - RULE-SET,🛑 强力拦截,🛑 广告拦截
+  - RULE-SET,🛑 广告拦截1,🛑 广告拦截
+  - RULE-SET,🛑 广告拦截2,🛑 广告拦截
+  - RULE-SET,🎯 直连1,🎯 全球直连
+  - RULE-SET,🎯 直连2,🎯 全球直连
+  - MATCH,🐟 漏网之鱼

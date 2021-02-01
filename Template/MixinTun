@@ -1,0 +1,22 @@
+mixin:
+  dns:
+    enable: true
+    ipv6: false
+    # listen: 0.0.0.0:53 #若使用Tap模式则取消此行注释
+    enhanced-mode: redir-host
+    # DNSSearch:https://kb.adguard.com/zh/general/dns-providers
+    nameserver:
+      # - https://doh.pub/dns-query
+      - https://dh-dns.global-idc.net/dns-query
+      - https://dns.alidns.com/dns-query
+    fallback:
+      - https://dh-dns.global-idc.net/dns-query
+      - tls://dns.google # Google
+      - https://dns.cloudflare.com/dns-query # CloudFlare  
+  tun:
+    enable: true
+    stack: gvisor
+    dns-hijack:
+      - 198.18.0.2:53
+    macOS-auto-route: true
+    macOS-auto-detect-interface: true
