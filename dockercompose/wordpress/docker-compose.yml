@@ -1,0 +1,45 @@
+#WordPress博客
+version: '3.1'
+services:
+  wordpress:
+    image: wordpress
+    container_name: wordpress
+    restart: always
+    ports:
+      - 127.0.0.1:8888:80  #8888自定义端口,且仅本地访问,需自行nginx反代
+    environment:
+      WORDPRESS_DB_HOST: "wpmariadb:3306"
+      WORDPRESS_DB_USER: dbusername
+      WORDPRESS_DB_PASSWORD: dbpassword
+      WORDPRESS_DB_NAME: dbname
+    volumes:
+      - /var/www/wordpress:/var/www/html
+    networks:
+      - wp_net
+  wpmariadb:
+    image: mariadb:10.4
+    # image: mariadb:10.11.2
+    restart: always
+    ports:
+      - 127.0.0.1:10086:3306  #数据库可不映射端口,如无需外部管理,注释ports与此行
+    container_name: wpmariadb
+    environment:
+      MYSQL_DATABASE: dbname
+      MYSQL_USER: dbusername
+      MYSQL_PASSWORD: dbpassword
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - /var/www/db:/var/lib/mysql
+    networks:
+      - wp_net
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    environment:
+        - TZ=Asia/Shanghai
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: wpmariadb wordpress watchtower --cleanup --schedule "0 0 4 * * *" 
+networks:
+  wp_net:

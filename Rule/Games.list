@@ -1,0 +1,275 @@
+# 梅露可物语
+DOMAIN-KEYWORD,andapp
+DOMAIN-KEYWORD,hekk
+PROCESS-NAME,mercstoria.exe
+PROCESS-NAME,jp.co.happyelements.toto
+PROCESS-NAME,jp.gamegift
+
+# Nikke
+DOMAIN-SUFFIX,intlgame.com
+DOMAIN-SUFFIX,nikke-kr.com
+DOMAIN-SUFFIX,nikke-jp.com
+DOMAIN-KEYWORD,nikke
+DOMAIN,cdp.cloud.unity3d.com
+DOMAIN,perf-events.cloud.unity3d.com
+DOMAIN,us.mtp.iegcom.com
+DOMAIN-SUFFIX,centauriglobal.com
+DOMAIN,dl.listdl.com
+DOMAIN-SUFFIX,gamamobi.com
+PROCESS-NAME,com.proximabeta.nikke
+
+# Mobile Length
+DOMAIN-SUFFIX,youngjoygame.com
+DOMAIN-SUFFIX,yuanzhanapp.com
+DOMAIN-SUFFIX,ngame.proximabeta.com
+IP-CIDR,161.202.48.36/32
+
+# 碧蓝档案(国寄服)
+DOMAIN,toy.log.nexon.io
+DOMAIN,o460330.ingest.sentry.io
+DOMAIN-SUFFIX,nexon.com
+DOMAIN-KEYWORD,nexoncdn
+DOMAIN,nxm-mt.akamaized.net
+# PROCESS-NAME,com.nexon.bluearchive
+DOMAIN,play-fe.googleapis.com
+DOMAIN,d2vaidpni345rp.cloudfront.net
+IP-CIDR,18.140.83.65/32
+
+# 碧蓝档案(日服)
+DOMAIN-SUFFIX,bluearchiveyostar.com
+DOMAIN-SUFFIX,bluearchive.jp
+# PROCESS-NAME,com.YostarJP.BlueArchive
+
+# NAT测试地址
+DOMAIN-SUFFIX,stun.ekiga.net
+
+# WildRift
+DOMAIN,wildrift-na.akamaized.net
+PROCESS-NAME,com.riotgames.league.wildrift
+
+# 代号鸢
+DOMAIN-SUFFIX,qookkagames.com
+DOMAIN-SUFFIX,appsflyer.com
+DOMAIN,gsg-sg.upupview.com
+DOMAIN,cdn-settings.appsflyersdk.com
+
+# Higan:Enruthyll 依露希尔:星晓 (港澳台)
+DOMAIN,prod-sg-delaytest-excalibur-sea.bilibiligame.net
+DOMAIN,prod-sg-gs-excalibur-sea.bilibiligame.net
+DOMAIN,l11-game-support-intl.biligame.net
+DOMAIN,l11-gameinfoc-intl.biligame.net
+DOMAIN,l11-prod-patch-excalibur-sea.bilibiligame.net
+DOMAIN,l11-prod-sg-login-excalibur-sea.bilibiligame.net
+DOMAIN,l11-prod-sg-serverlist-excalibur-sea.bilibiligame.net
+DOMAIN,l11-sdk-login-intl.biligame.net 
+DOMAIN,l11-realtime-api-intl.biligame.net
+DOMAIN,firebase-settings.crashlytics.com 
+DOMAIN,bilibiligame.aihelp.net 
+DOMAIN,launches.appsflyer.com
+DOMAIN,dl.listdl.com
+DOMAIN,inapps.appsflyer.com
+DOMAIN,static-intl.biligame.net
+DOMAIN,game-intl.biligame.net
+
+# 万代南宫梦
+DOMAIN-SUFFIX,bandainamcoid.com
+
+# 蓝色协议 (日服|锁定ip日本)
+DOMAIN-SUFFIX,blue-protocol.com
+DOMAIN,cdn.cookielaw.org
+
+# 苍雾残响 (港澳台)
+IP-CIDR,118.193.63.79/32
+IP-CIDR,103.98.16.89/32
+DOMAIN,open-sdk.900ga.me
+DOMAIN,cwres.ting-zhou.com
+# PROCESS-NAME,com.tingzhou.cwcxtw.qooapp
+
+DOMAIN-SUFFIX,ponosgames.com
+DOMAIN-KEYWORD,mobage
+DOMAIN-KEYWORD,dynamodb
+DOMAIN-SUFFIX,piapro.net
+DOMAIN-KEYWORD,johren
+
+# Steam
+DOMAIN-SUFFIX,steam-chat.com
+DOMAIN-SUFFIX,steamcontent.com
+DOMAIN-SUFFIX,steamgames.com
+DOMAIN-SUFFIX,steampowered.com
+DOMAIN-SUFFIX,steamstat.us
+DOMAIN-SUFFIX,steamstatic.com
+DOMAIN-SUFFIX,steamusercontent.com
+DOMAIN,steambroadcast.akamaized.net
+DOMAIN,steamcdn-a.akamaihd.net
+DOMAIN,steamcommunity-a.akamaihd.net
+DOMAIN,steamstore-a.akamaihd.net
+DOMAIN,steamusercontent-a.akamaihd.net
+DOMAIN,steamuserimages-a.akamaihd.net
+DOMAIN,steampipe.akamaized.net
+DOMAIN,steampipe-kr.akamaized.net
+DOMAIN,steampipe-partner.akamaized.net
+DOMAIN,steam.eca.qtlglb.com
+DOMAIN,steam.naeu.qtlglb.com
+DOMAIN,steam.ru.qtlglb.com
+DOMAIN,edge.steam-dns.top.comcast.net
+# Steam直播
+IP-CIDR,155.133.245.20/32
+DOMAIN,steambroadcastchat.akamaized.net
+PROCESS-NAME,steamwebhelper.exe
+
+# Epic
+DOMAIN-SUFFIX,epicgames.com
+DOMAIN-SUFFIX,helpshift.com
+DOMAIN-SUFFIX,paragon.com
+DOMAIN-SUFFIX,unrealengine.com
+DOMAIN,epicgames-download1.akamaized.net
+DOMAIN,fastly-download.epicgames.com
+
+# Riot/LOL/PBE
+DOMAIN-SUFFIX,lol.sgp.pvp.net
+DOMAIN-SUFFIX,riotcdn.net
+DOMAIN-SUFFIX,dyn.riotcdn.net
+DOMAIN-SUFFIX,riotgames.com
+DOMAIN-SUFFIX,leagueoflegends.ca
+DOMAIN-SUFFIX,leagueoflegends.co.kr
+DOMAIN-SUFFIX,leagueoflegends.com
+DOMAIN-SUFFIX,leagueoflegends.info
+DOMAIN-SUFFIX,leagueoflegends.kr
+DOMAIN-SUFFIX,leagueoflegends.net
+DOMAIN-SUFFIX,leagueoflegends.org
+DOMAIN-SUFFIX,riot-games.com
+DOMAIN-SUFFIX,riot.com
+DOMAIN-SUFFIX,riot.net
+DOMAIN-SUFFIX,riotforgegames.com
+DOMAIN-SUFFIX,riotgames.co.kr
+DOMAIN-SUFFIX,riotgames.info
+DOMAIN-SUFFIX,riotgames.jp
+DOMAIN-SUFFIX,riotgames.net
+DOMAIN-SUFFIX,riotgames.tv
+DOMAIN-SUFFIX,vivox.com
+DOMAIN,bam.nr-data.net
+DOMAIN,lolstatic-a.akamaihd.net
+DOMAIN,lolstore-a.akamaihd.net
+DOMAIN,am-a.akamaihd.net
+DOMAIN,riotgamespatcher-a.akamaihd.net
+DOMAIN-SUFFIX,prod02.kaxsdc.com
+DOMAIN-SUFFIX,contentstack.io
+DOMAIN-SUFFIX,newrelic.com
+DOMAIN-SUFFIX,wr.pvp.net
+DOMAIN-SUFFIX,lolesports.com
+DOMAIN-SUFFIX,cds.s4a8x2q3.hwcdn.net
+DOMAIN,static.rgpub.io
+IP-CIDR,162.62.158.0/24
+IP-CIDR,44.242.62.13/32
+IP-CIDR,162.247.241.10/32
+# LoLJPServer
+IP-CIDR,43.229.66.38/24
+DOMAIN,apne1-green.pp.sgp.pvp.net
+# LoLTWServer
+IP-CIDR,103.240.224.1/22
+DOMAIN,apse1-green.pp.sgp.pvp.net
+DOMAIN,apse1-red.pp.sgp.pvp.net
+# RiotGames
+IP-CIDR,192.64.170.0/21,no-resolve
+IP-CIDR,104.160.128.0/19,no-resolve
+
+#糖豆人
+PROCESS-NAME,FallGuys_client_game.exe
+IP-CIDR,156.59.221.101/32
+DOMAIN-SUFFIX,gamefuel.info
+DOMAIN,qos.multiplay.com
+DOMAIN,submit.backtrace.io
+DOMAIN,crl3.digicert.com
+DOMAIN-SUFFIX,fallguys.oncatapult.com
+
+#pokemonunite
+DOMAIN,sg-tdm.iegcom.com
+DOMAIN,gcloud.pokemo-unitepgame.com
+
+#Fantasy Life
+PROCESS-NAME,com.boltrend.floen
+DOMAIN-SUFFIX,boltrend.com
+
+# SLIME IM
+PROCESS-NAME,com.bandainamcoent.tensuramrkww
+DOMAIN,ten-sura-m-assets-ap.akamaized.net
+DOMAIN,api-ap.ten-sura-m.wfs.games
+DOMAIN,bn-payment.wrightflyer.net
+
+# RockStar
+DOMAIN-SUFFIX,rockstargames.com
+DOMAIN-SUFFIX,rsg.sc
+DOMAIN,gamedownloads-rockstargames-com.akamaized.net
+DOMAIN,media-rockstargames-com.akamaized.net
+DOMAIN,videos-rockstargames-com.akamaized.net
+
+# UBisoft
+DOMAIN-SUFFIX,ubi.com
+
+# PS
+DOMAIN-SUFFIX,playstation.com
+DOMAIN-SUFFIX,playstation.net
+DOMAIN-SUFFIX,playstationnetwork.com
+DOMAIN-SUFFIX,sony.com
+DOMAIN-SUFFIX,sonyentertainmentnetwork.com
+
+# Xbox
+DOMAIN-SUFFIX,xboxlive.com
+DOMAIN-SUFFIX,xboxservices.com
+DOMAIN-SUFFIX,gamepass.com
+DOMAIN,store-images.s-microsoft.com
+DOMAIN,img-prod-cms-rt-microsoft-com.akamaized.net
+DOMAIN,logincdn.msauth.net
+
+# Master Duel
+DOMAIN-SUFFIX,mo.konami.net
+
+# 艾尔登联机
+DOMAIN-SUFFIX,fromsoftware-game.net
+PROCESS-NAME,eldenring.exe
+
+# PUBG
+DOMAIN-SUFFIX,pubgbluehole.com
+DOMAIN-SUFFIX,playbattlegrounds.com
+DOMAIN-SUFFIX,battleye.com
+
+# Origin
+DOMAIN-SUFFIX,origin.com
+DOMAIN,cloudsync-prod.s3.amazonaws.com
+DOMAIN,origin-a.akamaihd.net
+DOMAIN,ssl-lvlt.cdn.ea.com
+DOMAIN,rtm.tnt-ea.com
+
+# Switch
+DOMAIN-SUFFIX,nintendo.com
+DOMAIN-SUFFIX,nintendo.net
+
+# Blizzard
+DOMAIN-SUFFIX,battle.net
+DOMAIN-SUFFIX,blizzard.com
+DOMAIN,blizzard.nefficient.co.kr
+DOMAIN,blzddist1-a.akamaihd.net
+DOMAIN,blzddistkr1-a.akamaihd.net
+DOMAIN,bnetproduct-a.akamaihd.net
+DOMAIN,blizzard.gcdn.cloudn.co.kr
+
+# GOG
+DOMAIN,gog-cdn-lumen.secure2.footprint.net
+
+# EA
+DOMAIN-SUFFIX,ea.com
+DOMAIN,origin-a.akamaihd.net
+
+# COD2022
+DOMAIN-SUFFIX,demonware.net
+DOMAIN-SUFFIX,callofduty.com
+DOMAIN,prod-data-energon.infra-ext.activision.com
+
+#PUBG
+IP-CIDR,52.231.108.196/32
+IP-CIDR,40.82.155.46/32
+IP-CIDR,52.141.28.146/32
+#IP-CIDR,20.39.199.93/32
+#IP-CIDR,20.39.187.32/32
+IP-CIDR,20.39.0.0/16
+

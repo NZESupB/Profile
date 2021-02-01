@@ -1,0 +1,20 @@
+mixin:
+  dns:
+    enable: true
+    enhanced-mode: fake-ip #2022.5后版本内核建议使用fake-ip #2023.2后版本仅fake-ip支持
+    #default-nameserver:
+      #- 114.114.114.114
+    nameserver:
+      - dhcp://以太网 # 路由器dns 以太网修改为对应网卡名
+      - https://doh.pub/dns-query # 腾讯doh
+      - https://dns.alidns.com/dns-query # 阿里doh
+      - https://doh.dns.sb/dns-query # dnssb-doh
+    fake-ip-filter:
+      - +.*
+  tun:
+    enable: true
+    stack: system # system gvisor (优先使用system，Windows启用system需要手动放行防火墙)
+    dns-hijack:
+      - any:53
+    auto-route: true
+    auto-detect-interface: true

@@ -1,0 +1,6 @@
+全球互联`select`^(?!.*(Frp|公网).*)
+视频媒体`select`^(?!.*(Frp|公网).*)
+广告拦截`select`[]REJECT`[]DIRECT
+漏网之鱼`select`[]DIRECT`[]全球互联
+Telegram`select`^(?!.*(Frp|公网).*)
+CHINA`select`[]DIRECT`(Frp|公网)

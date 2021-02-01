@@ -1,0 +1,20 @@
+DIRECT,https://raw.githubusercontent.com/tindy2013/subconverter/master/base/rules/LocalAreaNetwork.list
+DIRECT,https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Direct.list
+DIRECT,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list
+Ⓜ️ 微软服务,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Microsoft.list
+DIRECT,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+;🎶 网易云音乐,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEaseMusic.list
+📲 Telegram,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list
+🌍 国外媒体,https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Download.list
+🌍 国外媒体,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list
+🌏 国内媒体,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list
+🌏 国内媒体,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingCN.list
+🚀 全球互联,https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Daily.list
+DIRECT,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/ChinaIP.list
+🛑 广告拦截,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list
+🛑 广告拦截,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list
+🚀 全球互联,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list
+🚀 全球互联,https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/us.list
+🚀 全球互联,https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/jp.list
+DIRECT,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list
+🐟 漏网之鱼,[]FINAL

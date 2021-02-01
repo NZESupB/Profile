@@ -1,0 +1,33 @@
+# Freenom
+DOMAIN-SUFFIX,freenom.com
+DOMAIN-SUFFIX,maxcdn.bootstrapcdn.com
+
+# Amazon Game 
+DOMAIN-SUFFIX,gaming.amazon.com
+
+# TrumpTwitter
+DOMAIN-SUFFIX,truthsocial.com
+
+# Openai
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,openaidev.ghost.io
+DOMAIN-SUFFIX,ai.com
+DOMAIN,cdn.auth0.com
+DOMAIN,openaiapi-site.azureedge.net
+DOMAIN,o33249.ingest.sentry.io
+
+# Chatgpt Cdn
+DOMAIN,nexus-websocket-a.intercom.io
+DOMAIN,static.hsappstatic.net
+DOMAIN-SUFFIX,hsforms.com
+
+# Oracle
+DOMAIN-SUFFIX,oracle.com
+DOMAIN-SUFFIX,oraclecloud.com
+
+# Google Bard
+DOMAIN,bard.google.com
+DOMAIN,labs.google.com
+
+# Claude 2
+DOMAIN-SUFFIX,claude.ai

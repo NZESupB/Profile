@@ -1,0 +1,9 @@
+🎯 全球直连,https://raw.githubusercontent.com/tindy2013/subconverter/master/base/rules/LocalAreaNetwork.list
+🚀 节点选择,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list
+🎯 全球直连,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list
+🎯 全球直连,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingCN.list
+🚀 节点选择,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list
+🚀 节点选择,https://raw.githubusercontent.com/NZESupB/SubConver-Clash-Profile/master/Myrules/Myrule.list
+🎯 全球直连,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list
+🎯 全球直连,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/ChinaIP.list
+🐟 漏网之鱼,[]FINAL

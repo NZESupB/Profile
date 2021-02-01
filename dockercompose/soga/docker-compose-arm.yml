@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  soga:
+    image: vaxilu/soga:latest-arm64
+    restart: always
+    network_mode: host
+    container_name: soga
+    environment:
+        - IS_DOCKER=true
+    volumes:
+        - /etc/sogatj:/etc/soga
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    # 环境变量,设置为上海时区
+    environment:
+        - TZ=Asia/Shanghai
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: soga watchtower --cleanup --schedule "0 0 4 * * *"

@@ -1,0 +1,17 @@
+version: "2.0"
+services:
+  jdql:
+    image: whyour/qinglong:latest
+    container_name: jdql
+    restart: always
+    network_mode: bridge
+    tty: true
+    volumes:
+      - ~/qldata:/ql/data    
+    ports:
+      - 5789:5700
+    environment:
+      - ENABLE_HANGUP=true
+      - ENABLE_WEB_PANEL=true
+  
+   
