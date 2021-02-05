@@ -3,7 +3,6 @@ PROCESS-NAME,mercstoria.exe
 PROCESS-NAME,AndAppHelper.exe
 DOMAIN-KEYWORD,mobage
 DOMAIN-KEYWORD,dynamodb
-DOMAIN-KEYWORD,tzfile
 DOMAIN-KEYWORD,wetransfer
 DOMAIN-SUFFIX,blog.kiseki.moe
 DOMAIN-SUFFIX,merc.wiki
@@ -46,10 +45,10 @@ DOMAIN-SUFFIX,riotcdn.net
 DOMAIN-SUFFIX,riotgames.com
 DOMAIN-SUFFIX,leagueoflegends.com
 DOMAIN-SUFFIX,vivox.com
-DOMAIN-SUFFIX,lolstatic-a.akamaihd.net
-DOMAIN-SUFFIX,lolstore-a.akamaihd.net
-DOMAIN-SUFFIX,am-a.akamaihd.net
-DOMAIN-SUFFIX,riotgamespatcher-a.akamaihd.net
+DOMAIN,lolstatic-a.akamaihd.net
+DOMAIN,lolstore-a.akamaihd.net
+DOMAIN,am-a.akamaihd.net
+DOMAIN,riotgamespatcher-a.akamaihd.net
 DOMAIN-SUFFIX,prod02.kaxsdc.com
 DOMAIN-SUFFIX,contentstack.io
 DOMAIN-SUFFIX,newrelic.com
@@ -60,9 +59,9 @@ IP-CIDR,162.62.158.0/24
 # RockStar
 DOMAIN-SUFFIX,rockstargames.com
 DOMAIN-SUFFIX,rsg.sc
-DOMAIN-SUFFIX,gamedownloads-rockstargames-com.akamaized.net
-DOMAIN-SUFFIX,media-rockstargames-com.akamaized.net
-DOMAIN-SUFFIX,videos-rockstargames-com.akamaized.net
+DOMAIN,gamedownloads-rockstargames-com.akamaized.net
+DOMAIN,media-rockstargames-com.akamaized.net
+DOMAIN,videos-rockstargames-com.akamaized.net
 # Mobile Length
 DOMAIN-SUFFIX,youngjoygame.com
 DOMAIN-SUFFIX,yuanzhanapp.com
