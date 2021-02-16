@@ -21,8 +21,8 @@ SG@新加坡
 TW@台湾
 US@美国
 JP@日本
-GZCM-HK|GZCM|广移中继@广移
-CSCU-HK|CSCU@长联
+GZCM-香港|GZCM|广移中继@广移
+CSCU-香港|CSCU@长联
 
 CU@联通
 CM@中转
