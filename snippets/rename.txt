@@ -23,6 +23,7 @@ US@美国
 JP@日本
 GZCM-香港|GZCM|广移中继@广移
 CSCU-香港|CSCU@长联
+香港IX@IX
 
 CU@联通
 CM@中转
