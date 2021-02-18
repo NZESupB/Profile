@@ -90,6 +90,7 @@ DOMAIN-SUFFIX,playbeasts.com
 DOMAIN-SUFFIX,tmdb.org
 DOMAIN-SUFFIX,assets.fanart.tv
 DOMAIN,ws-mt1.pusher.com
+DOMAIN-SUFFIX,twiptv.tk
 # Emby服务器
 DOMAIN-SUFFIX,emby.wtf
 DOMAIN-SUFFIX,jmsooo.com
