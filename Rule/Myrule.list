@@ -92,12 +92,14 @@ DOMAIN-SUFFIX,mp3juices.cc
 DOMAIN-SUFFIX,tmdb.org
 DOMAIN-SUFFIX,assets.fanart.tv
 DOMAIN,ws-mt1.pusher.com
-DOMAIN-SUFFIX,twiptv.tk
 # Emby服务器
 DOMAIN-SUFFIX,emby.wtf
 DOMAIN-SUFFIX,jmsooo.com
 DOMAIN-SUFFIX,xeton.dev
 DOMAIN-SUFFIX,emby.nyancat.net
+# iptv
+DOMAIN-SUFFIX,tv.penisnoholiday.live
+IP-CIDR,154.90.1.193/32
 # AGA&BGP服,可不挂代理
 # DOMAIN-SUFFIX,plusmedia.site
 # DOMAIN-SUFFIX,mickeycloud.com
