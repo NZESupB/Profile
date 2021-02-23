@@ -1,4 +1,5 @@
 # Fast
+PROCESS-NAME,com.netflix.Speedtest
 DOMAIN-SUFFIX,fast.com
 DOMAIN-SUFFIX,hgc.com.hk
 DOMAIN-SUFFIX,speed.cloudflare.com
