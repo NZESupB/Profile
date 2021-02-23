@@ -1,8 +1,11 @@
-# 必走代理的包名
+# 谷歌全家桶
 PROCESS-NAME,com.android.vending
 PROCESS-NAME,com.google.android.gms
 PROCESS-NAME,com.google.android.gsf
 PROCESS-NAME,com.google.android.apps.googlevoice
+PROCESS-NAME,com.google.android.apps.cloudconsole
+PROCESS-NAME,com.google.android.apps.docs
+PROCESS-NAME,com.google.android.play.games
 
 DOMAIN-KEYWORD,giveawayoftheday
 DOMAIN-KEYWORD,jike
