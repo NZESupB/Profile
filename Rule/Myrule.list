@@ -2,6 +2,7 @@
 PROCESS-NAME,com.android.vending
 PROCESS-NAME,com.google.android.gms
 PROCESS-NAME,com.google.android.gsf
+PROCESS-NAME,com.google.android.apps.googlevoice
 
 DOMAIN-KEYWORD,giveawayoftheday
 DOMAIN-KEYWORD,jike
@@ -94,6 +95,8 @@ DOMAIN-SUFFIX,the.earth.li
 DOMAIN-SUFFIX,playbeasts.com
 DOMAIN-SUFFIX,mp3juices.cc
 # Emby
+PROCESS-NAME,com.mb.android
+PROCESS-NAME,tv.emby.embyatv
 DOMAIN-SUFFIX,tmdb.org
 DOMAIN-SUFFIX,assets.fanart.tv
 DOMAIN,ws-mt1.pusher.com
