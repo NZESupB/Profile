@@ -1,6 +1,10 @@
 PROCESS-NAME,AndApp.exe
 PROCESS-NAME,mercstoria.exe
 PROCESS-NAME,AndAppHelper.exe
+PROCESS-NAME,jp.co.happyelements.toto
+PROCESS-NAME,jp.co.ponos.battlecats
+PROCESS-NAME,jp.gamegift
+
 DOMAIN-KEYWORD,mobage
 DOMAIN-KEYWORD,dynamodb
 DOMAIN-KEYWORD,wetransfer
