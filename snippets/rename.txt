@@ -26,8 +26,8 @@ CSCU-香港|CSCU@长联
 HZCU@杭联
 香港IX@IX
 
-CU@联通
-CM@中转
+;CU@联通
+;CM@中转
 Direct|GIA直连@直连
 
 ;(\（).*?(\）)(\d)*.bps@
