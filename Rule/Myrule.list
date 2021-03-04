@@ -5,6 +5,11 @@ PROCESS-NAME,com.google.android.apps.cloudconsole
 PROCESS-NAME,com.google.android.apps.docs
 PROCESS-NAME,com.google.android.play.games
 
+#下载地址
+DOMAIN-SUFFIX,mediafire.com
+DOMAIN-SUFFIX,wintun.net
+
+
 DOMAIN-KEYWORD,giveawayoftheday
 DOMAIN-KEYWORD,jike
 DOMAIN-KEYWORD,telstra
@@ -16,7 +21,7 @@ DOMAIN-KEYWORD,cppreference
 DOMAIN-KEYWORD,regex101
 DOMAIN-KEYWORD,lineageos
 DOMAIN-KEYWORD,github
-DOMAIN-SUFFIX,wintun.net
+DOMAIN-SUFFIX,deviantart.com
 DOMAIN-SUFFIX,blog.000714.xyz
 DOMAIN-SUFFIX,nyacdn.com
 DOMAIN-SUFFIX,duangks.com
