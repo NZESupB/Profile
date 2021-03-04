@@ -21,6 +21,8 @@ DOMAIN-KEYWORD,hekk
 DOMAIN-KEYWORD,merc
 DOMAIN-SUFFIX,ponosgames.com
 DOMAIN-SUFFIX,mumuglobal.com
+#miHoYo
+DOMAIN-SUFFIX,hoyolab.com
 # epic
 DOMAIN-SUFFIX,epicgames.com
 DOMAIN-SUFFIX,helpshift.com
