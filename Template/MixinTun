@@ -6,13 +6,7 @@ mixin:
     enhanced-mode: redir-host
     # DNSSearch:https://kb.adguard.com/zh/general/dns-providers
     nameserver:
-      # - https://doh.pub/dns-query
-      - https://dh-dns.global-idc.net/dns-query
-      - https://dns.alidns.com/dns-query
-    fallback:
-      - https://dh-dns.global-idc.net/dns-query
-      - tls://dns.google # Google
-      - https://dns.cloudflare.com/dns-query # CloudFlare  
+      - https://dh-dns.global-idc.net/dns-query  
   tun:
     enable: true
     stack: gvisor
