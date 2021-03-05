@@ -9,7 +9,7 @@ PROCESS-NAME,com.google.android.play.games
 DOMAIN-SUFFIX,mediafire.com
 DOMAIN-SUFFIX,wintun.net
 
-
+DOMAIN-SUFFIX,cloudflare.com
 DOMAIN-KEYWORD,giveawayoftheday
 DOMAIN-KEYWORD,jike
 DOMAIN-KEYWORD,telstra
