@@ -36,7 +36,7 @@ input_Domain()
        exit 0
       fi
 }
-input_EmailOrDomain()
+input_Email()
 {
       apt install nginx -y
       apt install wget -y
@@ -44,9 +44,8 @@ input_EmailOrDomain()
       echo "注册域名的邮箱"
       read email
       installacme
-      input_Domain
 }
 
-ask_if "是否第一次运行此脚本？(y/n)" && input_EmailOrDomain
+ask_if "是否第一次运行此脚本？(y/n)" && input_Email
 input_Domain
 echo "证书已生成,请在/etc/ssl/下查看" 
