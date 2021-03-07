@@ -29,6 +29,7 @@ installacme()
 }
 
 apt install wget -y
+apt install socat
 echo "注册域名的邮箱"
 read email
 if ask_if "您输入的邮箱为:"$email",是否继续？(y/n)" 
