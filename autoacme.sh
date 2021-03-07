@@ -28,6 +28,8 @@ installacme()
       wget -O -  https://github.nxnow.xyz/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
 }
 
+apt install nginx -y
+nginx -s stop
 apt install wget -y
 apt install socat
 echo "注册域名的邮箱"
