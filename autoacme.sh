@@ -37,13 +37,9 @@ input_Email()
     read email
 }
 
-
 if ask_if "是否第一次运行此脚本？(y/n)" 
 then input_Email
 installacme
-else
- exit 1
-fi
 nginx -s stop
 echo "申请证书的域名"
 read domain
@@ -53,3 +49,15 @@ else
  exit 0
 fi
 echo "证书已生成,请在/etc/ssl/下查看" 
+else
+ nginx -s stop
+echo "申请证书的域名"
+read domain
+if ask_if "您输入的域名为:"$domain",是否继续？(y/n)"
+then get_acme
+else
+ exit 0
+fi
+echo "证书已生成,请在/etc/ssl/下查看" 
+fi
+
