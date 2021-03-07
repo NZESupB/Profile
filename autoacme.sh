@@ -47,9 +47,6 @@ input_EmailOrDomain()
       input_Domain
 }
 
-if ask_if "是否第一次运行此脚本？(y/n)" 
-then input_EmailOrDomain
-else
+ask_if "是否第一次运行此脚本？(y/n)" && input_EmailOrDomain
 input_Domain
-fi
 echo "证书已生成,请在/etc/ssl/下查看" 
