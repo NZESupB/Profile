@@ -47,6 +47,7 @@ input_Domain()
        then get_acme
       else
        exit 0
+      fi
 }
 
 if ask_if "是否第一次运行此脚本？(y/n)" 
