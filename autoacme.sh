@@ -25,16 +25,6 @@ installacme()
 {
       wget -O -  https://github.nxnow.xyz/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
 }
-input_Email()
-{
-      apt install nginx -y
-      apt install wget -y
-      apt install socat
-      echo "注册域名的邮箱"
-      read email
-      installacme
-}
-
 input_Domain()
 {
       nginx -s stop
@@ -46,10 +36,19 @@ input_Domain()
        exit 0
       fi
 }
+input_EmailOrDomain()
+{
+      apt install nginx -y
+      apt install wget -y
+      apt install socat
+      echo "注册域名的邮箱"
+      read email
+      installacme
+      input_Domain
+}
+
 if ask_if "是否第一次运行此脚本？(y/n)" 
-then input_Email
-input_Domain
-echo "证书已生成,请在/etc/ssl/下查看" 
+then input_EmailOrDomain
 else
 input_Domain
 fi
