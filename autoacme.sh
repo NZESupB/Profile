@@ -41,6 +41,8 @@ input_Email()
 if ask_if "是否第一次运行此脚本？(y/n)" 
 then input_Email
 installacme
+else
+ exit 1
 fi
 nginx -s stop
 echo "申请证书的域名"
