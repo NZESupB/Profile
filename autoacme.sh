@@ -1,5 +1,5 @@
 #!/bin/bash
-tyblue()                           #天依蓝
+tyblue()
 {
     echo -e "\\033[36;1m${*}\\033[0m"
 }
