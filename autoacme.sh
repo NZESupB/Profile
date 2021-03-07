@@ -3,7 +3,6 @@ tyblue()
 {
     echo -e "\\033[36;1m${*}\\033[0m"
 }
-
 get_acme()
 {
       cmd1="--issue -d $domain  --standalone"
@@ -22,12 +21,10 @@ ask_if()
     [ $choice == y ] && return 0
     return 1
 }
-
 installacme()
 {
       wget -O -  https://github.nxnow.xyz/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
 }
-
 input_Email()
 {
       apt install nginx -y
@@ -49,7 +46,6 @@ input_Domain()
        exit 0
       fi
 }
-
 if ask_if "是否第一次运行此脚本？(y/n)" 
 then input_Email
 input_Domain
