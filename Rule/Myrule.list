@@ -103,6 +103,7 @@ DOMAIN-SUFFIX,the.earth.li
 DOMAIN-SUFFIX,playbeasts.com
 DOMAIN-SUFFIX,mp3juices.cc
 DOMAIN-SUFFIX,flyzy2005.com
+DOMAIN-SUFFIX,letsencrypt.org
 # Emby
 PROCESS-NAME,com.mb.android
 PROCESS-NAME,tv.emby.embyatv
