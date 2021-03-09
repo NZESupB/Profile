@@ -9,6 +9,8 @@ get_acme()
       cmd2="--installcert  -d  $domain  --key-file   /etc/ssl/$domain.key   --fullchain-file /etc/ssl/$domain.cer"
       /root/.acme.sh/acme.sh  $cmd1
       /root/.acme.sh/acme.sh  $cmd2
+      nginx -c /etc/nginx/nginx.conf
+      echo "nginx使用默认配置启动"
 }
 ask_if()
 {
@@ -41,6 +43,8 @@ input_Email()
       apt install nginx -y
       apt install wget -y
       apt install socat
+      cmdupdate="--upgrade  --auto-upgrade"
+      /root/.acme.sh/acme.sh   $cmdupdate
       echo "注册域名的邮箱"
       read email
       installacme
