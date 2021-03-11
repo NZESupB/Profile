@@ -6,6 +6,7 @@ mixin:
     enhanced-mode: redir-host
     # DNSSearch:https://kb.adguard.com/zh/general/dns-providers
     nameserver:
+      # 如有局域网需求,需要加上你主路由器的dns,这个dns服务器可以通过cmd中ipconfig -all命令获取
       - https://dh-dns.global-idc.net/dns-query  
   tun:
     enable: true
