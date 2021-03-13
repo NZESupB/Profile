@@ -37,6 +37,7 @@ Direct|GIA直连@直连
 (\s)(A|B|C|D|E|F)(\s)?(\d\d)@$1$4
 ;(IEPL|IPLC)[\D\d]*([A-F]\d\d)@$1 $2
 CNIX\s\-\s@
+ぜんにっぽんくうゆ\s\-\s@
 
 ;未知某机场KK
 TencentAnycast@AIA
