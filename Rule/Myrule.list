@@ -20,7 +20,6 @@ DOMAIN-SUFFIX,nssurge.com
 DOMAIN-KEYWORD,cppreference
 DOMAIN-KEYWORD,regex101
 DOMAIN-KEYWORD,lineageos
-DOMAIN-KEYWORD,github
 DOMAIN-SUFFIX,deviantart.com
 DOMAIN-SUFFIX,blog.000714.xyz
 DOMAIN-SUFFIX,nyacdn.com
@@ -105,6 +104,10 @@ DOMAIN-SUFFIX,mp3juices.cc
 DOMAIN-SUFFIX,flyzy2005.com
 DOMAIN-SUFFIX,letsencrypt.org
 DOMAIN-SUFFIX,hi-linux.com
+# Git
+DOMAIN-KEYWORD,gitlab
+DOMAIN-KEYWORD,github
+DOMAIN-SUFFIX,gitlab-static.net
 # Emby
 PROCESS-NAME,com.mb.android
 PROCESS-NAME,tv.emby.embyatv
