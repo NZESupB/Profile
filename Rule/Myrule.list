@@ -8,6 +8,7 @@ PROCESS-NAME,com.google.android.play.games
 #下载地址
 DOMAIN-SUFFIX,mediafire.com
 DOMAIN-SUFFIX,wintun.net
+DOMAIN-SUFFIX,openwrt.org
 
 DOMAIN-SUFFIX,cloudflare.com
 DOMAIN-KEYWORD,giveawayoftheday
