@@ -89,3 +89,5 @@ DOMAIN-SUFFIX,sonyentertainmentnetwork.com
 DOMAIN-SUFFIX,stun.ekiga.net
 #Debaindownload
 DOMAIN-SUFFIX,ftp.acc.umu.se
+#Oracle Java Download
+DOMAIN-SUFFIX,oracle.com
