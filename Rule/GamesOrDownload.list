@@ -4,6 +4,8 @@ PROCESS-NAME,AndAppHelper.exe
 PROCESS-NAME,jp.co.happyelements.toto
 PROCESS-NAME,jp.co.ponos.battlecats
 PROCESS-NAME,jp.gamegift
+PROCESS-NAME,com.riotgames.league.wildrift
+
 
 DOMAIN-KEYWORD,mobage
 DOMAIN-KEYWORD,dynamodb
