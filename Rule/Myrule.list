@@ -132,6 +132,8 @@ DOMAIN-SUFFIX,e-hentai.org
 DOMAIN-SUFFIX,nhentai.net
 DOMAIN-SUFFIX,streamsb.net
 DOMAIN-SUFFIX,xvideos-cdn.com
+DOMAIN-SUFFIX,nhentai.net
+DOMAIN-SUFFIX,exhentai.org
 # > 国家级域名
 DOMAIN-SUFFIX,us
 DOMAIN-SUFFIX,hk
@@ -151,6 +153,7 @@ DOMAIN-SUFFIX,baipiaoyun.xyz
 DOMAIN-SUFFIX,abcloud.best
 DOMAIN-SUFFIX,tomlink.org
 DOMAIN-SUFFIX,abc-v2.top
+DOMAIN-SUFFIX,skicat.io
 # > Sync
 DOMAIN-SUFFIX,getsync.com
 DOMAIN-SUFFIX,resilio.com
