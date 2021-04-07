@@ -1,1 +1,40 @@
+# GooglePlay
+PROCESS-NAME,com.android.vending
 
+# > Sync
+DOMAIN-SUFFIX,getsync.com
+DOMAIN-SUFFIX,resilio.com
+IP-CIDR,23.111.157.86/32
+IP-CIDR,66.165.233.194/32
+IP-CIDR,66.165.255.194/32
+IP-CIDR,66.206.5.74/32
+
+#抽风的CDN
+DOMAIN-SUFFIX,alpinelinux.org
+
+#Magisk
+DOMAIN-SUFFIX,magiskmanager.com
+
+#下载地址
+DOMAIN-SUFFIX,mediafire.com
+DOMAIN-SUFFIX,wintun.net
+DOMAIN-SUFFIX,openwrt.org
+DOMAIN-SUFFIX,github-releases.githubusercontent.com
+
+DOMAIN-KEYWORD,kodi
+
+# GHS
+DOMAIN-SUFFIX,erocool.co
+DOMAIN-SUFFIX,e-hentai.org
+DOMAIN-SUFFIX,nhentai.net
+DOMAIN-SUFFIX,streamsb.net
+DOMAIN-SUFFIX,xvideos-cdn.com
+DOMAIN-SUFFIX,nhentai.net
+DOMAIN-SUFFIX,exhentai.org
+
+#NATTEST
+DOMAIN-SUFFIX,stun.ekiga.net
+#Debaindownload
+DOMAIN-SUFFIX,ftp.acc.umu.se
+#Oracle Java Download
+DOMAIN-SUFFIX,oracle.com
