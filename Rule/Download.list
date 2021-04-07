@@ -38,3 +38,16 @@ DOMAIN-SUFFIX,stun.ekiga.net
 DOMAIN-SUFFIX,ftp.acc.umu.se
 #Oracle Java Download
 DOMAIN-SUFFIX,oracle.com
+
+# Emby
+PROCESS-NAME,com.mb.android
+PROCESS-NAME,tv.emby.embyatv
+DOMAIN-SUFFIX,tmdb.org
+DOMAIN-SUFFIX,assets.fanart.tv
+DOMAIN,ws-mt1.pusher.com
+
+# Emby服务器
+DOMAIN-SUFFIX,emby.wtf
+DOMAIN-SUFFIX,jmsooo.com
+DOMAIN-SUFFIX,xeton.dev
+DOMAIN-SUFFIX,emby.nyancat.net
