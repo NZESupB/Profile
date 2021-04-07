@@ -1,0 +1,6 @@
+Daily日用轻节点
+Download与国外媒体一样需要大带宽
+Games主要为游戏程序,需要更新的大带宽节点与延迟低的链接节点.开启udp
+Direct为一些强制直连的节点
+Speedtest测速节点不过不太准,Win10使用uwp,安卓使用官方app可强制软件全局
+US为白嫖freenom域名
