@@ -110,19 +110,6 @@ DOMAIN-KEYWORD,gitlab
 DOMAIN-KEYWORD,github
 DOMAIN-SUFFIX,gitlab-static.net
 
-# Emby
-PROCESS-NAME,com.mb.android
-PROCESS-NAME,tv.emby.embyatv
-DOMAIN-SUFFIX,tmdb.org
-DOMAIN-SUFFIX,assets.fanart.tv
-DOMAIN,ws-mt1.pusher.com
-
-# Emby服务器
-DOMAIN-SUFFIX,emby.wtf
-DOMAIN-SUFFIX,jmsooo.com
-DOMAIN-SUFFIX,xeton.dev
-DOMAIN-SUFFIX,emby.nyancat.net
-
 # > 国家级域名
 DOMAIN-SUFFIX,us
 DOMAIN-SUFFIX,hk
@@ -144,9 +131,6 @@ DOMAIN-SUFFIX,tomlink.org
 DOMAIN-SUFFIX,abc-v2.top
 DOMAIN-SUFFIX,skicat.io
 
-
 # >Cloudflare
 IP-CIDR,104.18.125.25/32
 IP-CIDR,104.18.121.25/32
-
-
