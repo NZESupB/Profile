@@ -104,6 +104,7 @@ DOMAIN-SUFFIX,merc.wiki
 DOMAIN-SUFFIX,tap.io
 DOMAIN-SUFFIX,blog.kiseki.moe
 DOMAIN-SUFFIX,hoyolab.com
+DOMAIN-SUFFIX,sspanel.host
 
 # Git
 DOMAIN-KEYWORD,gitlab
