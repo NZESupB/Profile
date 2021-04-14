@@ -75,3 +75,6 @@ DOMAIN-SUFFIX,playstation.net
 DOMAIN-SUFFIX,playstationnetwork.com
 DOMAIN-SUFFIX,sony.com
 DOMAIN-SUFFIX,sonyentertainmentnetwork.com
+
+#Xbox
+DOMAIN-SUFFIX,xboxlive.com
