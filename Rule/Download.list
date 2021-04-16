@@ -21,6 +21,7 @@ DOMAIN-SUFFIX,wintun.net
 DOMAIN-SUFFIX,openwrt.org
 DOMAIN-SUFFIX,github-releases.githubusercontent.com
 DOMAIN-SUFFIX,fydeos.io
+DOMAIN-SUFFIX,cloudfront.net
 
 DOMAIN-KEYWORD,kodi
 
