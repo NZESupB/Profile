@@ -2,7 +2,7 @@ DOMAIN,cn.ekg.riotgames.com
 DOMAIN-SUFFIX,bbs.nubia.com
 DOMAIN-SUFFIX,jd.com
 
-# Torrent or ProxyProcess
+#ProxyProcess
 PROCESS-NAME,v2ray
 PROCESS-NAME,xray
 PROCESS-NAME,naive
@@ -19,6 +19,8 @@ PROCESS-NAME,trojan-go.exe
 PROCESS-NAME,ss-local.exe
 PROCESS-NAME,privoxy.exe
 PROCESS-NAME,leaf.exe
+
+# Torrent
 PROCESS-NAME,Thunder
 PROCESS-NAME,DownloadService
 PROCESS-NAME,qBittorrent
@@ -40,6 +42,7 @@ PROCESS-NAME,transmission-daemon.exe
 PROCESS-NAME,transmission-qt.exe
 PROCESS-NAME,uTorrent.exe
 PROCESS-NAME,WebTorrent.exe
+
 # Dashboad
 DOMAIN,clash.razord.top
 DOMAIN,yacd.haishan.me
