@@ -4,6 +4,10 @@ PROCESS-NAME,com.google.android.apps.cloudconsole
 PROCESS-NAME,com.google.android.apps.docs
 PROCESS-NAME,com.google.android.play.games
 
+#shell
+PROCESS-NAME,finalshell.exe
+PROCESS-NAME,Xshell.exe
+
 DOMAIN-SUFFIX,cloudflare.com
 DOMAIN-KEYWORD,giveawayoftheday
 DOMAIN-KEYWORD,jike
