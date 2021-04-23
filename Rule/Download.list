@@ -17,6 +17,9 @@ DOMAIN-SUFFIX,alpinelinux.org
 #Magisk
 DOMAIN-SUFFIX,magiskmanager.com
 
+#Maven
+DOMAIN-SUFFIX,maven.org
+
 #下载地址
 DOMAIN-SUFFIX,mediafire.com
 DOMAIN-SUFFIX,wintun.net
