@@ -5,7 +5,7 @@ PROCESS-NAME,com.google.android.apps.docs
 PROCESS-NAME,com.google.android.play.games
 
 #shell
-PROCESS-NAME,fjava.exe
+# PROCESS-NAME,fjava.exe
 PROCESS-NAME,Xshell.exe
 PROCESS-NAME,electerm.exe
 PROCESS-NAME,Termius.exe
