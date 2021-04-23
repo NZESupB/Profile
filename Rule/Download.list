@@ -1,13 +1,15 @@
 # GooglePlay
 PROCESS-NAME,com.android.vending
 
+PROCESS-NAME,dbeaver.exe
+
 # > Sync
-DOMAIN-SUFFIX,getsync.com
-DOMAIN-SUFFIX,resilio.com
-IP-CIDR,23.111.157.86/32
-IP-CIDR,66.165.233.194/32
-IP-CIDR,66.165.255.194/32
-IP-CIDR,66.206.5.74/32
+# DOMAIN-SUFFIX,getsync.com
+# DOMAIN-SUFFIX,resilio.com
+# IP-CIDR,23.111.157.86/32
+# IP-CIDR,66.165.233.194/32
+# IP-CIDR,66.165.255.194/32
+# IP-CIDR,66.206.5.74/32
 
 #抽风的CDN
 DOMAIN-SUFFIX,alpinelinux.org
