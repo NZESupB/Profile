@@ -6,6 +6,9 @@ mixin:
     enhanced-mode: redir-host
     # DNSSearch:https://kb.adguard.com/zh/general/dns-providers
     nameserver:
+      - 101.6.6.6:5353 #清华DNS
+    fallback:
+      - tls://dns.google.com:853
   tun:
     enable: true
     stack: gvisor
