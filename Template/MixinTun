@@ -8,7 +8,7 @@ mixin:
     nameserver:
       - 101.6.6.6:5353 #清华DNS
     fallback:
-      - tls://dns.google.com:853
+      - tls://dns.google
   tun:
     enable: true
     stack: gvisor
