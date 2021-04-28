@@ -37,15 +37,11 @@ Direct|GIA直连@直连
 CNIX\s\-\s@
 ぜんにっぽんくうゆ\s\-\s@
 
-;未知某机场KK
-TencentAnycast@AIA
-([^\x00-\xff]{2,3})(\s)?(\d\d)\|?\|(AIA|IEPL|IPLC|AGA|广移)(\?)?(\|)?(\*)?\|(V2ray|SSR)\|(.*x)@$1 $4 $3
-
 ;Skicat
 Premium IEPL (\w)@IEPL $1
 
 ;垃圾几鸡Trojan
-.*\.([^\x00-\xff]{2,3})\⇠(IPLC).*([^\x00-\xff]{2}).*(\d)@$3-$1 $2 $4
+([A-I]\+?)\.([^\x00-\xff]{2,3})\⇠(IPLC).*([^\x00-\xff]{2}).*@$4-$2 $3|$1
 ;垃圾几鸡Vmess
 
 
