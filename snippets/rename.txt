@@ -1,33 +1,29 @@
 流媒体@*
 动画疯\、NF@*
 NF@*
- Netflix 动画疯@*
+\sNetflix\s动画疯@*
 Netflix Hulu HBO@*
 Netflix HBO TVB@*
 Netflix@*
 原生IP@*
 \#Media@*
-试验节点@
-实验(性)?|临时@
+试验节点|实验(性)?|临时@
+
 
 ;删除倍率
 \s?\(?((x|X)?(\d+)(\.?\d+)?)((\s?倍率?)|(x|X))\)?@
 
-狮城@新加坡
 HK@香港
-SG@新加坡
+SG|狮城@新加坡
 TW@台湾
 US@美国
 JP@日本
 IN@印度
+AU@澳大利亚
 GZCM-香港|GZCM|广移中继@广移
 CSCU-香港|CSCU@长联
 HZCU@杭联
 香港IX@IX
-
-;CU@联通
-;CM@中转
-Direct|GIA直连@直连
 
 ;(\（).*?(\）)(\d)*.bps@
 (\（).*?(\）)@
