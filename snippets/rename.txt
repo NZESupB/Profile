@@ -20,11 +20,12 @@ USA|US@美国
 JP|Japan@日本
 IN@印度
 AU@澳大利亚
-GZCM-香港|GZCM|广移中继|Relay@广移
+GZCM-香港|GZCM|广移中继@广移
 CSCU-香港|CSCU@长联
 HZCU@杭联
 香港IX@IX
 香港T@HKT
+Relay@中继
 
 ;(\（).*?(\）)(\d)*.bps@
 (\（).*?(\）)@
