@@ -118,6 +118,8 @@ DOMAIN-KEYWORD,gitlab
 DOMAIN-KEYWORD,github
 DOMAIN-SUFFIX,gitlab-static.net
 
+DOMAIN-SUFFIX,ni-co.moe
+
 # > 国家级域名
 DOMAIN-SUFFIX,us
 DOMAIN-SUFFIX,hk
