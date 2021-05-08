@@ -33,7 +33,8 @@ DOMAIN-SUFFIX,y2mate.com
 DOMAIN-KEYWORD,kodi
 DOMAIN-SUFFIX,havoc-os.com
 DOMAIN-SUFFIX,deepnetdisk.club
-DOMAIN-KEYWORD,winscp
+DOMAIN-SUFFIX,winscp.net
+DOMAIN-SUFFIX,winscp-static-746341.c.cdn77.org
 
 # GHS
 DOMAIN-SUFFIX,erocool.co
