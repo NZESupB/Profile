@@ -3,6 +3,7 @@ PROCESS-NAME,com.android.vending
 
 PROCESS-NAME,dbeaver.exe
 
+IP-CIDR,104.21.13.29/32
 # > Sync
 # DOMAIN-SUFFIX,getsync.com
 # DOMAIN-SUFFIX,resilio.com
