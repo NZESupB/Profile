@@ -31,6 +31,7 @@ DOMAIN-SUFFIX,maven.org
 
 #下载地址
 DOMAIN-SUFFIX,mediafire.com
+DOMAIN-SUFFIX,termux.org
 DOMAIN-SUFFIX,wintun.net
 DOMAIN-SUFFIX,openwrt.org
 DOMAIN-SUFFIX,github-releases.githubusercontent.com
