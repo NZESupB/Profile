@@ -151,6 +151,9 @@ DOMAIN-SUFFIX,liyingcloud.org
 # 奇怪的短连接
 DOMAIN-SUFFIX,goo.gl
 
+# 虚拟货币
+DOMAIN-SUFFIX,hi.com
+
 # >Cloudflare
 IP-CIDR,104.18.125.25/32
 IP-CIDR,104.18.121.25/32
