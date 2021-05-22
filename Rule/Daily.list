@@ -105,6 +105,7 @@ DOMAIN-SUFFIX,flyzy2005.com
 DOMAIN-SUFFIX,letsencrypt.org
 DOMAIN-SUFFIX,hi-linux.com
 DOMAIN-SUFFIX,bnbstatic.com
+DOMAIN-SUFFIX,git.io
 
 # 论坛/Wiki/Blog
 DOMAIN-SUFFIX,merc.wiki
