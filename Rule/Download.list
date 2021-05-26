@@ -52,6 +52,7 @@ DOMAIN-SUFFIX,winscp.net
 DOMAIN,winscp-static-746341.c.cdn77.org
 DOMAIN-SUFFIX,apkmirror.com
 DOMAIN-SUFFIX,debian.org
+DOMAIN-SUFFIX,docker.com
 
 # GHS
 DOMAIN-SUFFIX,erocool.co
