@@ -51,6 +51,7 @@ DOMAIN-SUFFIX,deepnetdisk.club
 DOMAIN-SUFFIX,winscp.net
 DOMAIN,winscp-static-746341.c.cdn77.org
 DOMAIN-SUFFIX,apkmirror.com
+DOMAIN-SUFFIX,golang.org
 
 # Linux
 DOMAIN-SUFFIX,debian.org
