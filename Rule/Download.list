@@ -51,8 +51,11 @@ DOMAIN-SUFFIX,deepnetdisk.club
 DOMAIN-SUFFIX,winscp.net
 DOMAIN,winscp-static-746341.c.cdn77.org
 DOMAIN-SUFFIX,apkmirror.com
+
+# Linux
 DOMAIN-SUFFIX,debian.org
 DOMAIN-SUFFIX,docker.com
+DOMAIN-SUFFIX,docker.io
 
 # GHS
 DOMAIN-SUFFIX,erocool.co
