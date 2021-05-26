@@ -106,6 +106,7 @@ DOMAIN-SUFFIX,letsencrypt.org
 DOMAIN-SUFFIX,hi-linux.com
 DOMAIN-SUFFIX,bnbstatic.com
 DOMAIN-SUFFIX,git.io
+DOMAIN-SUFFIX,vmware.com
 
 # 论坛/Wiki/Blog
 DOMAIN-SUFFIX,merc.wiki
