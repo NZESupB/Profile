@@ -52,6 +52,7 @@ DOMAIN-SUFFIX,winscp.net
 DOMAIN,winscp-static-746341.c.cdn77.org
 DOMAIN-SUFFIX,apkmirror.com
 DOMAIN-SUFFIX,golang.org
+DOMAIN-SUFFIX,tedcdn.com
 
 # Linux
 DOMAIN-SUFFIX,debian.org
@@ -67,6 +68,7 @@ DOMAIN-SUFFIX,xvideos-cdn.com
 DOMAIN-SUFFIX,nhentai.net
 DOMAIN-SUFFIX,exhentai.org
 DOMAIN-SUFFIX,ehgt.org
+DOMAIN-SUFFIX,yande.re
 
 #NATTEST
 DOMAIN-SUFFIX,stun.ekiga.net
