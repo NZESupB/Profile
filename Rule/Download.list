@@ -55,6 +55,7 @@ DOMAIN-SUFFIX,golang.org
 DOMAIN-SUFFIX,tedcdn.com
 DOMAIN-SUFFIX,ted.com
 DOMAIN-SUFFIX,leanplum.com
+DOMAIN-SUFFIX,npr.org
 
 # Linux
 DOMAIN-SUFFIX,debian.org
