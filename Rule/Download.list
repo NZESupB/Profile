@@ -52,10 +52,13 @@ DOMAIN-SUFFIX,winscp.net
 DOMAIN,winscp-static-746341.c.cdn77.org
 DOMAIN-SUFFIX,apkmirror.com
 DOMAIN-SUFFIX,golang.org
+
+#TED
 DOMAIN-SUFFIX,tedcdn.com
 DOMAIN-SUFFIX,ted.com
 DOMAIN-SUFFIX,leanplum.com
 DOMAIN-SUFFIX,npr.org
+DOMAIN-SUFFIX,flurry.com
 
 # Linux
 DOMAIN-SUFFIX,debian.org
