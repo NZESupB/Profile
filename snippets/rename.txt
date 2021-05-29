@@ -22,7 +22,7 @@ IN@印度
 KR@韩国
 AU@澳大利亚
 GZCM-香港|GZCM|广移中继@广移
-CSCU-香港|CSCU@长联
+CSCU-香港|CSCU|CUCU@长联
 HZCU@杭联
 香港IX@IX
 香港T@HKT
