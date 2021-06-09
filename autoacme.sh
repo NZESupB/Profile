@@ -5,7 +5,7 @@ tyblue()
 }
 get_acme()
 {
-      cmd1="--issue -d $domain"
+      cmd1="--issue -d $domain --standalone"
       cmd2="--installcert  -d  $domain  --key-file   /etc/ssl/$domain.key   --fullchain-file /etc/ssl/$domain.cer"
       /root/.acme.sh/acme.sh  $cmd1
       /root/.acme.sh/acme.sh  $cmd2
