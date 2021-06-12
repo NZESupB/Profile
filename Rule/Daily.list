@@ -110,7 +110,6 @@ DOMAIN-SUFFIX,do.co
 DOMAIN-SUFFIX,vmware.com
 DOMAIN-SUFFIX,flowerss-bot.now.sh
 
-
 # 论坛/Wiki/Blog
 DOMAIN-SUFFIX,merc.wiki
 DOMAIN-SUFFIX,tap.io
@@ -121,6 +120,10 @@ DOMAIN-SUFFIX,lbyczf.com
 DOMAIN-SUFFIX,zzbd.org
 DOMAIN-SUFFIX,graph.org
 DOMAIN-SUFFIX,fig.io
+
+#CPUInfo
+DOMAIN-SUFFIX,technical.city
+DOMAIN-SUFFIX,cpu-monkey.com
 
 # Git
 DOMAIN-KEYWORD,gitlab
