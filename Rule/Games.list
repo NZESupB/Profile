@@ -52,6 +52,7 @@ DOMAIN-SUFFIX,wr.pvp.net
 DOMAIN-SUFFIX,lolesports.com
 DOMAIN-SUFFIX,cds.s4a8x2q3.hwcdn.net
 IP-CIDR,162.62.158.0/24
+IP-CIDR,44.242.62.13/32
 # RockStar
 DOMAIN-SUFFIX,rockstargames.com
 DOMAIN-SUFFIX,rsg.sc
