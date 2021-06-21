@@ -1,5 +1,5 @@
 Authfile=$JD_DIR/config/auth.json
-Serverfile=$PanelPath/server.js
+Serverfile=$JD_DIR/panel/server.js
 PanelPath=$JD_DIR/panel
 
 #判断auth.json文件是否存在
