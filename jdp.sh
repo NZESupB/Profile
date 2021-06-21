@@ -1,3 +1,7 @@
+Authfile=$JD_DIR/config/auth.json
+Serverfile=$PanelPath/server.js
+PanelPath=$JD_DIR/panel
+
 #判断auth.json文件是否存在
 if [ ! -f "$Authfile" ];then
 echo "auth.json文件缺失，创建auth.json文件..."
