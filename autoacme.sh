@@ -6,7 +6,7 @@ tyblue()
 get_acme()
 {
       cmd1="--issue -d $domain --standalone"
-      cmd2="--install-cert  -d  $domain  --key-file   /etc/ssl/$domain.key   --fullchain-file /etc/ssl/$domain.cer"  --reloadcmd     "service nginx force-reload"
+      cmd2="--install-cert  -d  $domain  --key-file   /etc/ssl/$domain.key   --fullchain-file /etc/ssl/$domain.cer"
       /root/.acme.sh/acme.sh  $cmd1
       /root/.acme.sh/acme.sh  $cmd2
       nginx -c /etc/nginx/nginx.conf
