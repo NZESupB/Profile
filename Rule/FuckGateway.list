@@ -32,6 +32,8 @@ DOMAIN-SUFFIX,colg.cn
 DOMAIN-SUFFIX,todesk.com
 DOMAIN,szmmsns.qpic.cn
 
+IP-CIDR,106.75.184.70/32
+
 DOMAIN-SUFFIX,lanzou.com
 DOMAIN-SUFFIX,lanzous.com
 DOMAIN-SUFFIX,pc.woozooo.com
