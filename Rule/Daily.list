@@ -121,6 +121,8 @@ DOMAIN-SUFFIX,zzbd.org
 DOMAIN-SUFFIX,graph.org
 DOMAIN-SUFFIX,fig.io
 
+DOMAIN-SUFFIX,teepr.com
+
 #CPUInfo
 DOMAIN-SUFFIX,technical.city
 DOMAIN-SUFFIX,cpu-monkey.com
