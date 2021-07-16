@@ -1,5 +1,6 @@
 流媒体@*
 动画疯\、NF@*
+NF\&动画疯*@*
 NF@*
 \sNetflix\s动画疯@*
 Netflix Hulu HBO@*
@@ -36,6 +37,9 @@ Relay@中继
 (\s)(A|B|C|D|E|F)(\s)?(\d\d)@$1$4
 CNIX\s\-\s@
 ぜんにっぽんくうゆ\s\-\s@
+
+;猫熊
+(.*)-V\d\d(\d)--(.*)-(\*)?@$3 $1 $2 ${4:-}
 
 ;Skicat
 Premium IEPL (\w)@IEPL $1
