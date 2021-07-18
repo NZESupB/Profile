@@ -3,7 +3,6 @@ PROCESS-NAME,com.android.vending
 
 PROCESS-NAME,dbeaver.exe
 
-PROCESS-NAME,KinhDown BaiDu Beta.exe
 
 #Kodi
 IP-CIDR,104.21.13.29/32
