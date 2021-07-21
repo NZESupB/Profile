@@ -3,7 +3,6 @@ DOMAIN-SUFFIX,bilibili.com
 DOMAIN-SUFFIX,hdslb.com
 DOMAIN-SUFFIX,zhimg.com
 DOMAIN-SUFFIX,52pojie.cn
-DOMAIN-SUFFIX,pan.baidu.com
 DOMAIN-SUFFIX,bdstatic.com
 DOMAIN-SUFFIX,mp.weixin.qq.com
 DOMAIN-SUFFIX,gamesafe.qq.com
@@ -39,8 +38,12 @@ DOMAIN-SUFFIX,kuai8.com
 
 IP-CIDR,106.75.128.0/18
 
+#网盘
 DOMAIN-SUFFIX,lanzou.com
 DOMAIN-SUFFIX,lanzous.com
+DOMAIN-SUFFIX,pan.baidu.com
+DOMAIN-SUFFIX,aliyundrive.com
+
 DOMAIN-SUFFIX,pc.woozooo.com
 
 
