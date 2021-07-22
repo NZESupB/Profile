@@ -46,5 +46,5 @@ DOMAIN-SUFFIX,aliyundrive.com
 
 DOMAIN-SUFFIX,pc.woozooo.com
 
-DOMAIN-SUFFIX,tc.qq.com
+IP-CIDR,101.89.15.100/32
 
