@@ -123,6 +123,7 @@ DOMAIN-SUFFIX,lbyczf.com
 DOMAIN-SUFFIX,zzbd.org
 DOMAIN-SUFFIX,graph.org
 DOMAIN-SUFFIX,fig.io
+DOMAIN-SUFFIX,9to5mac.com
 
 DOMAIN-SUFFIX,teepr.com
 
@@ -138,7 +139,6 @@ DOMAIN-SUFFIX,gitlab-static.net
 DOMAIN-SUFFIX,ni-co.moe
 
 # > 国家级域名
-DOMAIN-SUFFIX,us
 DOMAIN-SUFFIX,hk
 DOMAIN-SUFFIX,uk
 # > 品云有毒服务
