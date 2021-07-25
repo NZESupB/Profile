@@ -3,7 +3,6 @@ PROCESS-NAME,com.android.vending
 
 PROCESS-NAME,dbeaver.exe
 
-
 #Kodi
 IP-CIDR,104.21.13.29/32
 IP-CIDR,18.179.196.87/32
@@ -112,5 +111,7 @@ DOMAIN-SUFFIX,jmsooo.com
 DOMAIN-SUFFIX,xeton.dev
 DOMAIN-SUFFIX,emby.nyancat.net
 
-
 DOMAIN-KEYWORD,tdjupdate
+
+#CF
+IP-CIDR,104.21.86.233/32
