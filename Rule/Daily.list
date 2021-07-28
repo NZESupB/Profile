@@ -141,6 +141,8 @@ DOMAIN-SUFFIX,gitlab-static.net
 
 DOMAIN-SUFFIX,ni-co.moe
 
+DOMAIN-SUFFIX,opensource.builders
+
 # > 国家级域名
 DOMAIN-SUFFIX,hk
 DOMAIN-SUFFIX,uk
