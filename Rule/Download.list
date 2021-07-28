@@ -29,6 +29,9 @@ DOMAIN-SUFFIX,magiskmanager.com
 #Maven
 DOMAIN-SUFFIX,maven.org
 
+#Java
+DOMAIN-SUFFIX,java.net
+
 #下载地址
 DOMAIN-SUFFIX,apklinker.com
 DOMAIN-SUFFIX,mediafire.com
