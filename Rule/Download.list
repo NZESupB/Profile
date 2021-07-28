@@ -26,12 +26,6 @@ DOMAIN-SUFFIX,alpinelinux.org
 #Magisk
 DOMAIN-SUFFIX,magiskmanager.com
 
-#Maven
-DOMAIN-SUFFIX,maven.org
-
-#Java
-DOMAIN-SUFFIX,java.net
-
 #下载地址
 DOMAIN-SUFFIX,apklinker.com
 DOMAIN-SUFFIX,mediafire.com
@@ -66,6 +60,7 @@ DOMAIN-SUFFIX,win2socks.com
 DOMAIN-SUFFIX,npmjs.org
 DOMAIN-SUFFIX,bgm.tv
 DOMAIN-SUFFIX,4kjia.com
+DOMAIN-SUFFIX,coolhub.top
 
 #TED
 DOMAIN-SUFFIX,tedcdn.com
@@ -94,8 +89,10 @@ DOMAIN-SUFFIX,yande.re
 DOMAIN-SUFFIX,stun.ekiga.net
 #Debaindownload
 DOMAIN-SUFFIX,ftp.acc.umu.se
-#Oracle Java Download
+#Java Download
 DOMAIN-SUFFIX,oracle.com
+DOMAIN-SUFFIX,java.net
+DOMAIN-SUFFIX,maven.org
 
 # Emby
 PROCESS-NAME,com.mb.android
