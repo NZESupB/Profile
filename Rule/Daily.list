@@ -151,7 +151,7 @@ DOMAIN-SUFFIX,52.mk
 DOMAIN-SUFFIX,3o.hk
 # > 机场订阅
 DOMAIN-SUFFIX,exflux.io
-DOMAIN-SUFFIX,prprcloud.com
+DOMAIN,prprcloud
 DOMAIN-SUFFIX,cordcloud.org
 DOMAIN-SUFFIX,sub.tomlink9527.xyz
 DOMAIN-SUFFIX,getelement.cc
