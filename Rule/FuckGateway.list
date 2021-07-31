@@ -42,6 +42,9 @@ DOMAIN-SUFFIX,acfun.cn
 DOMAIN-SUFFIX,aixifan.com
 DOMAIN-SUFFIX,static.yximgs.com
 
+#影视
+DOMAIN-SUFFIX,saraba1st.com
+
 IP-CIDR,106.75.128.0/18
 
 #网盘
