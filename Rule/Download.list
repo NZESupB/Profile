@@ -28,6 +28,7 @@ DOMAIN-SUFFIX,magiskmanager.com
 
 #下载地址
 DOMAIN-SUFFIX,apklinker.com
+DOMAIN-SUFFIX,apkadmin.com
 DOMAIN-SUFFIX,mediafire.com
 DOMAIN-SUFFIX,termux.org
 DOMAIN-SUFFIX,mentality.rip
