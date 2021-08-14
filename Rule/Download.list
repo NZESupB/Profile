@@ -121,5 +121,8 @@ DOMAIN-SUFFIX,jmsooo.com
 DOMAIN-SUFFIX,xeton.dev
 DOMAIN-SUFFIX,emby.nyancat.net
 
+#图床
+DOMAIN-SUFFIX,i.loli.net
+
 DOMAIN-KEYWORD,tdjupdate
 
