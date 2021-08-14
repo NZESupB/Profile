@@ -5,3 +5,5 @@ DOMAIN-SUFFIX,maxcdn.bootstrapcdn.com
 DOMAIN-SUFFIX,gaming.amazon.com
 #AppleImage
 DOMAIN-SUFFIX,mzstatic.com
+
+DOMAIN-SUFFIX,pbap.cc
