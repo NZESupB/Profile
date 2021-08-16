@@ -13,9 +13,6 @@ dns:
 {% endif %}
 {% if local.clash.new_field_name == "true" %}
 proxies: ~
-  - {name: 🎶 网易云解锁 01, server: 106.52.127.72, port: 19951, type: http, tls: false}
-  - {name: 🎶 网易云解锁 02, server: music.lolico.me, port: 39000, type: http, tls: false}
-  - {name: 🎶 网易云解锁 03, server: music.desperadoj.com, port: 30003, type: ss, cipher: aes-128-gcm, password: desperadoj.com_free_proxy_emx2}
 proxy-groups: ~
 rules: ~
 {% else %}
