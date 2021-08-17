@@ -34,6 +34,7 @@ HZCU-香港|HZCU@杭联
 Relay@中继
 BGP-香港@BGP
 
+\[IEPL\]@IEPL
 (\（|\『|\[|\【).*?(\）|\』|\]|\】)@
 .(\d)*.bps@
 (\s)(A|B|C|D|E|F)(\s)?(\d\d)@$1$4
