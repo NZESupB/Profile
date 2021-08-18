@@ -3,7 +3,7 @@
 ⚡ 网速测试`select`.*`[]DIRECT
 🌍 国外媒体`select`.*
 🎶 网易云音乐`select`网易云`[]DIRECT
-📲 电报信息`select`(香港|狮城|新加坡|HK|SG)
+📲 Telegram`select`(香港|狮城|新加坡|HK|SG)
 🌏 国内媒体`select`(台|港|HK|TW)`[]DIRECT
 Ⓜ️ 微软服务`select`.*
 ;🇭🇰 香港`select`^(?!.*(游戏).*).*(港|中港)
