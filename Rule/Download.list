@@ -107,6 +107,9 @@ DOMAIN-SUFFIX,maven.org
 
 DOMAIN-SUFFIX,wataboku.com
 
+#软件
+DOMAIN-SUFFIX,screentogif.com
+
 # Emby
 PROCESS-NAME,com.mb.android
 PROCESS-NAME,tv.emby.embyatv
