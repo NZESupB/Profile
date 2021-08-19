@@ -105,6 +105,8 @@ DOMAIN-SUFFIX,oracle.com
 DOMAIN-SUFFIX,java.net
 DOMAIN-SUFFIX,maven.org
 
+DOMAIN-SUFFIX,wataboku.com
+
 # Emby
 PROCESS-NAME,com.mb.android
 PROCESS-NAME,tv.emby.embyatv
