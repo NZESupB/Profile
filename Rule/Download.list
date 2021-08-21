@@ -128,6 +128,8 @@ DOMAIN-SUFFIX,xeton.dev
 DOMAIN-SUFFIX,emby.nyancat.net
 DOMAIN-SUFFIX,emby.3dmmp.com
 DOMAIN-SUFFIX,haochi.media
+#Embyiptv
+IP-CIDR,142.54.179.138/32
 
 DOMAIN-KEYWORD,tdjupdate
 
