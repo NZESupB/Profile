@@ -2,6 +2,7 @@ DOMAIN,cn.ekg.riotgames.com
 DOMAIN-SUFFIX,bbs.nubia.com
 DOMAIN-SUFFIX,jd.com
 DOMAIN-SUFFIX,oraclecloud.com
+DOMAIN,musicupload.netease.com
 
 # Torrent
 PROCESS-NAME,Thunder
