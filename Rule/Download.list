@@ -82,6 +82,7 @@ DOMAIN-SUFFIX,flurry.com
 
 # Linux
 DOMAIN-SUFFIX,debian.org
+DOMAIN,debian.map.fastlydns.net
 DOMAIN-SUFFIX,docker.com
 DOMAIN-SUFFIX,docker.io
 
