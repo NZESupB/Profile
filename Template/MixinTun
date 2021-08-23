@@ -6,13 +6,14 @@ mixin:
     enhanced-mode: redir-host
     # DNSSearch:https://kb.adguard.com/zh/general/dns-providers
     nameserver:
-      - 101.6.6.6:5353 #清华DNS
       - tls://rubyfish.cn
+      - https://doh.dns.sb/dns-query
     fallback:
       - tls://dns.google
+      - tls://dot.sb:853
   tun:
     enable: true
-    stack: gvisor
+    stack: gvisor # system
     dns-hijack:
       - 198.18.0.2:53
     macOS-auto-route: true
