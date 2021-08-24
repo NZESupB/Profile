@@ -11,6 +11,7 @@ PROCESS-NAME,electerm.exe
 PROCESS-NAME,Termius.exe
 
 DOMAIN-SUFFIX,cloudflare.com
+DOMAIN-SUFFIX,grafana.com
 DOMAIN-KEYWORD,giveawayoftheday
 DOMAIN-KEYWORD,jike
 DOMAIN-KEYWORD,telstra
