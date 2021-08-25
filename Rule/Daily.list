@@ -10,6 +10,7 @@ PROCESS-NAME,Xshell.exe
 PROCESS-NAME,electerm.exe
 PROCESS-NAME,Termius.exe
 
+DOMAIN-SUFFIX,quickfever.com
 DOMAIN-SUFFIX,cloudflare.com
 DOMAIN-SUFFIX,grafana.com
 DOMAIN-KEYWORD,giveawayoftheday
