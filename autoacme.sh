@@ -25,8 +25,8 @@ ask_if()
 }
 installacme()
 {
-      wget -O -  https://github.nxnow.xyz/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
-      #wget -O -  https://github.nxnow.xyz/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s email=$email
+      wget -O -  github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
+      #wget -O -  github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s email=$email
       #crontab -l > conf && echo "50 0 * * * \"/root/.acme.sh\"/acme.sh --cron --home \"/root/.acme.sh\" > /dev/null" >> conf && crontab conf && rm -f conf
 }
 input_Domain()
