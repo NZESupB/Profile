@@ -1,12 +1,11 @@
 version: "2.0"
 services:
   xd:
-  #image: leeroydocker/forwordpanel:1.0.7-SNAPSHOT
-  image: docker.xdmb.xyz/xiandan/release:latest
-  container_name: xdpanel
-  restart: always
-  network_mode: bridge
-  volumes:
-   - /etc/xdzz:/xiandan
-  ports:
-   - 25535:8080
+    #image: leeroydocker/forwordpanel:1.0.7-SNAPSHOT
+    image: "docker.xdmb.xyz/xiandan/release":latest
+    container_name: xdpanel
+    restart: always
+    volumes:
+      - /etc/xdzz:/xiandan
+    ports:
+      - 25535:8080
