@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  wordpress:
+    image: wordpress
+    container_name: wordpress
+    restart: always
+    ports:
+      - 8888:80   #Modify to your favorite port
+    environment:
+      WORDPRESS_DB_HOST: db1:3306
+      WORDPRESS_DB_USER: dbusername
+      WORDPRESS_DB_PASSWORD: dbpassword
+      WORDPRESS_DB_NAME: dbname
+    volumes:
+      - /var/www/wordpress:/var/www/html
+  db1:
+    image: mariadb
+    restart: always
+    #ports:
+      #- 3307:3306
+    container_name: wpmariadb
+    environment:
+      MYSQL_DATABASE: dbname
+      MYSQL_USER: dbusername
+      MYSQL_PASSWORD: dbpassword
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - /var/www/db:/var/lib/mysql
+volumes:
+  wordpress:
+  db1:
