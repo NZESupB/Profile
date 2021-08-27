@@ -1,4 +1,4 @@
-🚀 全球互联`select`(AIA|IEPL|IPLC)
+🚀 全球互联`select`(AIA|IEPL|IPLC)`[]🌍 国外媒体
 🎮 游戏娱乐`select`(游戏|AIA|IEPL|IPLC)`[]DIRECT
 ⚡ 网速测试`select`[]DIRECT`.*
 🌍 国外媒体`select`.*
