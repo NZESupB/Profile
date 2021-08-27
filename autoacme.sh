@@ -25,7 +25,13 @@ ask_if()
 }
 installacme()
 {
-      wget -O -  https://github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
+      if ask_if "y使用acme默认安装,n使用其他方式安装(y/n)"
+       then bash <(curl  https://get.acme.sh | sh -s email=$email)
+      else
+       wget -O -  https://github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
+      fi
+      #bash <(curl  https://get.acme.sh | sh -s email=$email)
+      #wget -O -  https://github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
       #wget -O -  https://github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s email=$email
       #crontab -l > conf && echo "50 0 * * * \"/root/.acme.sh\"/acme.sh --cron --home \"/root/.acme.sh\" > /dev/null" >> conf && crontab conf && rm -f conf
 }
