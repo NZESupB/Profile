@@ -183,3 +183,6 @@ DOMAIN-SUFFIX,hi.com
 # >Cloudflare
 IP-CIDR,104.18.125.25/32
 IP-CIDR,104.18.121.25/32
+
+#一些cdn
+DOMAIN-SUFFIX,b-cdn.net
