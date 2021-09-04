@@ -123,6 +123,7 @@ DOMAIN,ws-mt1.pusher.com
 
 #WebOS
 DOMAIN-SUFFIX,macos.now.sh
+DOMAIN-SUFFIX,blankrefer.com
 
 # Emby服务器
 DOMAIN-SUFFIX,emby.wtf
