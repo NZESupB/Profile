@@ -115,6 +115,7 @@ DOMAIN-SUFFIX,vercel.com
 DOMAIN-SUFFIX,blogs.nvidia.com
 DOMAIN-SUFFIX,programmersought.com
 DOMAIN-SUFFIX,kinh.cc
+DOMAIN-SUFFIX,gogodl.com
 
 # 论坛/Wiki/Blog
 DOMAIN-SUFFIX,merc.wiki
@@ -176,7 +177,6 @@ DOMAIN-SUFFIX,rooot.fan
 
 # 奇怪的短连接
 DOMAIN-SUFFIX,goo.gl
-DOMAIN-SUFFIX,gogodl.com
 
 # 虚拟货币
 DOMAIN-SUFFIX,hi.com
