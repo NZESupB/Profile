@@ -8,6 +8,7 @@ mixin:
     nameserver:
       - tls://rubyfish.cn
       - https://doh.dns.sb/dns-query
+      - https://i.passcloud.xyz/dns-query
     fallback:
       - tls://dns.google
       - tls://dot.sb:853
