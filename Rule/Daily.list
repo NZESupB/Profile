@@ -10,7 +10,7 @@ PROCESS-NAME,Xshell.exe
 PROCESS-NAME,electerm.exe
 PROCESS-NAME,Termius.exe
 
-SRC-IP-CIDR,140.238.52.8/32
+IP-CIDR,140.238.52.8/32
 
 DOMAIN-SUFFIX,quickfever.com
 DOMAIN-SUFFIX,cloudflare.com
