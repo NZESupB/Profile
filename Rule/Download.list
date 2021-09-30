@@ -142,6 +142,8 @@ DOMAIN-SUFFIX,haochi.media
 IP-CIDR,142.54.179.138/32
 
 DOMAIN-KEYWORD,tdjupdate
+DOMAIN,42lab.cdn.sunborngame.com
+
 #百度国际
 DOMAIN-KEYWORD,terabox.com
 DOMAIN-KEYWORD,dubox.com
