@@ -30,3 +30,7 @@ PROCESS-NAME,WebTorrent.exe
 # Dashboad
 DOMAIN,clash.razord.top
 DOMAIN,yacd.haishan.me
+
+# 阿里云小白羊
+PROCESS-NAME,aDrive
+PROCESS-NAME,alixby
