@@ -5,12 +5,13 @@ tyblue()
 }
 get_acme()
 {
-      cmd1="--issue -d $domain --standalone"
-      cmd2="--install-cert  -d  $domain  --key-file   /etc/ssl/$domain.key   --fullchain-file /etc/ssl/$domain.cer"
+      #cmd1="--issue -d $domain --standalone"
+      cmd1="--issue -d $domain --nginx"
+      cmd2="--install-cert  -d  $domain  --key-file   /etc/ssl/$domain.key   --fullchain-file /etc/ssl/$domain.cer   --reloadcmd "service nginx force-reload""
       /root/.acme.sh/acme.sh  $cmd1
       /root/.acme.sh/acme.sh  $cmd2
-      nginx -c /etc/nginx/nginx.conf
-      echo "nginx使用默认配置启动"
+      #nginx -c /etc/nginx/nginx.conf
+      #echo "nginx使用默认配置启动"
 }
 ask_if()
 {
@@ -39,7 +40,7 @@ installacme()
 }
 input_Domain()
 {
-      nginx -s stop
+      #nginx -s stop
       echo "申请证书的域名"
       read domain
       if ask_if "您输入的域名为:"$domain",是否继续？(y/n)"
