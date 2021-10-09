@@ -16,6 +16,9 @@ Netflix@*
 
 日本ss-游戏代理--禁大流量消耗@日本 游戏
 
+;大机场
+^.*\/([^\x00-\xff]{2,3}) - (.*端口 - )?(\d)$@$1 $3
+
 HK|Hong Kong@香港
 SG|狮城|Singapore@新加坡
 TW|Taiwan@台湾
