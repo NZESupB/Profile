@@ -34,6 +34,8 @@ installacme()
       #wget -O -  https://github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
       #wget -O -  https://github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s email=$email
       #crontab -l > conf && echo "50 0 * * * \"/root/.acme.sh\"/acme.sh --cron --home \"/root/.acme.sh\" > /dev/null" >> conf && crontab conf && rm -f conf
+      cmdupdate="--upgrade  --auto-upgrade"
+      /root/.acme.sh/acme.sh   $cmdupdate
 }
 input_Domain()
 {
@@ -51,8 +53,6 @@ input_Email()
       apt install nginx -y
       apt install wget -y
       apt install socat
-      cmdupdate="--upgrade  --auto-upgrade"
-      /root/.acme.sh/acme.sh   $cmdupdate
       echo "注册域名的邮箱"
       read email
       installacme
