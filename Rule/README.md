@@ -1,13 +1,15 @@
-Daily低流量日常iplc访问的网站等
-Direct其他需要直连的网站
-Download与国外媒体需要大带宽
-FuckGateway部分被公司ban的国内域名
-Games为游戏规则,节点需要开启udp
-jp为必走日本的域名
-us为走美国的域名
-Speedtest测速节点不过不太准,Win10使用uwp,安卓使用官方app可强制软件全局
+Daily 低流量日常 iplc 访问的网站等
 
+Direct 其他需要直连的网站
 
-GamesOrDownload 不再更新的无效规则
-Myrule 不再更新的无效规则
+Download 与国外媒体需要大带宽
 
+FuckGateway 部分被公司 ban 的国内域名
+
+Games 为游戏规则,节点需要开启 udp
+
+jp 为必走日本的域名
+
+us 为走美国的域名
+
+Speedtest 测速节点,不过不太准,fast由于是Netflix提供,走Netflix策略

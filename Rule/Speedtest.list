@@ -1,6 +1,6 @@
-# Fast
+# Fast安卓客户端
 PROCESS-NAME,com.netflix.Speedtest
-DOMAIN-SUFFIX,fast.com
+#DOMAIN-SUFFIX,fast.com
 DOMAIN-SUFFIX,hgc.com.hk
 DOMAIN-SUFFIX,speed.cloudflare.com
 DOMAIN-SUFFIX,api.skk.moe
