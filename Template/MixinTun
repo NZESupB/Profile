@@ -1,7 +1,6 @@
 mixin:
   dns:
     enable: true
-    ipv6: false
     # listen: 0.0.0.0:53 #若使用Tap模式则取消此行注释
     enhanced-mode: redir-host
     # DNSSearch:https://kb.adguard.com/zh/general/dns-providers
