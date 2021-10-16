@@ -6,8 +6,9 @@ tyblue()
 get_acme()
 {
       #cmd1="--issue -d $domain --standalone"
+      cmdreload="systemctl reload nginx"
       cmd1="--issue -d $domain --nginx"
-      cmd2="--install-cert  -d  $domain  --key-file   /etc/ssl/$domain.key   --fullchain-file /etc/ssl/$domain.cer   --reloadcmd "service nginx force-reload""
+      cmd2="--install-cert  -d  $domain  --key-file   /etc/ssl/$domain.key   --fullchain-file /etc/ssl/$domain.cer   --reloadcmd "$cmdreload""
       /root/.acme.sh/acme.sh  $cmd1
       /root/.acme.sh/acme.sh  $cmd2
       #nginx -c /etc/nginx/nginx.conf
@@ -21,16 +22,12 @@ ask_if()
         tyblue "$1"
         read choice
     done
-    [ $choice == y ] && return 0
+    [ $choice == y ] && return 0 
     return 1
 }
 installacme()
 {
-      if ask_if "y使用acme默认安装,n使用其他方式安装(y/n)"
-       then bash <(curl  https://get.acme.sh | sh -s email=$email)
-      else
-       wget -O -  https://github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
-      fi
+      wget -O -  https://github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
       #bash <(curl  https://get.acme.sh | sh -s email=$email)
       #wget -O -  https://github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s -- --install-online -m  $email
       #wget -O -  https://github.nzesupb.workers.dev/https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh | sh -s email=$email
@@ -51,9 +48,9 @@ input_Domain()
 }
 input_Email()
 {
-      apt install nginx -y
-      apt install wget -y
-      apt install socat
+      apt install nginx wget socat -y
+      #apt install wget -y
+      #apt install socat
       echo "注册域名的邮箱"
       read email
       installacme

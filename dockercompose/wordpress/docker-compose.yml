@@ -17,8 +17,8 @@ services:
   db1:
     image: mariadb
     restart: always
-    #ports:
-      #- 3307:3306
+    ports:
+      - 10086:3306
     container_name: wpmariadb
     environment:
       MYSQL_DATABASE: dbname
