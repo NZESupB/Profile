@@ -331,11 +331,20 @@ rule-providers:
     path: ./RuleSet/JP_Rule.yaml
     url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvanAubGlzdA
     interval: 43200
+  🌐 规则修正:
+    type: http 
+    behavior: classical
+    path: ./RuleSet/Unbreak.yaml
+    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9VbmJyZWFrLmxpc3Q
+    interval: 43200
 # 规则
 rules:
   - DOMAIN-SUFFIX,local,DIRECT,no-resolve
   - RULE-SET,💻 本地保留,DIRECT
+  - RULE-SET,🌐 规则修正,DIRECT
   - RULE-SET,💻 强制直连,DIRECT
+  - RULE-SET,🛑 广告拦截1,🛑 广告拦截
+  - RULE-SET,🛑 广告拦截2,🛑 广告拦截
   - RULE-SET,Ⓜ️ 微软,Ⓜ️ 微软服务
   - RULE-SET,🇺🇸 US_List,🇺🇸 美国
   - RULE-SET,🇯🇵 JP_List,🇯🇵 日本
@@ -346,13 +355,11 @@ rules:
   - RULE-SET,⚡ SpeedTest,⚡ 网速测试
   - RULE-SET,🎯 直连2,DIRECT
   - RULE-SET,🌍 轻量浏览,🚀 全球互联
-  - RULE-SET,🌍 国外媒体,🌍 国外媒体
-  - RULE-SET,🎮 游戏娱乐,🎮 游戏娱乐
   - RULE-SET,🌏 国内媒体1,🌏 国内媒体
   - RULE-SET,🌏 国内媒体2,🌏 国内媒体
+  - RULE-SET,🌍 国外媒体,🌍 国外媒体
+  - RULE-SET,🎮 游戏娱乐,🎮 游戏娱乐
   - RULE-SET,🚀 全局规则,🚀 全球互联
   # - RULE-SET,🛑 强力拦截,🛑 广告拦截
-  - RULE-SET,🛑 广告拦截1,🛑 广告拦截
-  - RULE-SET,🛑 广告拦截2,🛑 广告拦截
   - RULE-SET,🎯 直连1,DIRECT
   - MATCH,🐟 漏网之鱼
