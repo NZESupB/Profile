@@ -8,3 +8,6 @@ DOMAIN-SUFFIX,mzstatic.com
 
 DOMAIN-SUFFIX,hostloc.com
 DOMAIN-SUFFIX,pbap.cc
+
+#freevps & location us
+DOMAIN-SUFFIX,infomaniak.com
