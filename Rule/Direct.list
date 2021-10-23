@@ -9,28 +9,17 @@ PROCESS-NAME,Thunder
 PROCESS-NAME,DownloadService
 PROCESS-NAME,qBittorrent
 PROCESS-NAME,Transmission
-PROCESS-NAME,fdm
 PROCESS-NAME,aria2c
 PROCESS-NAME,Folx
 PROCESS-NAME,NetTransport
 PROCESS-NAME,uTorrent
 PROCESS-NAME,WebTorrent
-PROCESS-NAME,aria2c.exe
-PROCESS-NAME,BitComet.exe
-PROCESS-NAME,fdm.exe
-PROCESS-NAME,NetTransport.exe
-PROCESS-NAME,qbittorrent.exe
-PROCESS-NAME,Thunder.exe
-PROCESS-NAME,ThunderVIP.exe
-PROCESS-NAME,transmission-daemon.exe
-PROCESS-NAME,transmission-qt.exe
-PROCESS-NAME,uTorrent.exe
-PROCESS-NAME,WebTorrent.exe
+PROCESS-NAME,BitComet
+PROCESS-NAME,qbittorrent
+PROCESS-NAME,ThunderVIP
+PROCESS-NAME,transmission-daemon
+PROCESS-NAME,transmission-qt
 
 # Dashboad
 DOMAIN,clash.razord.top
 DOMAIN,yacd.haishan.me
-
-# 阿里云小白羊
-PROCESS-NAME,aDrive
-PROCESS-NAME,alixby
