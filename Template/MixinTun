@@ -3,13 +3,14 @@ mixin:
     enable: true
     # listen: 0.0.0.0:53 #若使用Tap模式则取消此行注释
     enhanced-mode: redir-host
-    # DNSSearch:https://kb.adguard.com/zh/general/dns-providers
+    # DNS搜索 : https://kb.adguard.com/zh/general/dns-providers
     nameserver:
-      - tls://rubyfish.cn
-      - https://doh.dns.sb/dns-query
+      - tls://rubyfish.cn #红鱼-dot
+      - https://doh.dns.sb/dns-query #dnssb-doh
+    #建议不使用fallback,nameserver配置一个无污染的加密dns即可
     fallback:
-      - tls://dns.google
-      - tls://dot.sb:853
+      - tls://dns.google #Google-dot
+      - tls://dot.sb:853 #dnssb-dot
   tun:
     enable: true
     stack: gvisor # system
