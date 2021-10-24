@@ -196,7 +196,6 @@ proxy-groups:
     url: 'http://www.msftconnecttest.com/connecttest.txt'
     interval: 300
 
-
 rule-providers:
   💻 本地保留:
     type: http
@@ -252,12 +251,6 @@ rule-providers:
     path: ./RuleSet/Hijacking.yaml
     url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9HdWFyZC9IaWphY2tpbmcubGlzdA
     interval: 43200
- # 🛑 强力拦截:
-   # type: http 
-   # behavior: classical
-   # path: ./RuleSet/Anti_AD.yaml
-   # url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3ByaXZhY3ktcHJvdGVjdGlvbi10b29scy9hbnRpLUFEL21hc3Rlci9hbnRpLWFkLXN1cmdlLnR4dA
-   # interval: 43200
   🚀 全局规则:
     type: http 
     behavior: classical
@@ -339,7 +332,6 @@ rules:
   - RULE-SET,🛑 广告拦截,🛑 广告拦截
   - RULE-SET,🛑 隐私拦截,🛑 广告拦截
   - RULE-SET,Ⓜ️ 微软,Ⓜ️ 微软服务
-  #- RULE-SET,🎯 公司网关,🎯 干翻运维
   - RULE-SET,🇺🇸 US_List,🇺🇸 美国
   - RULE-SET,🇯🇵 JP_List,🇯🇵 日本
   - RULE-SET,📲 Telegram,📲 Telegram
