@@ -53,7 +53,7 @@ DOMAIN-SUFFIX,newrelic.com
 DOMAIN-SUFFIX,wr.pvp.net
 DOMAIN-SUFFIX,lolesports.com
 DOMAIN-SUFFIX,cds.s4a8x2q3.hwcdn.net
-DOMAIN-SUFFIX,pbe-blue.lol
+DOMAIN-KEYWORD,pbe-blue
 IP-CIDR,162.62.158.0/24
 IP-CIDR,44.242.62.13/32
 # RockStar
