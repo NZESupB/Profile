@@ -329,6 +329,7 @@ rules:
   - RULE-SET,💻 本地保留,DIRECT
   - RULE-SET,🌐 规则修正,DIRECT
   - RULE-SET,💻 强制直连,DIRECT
+  - RULE-SET,🎯 IP段直连,DIRECT
   - RULE-SET,🛑 广告拦截,🛑 广告拦截
   - RULE-SET,🛑 隐私拦截,🛑 广告拦截
   - RULE-SET,Ⓜ️ 微软,Ⓜ️ 微软服务
@@ -346,5 +347,4 @@ rules:
   - RULE-SET,🌍 国外媒体,🌍 国外媒体
   - RULE-SET,🚀 全局规则,🚀 全球互联
   - RULE-SET,🎯 国内直连,DIRECT
-  - RULE-SET,🎯 IP段直连,DIRECT
   - MATCH,🐟 漏网之鱼
