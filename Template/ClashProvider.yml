@@ -34,7 +34,7 @@ hosts:
   #auto-detect-interface: true
     
 proxies:
-#模块订阅,api已提供也许是永久的吧, ABCloud_Game这类可自行重命名,path后的文件名也需要重命名不重复
+#模块订阅,api已提供也许是永久的吧, ABCloud_Game这类可自行重命名,path后的文件名也需要重命名不重复,url可自行修改为订阅链接,或者用我后端精简
 proxy-providers:
   ABCloud_Game:
     type: http
@@ -129,7 +129,6 @@ proxy-groups:
       - 🇺🇸 美国
       - 🇹🇼 台湾
       - 🇸🇬 新加坡
-    disable-udp: true
   - name: "🌍 国外媒体"
     type: select
     use:
@@ -138,14 +137,12 @@ proxy-groups:
       - 🇯🇵 日本
       - 🇺🇸 美国
       - 🇸🇬 新加坡
-    disable-udp: true
   - name: "🎶 网易云音乐"
     type: select
     use:
       - NetEase_Proxy
     proxies:
       - DIRECT
-    disable-udp: true
   - name: "🌏 国内媒体"
     type: select
     use:
@@ -153,7 +150,6 @@ proxy-groups:
       - DIRECT
       - 🇹🇼 台湾
       - 🇭🇰 香港
-    disable-udp: true
   - name: "Ⓜ️ 微软服务"
     type: select
     use:
@@ -162,7 +158,6 @@ proxy-groups:
       - 🇯🇵 日本
       - 🇺🇸 美国
       - DIRECT
-    disable-udp: true
   - name: "🇭🇰 香港"
     type: select
     use:
@@ -184,13 +179,11 @@ proxy-groups:
     type: select
     use:
       - TomLink_TW
-    disable-udp: true
   - name: "🛑 广告拦截"
     type: select
     proxies:
       - REJECT
       - DIRECT
-    disable-udp: true
   - name: "🐟 漏网之鱼"
     type: select
     proxies:
@@ -235,25 +228,25 @@ rule-providers:
     path: ./RuleSet/Streaming.yaml
     url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmcubGlzdA
     interval: 43200
-  🌏 国内媒体1:
+  🌏 国内国际媒体:
     type: http 
     behavior: classical
     path: ./RuleSet/StreamingSE.yaml
     url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmdTRS5saXN0
     interval: 43200
-  🌏 国内媒体2:
+  🌏 国内媒体:
     type: http 
     behavior: classical
     path: ./RuleSet/StreamingCN.yaml
     url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmdDTi5saXN0
     interval: 43200
-  🛑 广告拦截1:
+  🛑 广告拦截:
     type: http 
     behavior: classical
     path: ./RuleSet/Advertising.yaml
     url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9HdWFyZC9BZHZlcnRpc2luZy5saXN0
     interval: 43200
-  🛑 广告拦截2:
+  🛑 隐私拦截:
     type: http 
     behavior: classical
     path: ./RuleSet/Hijacking.yaml
@@ -277,13 +270,13 @@ rule-providers:
     path: ./RuleSet/Microsoft.yaml
     url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUnVsZXNldC9NaWNyb3NvZnQubGlzdA
     interval: 43200
-  🎯 直连1:
+  🎯 国内直连:
     type: http 
     behavior: classical
     path: ./RuleSet/China.yaml
     url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9DaGluYS5saXN0
     interval: 43200
-  🎯 直连2:
+  🎯 IP段直连:
     type: http 
     behavior: ipcidr
     path: ./RuleSet/ChinaIP.yaml
@@ -343,9 +336,10 @@ rules:
   - RULE-SET,💻 本地保留,DIRECT
   - RULE-SET,🌐 规则修正,DIRECT
   - RULE-SET,💻 强制直连,DIRECT
-  - RULE-SET,🛑 广告拦截1,🛑 广告拦截
-  - RULE-SET,🛑 广告拦截2,🛑 广告拦截
+  - RULE-SET,🛑 广告拦截,🛑 广告拦截
+  - RULE-SET,🛑 隐私拦截,🛑 广告拦截
   - RULE-SET,Ⓜ️ 微软,Ⓜ️ 微软服务
+  #- RULE-SET,🎯 公司网关,🎯 干翻运维
   - RULE-SET,🇺🇸 US_List,🇺🇸 美国
   - RULE-SET,🇯🇵 JP_List,🇯🇵 日本
   - RULE-SET,📲 Telegram,📲 Telegram
@@ -353,13 +347,12 @@ rules:
   - RULE-SET,🎶 网易云音乐,🎶 网易云音乐
   - RULE-SET,⚡ 视频下载,🌍 国外媒体
   - RULE-SET,⚡ SpeedTest,⚡ 网速测试
-  - RULE-SET,🎯 直连2,DIRECT
   - RULE-SET,🌍 轻量浏览,🚀 全球互联
-  - RULE-SET,🌏 国内媒体1,🌏 国内媒体
-  - RULE-SET,🌏 国内媒体2,🌏 国内媒体
-  - RULE-SET,🌍 国外媒体,🌍 国外媒体
   - RULE-SET,🎮 游戏娱乐,🎮 游戏娱乐
+  - RULE-SET,🌏 国内国际媒体,🌏 国内媒体
+  - RULE-SET,🌏 国内媒体,🌏 国内媒体
+  - RULE-SET,🌍 国外媒体,🌍 国外媒体
   - RULE-SET,🚀 全局规则,🚀 全球互联
-  # - RULE-SET,🛑 强力拦截,🛑 广告拦截
-  - RULE-SET,🎯 直连1,DIRECT
+  - RULE-SET,🎯 国内直连,DIRECT
+  - RULE-SET,🎯 IP段直连,DIRECT
   - MATCH,🐟 漏网之鱼
