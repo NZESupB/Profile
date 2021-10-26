@@ -161,7 +161,8 @@ DOMAIN-SUFFIX,id9.cc
 DOMAIN-SUFFIX,vps.wf
 # > 机场订阅
 DOMAIN-SUFFIX,exflux.io
-DOMAIN,prprcloud
+DOMAIN-KEYWORD,prprcloud
+DOMAIN-SUFFIX,fishport.cyou
 DOMAIN-SUFFIX,cordcloud.org
 DOMAIN-SUFFIX,sub.tomlink9527.xyz
 DOMAIN-SUFFIX,getelement.cc
