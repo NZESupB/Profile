@@ -329,7 +329,6 @@ rules:
   - RULE-SET,💻 本地保留,DIRECT
   - RULE-SET,🌐 规则修正,DIRECT
   - RULE-SET,💻 强制直连,DIRECT
-  - RULE-SET,🎯 IP段直连,DIRECT
   - RULE-SET,🛑 广告拦截,🛑 广告拦截
   - RULE-SET,🛑 隐私拦截,🛑 广告拦截
   - RULE-SET,Ⓜ️ 微软,Ⓜ️ 微软服务
@@ -340,8 +339,9 @@ rules:
   - RULE-SET,🎶 网易云音乐,🎶 网易云音乐
   - RULE-SET,⚡ 视频下载,🌍 国外媒体
   - RULE-SET,⚡ SpeedTest,⚡ 网速测试
-  - RULE-SET,🌍 轻量浏览,🚀 全球互联
   - RULE-SET,🎮 游戏娱乐,🎮 游戏娱乐
+  - RULE-SET,🎯 IP段直连,DIRECT
+  - RULE-SET,🌍 轻量浏览,🚀 全球互联
   - RULE-SET,🌏 国内国际媒体,🌏 国内媒体
   - RULE-SET,🌏 国内媒体,🌏 国内媒体
   - RULE-SET,🌍 国外媒体,🌍 国外媒体

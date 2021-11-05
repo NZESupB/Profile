@@ -6,7 +6,7 @@ services:
     container_name: wordpress
     restart: always
     ports:
-      - 8888:80   #Modify to your favorite port
+      - 8888:80   #8088自定义端口
     environment:
       WORDPRESS_DB_HOST: db1:3306
       WORDPRESS_DB_USER: dbusername
@@ -18,7 +18,7 @@ services:
     image: mariadb
     restart: always
     ports:
-      - 10086:3306
+      - 10086:3306  #数据库可不映射端口,如无需外部管理,注释ports与此行
     container_name: wpmariadb
     environment:
       MYSQL_DATABASE: dbname

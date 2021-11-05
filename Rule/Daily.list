@@ -187,6 +187,8 @@ DOMAIN-SUFFIX,is.gd
 # 虚拟货币
 DOMAIN-SUFFIX,hi.com
 
+DOMAIN-SUFFIX,kinh.cc
+
 # >Cloudflare
 IP-CIDR,104.18.125.25/32
 IP-CIDR,104.18.121.25/32
