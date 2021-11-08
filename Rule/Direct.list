@@ -3,6 +3,7 @@ DOMAIN-SUFFIX,bbs.nubia.com
 DOMAIN-SUFFIX,jd.com
 DOMAIN-SUFFIX,oraclecloud.com
 DOMAIN,musicupload.netease.com
+DOMAIN,xinruimz-isv.isvjcloud.com
 
 # Torrent
 PROCESS-NAME,Thunder
