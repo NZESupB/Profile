@@ -14,6 +14,7 @@ IP-CIDR,140.238.52.8/32
 
 DOMAIN-SUFFIX,quickfever.com
 DOMAIN-SUFFIX,cloudflare.com
+DOMAIN-SUFFIX,protonmail.com
 DOMAIN-SUFFIX,grafana.com
 DOMAIN-KEYWORD,giveawayoftheday
 DOMAIN-KEYWORD,jike
