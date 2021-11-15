@@ -17,15 +17,26 @@ Netflix@*
 ;大机场
 ^.*\/([^\x00-\xff]{2,3}) - (.*端口)?( - )?(\d)$@$1 $4 ${2:-}
 
-HK|Hong Kong@香港
-SG|狮城|Singapore@新加坡
-TW|Taiwan@台湾
-USA|US@美国
-JP|Japan@日本
-IN@印度
-KR@韩国
-AU@澳大利亚
+RUS@俄罗斯
+AUS?@澳大利亚
+FRA?@法国
+DEU?@德国
+ESP@西班牙
+ISL@冰岛
+DNK@丹麦
+CAN@加拿大
+GBR|UK@英国
+POL@波兰
+NLD@荷兰
+HKG?|Hong ?Kong@香港
+SGP?|狮城|Singapore@新加坡
+TWN?|Taiwan@台湾
+USA?@美国
+JPN?|Japan@日本
+IND?@印度
+KR|KOR@韩国
 ZJ@镇江
+DEU?@德国
 GZCM-香港|GZCM|广移中继@广移
 CN2-香港@CN2
 CSCU-香港|CSCU|CUCU@长联
