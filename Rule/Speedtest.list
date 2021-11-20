@@ -11,8 +11,6 @@ DOMAIN,ass.dc-1.net
 DOMAIN,config.88-f.net
 # IP测试
 DOMAIN,debug.skk.moe
-# 港仔的流量终结者
-DOMAIN,waste.prprcloud.com
 ## > Speedtest by Ookla
 PROCESS-NAME,Speedtest.exe
 PROCESS-NAME,org.zwanoo.android.speedtest

@@ -1,15 +1,14 @@
-# freenom白嫖
+# freenom
 DOMAIN-SUFFIX,freenom.com
 DOMAIN-SUFFIX,maxcdn.bootstrapcdn.com
 # Amazon Game 
 DOMAIN-SUFFIX,gaming.amazon.com
-#AppleImage
+# AppleImage
 DOMAIN-SUFFIX,mzstatic.com
 
 DOMAIN-SUFFIX,hostloc.com
 DOMAIN-SUFFIX,pbap.cc
 
-#freevps & location us
-DOMAIN-SUFFIX,infomaniak.com
-DOMAIN-SUFFIX,infomaniak.cloud
+# freevps & location us
+DOMAIN-KEYWORD,infomaniak
 PROCESS-NAME,com.infomaniak.checkid

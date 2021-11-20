@@ -28,6 +28,7 @@ DOMAIN-SUFFIX,alpinelinux.org
 DOMAIN-SUFFIX,magiskmanager.com
 
 #下载地址
+DOMAIN-SUFFIX,typora.io
 DOMAIN-SUFFIX,bitvise.com
 DOMAIN-SUFFIX,apklinker.com
 DOMAIN-SUFFIX,androidfilehost.com
@@ -131,7 +132,6 @@ DOMAIN,ws-mt1.pusher.com
 
 #WebOS
 DOMAIN-SUFFIX,macos.now.sh
-
 DOMAIN-SUFFIX,codecanyon.net
 DOMAIN-SUFFIX,spagreen.net
 
@@ -145,7 +145,6 @@ DOMAIN-SUFFIX,haochi.media
 #Embyiptv
 IP-CIDR,142.54.179.138/32
 
-DOMAIN-KEYWORD,tdjupdate
 DOMAIN,42lab.cdn.sunborngame.com
 
 #百度国际

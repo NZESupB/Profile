@@ -66,8 +66,7 @@ DOMAIN-SUFFIX,vpskp.com
 DOMAIN-SUFFIX,vikacg.com
 DOMAIN-SUFFIX,cablemap.info
 DOMAIN-SUFFIX,submarinecablemap.com
-DOMAIN,nxshell.herokuapp.com
-DOMAIN-SUFFIX,typora.io
+DOMAIN-SUFFIX,stackoverflow.com
 DOMAIN-SUFFIX,mega.co.nz
 DOMAIN-SUFFIX,pximg.net
 DOMAIN-KEYWORD,dropgalaxy
@@ -89,7 +88,6 @@ DOMAIN-SUFFIX,arkoselabs.com
 DOMAIN-SUFFIX,thenounproject.com
 DOMAIN-SUFFIX,starwindsoftware.com
 DOMAIN-SUFFIX,fuchsia.dev
-DOMAIN,subweb.oss-cn-hongkong.aliyuncs.com
 DOMAIN-SUFFIX,911997.xyz
 DOMAIN,rsshub.app
 DOMAIN,apkfind.com

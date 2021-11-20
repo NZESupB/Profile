@@ -40,11 +40,12 @@ DEU?@德国
 GZCM-香港|GZCM|广移中继@广移
 CN2-香港@CN2
 CSCU-香港|CSCU|CUCU|HZCU-香港|HZCU|河南联通@联通
-香港IX@IX
+香港IX@HKIX
 香港T@HKT
 Relay@中继
 BGP-香港@BGP
 
+;中括号内容修正,移除,无用文本移除(mbps)
 \[IEPL\]@IEPL
 (\（|\『|\[|\【).*?(\）|\』|\]|\】)@
 .(\d)*.bps@
@@ -120,5 +121,4 @@ Elastic Network Adapter 10 Anycast任播@AGA
 (美国)\s?(实验性|标准|高级|IEPL|Magic)\s(Magic )?(AIA|IEPL)?.*(\d\d)@$1 $2 ${4:-} $5
 (新加坡)\s?(高级|Magic|Legacy).*(IEPL)\s中继\s(\d\d)\s(\*)@$1 $2 $3 $4${5:-}
 (香港).*(HE|HGC|HKT|HKBN)\s(\d\d)@$1 $2 $3
-
 游戏.*(限).*(香港|日本).*(\d\d)@$2 游戏加速 $3
