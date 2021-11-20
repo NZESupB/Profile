@@ -21,6 +21,8 @@ DOMAIN-SUFFIX,paragon.com
 DOMAIN-SUFFIX,unrealengine.com
 
 # sbeam
+PROCESS-NAME,steam.exe
+PROCESS-NAME,steamwebhelper.exe
 DOMAIN-SUFFIX,steam-chat.com
 DOMAIN-SUFFIX,steamcontent.com
 DOMAIN-SUFFIX,steamgames.com
