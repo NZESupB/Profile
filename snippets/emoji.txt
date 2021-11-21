@@ -17,7 +17,7 @@
 (Costa Rica|哥斯达黎加),🇨🇷
 (塞浦路斯|Cyprus),🇨🇾
 (Czech|捷克),🇨🇿
-(?i:DE|Germany|法兰克福|德),🇩🇪
+(DE|Germany|法兰克福|德),🇩🇪
 (Denmark|丹麦),🇩🇰
 (爱沙尼亚|Estonia),🇪🇪
 (埃及|Egypt),🇪🇬
@@ -68,10 +68,10 @@
 (葡萄牙|Portugal),🇵🇹
 (RO|Romania|罗马尼亚),🇷🇴
 (塞尔维亚|Serbia),🇷🇸
-(?i:RU|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄),🇷🇺
+(RU|Russia|Moscow|Petersburg|Siberia|伯力|莫斯科|圣彼得堡|西伯利亚|新西伯利亚|哈巴罗夫斯克|俄罗斯|[^-]俄),🇷🇺
 (Arabia|沙特|迪拜),🇸🇦
 (SE|Sweden|瑞典),🇸🇪
-(?i:SG|Singapore|新加坡|狮城|[^-]新),🇸🇬
+(SG|Singapore|新加坡|狮城|[^-]新),🇸🇬
 (斯洛文尼亚|Slovenia),🇸🇮
 (斯洛伐克|Slovensko),🇸🇰
 (TH|Thailand|泰国|曼谷),🇹🇭
