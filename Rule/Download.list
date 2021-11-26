@@ -26,6 +26,8 @@ DOMAIN-SUFFIX,alpinelinux.org
 
 #Magisk
 DOMAIN-SUFFIX,magiskmanager.com
+#AuroraStore
+DOMAIN,aefd.nelreports.net
 
 #下载地址
 DOMAIN-SUFFIX,typora.io
