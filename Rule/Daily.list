@@ -12,6 +12,9 @@ PROCESS-NAME,Termius.exe
 
 IP-CIDR,140.238.52.8/32
 
+#新闻资讯
+DOMAIN-SUFFIX,dwnews.com
+
 DOMAIN-SUFFIX,quickfever.com
 DOMAIN-SUFFIX,tenor.com
 DOMAIN-SUFFIX,cloudflare.com
