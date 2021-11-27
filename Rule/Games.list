@@ -17,6 +17,7 @@ DOMAIN-KEYWORD,hekk
 # epic
 PROCESS-NAME,EpicGamesLauncher.exe
 DOMAIN-SUFFIX,epicgames.com
+DOMAIN-SUFFIX,epicgames.dev
 DOMAIN-SUFFIX,helpshift.com
 DOMAIN-SUFFIX,paragon.com
 DOMAIN-SUFFIX,unrealengine.com
