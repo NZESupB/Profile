@@ -62,6 +62,11 @@ IP-CIDR,162.62.158.0/24
 IP-CIDR,44.242.62.13/32
 #LOLJP
 IP-CIDR,43.229.66.38/24
+#wildrift
+DOMAIN,wildrift-na.akamaized.net
+#pokemonunite
+DOMAIN,sg-tdm.iegcom.com
+DOMAIN,gcloud.pokemo-unitepgame.com
 # RockStar
 DOMAIN-SUFFIX,rockstargames.com
 DOMAIN-SUFFIX,rsg.sc

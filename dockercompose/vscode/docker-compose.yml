@@ -1,0 +1,17 @@
+version: "2.0"
+#GitHub : https://github.com/cdr/code-server
+services:
+  code-server:
+    image: codercom/code-server:latest
+    container_name: vscode                  #容器名
+    restart: always
+    network_mode: bridge
+    volumes:
+      - ~/code/config:/home/coder/.config   #目录文件映射
+      - ~/code/project:/home/coder/project  #目录文件映射
+    ports:
+      - 15535:8080                          #端口映射为15535
+    environment:
+      - DOCKER_USER=Myself                  #使用者id
+  
+   
