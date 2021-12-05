@@ -49,6 +49,7 @@ DOMAIN-SUFFIX,openwrt.org
 DOMAIN-SUFFIX,github-releases.githubusercontent.com
 DOMAIN-SUFFIX,actions.githubusercontent.com
 DOMAIN-SUFFIX,objects.githubusercontent.com
+DOMAIN-SUFFIX,avatars.githubusercontent.com
 DOMAIN-SUFFIX,fydeos.io
 DOMAIN-SUFFIX,cloudfront.net
 DOMAIN-SUFFIX,neverware.com
