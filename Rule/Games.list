@@ -67,6 +67,10 @@ DOMAIN,wildrift-na.akamaized.net
 #pokemonunite
 DOMAIN,sg-tdm.iegcom.com
 DOMAIN,gcloud.pokemo-unitepgame.com
+#Fantasy Life
+PROCESS-NAME,com.boltrend.floen
+DOMAIN,launches.appsflyer.com
+DOMAIN-SUFFIX,boltrend.com
 # RockStar
 DOMAIN-SUFFIX,rockstargames.com
 DOMAIN-SUFFIX,rsg.sc
