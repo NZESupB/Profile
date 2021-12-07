@@ -64,6 +64,7 @@ IP-CIDR,44.242.62.13/32
 IP-CIDR,43.229.66.38/24
 #wildrift
 DOMAIN,wildrift-na.akamaized.net
+
 #pokemonunite
 DOMAIN,sg-tdm.iegcom.com
 DOMAIN,gcloud.pokemo-unitepgame.com
@@ -71,6 +72,16 @@ DOMAIN,gcloud.pokemo-unitepgame.com
 PROCESS-NAME,com.boltrend.floen
 DOMAIN,launches.appsflyer.com
 DOMAIN-SUFFIX,boltrend.com
+# SLIME IM
+PROCESS-NAME,com.bandainamcoent.tensuramrkww
+DOMAIN,ten-sura-m-assets-ap.akamaized.net
+DOMAIN,api-ap.ten-sura-m.wfs.games
+DOMAIN,bn-payment.wrightflyer.net
+DOMAIN-KEYWORD,stripe
+
+
+
+
 # RockStar
 DOMAIN-SUFFIX,rockstargames.com
 DOMAIN-SUFFIX,rsg.sc
