@@ -28,7 +28,6 @@ DOMAIN-SUFFIX,ssaa.best
 DOMAIN-SUFFIX,duyaoss.com
 DOMAIN-SUFFIX,nssurge.com
 DOMAIN-KEYWORD,cppreference
-DOMAIN-KEYWORD,regex101
 DOMAIN-KEYWORD,lineageos
 DOMAIN-SUFFIX,deviantart.com
 DOMAIN-SUFFIX,blog.000714.xyz
@@ -118,6 +117,10 @@ DOMAIN-SUFFIX,vercel.com
 DOMAIN-SUFFIX,blogs.nvidia.com
 DOMAIN-SUFFIX,programmersought.com
 DOMAIN-SUFFIX,gogodl.com
+
+#在线小工具
+DOMAIN-KEYWORD,regex101
+DOMAIN-SUFFIX,composerize.com
 
 # 论坛/Wiki/Blog
 DOMAIN-SUFFIX,merc.wiki
