@@ -4,6 +4,9 @@ PROCESS-NAME,com.disney.disneyplus
 PROCESS-NAME,dbeaver.exe
 PROCESS-NAME,JellyfinMediaPlayer.exe
 
+#CDN全由此处接管
+DOMAIN-SUFFIX,gvt1.com
+
 #Kodi
 IP-CIDR,104.21.13.29/32
 IP-CIDR,18.179.196.87/32
@@ -26,10 +29,15 @@ DOMAIN-SUFFIX,alpinelinux.org
 
 #Magisk
 DOMAIN-SUFFIX,magiskmanager.com
+
 #AuroraStore
 DOMAIN,aefd.nelreports.net
+DOMAIN,reports.exodus-privacy.eu.org
+DOMAIN-SUFFIX,goolag.store
+PROCESS-NAME,com.aurora.store
 
 #下载地址
+DOMAIN-SUFFIX,f-droid.org
 DOMAIN-SUFFIX,typora.io
 DOMAIN-SUFFIX,bitvise.com
 DOMAIN-SUFFIX,apklinker.com
@@ -41,7 +49,6 @@ DOMAIN-SUFFIX,termux.org
 DOMAIN-SUFFIX,pythonhosted.org
 DOMAIN-SUFFIX,mentality.rip
 DOMAIN-SUFFIX,grimler.se
-DOMAIN-SUFFIX,f-droid.org
 DOMAIN-SUFFIX,termux-mirror.ml
 DOMAIN-SUFFIX,bintray.com
 DOMAIN-SUFFIX,wintun.net
