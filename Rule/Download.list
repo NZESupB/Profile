@@ -38,6 +38,7 @@ PROCESS-NAME,com.aurora.store
 
 #下载地址
 DOMAIN-SUFFIX,f-droid.org
+DOMAIN,download.sysinternals.com
 DOMAIN-SUFFIX,typora.io
 DOMAIN-SUFFIX,bitvise.com
 DOMAIN-SUFFIX,apklinker.com
