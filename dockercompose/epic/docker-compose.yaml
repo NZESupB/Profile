@@ -1,0 +1,35 @@
+version: '3'
+#https://hub.docker.com/r/luminoleon/epicgames-claimer
+services:
+    epic-a:
+        image: luminoleon/epicgames-claimer
+        container_name: epic-a
+        restart: unless-stopped
+        environment:
+        - TZ=Asia/Shanghai              #时区
+        - RUN_AT=08:20                  #定时
+        - AUTO_UPDATE=true              #自动更新
+        - EMAIL=                        #epic账号邮箱
+        - PASSWORD=                     #epic账号密码
+        #  按需修改的参数
+        #- VERIFICATION_CODE=            #双重验证码
+        #- PUSH_TELEGRAM_BOT_TOKEN=      #TelegramPush
+        #- PUSH_TELEGRAM_CHAT_ID=        #TelegramId
+        #- PUSH_SERVERCHAN_SENDKEY=      #pushplus
+        - NO_STARTUP_NOTIFICATION=true  #启动时不通知
+    #多账号
+    epic-b:
+        image: luminoleon/epicgames-claimer
+        container_name: epic-b
+        restart: unless-stopped
+        #如果使用cookie登录
+        volumes:
+        - $pwd/usera:/User_Data
+        environment:
+        - TZ=Asia/Shanghai
+        - RUN_AT=09:20
+        - AUTO_UPDATE=true
+        - COOKIES=/User_Data/cookies.json
+        - PUSH_TELEGRAM_BOT_TOKEN=
+        - PUSH_TELEGRAM_CHAT_ID=
+        - NO_STARTUP_NOTIFICATION=true
