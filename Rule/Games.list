@@ -63,6 +63,8 @@ IP-CIDR,44.242.62.13/32
 #LOLJP
 IP-CIDR,43.229.66.38/24
 DOMAIN,jp-blue.lol.sgp.pvp.net
+#OPGG
+DOMAIN,legendspatch-lol.cdn.x-cdn.com
 #wildrift
 DOMAIN,wildrift-na.akamaized.net
 
