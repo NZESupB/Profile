@@ -46,12 +46,9 @@ DOMAIN-SUFFIX,androidfilehost.com
 DOMAIN,dl.fevr.top
 DOMAIN-SUFFIX,apkadmin.com
 DOMAIN-SUFFIX,mediafire.com
-DOMAIN-SUFFIX,termux.org
+
 DOMAIN-SUFFIX,pythonhosted.org
-DOMAIN-SUFFIX,mentality.rip
-DOMAIN-SUFFIX,grimler.se
-DOMAIN-SUFFIX,termux-mirror.ml
-DOMAIN-SUFFIX,bintray.com
+
 DOMAIN-SUFFIX,wintun.net
 DOMAIN-SUFFIX,openwrt.org
 DOMAIN-SUFFIX,github-releases.githubusercontent.com
@@ -94,6 +91,12 @@ DOMAIN-SUFFIX,winudf.com
 DOMAIN-KEYWORD,devolutions
 DOMAIN-SUFFIX,mypikpak.com
 DOMAIN-SUFFIX,nvidia.com
+
+#termux
+DOMAIN-KEYWORD,termux
+DOMAIN-SUFFIX,termux-mirror.ml
+DOMAIN-SUFFIX,bintray.com
+DOMAIN-SUFFIX,grimler.se
 
 #TED
 DOMAIN-SUFFIX,tedcdn.com
