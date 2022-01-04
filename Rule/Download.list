@@ -97,6 +97,7 @@ DOMAIN-KEYWORD,termux
 DOMAIN-SUFFIX,termux-mirror.ml
 DOMAIN-SUFFIX,bintray.com
 DOMAIN-SUFFIX,grimler.se
+DOMAIN-SUFFIX,kcubeterm.me
 
 #TED
 DOMAIN-SUFFIX,tedcdn.com
@@ -167,3 +168,7 @@ DOMAIN-KEYWORD,terabox.com
 DOMAIN-KEYWORD,dubox.com
 
 DOMAIN-KEYWORD,xposed
+
+#uup更新
+DOMAIN-KEYWORD,uupdump.ml
+DOMAIN-KEYWORD,uupdump.net
