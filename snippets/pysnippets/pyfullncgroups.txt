@@ -1,4 +1,4 @@
-🚀 全球互联`select`(AIA|IEPL|IPLC)`[]🚀 全部节点
+🚀 全球互联`select`(AIA|IEPL|IPLC|专线)`[]🚀 全部节点
 🚀 全部节点`select`^(?!.*(ABC云|网易云|游戏).*).*(港|日|美|韩|坡|狮城)
 🎥 Netflix`select`^(?!.*(ABC云|网易云|游戏).*).*(港|日|美|韩|坡|狮城)
 📹 Youtube`select`^(?!.*(ABC云|网易云|游戏).*).*(港|日|美|韩|坡|狮城)
