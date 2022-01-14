@@ -121,6 +121,9 @@ DOMAIN-SUFFIX,gogodl.com
 DOMAIN-SUFFIX,lih.kg
 DOMAIN-SUFFIX,mtonews.com
 
+#Yahoo,banCN
+DOMAIN-SUFFIX,engadget.com
+
 #在线小工具
 DOMAIN-KEYWORD,regex101
 DOMAIN-SUFFIX,composerize.com
