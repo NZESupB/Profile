@@ -36,7 +36,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=prod
       - READER_APP_SECURE=true
-      - READER_APP_SECUREKEY=953608159  #管理员密码  可自行修改
+      - READER_APP_SECUREKEY= password  #管理员密码  可自行修改
       #- READER_APP_INVITECODE=123456 #注册邀请码,如需要取消注释 可自行修改
 # 自动更新docker
   watchtower:
