@@ -50,8 +50,8 @@ services:
         - TZ=Asia/Shanghai
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: read_all --cleanup --schedule "0 0 4 * * *" 
-    #仅更新read_all容器,如需其他自行添加,如:read_all nginx redis
+    command: reader watchtower --cleanup --schedule "0 0 4 * * *" 
+    #仅更新reader与watchtower容器,如需其他自行添加容器名,如:reader watchtower redis
     #--cleanup 更新后清理旧版本镜像
     #--schedule 自动检测更新 crontab定时(限定6位crontab) 此处代表凌晨4点整
 
