@@ -114,4 +114,4 @@ DOMAIN-SUFFIX,geforce.com
 DOMAIN-SUFFIX,nvidiagrid.net
 
 #Master Duel
-DOMAIN,ayk-auth.mo.konami.net
+DOMAIN-SUFFIX,mo.konami.net
