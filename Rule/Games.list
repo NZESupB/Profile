@@ -112,3 +112,6 @@ DOMAIN-SUFFIX,sonyentertainmentnetwork.com
 DOMAIN-SUFFIX,xboxlive.com
 DOMAIN-SUFFIX,geforce.com
 DOMAIN-SUFFIX,nvidiagrid.net
+
+#Master Duel
+DOMAIN,ayk-auth.mo.konami.net
