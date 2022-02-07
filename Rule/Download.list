@@ -171,3 +171,6 @@ DOMAIN-KEYWORD,xposed
 #uup更新
 DOMAIN-KEYWORD,uupdump.ml
 DOMAIN-KEYWORD,uupdump.net
+
+#未墙加速
+DOMAIN-SUFFIX,spacedesk.net
