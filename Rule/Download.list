@@ -38,6 +38,7 @@ DOMAIN-SUFFIX,goolag.store
 PROCESS-NAME,com.aurora.store
 
 #下载地址
+DOMAIN-SUFFIX,xiaomemeindex.com
 DOMAIN-SUFFIX,f-droid.org
 DOMAIN,zh.savefrom.net
 DOMAIN,download.sysinternals.com
