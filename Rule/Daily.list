@@ -131,7 +131,10 @@ DOMAIN-SUFFIX,engadget.com
 DOMAIN-KEYWORD,regex101
 DOMAIN-SUFFIX,composerize.com
 
+#EA游戏测试 https://www.game-debate.com/can-I-run/?EA
 DOMAIN-SUFFIX,game-debate.com
+DOMAIN,securepubads.g.doubleclick.net
+DOMAIN,pagead2.googlesyndication.com
 
 # 论坛/Wiki/Blog
 DOMAIN-SUFFIX,merc.wiki
