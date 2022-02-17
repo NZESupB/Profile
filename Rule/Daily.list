@@ -131,6 +131,8 @@ DOMAIN-SUFFIX,engadget.com
 DOMAIN-KEYWORD,regex101
 DOMAIN-SUFFIX,composerize.com
 
+DOMAIN-SUFFIX,game-debate.com
+
 # 论坛/Wiki/Blog
 DOMAIN-SUFFIX,merc.wiki
 DOMAIN-SUFFIX,tap.io
