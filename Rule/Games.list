@@ -23,25 +23,30 @@ DOMAIN-SUFFIX,paragon.com
 DOMAIN-SUFFIX,unrealengine.com
 
 # sbeam
-PROCESS-NAME,steam.exe
-PROCESS-NAME,steamwebhelper.exe
 DOMAIN-SUFFIX,steam-chat.com
-DOMAIN-SUFFIX,steamcontent.com
-DOMAIN-SUFFIX,steamgames.com
-DOMAIN-SUFFIX,steampowered.com
-DOMAIN-SUFFIX,steamstat.us
-DOMAIN-SUFFIX,steamstatic.com
-DOMAIN-SUFFIX,steamusercontent.com
 DOMAIN-SUFFIX,steamcommunity.com
-DOMAIN-SUFFIX,fanatical.com
-DOMAIN-SUFFIX,humblebundle.com
-DOMAIN,steambroadcast.akamaized.net
-DOMAIN,steamcdn-a.akamaihd.net
-DOMAIN,steamcommunity-a.akamaihd.net
-DOMAIN,steamstore-a.akamaihd.net
-DOMAIN,steamusercontent-a.akamaihd.net
-DOMAIN,steamusercontent-a.akamaihd.net
-DOMAIN,steamuserimages-a.akamaihd.net
+DOMAIN-SUFFIX,steampowered.com
+DOMAIN-SUFFIX,steamstatic.com
+
+#PROCESS-NAME,steam.exe
+#PROCESS-NAME,steamwebhelper.exe
+#DOMAIN-SUFFIX,steam-chat.com
+#DOMAIN-SUFFIX,steamcontent.com
+#DOMAIN-SUFFIX,steamgames.com
+#DOMAIN-SUFFIX,steampowered.com
+#DOMAIN-SUFFIX,steamstat.us
+#DOMAIN-SUFFIX,steamstatic.com
+#DOMAIN-SUFFIX,steamusercontent.com
+#DOMAIN-SUFFIX,steamcommunity.com
+#DOMAIN-SUFFIX,fanatical.com
+#DOMAIN-SUFFIX,humblebundle.com
+#DOMAIN,steambroadcast.akamaized.net
+#DOMAIN,steamcdn-a.akamaihd.net
+#DOMAIN,steamcommunity-a.akamaihd.net
+#DOMAIN,steamstore-a.akamaihd.net
+#DOMAIN,steamusercontent-a.akamaihd.net
+#DOMAIN,steamusercontent-a.akamaihd.net
+#DOMAIN,steamuserimages-a.akamaihd.net
 
 # LOLPBE
 DOMAIN-SUFFIX,riotcdn.net
