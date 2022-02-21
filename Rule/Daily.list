@@ -215,3 +215,6 @@ DOMAIN-SUFFIX,embycrack.tk
 
 #一些cdn
 DOMAIN-SUFFIX,b-cdn.net
+
+# 磁力搜索站
+DOMAIN,nyaa.si
