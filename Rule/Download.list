@@ -154,15 +154,16 @@ DOMAIN-SUFFIX,macos.now.sh
 DOMAIN-SUFFIX,codecanyon.net
 DOMAIN-SUFFIX,spagreen.net
 
-# Emby服务器
+# Emby服务器 (建议自选ip修改host)
 DOMAIN-SUFFIX,emby.wtf
-DOMAIN-SUFFIX,embyplus.club
+# DOMAIN-SUFFIX,embyplus.club
+# DOMAIN-SUFFIX,charontv.com
 DOMAIN-SUFFIX,jmsooo.com
 DOMAIN-SUFFIX,xeton.dev
 DOMAIN-SUFFIX,emby.nyancat.net
 DOMAIN-SUFFIX,emby.3dmmp.com
-DOMAIN-SUFFIX,charontv.com
 DOMAIN-SUFFIX,haochi.media
+
 #Embyiptv
 IP-CIDR,142.54.179.138/32
 
