@@ -184,6 +184,7 @@ DOMAIN-SUFFIX,fishport.cyou
 DOMAIN-SUFFIX,cordcloud.org
 DOMAIN-SUFFIX,immtel.com
 DOMAIN-SUFFIX,semitelecom.net
+DOMAIN-SUFFIX,nanoport.xyz
 DOMAIN-SUFFIX,sub.tomlink9527.xyz
 DOMAIN-SUFFIX,getelement.cc
 DOMAIN-SUFFIX,tomlink.org
@@ -218,3 +219,8 @@ DOMAIN-SUFFIX,b-cdn.net
 
 # 磁力搜索站
 DOMAIN,nyaa.si
+
+#Google
+DOMAIN,ssl.gstatic.com
+DOMAIN,beacons.gcp.gvt2.com
+DOMAIN,beacons3.gvt2.com
