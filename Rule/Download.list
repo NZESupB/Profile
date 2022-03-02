@@ -141,6 +141,7 @@ DOMAIN-SUFFIX,wataboku.com
 
 #软件
 DOMAIN-SUFFIX,screentogif.com
+DOMAIN,cdn.netsarang.net
 
 # Emby
 PROCESS-NAME,com.mb.android
