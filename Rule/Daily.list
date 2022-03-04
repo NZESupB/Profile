@@ -9,6 +9,7 @@ PROCESS-NAME,fjava.exe
 PROCESS-NAME,Xshell.exe
 PROCESS-NAME,electerm.exe
 PROCESS-NAME,Termius.exe
+PROCESS-NAME,WindTerm.exe
 
 IP-CIDR,140.238.52.8/32
 
