@@ -1,0 +1,1 @@
+shadowsocks=cncusouth.procncon.xyz:560, method=chacha20-ietf, password=mblank1port, ssr-protocol=auth_aes128_md5, ssr-protocol-param=52794:123456, fast-open=false, udp-relay=false, tag=HKT
