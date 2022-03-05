@@ -180,3 +180,8 @@ DOMAIN-KEYWORD,uupdump.net
 
 #未墙加速
 DOMAIN-SUFFIX,spacedesk.net
+
+#OPGG
+DOMAIN,legendspatch-lol.cdn.x-cdn.com
+DOMAIN,desktop-patch.op.gg
+DOMAIN,opgg-desktop-patch.akamaized.net
