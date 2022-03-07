@@ -17,7 +17,7 @@
 (Costa Rica|哥斯达黎加),🇨🇷
 (塞浦路斯|Cyprus),🇨🇾
 (Czech|捷克),🇨🇿
-(DE|Germany|法兰克福|[^-]德),🇩🇪
+(DE|Germany|法兰克福|[^-]德|德国),🇩🇪
 (Denmark|丹麦),🇩🇰
 (爱沙尼亚|Estonia),🇪🇪
 (埃及|Egypt),🇪🇬
