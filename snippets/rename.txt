@@ -19,6 +19,7 @@ Netflix@*
 
 RUS@俄罗斯
 AUS?@澳大利亚
+IDN@印度尼西亚
 FRA?@法国
 DEU?@德国
 ESP@西班牙
@@ -26,6 +27,9 @@ ISL@冰岛
 DNK@丹麦
 CAN@加拿大
 GBR|UK@英国
+VNM@越南
+THA@泰国
+TUR@土耳其
 POL@波兰
 NLD@荷兰
 HKG?|Hong ?Kong@香港
