@@ -72,6 +72,7 @@ DOMAIN,winscp-static-746341.c.cdn77.org
 DOMAIN-SUFFIX,apkmirror.com
 DOMAIN-SUFFIX,golang.org
 DOMAIN-SUFFIX,googleapis.cn
+DOMAIN,www.googleapis.com
 DOMAIN-SUFFIX,pypi.org
 DOMAIN-SUFFIX,filezilla-project.org
 DOMAIN-SUFFIX,vercel.app
@@ -185,3 +186,4 @@ DOMAIN-SUFFIX,spacedesk.net
 DOMAIN,legendspatch-lol.cdn.x-cdn.com
 DOMAIN,desktop-patch.op.gg
 DOMAIN,opgg-desktop-patch.akamaized.net
+

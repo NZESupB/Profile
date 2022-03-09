@@ -92,6 +92,14 @@ DOMAIN,api-ap.ten-sura-m.wfs.games
 DOMAIN,bn-payment.wrightflyer.net
 DOMAIN-KEYWORD,stripe
 
+#有尾恶魔
+DOMAIN-SUFFIX,chartboost.com
+DOMAIN-SUFFIX,applovin.com
+DOMAIN-SUFFIX,tapjoy.com
+DOMAIN-SUFFIX,api.vungle.com
+DOMAIN,adc3-launch.adcolony.com
+DOMAIN,init.supersonicads.com
+DOMAIN,tnc16-alisg.isnssdk.com
 
 # RockStar
 DOMAIN-SUFFIX,rockstargames.com
