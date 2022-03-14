@@ -36,6 +36,7 @@ DOMAIN,aefd.nelreports.net
 DOMAIN,reports.exodus-privacy.eu.org
 DOMAIN-SUFFIX,goolag.store
 PROCESS-NAME,com.aurora.store
+DOMAIN,ftp.fau.de
 
 #F-Droid
 DOMAIN-SUFFIX,f-droid.org

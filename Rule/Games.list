@@ -132,3 +132,6 @@ DOMAIN-SUFFIX,nvidiagrid.net
 
 #Master Duel
 DOMAIN-SUFFIX,mo.konami.net
+
+#艾尔登服务器
+DOMAIN-SUFFIX,fromsoftware-game.net:10901
