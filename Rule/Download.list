@@ -194,3 +194,7 @@ DOMAIN,legendspatch-lol.cdn.x-cdn.com
 DOMAIN,desktop-patch.op.gg
 DOMAIN,opgg-desktop-patch.akamaized.net
 
+#sbeam Download
+DOMAIN,steamcdn-a.akamaihd.net
+
+
