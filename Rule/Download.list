@@ -191,8 +191,10 @@ DOMAIN-SUFFIX,spacedesk.net
 
 #OPGG
 DOMAIN,legendspatch-lol.cdn.x-cdn.com
-DOMAIN,desktop-patch.op.gg
+DOMAIN-SUFFIX,op.gg
 DOMAIN,opgg-desktop-patch.akamaized.net
+DOMAIN,opgg-desktop-data.akamaized.net
+DOMAIN,opgg-static.akamaized.net
 
 #sbeam Download
 DOMAIN,steamcdn-a.akamaihd.net
