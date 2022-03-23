@@ -100,6 +100,7 @@ DOMAIN-SUFFIX,api.vungle.com
 DOMAIN,adc3-launch.adcolony.com
 DOMAIN,init.supersonicads.com
 DOMAIN,tnc16-alisg.isnssdk.com
+PROCESS-NAME,com.cookapps.taileddemonslayer
 
 # RockStar
 DOMAIN-SUFFIX,rockstargames.com
@@ -135,3 +136,4 @@ DOMAIN-SUFFIX,mo.konami.net
 
 #艾尔登服务器
 DOMAIN-SUFFIX,fromsoftware-game.net
+PROCESS-NAME,eldenring.exe
