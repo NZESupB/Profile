@@ -173,8 +173,8 @@ DOMAIN-SUFFIX,emby.nyancat.net
 DOMAIN-SUFFIX,emby.3dmmp.com
 DOMAIN-SUFFIX,haochi.media
 
-#Embyiptv
-IP-CIDR,142.54.179.138/32
+#ios模拟器
+DOMAIN-SUFFIX,appetize.io
 
 #百度国际
 DOMAIN-KEYWORD,terabox.com
