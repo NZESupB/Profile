@@ -127,6 +127,9 @@ DOMAIN-SUFFIX,mtonews.com
 DOMAIN-SUFFIX,imdb.com
 DOMAIN-SUFFIX,zfaka.xyz
 
+#幻想世界发卡
+DOMAIN-KEYWORD,hxsj
+
 #Yahoo,banCN
 DOMAIN-SUFFIX,engadget.com
 
