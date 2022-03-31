@@ -165,9 +165,10 @@ DOMAIN-SUFFIX,spagreen.net
 
 # Emby服务器 (建议自选ip修改host)
 DOMAIN-SUFFIX,emby.wtf
-# DOMAIN-SUFFIX,embyplus.club
-# DOMAIN-SUFFIX,charontv.com
-DOMAIN-SUFFIX,jmsooo.com
+DOMAIN,cf.emby.info
+DOMAIN,cf.embyplus.club
+DOMAIN,play.charontv.com
+DOMAIN,cf.jmsooo.com
 DOMAIN-SUFFIX,xeton.dev
 DOMAIN-SUFFIX,emby.nyancat.net
 DOMAIN-SUFFIX,emby.3dmmp.com
