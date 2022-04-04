@@ -43,7 +43,7 @@ ZJ(-P)?@丽水
 DEU?@德国
 GZCM-香港|GZCM-P|GZCM|广移中继|GZ-P@广移
 CN2-香港@CN2
-CSCU-香港|CSCU|CUCU|HZCU-香港|HZCU|河南联通|湖南联通|湖南聯通@联通
+CSCU-香港|CSCU|CUCU|HZCU-香港|HZCU|SHCU|河南联通|湖南联通|湖南聯通@联通
 香港IX@HKIX
 香港T@HKT
 Relay@中继
