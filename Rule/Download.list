@@ -200,4 +200,9 @@ DOMAIN,opgg-static.akamaized.net
 #sbeam Download
 DOMAIN,steamcdn-a.akamaihd.net
 
+#Spotify 可以无需代理
+PROCESS-NAME,Spotify.exe
+PROCESS-NAME,com.spotify.music
+DOMAIN-SUFFIX,spotifycdn.com
+DOMAIN-SUFFIX,spotify.com
 
