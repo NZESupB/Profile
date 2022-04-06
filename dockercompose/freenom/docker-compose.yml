@@ -1,0 +1,24 @@
+# freenom自动续期域名
+version: '3'
+services:
+  # Github https://github.com/luolongfei/freenom  readme查看使用方法
+  freenom:
+    image: luolongfei/freenom
+    container_name: freenom
+    restart: always
+    volumes:
+      - /home/freenom:/conf
+      - /home/freenom/logs:/app/logs
+    environment:
+      - RUN_AT=11:24
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    environment:
+        - TZ=Asia/Shanghai
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: watchtower freenom --cleanup --schedule "0 0 4 * * *" 
+volumes:
+  umami-db-data:

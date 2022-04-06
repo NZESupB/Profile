@@ -1,5 +1,5 @@
+#WordPress博客
 version: '3.1'
-
 services:
   wordpress:
     image: wordpress
@@ -27,6 +27,15 @@ services:
       MYSQL_ROOT_PASSWORD: rootpassword
     volumes:
       - /var/www/db:/var/lib/mysql
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    environment:
+        - TZ=Asia/Shanghai
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: mariadb wordpress watchtower --cleanup --schedule "0 0 4 * * *" 
 volumes:
   wordpress:
   db1:

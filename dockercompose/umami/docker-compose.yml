@@ -1,0 +1,39 @@
+#umami 简单的网站统计系统
+version: '3'
+services:
+  #https://github.com/mikecao/umami readme查看使用方法
+  umami:
+    image: ghcr.io/mikecao/umami:mysql-latest
+    container_name: umami
+    ports:
+      - "127.0.0.1:45585:3000"
+    environment:
+      DATABASE_URL: mysql://sqluername:sqlpassword@db-umami:3306/umami
+      DATABASE_TYPE: mysql
+      HASH_SALT: replace-me-with-a-random-string
+    depends_on:
+      - db-umami
+    restart: always
+  db-umami:
+    image: mariadb
+    container_name: umamidb
+    environment:
+      MYSQL_DATABASE: umami
+      MYSQL_USER: sqluername
+      MYSQL_PASSWORD: sqlpassword
+      MYSQL_ROOT_PASSWORD: sqlrootpassword
+    volumes:
+      - /home/umami/sql/schema.mysql.sql:/docker-entrypoint-initdb.d/schema.mysql.sql:ro
+      - umami-db-data:/var/lib/mysql/data
+    restart: always
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    environment:
+        - TZ=Asia/Shanghai
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: umami watchtower umamidb --cleanup --schedule "0 0 4 * * *" 
+volumes:
+  umami-db-data:

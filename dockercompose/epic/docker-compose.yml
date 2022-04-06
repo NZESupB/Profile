@@ -1,6 +1,7 @@
+#Epic 自动领取游戏 (Tips: 2022.3 已无效,待修复)
 version: '3'
-#https://hub.docker.com/r/luminoleon/epicgames-claimer
 services:
+    #https://hub.docker.com/r/luminoleon/epicgames-claimer
     epic-a:
         image: luminoleon/epicgames-claimer
         container_name: epic-a
@@ -33,3 +34,13 @@ services:
         - PUSH_TELEGRAM_BOT_TOKEN=
         - PUSH_TELEGRAM_CHAT_ID=
         - NO_STARTUP_NOTIFICATION=true
+    # 自动更新
+    watchtower:
+        image: containrrr/watchtower
+        container_name: watchtower
+        restart: always
+        environment:
+        - TZ=Asia/Shanghai
+        volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        command: epic-a epic-b watchtower --cleanup --schedule "0 0 4 * * *" 
