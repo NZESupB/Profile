@@ -13,6 +13,7 @@ DOMAIN-KEYWORD,dynamodb
 DOMAIN-SUFFIX,piapro.net
 DOMAIN-KEYWORD,andapp
 DOMAIN-KEYWORD,hekk
+DOMAIN-SUFFIX,johren.games
 
 # epic
 PROCESS-NAME,EpicGamesLauncher.exe
