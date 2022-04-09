@@ -19,6 +19,9 @@ DOMAIN-SUFFIX,dwnews.com
 #游戏资讯(未墙)
 DOMAIN-SUFFIX,gamerch.com
 
+#soga文档
+DOMAIN,aagit.yougotme.cc
+
 DOMAIN-SUFFIX,tgstat.com
 DOMAIN-SUFFIX,quickfever.com
 DOMAIN-SUFFIX,tenor.com
@@ -126,6 +129,9 @@ DOMAIN-SUFFIX,lih.kg
 DOMAIN-SUFFIX,mtonews.com
 DOMAIN-SUFFIX,imdb.com
 DOMAIN-SUFFIX,zfaka.xyz
+
+DOMAIN-SUFFIX,bangumi.tv
+DOMAIN,share.acgnx.se
 
 #幻想世界发卡
 DOMAIN-KEYWORD,hxsj
