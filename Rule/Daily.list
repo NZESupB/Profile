@@ -172,6 +172,8 @@ DOMAIN,butterfly.js.org
 DOMAIN-SUFFIX,lvv2.com
 DOMAIN-SUFFIX,pixnet.net
 DOMAIN-SUFFIX,mokeedev.com
+DOMAIN-SUFFIX,longmabook.com
+
 
 #CPUInfo
 DOMAIN-SUFFIX,technical.city
@@ -210,6 +212,8 @@ DOMAIN-SUFFIX,xprpr.io
 DOMAIN-SUFFIX,liyingcloud.org
 DOMAIN-SUFFIX,huacloud.dev
 DOMAIN-SUFFIX,flowercloud.net
+DOMAIN-SUFFIX,nekoneko.cloud
+DOMAIN-SUFFIX,idc.wiki
 
 DOMAIN-SUFFIX,rooot.fan
 
