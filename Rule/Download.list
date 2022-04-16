@@ -158,6 +158,8 @@ DOMAIN-SUFFIX,tmdb.org
 DOMAIN-SUFFIX,assets.fanart.tv
 DOMAIN,ws-mt1.pusher.com
 
+DOMAIN,anty.dolphin.ru.com
+
 #WebOS
 DOMAIN-SUFFIX,macos.now.sh
 DOMAIN-SUFFIX,codecanyon.net
