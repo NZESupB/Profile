@@ -38,7 +38,7 @@ proxies:
 proxy-providers:
   ABCloud_Game:
     type: http
-    url: "https://z.nxnow.online/csub?url=订阅链接&include=游戏"
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=游戏"
     interval: 43200
     path: ./Proxy/ABCloud_Game.yaml
     health-check:
@@ -47,7 +47,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
   TomLink_HK:
     type: http
-    url: "https://z.nxnow.online/csub?url=订阅链接&include=港|HKT|AGA"
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=港|HKT|AGA"
     interval: 43200
     path: ./Proxy/TomLink_HK.yaml
     health-check:
@@ -56,7 +56,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204 
   TomLink_US:
     type: http
-    url: "https://z.nxnow.online/csub?url=订阅链接&include=美"
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=美"
     interval: 43200
     path: ./Proxy/TomLink_US.yaml
     health-check:
@@ -65,7 +65,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204 
   TomLink_SGP:
     type: http
-    url: "https://z.nxnow.online/csub?url=订阅链接&include=坡"
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=坡"
     interval: 43200
     path: ./Proxy/TomLink_SGP.yaml
     health-check:
@@ -74,7 +74,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
   TomLink_JP:
     type: http
-    url: "https://z.nxnow.online/csub?url=订阅链接&include=日"
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=日"
     interval: 43200
     path: ./Proxy/TomLink_JP.yaml
     health-check:
@@ -83,7 +83,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
   TomLink_TW:
     type: http
-    url: "https://z.nxnow.online/csub?url=订阅链接&include=台"
+    url: "https://z.nxnow.top/csub?url=订阅链接&include=台"
     interval: 43200
     path: ./Proxy/TomLink_TW.yaml
     health-check:
@@ -92,7 +92,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
   NetEase_Proxy:
     type: http
-    url: "https://z.nxnow.online/csub?url=https://raw.githubusercontent.com/NZESupB/Profile/main/NetEaseFree"
+    url: "https://z.nxnow.top/csub?url=https://raw.githubusercontent.com/NZESupB/Profile/main/NetEaseFree"
     path: ./Proxy/NetEase_Proxy.yaml
     interval: 43200
     health-check:
@@ -201,127 +201,127 @@ rule-providers:
     type: http
     behavior: classical
     path: ./RuleSet/Local_Area_Network.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RpbmR5MjAxMy9zdWJjb252ZXJ0ZXIvbWFzdGVyL2Jhc2UvcnVsZXMvTG9jYWxBcmVhTmV0d29yay5saXN0
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3RpbmR5MjAxMy9zdWJjb252ZXJ0ZXIvbWFzdGVyL2Jhc2UvcnVsZXMvTG9jYWxBcmVhTmV0d29yay5saXN0
     interval: 43200
   💻 强制直连:
     type: http
     behavior: classical
     path: ./RuleSet/MyDirect.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGlyZWN0Lmxpc3Q
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGlyZWN0Lmxpc3Q
     interval: 43200
   🎶 网易云音乐:
     type: http
     behavior: classical
     path: ./RuleSet/NetEaseMusic.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUnVsZXNldC9OZXRFYXNlTXVzaWMubGlzdA
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUnVsZXNldC9OZXRFYXNlTXVzaWMubGlzdA
     interval: 43200
   📲 Telegram:
     type: http
     behavior: classical
     path: ./RuleSet/Telegram.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9FeHRyYS9UZWxlZ3JhbS9UZWxlZ3JhbS5saXN0
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9FeHRyYS9UZWxlZ3JhbS9UZWxlZ3JhbS5saXN0
     interval: 43200
   🌍 国外媒体:
     type: http
     behavior: classical
     path: ./RuleSet/Streaming.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmcubGlzdA
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmcubGlzdA
     interval: 43200
   🌏 国内国际媒体:
     type: http 
     behavior: classical
     path: ./RuleSet/StreamingSE.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmdTRS5saXN0
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmdTRS5saXN0
     interval: 43200
   🌏 国内媒体:
     type: http 
     behavior: classical
     path: ./RuleSet/StreamingCN.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmdDTi5saXN0
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmdDTi5saXN0
     interval: 43200
   🛑 广告拦截:
     type: http 
     behavior: classical
     path: ./RuleSet/Advertising.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9HdWFyZC9BZHZlcnRpc2luZy5saXN0
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9HdWFyZC9BZHZlcnRpc2luZy5saXN0
     interval: 43200
   🛑 隐私拦截:
     type: http 
     behavior: classical
     path: ./RuleSet/Hijacking.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9HdWFyZC9IaWphY2tpbmcubGlzdA
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9HdWFyZC9IaWphY2tpbmcubGlzdA
     interval: 43200
   🚀 全局规则:
     type: http 
     behavior: classical
     path: ./RuleSet/Global.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9HbG9iYWwubGlzdA
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9HbG9iYWwubGlzdA
     interval: 43200
   Ⓜ️ 微软:
     type: http 
     behavior: classical
     path: ./RuleSet/Microsoft.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUnVsZXNldC9NaWNyb3NvZnQubGlzdA
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUnVsZXNldC9NaWNyb3NvZnQubGlzdA
     interval: 43200
   🎯 国内直连:
     type: http 
     behavior: classical
     path: ./RuleSet/China.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9DaGluYS5saXN0
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9DaGluYS5saXN0
     interval: 43200
   🎯 IP段直连:
     type: http 
     behavior: ipcidr
     path: ./RuleSet/ChinaIP.yaml
-    url: https://z.nxnow.online/iprule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9FeHRyYS9DaGluYUlQLmxpc3Q
+    url: https://z.nxnow.top/iprule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9FeHRyYS9DaGluYUlQLmxpc3Q
     interval: 43200
   🇬 GoogleFCM:
     type: http 
     behavior: classical
     path: ./RuleSet/GoogleFCM.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUnVsZXNldC9Hb29nbGVGQ00ubGlzdA
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUnVsZXNldC9Hb29nbGVGQ00ubGlzdA
     interval: 43200
   🎮 游戏娱乐:
     type: http 
     behavior: classical
     path: ./RuleSet/Game.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvR2FtZXMubGlzdA
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvR2FtZXMubGlzdA
     interval: 43200
   ⚡ 视频下载:
     type: http 
     behavior: classical
     path: ./RuleSet/Download.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRG93bmxvYWQubGlzdA
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRG93bmxvYWQubGlzdA
     interval: 43200
   ⚡ SpeedTest:
     type: http 
     behavior: classical
     path: ./RuleSet/SpeedTest.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvU3BlZWR0ZXN0Lmxpc3Q
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvU3BlZWR0ZXN0Lmxpc3Q
     interval: 43200
   🌍 轻量浏览:
     type: http 
     behavior: classical
     path: ./RuleSet/Daily.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGFpbHkubGlzdA
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGFpbHkubGlzdA
     interval: 43200
   🇺🇸 US_List:
     type: http 
     behavior: classical
     path: ./RuleSet/US_Rule.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvdXMubGlzdA
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvdXMubGlzdA
     interval: 43200
   🇯🇵 JP_List:
     type: http 
     behavior: classical
     path: ./RuleSet/JP_Rule.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvanAubGlzdA
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvanAubGlzdA
     interval: 43200
   🌐 规则修正:
     type: http 
     behavior: classical
     path: ./RuleSet/Unbreak.yaml
-    url: https://z.nxnow.online/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9VbmJyZWFrLmxpc3Q
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9VbmJyZWFrLmxpc3Q
     interval: 43200
 # 规则
 rules:

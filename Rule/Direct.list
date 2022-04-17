@@ -1,26 +1,7 @@
 DOMAIN,cn.ekg.riotgames.com
-DOMAIN-SUFFIX,bbs.nubia.com
-DOMAIN-SUFFIX,jd.com
-DOMAIN-SUFFIX,oraclecloud.com
 DOMAIN,musicupload.netease.com
 DOMAIN,xinruimz-isv.isvjcloud.com
 
-# Torrent
-PROCESS-NAME,Thunder
-PROCESS-NAME,DownloadService
-PROCESS-NAME,qBittorrent
-PROCESS-NAME,Transmission
-PROCESS-NAME,aria2c
-PROCESS-NAME,Folx
-PROCESS-NAME,NetTransport
-PROCESS-NAME,uTorrent
-PROCESS-NAME,WebTorrent
-PROCESS-NAME,BitComet
-PROCESS-NAME,qbittorrent
-PROCESS-NAME,ThunderVIP
-PROCESS-NAME,transmission-daemon
-PROCESS-NAME,transmission-qt
-
-# Dashboad
+#Clash Dashboad
 DOMAIN,clash.razord.top
 DOMAIN,yacd.haishan.me

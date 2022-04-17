@@ -3,7 +3,7 @@ services:
 
 # reader 在线阅读 
 # 作者GitHub : https://github.com/hectorqin/reader
-# 本人在线演示(服务器位于日本) : https://reader.nxnow.online ,账号/密码分别为guest/guest123,也可自行创建账号添加书源
+# 本人在线演示(服务器位于日本) : https://reader.nxnow.online,如果打不开则是: https://reader.nxnow.top ,账号/密码分别为guest/guest123,也可自行创建账号添加书源
 # 书源参考 : https://github.com/NZESupB/ReadSource ,书源合集下选一个合集进入网页后, Ctrl+S 保存至本地后导入网站即可
 
 #docker run -d --restart=always --name=reader -e "SPRING_PROFILES_ACTIVE=prod" -v $(PWD)/logs:/logs -v $(PWD)/storage:/storage -p 8080:8080 hectorqin/reader
