@@ -208,3 +208,6 @@ PROCESS-NAME,com.spotify.music
 DOMAIN-SUFFIX,spotifycdn.com
 DOMAIN-SUFFIX,spotify.com
 
+#电台
+DOMAIN-SUFFIX,radio.garden
+
