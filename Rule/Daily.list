@@ -11,8 +11,6 @@ PROCESS-NAME,electerm.exe
 PROCESS-NAME,Termius.exe
 PROCESS-NAME,WindTerm.exe
 
-IP-CIDR,140.238.52.8/32
-
 #新闻资讯
 DOMAIN-SUFFIX,dwnews.com
 
