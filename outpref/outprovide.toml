@@ -1,0 +1,11 @@
+[[emojis.emoji]]
+import = "https://raw.githubusercontent.com/NZESupB/Profile/main/snippets/emoji.toml"
+[[node_pref.rename_node]]
+import = "https://raw.githubusercontent.com/NZESupB/Profile/main/snippets/rename.toml"
+[[rulesets]]
+import = "https://raw.githubusercontent.com/NZESupB/Profile/main/snippets/easyrule.toml"
+[[custom_groups]]
+import = "https://raw.githubusercontent.com/NZESupB/Profile/main/snippets/easygroups.toml"
+
+overwrite_original_rules = true
+update_ruleset_on_request = true

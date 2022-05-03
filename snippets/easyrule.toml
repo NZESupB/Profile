@@ -1,0 +1,67 @@
+[[rulesets]]
+group = "DIRECT"
+ruleset = "https://raw.githubusercontent.com/tindy2013/subconverter/master/base/rules/LocalAreaNetwork.list"
+
+[[rulesets]]
+group = "DIRECT"
+ruleset = "https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Direct.list"
+
+[[rulesets]]
+group = "DIRECT"
+ruleset = "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list"
+
+[[rulesets]]
+group = "🚀 全球互联"
+ruleset = "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list"
+
+[[rulesets]]
+group = "🚀 全球互联"
+ruleset = "https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Download.list"
+
+[[rulesets]]
+group = "🚀 全球互联"
+ruleset = "https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Speedtest.list"
+
+[[rulesets]]
+group = "🚀 全球互联"
+ruleset = "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list"
+
+[[rulesets]]
+group = "DIRECT"
+ruleset = "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingCN.list"
+
+[[rulesets]]
+group = "🚀 全球互联"
+ruleset = "https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Daily.list"
+
+[[rulesets]]
+group = "DIRECT"
+ruleset = "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/ChinaIP.list"
+
+[[rulesets]]
+group = "REJECT"
+ruleset = "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list"
+
+[[rulesets]]
+group = "REJECT"
+ruleset = "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list"
+
+[[rulesets]]
+group = "🚀 全球互联"
+ruleset = "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list"
+
+[[rulesets]]
+group = "🚀 全球互联"
+ruleset = "https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/us.list"
+
+[[rulesets]]
+group = "🚀 全球互联"
+ruleset = "https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/jp.list"
+
+[[rulesets]]
+group = "DIRECT"
+ruleset = "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list"
+
+[[rulesets]]
+group = "🐟 漏网之鱼"
+ruleset = "[]FINAL"

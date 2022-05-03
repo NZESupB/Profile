@@ -1,0 +1,13 @@
+[[custom_groups]]
+name = "🚀 全球互联"
+type = "select"
+rule = [(AIA|IEPL|IPLC))]
+
+
+[[custom_groups]]
+name = "🐟 漏网之鱼"
+type = "select"
+rule = ["[]DIRECT",
+"[]🚀 全球互联"]
+
+
