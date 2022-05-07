@@ -210,3 +210,6 @@ DOMAIN-SUFFIX,spotify.com
 #电台
 DOMAIN-SUFFIX,radio.garden
 
+#两个抓包软件下载
+DOMAIN,plug-mirror.rcac.purdue.edu
+DOMAIN-SUFFIX,charlesproxy.com
