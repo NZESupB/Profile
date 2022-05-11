@@ -1,5 +1,6 @@
 proxies:
   - {name: v2_13, server: 192.168.6.13, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
   - {name: v2_103, server: 192.168.6.103, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
-  - {name: v2n_13, server: 192.168.6.13, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: http://192.168.1.194:8080}}}
-  - {name: v2n_103, server: 192.168.6.103, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: http://192.168.1.194:8080}}}
+  - {name: v2n_12, server: 192.168.6.12, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: http://192.168.1.194}}}
+  - {name: v2n_13, server: 192.168.6.13, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: http://192.168.1.194}}}
+  - {name: v2n_103, server: 192.168.6.103, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: http://192.168.1.194}}}
