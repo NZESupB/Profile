@@ -1,8 +1,8 @@
 mixin:
   dns:
     enable: true
-    # listen: 0.0.0.0:53 #若使用Tap模式则取消此行注释
-    enhanced-mode: redir-host #1.8.0版本建议使用fakeip,但不建议更新此版本
+    # listen: 0.0.0.0:53 #若使用Tap模式则取消此行注释(建议不用)
+    enhanced-mode: redir-host #1.8.0以上版本建议使用fakeip
     # DNS搜索 : https://kb.adguard.com/zh/general/dns-providers
     nameserver:
       - https://doh.pub/dns-query #腾讯doh
@@ -13,8 +13,8 @@ mixin:
       - tls://dot.sb:853 #dnssb-dot
   tun:
     enable: true
-    stack: gvisor # system
+    stack: system # system gvisor (Windows启用system需要手动放行防火墙)
     dns-hijack:
       - 198.18.0.2:53
-    macOS-auto-route: true
-    macOS-auto-detect-interface: true
+    auto-route: true
+    auto-detect-interface: true

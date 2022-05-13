@@ -90,15 +90,6 @@ proxy-providers:
       enable: true
       interval: 3600
       url: http://www.gstatic.com/generate_204
-  NetEase_Proxy:
-    type: http
-    url: "https://z.nxnow.top/csub?url=https://raw.githubusercontent.com/NZESupB/Profile/main/NetEaseFree"
-    path: ./Proxy/NetEase_Proxy.yaml
-    interval: 43200
-    health-check:
-      enable: false
-      interval: 3600 #半天
-      url: http://www.gstatic.com/generate_204
 
 proxy-groups:
   - name: "🚀 全球互联"
@@ -137,12 +128,6 @@ proxy-groups:
       - 🇯🇵 日本
       - 🇺🇸 美国
       - 🇸🇬 新加坡
-  - name: "🎶 网易云音乐"
-    type: select
-    use:
-      - NetEase_Proxy
-    proxies:
-      - DIRECT
   - name: "🌏 国内媒体"
     type: select
     use:
@@ -208,12 +193,6 @@ rule-providers:
     behavior: classical
     path: ./RuleSet/MyDirect.yaml
     url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGlyZWN0Lmxpc3Q
-    interval: 43200
-  🎶 网易云音乐:
-    type: http
-    behavior: classical
-    path: ./RuleSet/NetEaseMusic.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUnVsZXNldC9OZXRFYXNlTXVzaWMubGlzdA
     interval: 43200
   📲 Telegram:
     type: http
@@ -336,7 +315,6 @@ rules:
   - RULE-SET,🇯🇵 JP_List,🇯🇵 日本
   - RULE-SET,📲 Telegram,📲 Telegram
   - RULE-SET,🇬 GoogleFCM,DIRECT
-  - RULE-SET,🎶 网易云音乐,🎶 网易云音乐
   - RULE-SET,⚡ 视频下载,🌍 国外媒体
   - RULE-SET,⚡ SpeedTest,⚡ 网速测试
   - RULE-SET,🎮 游戏娱乐,🎮 游戏娱乐
