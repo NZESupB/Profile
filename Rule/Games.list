@@ -71,6 +71,7 @@ DOMAIN,jp-blue.lol.sgp.pvp.net
 DOMAIN,jp-red.lol.sgp.pvp.net
 DOMAIN,us-blue.lol.sgp.pvp.net
 DOMAIN,us-red.lol.sgp.pvp.net
+DOMAIN,static.rgpub.io
 IP-CIDR,162.62.158.0/24
 IP-CIDR,44.242.62.13/32
 #LOLJP
@@ -84,7 +85,6 @@ DOMAIN,sg-tdm.iegcom.com
 DOMAIN,gcloud.pokemo-unitepgame.com
 #Fantasy Life
 PROCESS-NAME,com.boltrend.floen
-DOMAIN,launches.appsflyer.com
 DOMAIN-SUFFIX,boltrend.com
 # SLIME IM
 PROCESS-NAME,com.bandainamcoent.tensuramrkww
@@ -138,3 +138,9 @@ DOMAIN-SUFFIX,mo.konami.net
 #艾尔登服务器
 DOMAIN-SUFFIX,fromsoftware-game.net
 PROCESS-NAME,eldenring.exe
+
+#碧蓝档案
+DOMAIN,toy.log.nexon.io
+DOMAIN-SUFFIX,nexon.com
+DOMAIN-KEYWORD,nexoncdn
+PROCESS-NAME,com.nexon.bluearchive
