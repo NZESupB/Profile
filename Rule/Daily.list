@@ -243,3 +243,6 @@ DOMAIN,nyaa.si
 DOMAIN,ssl.gstatic.com
 DOMAIN,beacons.gcp.gvt2.com
 DOMAIN,beacons3.gvt2.com
+
+#cfa测试
+DOMAIN,www.msftconnecttest.com
