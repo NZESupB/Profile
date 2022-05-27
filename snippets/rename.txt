@@ -22,7 +22,6 @@ SGP?|狮城@新加坡
 TWN?@台湾
 USA?@美国
 JPN?@日本
-Japan@日本|
 IND?@印度
 KR|KOR@韩国
 ZJ(-P)?@丽水
