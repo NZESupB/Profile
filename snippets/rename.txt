@@ -18,17 +18,13 @@ TUR@土耳其
 POL@波兰
 NLD@荷兰
 HKG?@香港
-Hong Kong@香港|
 SGP?|狮城@新加坡
-Singapore@新加坡|
-TWN?|Taiwan@台湾
+TWN?@台湾
 USA?@美国
-United States@美国|
 JPN?@日本
 Japan@日本|
 IND?@印度
 KR|KOR@韩国
-South Korea@韩国|
 ZJ(-P)?@丽水
 DEU?@德国
 GZCM-香港|GZCM-P|GZCM|广移中继|GZ-P@广移
