@@ -20,10 +20,10 @@ NLD@荷兰
 HKG?|Hong ?Kong@香港
 SGP?|狮城|Singapore@新加坡
 TWN?|Taiwan@台湾
-USA?@美国
+USA?|United States@美国
 JPN?|Japan@日本
 IND?@印度
-KR|KOR@韩国
+KR|KOR|South Korea@韩国
 ZJ(-P)?@丽水
 DEU?@德国
 GZCM-香港|GZCM-P|GZCM|广移中继|GZ-P@广移
