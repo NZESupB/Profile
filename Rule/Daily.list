@@ -227,14 +227,11 @@ DOMAIN-SUFFIX,gstatic.com
 DOMAIN-SUFFIX,hi.com
 
 # >Cloudflare
-IP-CIDR,104.18.125.25/32
-IP-CIDR,104.18.121.25/32
+DOMAIN-SUFFIX,api.cloudflareapps.com
+DOMAIN-KEYWORD,cloudflare
 
 #emby破解验证
 DOMAIN-SUFFIX,embycrack.tk
-
-#一些cdn
-DOMAIN-SUFFIX,b-cdn.net
 
 # 磁力搜索站
 DOMAIN,nyaa.si
@@ -246,3 +243,8 @@ DOMAIN,beacons3.gvt2.com
 
 #cfa测试
 DOMAIN,www.msftconnecttest.com
+
+DOMAIN-SUFFIX,liyuans.com
+DOMAIN-SUFFIX,2047.one
+DOMAIN-SUFFIX,vpsoff.net
+

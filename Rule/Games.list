@@ -92,7 +92,6 @@ PROCESS-NAME,com.bandainamcoent.tensuramrkww
 DOMAIN,ten-sura-m-assets-ap.akamaized.net
 DOMAIN,api-ap.ten-sura-m.wfs.games
 DOMAIN,bn-payment.wrightflyer.net
-DOMAIN-KEYWORD,stripe
 
 #有尾恶魔
 DOMAIN-SUFFIX,chartboost.com

@@ -5,7 +5,6 @@ services:
     container_name: jdql
     restart: always
     network_mode: bridge
-    #hostname: jdql
     tty: true
     volumes:
       - ~/jdql/config:/ql/config
@@ -18,8 +17,6 @@ services:
       - ~/jdql/jbot:/ql/jbot
     ports:
       - 5789:5700
-      #- 5889:5701
-      #- 5999:23456 #go-cq
     environment:
       - ENABLE_HANGUP=true
       - ENABLE_WEB_PANEL=true

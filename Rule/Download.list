@@ -37,6 +37,7 @@ DOMAIN,reports.exodus-privacy.eu.org
 DOMAIN-SUFFIX,goolag.store
 PROCESS-NAME,com.aurora.store
 DOMAIN,ftp.fau.de
+DOMAIN-SUFFIX,auroraoss.com
 
 #F-Droid
 DOMAIN-SUFFIX,f-droid.org
@@ -213,3 +214,10 @@ DOMAIN-SUFFIX,radio.garden
 #两个抓包软件下载
 DOMAIN,plug-mirror.rcac.purdue.edu
 DOMAIN-SUFFIX,charlesproxy.com
+
+DOMAIN-KEYWORD,stripe
+
+#CDN
+DOMAIN-SUFFIX,b-cdn.net
+DOMAIN-SUFFIX,discourse-cdn.com
+DOMAIN-SUFFIX,cdn.jsdelivr.net
