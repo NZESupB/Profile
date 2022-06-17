@@ -1,7 +1,0 @@
-DOMAIN,mcdn.bilivideo.cn
-DOMAIN,broadcast.chat.bilibili.com
-DOMAIN,stun.chat.bilibili.com
-DOMAIN,stun1.chat.bilibili.com
-;stun(.*).chat.bilibili.com
-;(.*)-p2p-(.*).chat.bilibili.com
-;(.*).v(.*)d.szbdyd.com

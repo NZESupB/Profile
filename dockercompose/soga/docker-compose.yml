@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  soga:
+    #image: vaxilu/soga:latest-arm64
+    image: vaxilu/soga:latest-arm64
+    restart: always
+    network_mode: host
+    container_name: soga
+    environment:
+        - type=v2board
+        - node_speed_limit=0
+        - api=webapi
+        - 'webapi_url=url'
+        - server_type=trojan
+        - node_id=10
+        - user_conn_limit=0
+        - user_speed_limit=0
+        - webapi_key=key
+        - trojan_remote_addr=web
+        - trojan_remote_port=port
+        - cert_domain=cert
+        - cert_mode=dns
+        - cert_key_length=ec-256
+        - dns_provider=dns_cf
+        - DNS_CF_Email=cfemail
+        - DNS_CF_Key=cfkey
+        - forbidden_bit_torrent=true
+        - 'forbidden_ports=24,25,26,50,57,105,106,109,110,143,158,209,218,220,465,587,993,995,1109,24554,60177,60179'
+        - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+        - IS_DOCKER=true
+    volumes:
+        - /etc/soga:/etc/soga

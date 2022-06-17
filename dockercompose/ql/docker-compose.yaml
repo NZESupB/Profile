@@ -15,10 +15,27 @@ services:
       - ~/jdql/raw:/ql/raw
       - ~/jdql/scripts:/ql/scripts
       - ~/jdql/jbot:/ql/jbot
+      - ~/jdql/data:/ql/data  
     ports:
       - 5789:5700
     environment:
       - ENABLE_HANGUP=true
       - ENABLE_WEB_PANEL=true
-  
-   
+  maiark:
+    image: kissyouhunter/maiark:latest
+    container_name: maiark
+    restart: always
+    network_mode: bridge
+    volumes:
+      - ~/maiark/arkconfig.json:/MaiARK/arkconfig.json
+    ports:
+      - 5889:8082
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    environment:
+        - TZ=Asia/Shanghai
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: maiark watchtower --cleanup --schedule "0 0 4 * * *"

@@ -190,9 +190,9 @@ rule-providers:
     interval: 43200
   💻 强制直连:
     type: http
-    behavior: classical
+    behavior: domain
     path: ./RuleSet/MyDirect.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGlyZWN0Lmxpc3Q
+    url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGlyZWN0Lmxpc3Q
     interval: 43200
   📲 Telegram:
     type: http
@@ -286,15 +286,15 @@ rule-providers:
     interval: 43200
   🇺🇸 US_List:
     type: http 
-    behavior: classical
+    behavior: domain
     path: ./RuleSet/US_Rule.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvdXMubGlzdA
+    url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvdXMubGlzdA
     interval: 43200
   🇯🇵 JP_List:
     type: http 
-    behavior: classical
+    behavior: domain
     path: ./RuleSet/JP_Rule.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvanAubGlzdA
+    url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvanAubGlzdA
     interval: 43200
   🌐 规则修正:
     type: http 
