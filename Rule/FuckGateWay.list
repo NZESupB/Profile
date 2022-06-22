@@ -16,6 +16,14 @@ DOMAIN-SUFFIX,weibo.cn
 DOMAIN-SUFFIX,juejin.cn
 DOMAIN-SUFFIX,baidu.com
 DOMAIN-SUFFIX,jianshu.com
+DOMAIN-SUFFIX,ruanmei.com
+DOMAIN,pic.imgdb.cn
+DOMAIN,fanyi.caiyunapp.com
+DOMAIN,fanyi.youdao.com
+DOMAIN-SUFFIX,u-tools.cn
+DOMAIN,fanyi-cdn.cdn.bcebos.com
+DOMAIN-SUFFIX,lanzoui.com
+DOMAIN-SUFFIX,lanzous.com
 
 
 
