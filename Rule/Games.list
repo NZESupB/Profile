@@ -75,8 +75,18 @@ DOMAIN,us-red.lol.sgp.pvp.net
 DOMAIN,static.rgpub.io
 IP-CIDR,162.62.158.0/24
 IP-CIDR,44.242.62.13/32
+IP-CIDR,162.247.241.10/32
 #LOLJP
 IP-CIDR,43.229.66.38/24
+
+#糖豆人
+PROCESS-NAME,FallGuys_client_game.exe
+IP-CIDR,156.59.221.101/32
+DOMAIN-SUFFIX,gamefuel.info
+DOMAIN,qos.multiplay.com
+DOMAIN,submit.backtrace.io
+DOMAIN,crl3.digicert.com
+DOMAIN-SUFFIX,fallguys.oncatapult.com
 
 #wildrift
 DOMAIN,wildrift-na.akamaized.net
