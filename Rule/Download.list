@@ -221,3 +221,6 @@ DOMAIN-KEYWORD,stripe
 DOMAIN-SUFFIX,b-cdn.net
 DOMAIN-SUFFIX,discourse-cdn.com
 DOMAIN-SUFFIX,cdn.jsdelivr.net
+
+#bluestacks
+DOMAIN-SUFFIX,bluestacks.com
