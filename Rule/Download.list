@@ -1,29 +1,20 @@
 # GooglePlay
 PROCESS-NAME,com.android.vending
 PROCESS-NAME,com.disney.disneyplus
-PROCESS-NAME,dbeaver.exe
 PROCESS-NAME,JellyfinMediaPlayer.exe
 
 #CDN全由此处接管
 DOMAIN-SUFFIX,gvt1.com
 
 #Kodi
-IP-CIDR,104.21.13.29/32
-IP-CIDR,18.179.196.87/32
-IP-CIDR,172.67.132.122/32
-IP-CIDR,75.2.94.75/32
 DOMAIN,mirror.zetup.net
 DOMAIN,mirrors.up.pt
 DOMAIN,mirrors.dotsrc.org
 
 # > Sync
+PROCESS-NAME,com.resilio.sync
 # DOMAIN-SUFFIX,getsync.com
 # DOMAIN-SUFFIX,resilio.com
-# IP-CIDR,23.111.157.86/32
-# IP-CIDR,66.165.233.194/32
-# IP-CIDR,66.165.255.194/32
-# IP-CIDR,66.206.5.74/32
-PROCESS-NAME,com.resilio.sync
 
 #抽风的CDN
 DOMAIN-SUFFIX,alpinelinux.org
@@ -158,19 +149,18 @@ DOMAIN-SUFFIX,tmdb.org
 DOMAIN-SUFFIX,assets.fanart.tv
 DOMAIN,ws-mt1.pusher.com
 
-DOMAIN,anty.dolphin.ru.com
-
 #WebOS
 DOMAIN-SUFFIX,macos.now.sh
 DOMAIN-SUFFIX,codecanyon.net
 DOMAIN-SUFFIX,spagreen.net
 
-# Emby服务器 (建议自选ip修改host)
-DOMAIN-SUFFIX,emby.wtf
-DOMAIN,cf.emby.info
-DOMAIN,cf.embyplus.club
-DOMAIN,play.charontv.com
-DOMAIN,cf.jmsooo.com
+# Emby
+IP-CIDR,51.79.222.233/32
+DOMAIN-SUFFIX,poloemby.xyz
+DOMAIN-SUFFIX,embyplus.club
+DOMAIN-SUFFIX,aaa.ax
+DOMAIN-SUFFIX,charontv.com
+DOMAIN-SUFFIX,jmsooo.com
 DOMAIN-SUFFIX,xeton.dev
 DOMAIN-SUFFIX,emby.nyancat.net
 DOMAIN-SUFFIX,emby.3dmmp.com
@@ -186,8 +176,7 @@ DOMAIN-KEYWORD,dubox.com
 DOMAIN-KEYWORD,xposed
 
 #uup更新
-DOMAIN-KEYWORD,uupdump.ml
-DOMAIN-KEYWORD,uupdump.net
+DOMAIN-KEYWORD,uupdump
 
 #未墙加速
 DOMAIN-SUFFIX,spacedesk.net
@@ -198,9 +187,6 @@ DOMAIN-SUFFIX,op.gg
 DOMAIN,opgg-desktop-patch.akamaized.net
 DOMAIN,opgg-desktop-data.akamaized.net
 DOMAIN,opgg-static.akamaized.net
-
-#sbeam Download
-DOMAIN,steamcdn-a.akamaihd.net
 
 #Spotify 可以无需代理
 PROCESS-NAME,Spotify.exe
