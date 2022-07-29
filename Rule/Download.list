@@ -1,15 +1,9 @@
 # GooglePlay
 PROCESS-NAME,com.android.vending
 PROCESS-NAME,com.disney.disneyplus
-PROCESS-NAME,JellyfinMediaPlayer.exe
 
 #CDN全由此处接管
 DOMAIN-SUFFIX,gvt1.com
-
-#Kodi
-DOMAIN,mirror.zetup.net
-DOMAIN,mirrors.up.pt
-DOMAIN,mirrors.dotsrc.org
 
 # > Sync
 PROCESS-NAME,com.resilio.sync
@@ -142,19 +136,17 @@ DOMAIN-SUFFIX,wataboku.com
 DOMAIN-SUFFIX,screentogif.com
 DOMAIN,cdn.netsarang.net
 
+#Kodi
+DOMAIN,mirror.zetup.net
+DOMAIN,mirrors.up.pt
+DOMAIN,mirrors.dotsrc.org
+
 # Emby
-PROCESS-NAME,com.mb.android
-PROCESS-NAME,tv.emby.embyatv
+# PROCESS-NAME,JellyfinMediaPlayer.exe
+# PROCESS-NAME,com.mb.android
+# PROCESS-NAME,tv.emby.embyatv
 DOMAIN-SUFFIX,tmdb.org
 DOMAIN-SUFFIX,assets.fanart.tv
-DOMAIN,ws-mt1.pusher.com
-
-#WebOS
-DOMAIN-SUFFIX,macos.now.sh
-DOMAIN-SUFFIX,codecanyon.net
-DOMAIN-SUFFIX,spagreen.net
-
-# Emby
 IP-CIDR,51.79.222.233/32
 DOMAIN-SUFFIX,poloemby.xyz
 DOMAIN-SUFFIX,embyplus.club
@@ -162,9 +154,14 @@ DOMAIN-SUFFIX,aaa.ax
 DOMAIN-SUFFIX,charontv.com
 DOMAIN-SUFFIX,jmsooo.com
 DOMAIN-SUFFIX,xeton.dev
-DOMAIN-SUFFIX,emby.nyancat.net
 DOMAIN-SUFFIX,emby.3dmmp.com
 DOMAIN-SUFFIX,haochi.media
+DOMAIN-SUFFIX,jiasu.ga
+
+#WebOS
+DOMAIN-SUFFIX,macos.now.sh
+DOMAIN-SUFFIX,codecanyon.net
+DOMAIN-SUFFIX,spagreen.net
 
 #ios模拟器
 DOMAIN-SUFFIX,appetize.io
