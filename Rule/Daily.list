@@ -211,10 +211,12 @@ DOMAIN-SUFFIX,xprpr.io
 DOMAIN-SUFFIX,liyingcloud.org
 DOMAIN-SUFFIX,huacloud.dev
 DOMAIN-SUFFIX,flowercloud.net
+# VPS/转发
 DOMAIN-SUFFIX,nekoneko.cloud
 DOMAIN-SUFFIX,idc.wiki
-DOMAIN,zf.586678.xyz
+DOMAIN-SUFFIX,zf.586678.xyz
 
+DOMAIN-SUFFIX,wombo.art
 DOMAIN-SUFFIX,rooot.fan
 
 # 奇怪的短连接
@@ -223,6 +225,7 @@ DOMAIN-SUFFIX,blankrefer.com
 DOMAIN-SUFFIX,is.gd
 DOMAIN-SUFFIX,urlzs.com
 DOMAIN-SUFFIX,gstatic.com
+DOMAIN-SUFFIX,ume.la
 
 # 虚拟货币
 DOMAIN-SUFFIX,hi.com
