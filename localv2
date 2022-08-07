@@ -1,9 +1,0 @@
-proxies:
-  - {name: v2_11, server: 192.168.6.11, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: download.visualstudio.microsoft.com}}}
-  - {name: v2_12, server: 192.168.6.12, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: download.visualstudio.microsoft.com}}}
-  - {name: v2_13, server: 192.168.6.13, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: download.visualstudio.microsoft.com}}}
-  - {name: v2_55, server: 192.168.6.55, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: download.visualstudio.microsoft.com}}}
-  - {name: v2_73, server: 192.168.6.73, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: download.visualstudio.microsoft.com}}}
-  - {name: v2_85, server: 192.168.6.85, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: download.visualstudio.microsoft.com}}}
-  - {name: v2_90, server: 192.168.6.90, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: download.visualstudio.microsoft.com}}}
-  - {name: v2_103, server: 192.168.6.103, port: 7897, type: vmess, uuid: d89bd861-4994-4a8b-b6d9-4cb67e655189, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: download.visualstudio.microsoft.com}}}
