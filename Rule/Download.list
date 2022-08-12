@@ -107,6 +107,7 @@ DOMAIN-SUFFIX,debian.org
 DOMAIN,debian.map.fastlydns.net
 DOMAIN-SUFFIX,docker.com
 DOMAIN-SUFFIX,docker.io
+DOMAIN-SUFFIX,ftp.acc.umu.se
 
 # GHS
 DOMAIN-SUFFIX,erocool.co
@@ -123,8 +124,7 @@ DOMAIN-SUFFIX,sankakucomplex.com
 
 #NATTEST
 DOMAIN-SUFFIX,stun.ekiga.net
-#Debaindownload
-DOMAIN-SUFFIX,ftp.acc.umu.se
+
 #Java Download
 DOMAIN-SUFFIX,oracle.com
 DOMAIN-SUFFIX,java.net
@@ -135,28 +135,6 @@ DOMAIN-SUFFIX,wataboku.com
 #软件
 DOMAIN-SUFFIX,screentogif.com
 DOMAIN,cdn.netsarang.net
-
-#Kodi
-DOMAIN,mirror.zetup.net
-DOMAIN,mirrors.up.pt
-DOMAIN,mirrors.dotsrc.org
-
-# Emby
-# PROCESS-NAME,JellyfinMediaPlayer.exe
-# PROCESS-NAME,com.mb.android
-# PROCESS-NAME,tv.emby.embyatv
-DOMAIN-SUFFIX,tmdb.org
-DOMAIN-SUFFIX,assets.fanart.tv
-IP-CIDR,51.79.222.233/32
-DOMAIN-SUFFIX,poloemby.xyz
-DOMAIN-SUFFIX,embyplus.club
-DOMAIN-SUFFIX,aaa.ax
-DOMAIN-SUFFIX,charontv.com
-DOMAIN-SUFFIX,jmsooo.com
-DOMAIN-SUFFIX,xeton.dev
-DOMAIN-SUFFIX,emby.3dmmp.com
-DOMAIN-SUFFIX,haochi.media
-DOMAIN-SUFFIX,jiasu.ga
 
 #WebOS
 DOMAIN-SUFFIX,macos.now.sh
@@ -177,13 +155,6 @@ DOMAIN-KEYWORD,uupdump
 
 #未墙加速
 DOMAIN-SUFFIX,spacedesk.net
-
-#OPGG
-DOMAIN,legendspatch-lol.cdn.x-cdn.com
-DOMAIN-SUFFIX,op.gg
-DOMAIN,opgg-desktop-patch.akamaized.net
-DOMAIN,opgg-desktop-data.akamaized.net
-DOMAIN,opgg-static.akamaized.net
 
 #Spotify 可以无需代理
 PROCESS-NAME,Spotify.exe

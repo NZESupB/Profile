@@ -154,3 +154,15 @@ DOMAIN,toy.log.nexon.io
 DOMAIN-SUFFIX,nexon.com
 DOMAIN-KEYWORD,nexoncdn
 PROCESS-NAME,com.nexon.bluearchive
+
+#PUBG
+PROCESS-NAME,TslGame.exe
+DOMAIN-SUFFIX,pubgbluehole.com
+DOMAIN-SUFFIX,playbattlegrounds.com
+
+#OPGG
+DOMAIN,legendspatch-lol.cdn.x-cdn.com
+DOMAIN-SUFFIX,op.gg
+DOMAIN,opgg-desktop-patch.akamaized.net
+DOMAIN,opgg-desktop-data.akamaized.net
+DOMAIN,opgg-static.akamaized.net
