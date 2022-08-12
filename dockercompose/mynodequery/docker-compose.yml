@@ -1,0 +1,27 @@
+version : '3'
+services:
+  nodequery:
+    image: jaydenlee2019/mynodequery:latest
+    container_name: nodequery
+    restart: always
+    ports:
+      - 8888:5000   #8088自定义端口
+    #volumes:
+      #- /home/mynodequery/appsettings.json:/app/appsettings.json #解决每次更新都要从新Install的问题,启动后再接触注释
+      # wget https://raw.githubusercontent.com/NZESupB/Profile/main/dockercompose/mynodequery/appsettings.json -O /home/mynodequery/appsettings.json
+  nodequerydb:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - 10086:3306  #数据库可不映射端口,如无需外部管理,注释ports与此行
+    container_name: nodequerydb
+    environment:
+      MYSQL_DATABASE: nodequery
+      MYSQL_USER: sqluser
+      MYSQL_PASSWORD: sqlpasswd
+      MYSQL_ROOT_PASSWORD: sqlrootpasswd
+    volumes:
+      - /home/mynodequery/mysql:/var/lib/mysql
+volumes:
+  nodequery:
+  nodequerydb:
