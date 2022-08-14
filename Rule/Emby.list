@@ -2,6 +2,7 @@
 PROCESS-NAME,JellyfinMediaPlayer.exe
 PROCESS-NAME,com.mb.android
 PROCESS-NAME,tv.emby.embyatv
+PROCESS-NAME,com.miui.videoplayer
 DOMAIN-SUFFIX,tmdb.org
 DOMAIN-SUFFIX,assets.fanart.tv
 IP-CIDR,51.79.222.233/32
