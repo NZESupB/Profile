@@ -159,6 +159,8 @@ PROCESS-NAME,com.nexon.bluearchive
 PROCESS-NAME,TslGame.exe
 DOMAIN-SUFFIX,pubgbluehole.com
 DOMAIN-SUFFIX,playbattlegrounds.com
+DOMAIN-SUFFIX,battleye.com
+DOMAIN-SUFFIX,anticheatexpert.com
 
 #OPGG
 DOMAIN,legendspatch-lol.cdn.x-cdn.com
