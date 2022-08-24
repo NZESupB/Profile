@@ -3,16 +3,16 @@ PROCESS-NAME,JellyfinMediaPlayer.exe
 PROCESS-NAME,com.mb.android
 PROCESS-NAME,tv.emby.embyatv
 PROCESS-NAME,com.miui.videoplayer
-DOMAIN-SUFFIX,tmdb.org
+DOMAIN-KEYWORD,emby
 DOMAIN-SUFFIX,assets.fanart.tv
 IP-CIDR,51.79.222.233/32
 DOMAIN-SUFFIX,poloemby.xyz
 DOMAIN-SUFFIX,embyplus.club
 DOMAIN-SUFFIX,aaa.ax
 DOMAIN-SUFFIX,charontv.com
+DOMAIN-SUFFIX,misakaf.org
 DOMAIN-SUFFIX,jmsooo.com
 DOMAIN-SUFFIX,xeton.dev
-DOMAIN-SUFFIX,emby.3dmmp.com
 DOMAIN-SUFFIX,haochi.media
 DOMAIN-SUFFIX,jiasu.ga
 
