@@ -1,6 +1,7 @@
 #Emby
 PROCESS-NAME,JellyfinMediaPlayer.exe
 PROCESS-NAME,com.mb.android
+PROCESS-NAME,com.mb.android.tg
 PROCESS-NAME,tv.emby.embyatv
 PROCESS-NAME,com.miui.videoplayer
 DOMAIN-KEYWORD,emby
@@ -15,6 +16,8 @@ DOMAIN-SUFFIX,jmsooo.com
 DOMAIN-SUFFIX,xeton.dev
 DOMAIN-SUFFIX,haochi.media
 DOMAIN-SUFFIX,jiasu.ga
+DOMAIN-SUFFIX,misakaf.org
+DOMAIN-SUFFIX,emby.ml
 
 #Kodi
 DOMAIN,mirror.zetup.net
