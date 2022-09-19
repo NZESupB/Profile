@@ -188,9 +188,6 @@ DOMAIN-SUFFIX,ni-co.moe
 
 DOMAIN-SUFFIX,opensource.builders
 
-# > 国家级域名
-DOMAIN-SUFFIX,hk
-DOMAIN-SUFFIX,uk
 # > 品云有毒服务
 DOMAIN-SUFFIX,52.mk
 DOMAIN-SUFFIX,3o.hk
