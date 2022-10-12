@@ -1,8 +1,10 @@
-mixin:
+mixin: # object
   dns:
     enable: true
-    # listen: 0.0.0.0:53 #若使用Tap模式则取消此行注释(建议不用)
-    enhanced-mode: redir-host #1.8.0以上版本建议使用fakeip
+     # listen: 0.0.0.0:53 #若使用Tap模式则取消此行注释(建议不用)
+    enhanced-mode: fake-ip
+    #default-nameserver:
+      #- 114.114.114.114
     # DNS搜索 : https://kb.adguard.com/zh/general/dns-providers
     nameserver:
       - https://doh.pub/dns-query #腾讯doh
@@ -11,10 +13,12 @@ mixin:
     fallback:
       - tls://dns.google #Google-dot
       - tls://dot.sb:853 #dnssb-dot
+    fake-ip-filter:
+      - +.*
   tun:
     enable: true
     stack: system # system gvisor (Windows启用system需要手动放行防火墙)
     dns-hijack:
-      - 198.18.0.2:53
+      - any:53
     auto-route: true
     auto-detect-interface: true

@@ -20,11 +20,13 @@ hosts:
 #REGEDIT 将 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NlaSvc\Parameters\Internet 的 EnableActiveProbing 从 1 改为 0 来禁用，完成后重启即可。
 #dns:
   #enable: true
-  #enhanced-mode: redir-host
+  #enhanced-mode: fake-ip
   #default-nameserver:
     #- 114.114.114.114
   #nameserver:
     #- https://doh.dns.sb/dns-query
+  #fake-ip-filter:
+    #- +.*
 #tun:
   #enable: true
   #stack: system #gvisor system
