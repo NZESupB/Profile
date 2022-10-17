@@ -32,19 +32,16 @@ DOMAIN-KEYWORD,fdroid
 
 #下载地址
 DOMAIN-SUFFIX,xiaomemeindex.com
-
 DOMAIN,zh.savefrom.net
+DOMAIN,dl.fevr.top
 DOMAIN,download.sysinternals.com
 DOMAIN-SUFFIX,typora.io
 DOMAIN-SUFFIX,bitvise.com
 DOMAIN-SUFFIX,apklinker.com
 DOMAIN-SUFFIX,androidfilehost.com
-DOMAIN,dl.fevr.top
 DOMAIN-SUFFIX,apkadmin.com
 DOMAIN-SUFFIX,mediafire.com
-
 DOMAIN-SUFFIX,pythonhosted.org
-
 DOMAIN-SUFFIX,wintun.net
 DOMAIN-SUFFIX,openwrt.org
 DOMAIN-SUFFIX,github-releases.githubusercontent.com
@@ -56,7 +53,6 @@ DOMAIN-SUFFIX,cloudfront.net
 DOMAIN-SUFFIX,neverware.com
 DOMAIN-SUFFIX,helge-keck.com
 DOMAIN-SUFFIX,y2mate.com
-DOMAIN-KEYWORD,kodi
 DOMAIN-SUFFIX,havoc-os.com
 DOMAIN-SUFFIX,vancedapp.com
 DOMAIN-SUFFIX,deepnetdisk.club
@@ -64,8 +60,8 @@ DOMAIN-SUFFIX,winscp.net
 DOMAIN,winscp-static-746341.c.cdn77.org
 DOMAIN-SUFFIX,apkmirror.com
 DOMAIN-SUFFIX,golang.org
-DOMAIN-SUFFIX,googleapis.cn
-DOMAIN,www.googleapis.com
+DOMAIN-KEYWORD,kodi
+DOMAIN-KEYWORD,googleapis
 DOMAIN-SUFFIX,pypi.org
 DOMAIN-SUFFIX,filezilla-project.org
 DOMAIN-SUFFIX,vercel.app
@@ -143,19 +139,20 @@ DOMAIN-SUFFIX,spagreen.net
 #ios模拟器
 DOMAIN-SUFFIX,appetize.io
 
-#百度国际
-DOMAIN-KEYWORD,terabox.com
-DOMAIN-KEYWORD,dubox.com
+# 网盘
+DOMAIN-SUFFIX,terabox.com
+DOMAIN-SUFFIX,dubox.com
+DOMAIN-SUFFIX,filen.io
 
 DOMAIN-KEYWORD,xposed
 
-#uup更新
+# uup更新
 DOMAIN-KEYWORD,uupdump
 
-#未墙加速
+# 未墙加速
 DOMAIN-SUFFIX,spacedesk.net
 
-#Spotify 可以无需代理
+# Spotify 可以无需代理
 PROCESS-NAME,Spotify.exe
 PROCESS-NAME,com.spotify.music
 DOMAIN-SUFFIX,spotifycdn.com
