@@ -133,11 +133,12 @@ DOMAIN-SUFFIX,zfaka.xyz
 DOMAIN-SUFFIX,bangumi.tv
 DOMAIN,share.acgnx.se
 
-#幻想世界发卡
+#shop
 DOMAIN-KEYWORD,hxsj
 DOMAIN-SUFFIX,32v.shop
-#Azlulu
 DOMAIN,shop.blzs.me
+DOMAIN-SUFFIX,nfdns.top
+
 
 #Yahoo,banCN
 DOMAIN-SUFFIX,engadget.com
@@ -174,6 +175,7 @@ DOMAIN-SUFFIX,pixnet.net
 DOMAIN-SUFFIX,mokeedev.com
 DOMAIN-SUFFIX,longmabook.com
 DOMAIN-SUFFIX,lala.im
+DOMAIN-SUFFIX,hotexamples.com
 
 #CPUInfo
 DOMAIN-SUFFIX,technical.city
@@ -225,6 +227,7 @@ DOMAIN-SUFFIX,is.gd
 DOMAIN-SUFFIX,urlzs.com
 DOMAIN-SUFFIX,gstatic.com
 DOMAIN-SUFFIX,ume.la
+DOMAIN-SUFFIX,req.mx
 
 # 虚拟货币
 DOMAIN-SUFFIX,hi.com
