@@ -15,26 +15,39 @@ DOMAIN-KEYWORD,andapp
 DOMAIN-KEYWORD,hekk
 DOMAIN-SUFFIX,johren.games
 
-# epic
-DOMAIN-SUFFIX,battlebreakers.com
-DOMAIN-SUFFIX,eac-cdn.com
-DOMAIN-SUFFIX,easy.ac
-DOMAIN-SUFFIX,easyanticheat.net
+# Steam
+DOMAIN-SUFFIX,steam-chat.com
+DOMAIN-SUFFIX,steamcontent.com
+DOMAIN-SUFFIX,steamgames.com
+DOMAIN-SUFFIX,steampowered.com
+DOMAIN-SUFFIX,steamstat.us
+DOMAIN-SUFFIX,steamstatic.com
+DOMAIN-SUFFIX,steamusercontent.com
+DOMAIN,steambroadcast.akamaized.net
+DOMAIN,steamcdn-a.akamaihd.net
+DOMAIN,steamcommunity-a.akamaihd.net
+DOMAIN,steamstore-a.akamaihd.net
+DOMAIN,steamusercontent-a.akamaihd.net
+DOMAIN,steamuserimages-a.akamaihd.net
+DOMAIN,steampipe.akamaized.net
+DOMAIN,steampipe-kr.akamaized.net
+DOMAIN,steampipe-partner.akamaized.net
+DOMAIN,steam.eca.qtlglb.com
+DOMAIN,steam.naeu.qtlglb.com
+DOMAIN,steam.ru.qtlglb.com
+DOMAIN,edge.steam-dns.top.comcast.net
+
+# Epic
 DOMAIN-SUFFIX,epicgames.com
-DOMAIN-SUFFIX,epicgames.dev
-DOMAIN-SUFFIX,fortnite.com
 DOMAIN-SUFFIX,helpshift.com
 DOMAIN-SUFFIX,paragon.com
-DOMAIN-SUFFIX,playparagon.com
-DOMAIN-SUFFIX,roborecall.com
-DOMAIN-SUFFIX,shadowcomplex.com
-DOMAIN-SUFFIX,spyjinx.com
 DOMAIN-SUFFIX,unrealengine.com
-DOMAIN-SUFFIX,unrealtournament.com
-DOMAIN-KEYWORD,epicgames
+DOMAIN,epicgames-download1.akamaized.net
+DOMAIN,fastly-download.epicgames.com
 
 # LOLPBE
 DOMAIN-SUFFIX,riotcdn.net
+DOMAIN-SUFFIX,dyn.riotcdn.net
 DOMAIN-SUFFIX,riotgames.com
 DOMAIN-SUFFIX,leagueoflegends.ca
 DOMAIN-SUFFIX,leagueoflegends.co.kr
@@ -102,22 +115,13 @@ DOMAIN,ten-sura-m-assets-ap.akamaized.net
 DOMAIN,api-ap.ten-sura-m.wfs.games
 DOMAIN,bn-payment.wrightflyer.net
 
-#有尾恶魔
-DOMAIN-SUFFIX,chartboost.com
-DOMAIN-SUFFIX,applovin.com
-DOMAIN-SUFFIX,tapjoy.com
-DOMAIN-SUFFIX,api.vungle.com
-DOMAIN,adc3-launch.adcolony.com
-DOMAIN,init.supersonicads.com
-DOMAIN,tnc16-alisg.isnssdk.com
-PROCESS-NAME,com.cookapps.taileddemonslayer
-
 # RockStar
 DOMAIN-SUFFIX,rockstargames.com
 DOMAIN-SUFFIX,rsg.sc
 DOMAIN,gamedownloads-rockstargames-com.akamaized.net
 DOMAIN,media-rockstargames-com.akamaized.net
 DOMAIN,videos-rockstargames-com.akamaized.net
+
 # Mobile Length
 DOMAIN-SUFFIX,youngjoygame.com
 DOMAIN-SUFFIX,yuanzhanapp.com
@@ -126,9 +130,8 @@ IP-CIDR,161.202.48.36/32
 # RiotGames
 IP-CIDR,192.64.170.0/21,no-resolve
 IP-CIDR,104.160.128.0/19,no-resolve
-# 育碧
-DOMAIN-KEYWORD,ubisoft
-DOMAIN-KEYWORD,ubi
+# UBisoft
+DOMAIN-SUFFIX,ubi.com
 # PS
 DOMAIN-SUFFIX,playstation.com
 DOMAIN-SUFFIX,playstation.net
@@ -138,8 +141,12 @@ DOMAIN-SUFFIX,sonyentertainmentnetwork.com
 
 #Xbox
 DOMAIN-SUFFIX,xboxlive.com
-DOMAIN-SUFFIX,geforce.com
-DOMAIN-SUFFIX,nvidiagrid.net
+DOMAIN-SUFFIX,xboxservices.com
+DOMAIN-SUFFIX,gamepass.com
+DOMAIN,store-images.s-microsoft.com
+DOMAIN,img-prod-cms-rt-microsoft-com.akamaized.net
+DOMAIN,login.live.com
+DOMAIN,logincdn.msauth.net
 
 #Master Duel
 DOMAIN-SUFFIX,mo.konami.net
@@ -166,3 +173,30 @@ DOMAIN-SUFFIX,op.gg
 DOMAIN,opgg-desktop-patch.akamaized.net
 DOMAIN,opgg-desktop-data.akamaized.net
 DOMAIN,opgg-static.akamaized.net
+
+# Origin
+DOMAIN-SUFFIX,origin.com
+DOMAIN,cloudsync-prod.s3.amazonaws.com
+DOMAIN,origin-a.akamaihd.net
+DOMAIN,ssl-lvlt.cdn.ea.com
+DOMAIN,rtm.tnt-ea.com
+
+# Switch
+DOMAIN-SUFFIX,nintendo.com
+DOMAIN-SUFFIX,nintendo.net
+
+# Blizzard
+DOMAIN-SUFFIX,battle.net
+DOMAIN-SUFFIX,blizzard.com
+DOMAIN,blizzard.nefficient.co.kr
+DOMAIN,blzddist1-a.akamaihd.net
+DOMAIN,blzddistkr1-a.akamaihd.net
+DOMAIN,bnetproduct-a.akamaihd.net
+DOMAIN,blizzard.gcdn.cloudn.co.kr
+
+# GOG
+DOMAIN,gog-cdn-lumen.secure2.footprint.net
+
+#EA
+DOMAIN-SUFFIX,ea.com
+DOMAIN,origin-a.akamaihd.net
