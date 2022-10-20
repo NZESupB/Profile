@@ -36,7 +36,7 @@ DOMAIN,dl.delivery.mp.microsoft.com
 DOMAIN,tlu.dl.delivery.mp.microsoft.com
 
 # UBisoftDirect
-DOMAIN-SUFFIx,ubionline.com.cn
+DOMAIN-SUFFIX,ubionline.com.cn
 
 # OriginDirect
 
