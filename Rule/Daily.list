@@ -255,3 +255,8 @@ DOMAIN-SUFFIX,2047.one
 DOMAIN-SUFFIX,vpsoff.net
 
 DOMAIN-SUFFIX,tmdb.org
+
+# 羊毛api
+DOMAIN-SUFFIX,zhezhe.cf
+DOMAIN-SUFFIX,windfgg.cf
+DOMAIN-SUFFIX,fakermetaverse.xyz
