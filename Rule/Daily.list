@@ -4,17 +4,16 @@ PROCESS-NAME,com.google.android.apps.cloudconsole
 PROCESS-NAME,com.google.android.apps.docs
 PROCESS-NAME,com.google.android.play.games
 
-#shell
+# Shell
 PROCESS-NAME,fjava.exe
 PROCESS-NAME,Xshell.exe
-PROCESS-NAME,electerm.exe
 PROCESS-NAME,Termius.exe
 PROCESS-NAME,WindTerm.exe
 
 #新闻资讯
 DOMAIN-SUFFIX,dwnews.com
 
-#游戏资讯(未墙)
+#游戏资讯
 DOMAIN-SUFFIX,gamerch.com
 
 #soga文档
@@ -133,13 +132,6 @@ DOMAIN-SUFFIX,zfaka.xyz
 DOMAIN-SUFFIX,bangumi.tv
 DOMAIN,share.acgnx.se
 
-#shop
-DOMAIN-KEYWORD,hxsj
-DOMAIN-SUFFIX,32v.shop
-DOMAIN,shop.blzs.me
-DOMAIN-SUFFIX,nfdns.top
-
-
 #Yahoo,banCN
 DOMAIN-SUFFIX,engadget.com
 
@@ -169,7 +161,7 @@ DOMAIN-SUFFIX,6parkbbs.com
 DOMAIN-SUFFIX,6park.com
 DOMAIN-SUFFIX,teepr.com
 DOMAIN-SUFFIX,crowdin.com
-DOMAIN,butterfly.js.org
+DOMAIN-SUFFIX,js.org
 DOMAIN-SUFFIX,lvv2.com
 DOMAIN-SUFFIX,pixnet.net
 DOMAIN-SUFFIX,mokeedev.com
@@ -194,8 +186,9 @@ DOMAIN-SUFFIX,opensource.builders
 DOMAIN-SUFFIX,52.mk
 DOMAIN-SUFFIX,3o.hk
 DOMAIN-SUFFIX,vps.wf
+DOMAIN-SUFFIX,id9.cc
+
 # > 机场订阅
-DOMAIN-KEYWORD,prprcloud
 DOMAIN-SUFFIX,fishport.cyou
 DOMAIN-SUFFIX,82.pm
 DOMAIN-SUFFIX,cordcloud.org
@@ -212,22 +205,40 @@ DOMAIN-SUFFIX,xprpr.io
 DOMAIN-SUFFIX,liyingcloud.org
 DOMAIN-SUFFIX,huacloud.dev
 DOMAIN-SUFFIX,flowercloud.net
+
 # VPS/转发
 DOMAIN-SUFFIX,nekoneko.cloud
 DOMAIN-SUFFIX,idc.wiki
 DOMAIN-SUFFIX,zf.586678.xyz
 
+# VPS评测
+DOMAIN-SUFFIX,liyuans.com
+DOMAIN-SUFFIX,2047.one
+DOMAIN-SUFFIX,vpsoff.net
+
+# 发卡
+DOMAIN-KEYWORD,hxsj
+DOMAIN-SUFFIX,32v.shop
+DOMAIN,shop.blzs.me
+DOMAIN-SUFFIX,nfdns.top
+DOMAIN-SUFFIX,azaggo.com
+DOMAIN-SUFFIX,awen35u.net
+DOMAIN-SUFFIX,9Oracle.com
+DOMAIN-SUFFIX,masta.store
+DOMAIN-SUFFIX,peiqishop.me
+DOMAIN-SUFFIX,0wmj.com
+
 DOMAIN-SUFFIX,wombo.art
 DOMAIN-SUFFIX,rooot.fan
 
-# 奇怪的短连接
+# 短连接
 DOMAIN-SUFFIX,goo.gl
 DOMAIN-SUFFIX,blankrefer.com
 DOMAIN-SUFFIX,is.gd
 DOMAIN-SUFFIX,urlzs.com
-DOMAIN-SUFFIX,gstatic.com
 DOMAIN-SUFFIX,ume.la
 DOMAIN-SUFFIX,req.mx
+DOMAIN-SUFFIX,gstatic.com
 
 # 虚拟货币
 DOMAIN-SUFFIX,hi.com
@@ -241,18 +252,6 @@ DOMAIN-SUFFIX,embycrack.tk
 
 # 磁力搜索站
 DOMAIN,nyaa.si
-
-#Google
-DOMAIN,ssl.gstatic.com
-DOMAIN,beacons.gcp.gvt2.com
-DOMAIN,beacons3.gvt2.com
-
-#cfa测试
-DOMAIN,www.msftconnecttest.com
-
-DOMAIN-SUFFIX,liyuans.com
-DOMAIN-SUFFIX,2047.one
-DOMAIN-SUFFIX,vpsoff.net
 
 DOMAIN-SUFFIX,tmdb.org
 

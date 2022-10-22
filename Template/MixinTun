@@ -2,13 +2,14 @@ mixin: # object
   dns:
     enable: true
      # listen: 0.0.0.0:53 #若使用Tap模式则取消此行注释(建议不用)
-    enhanced-mode: fake-ip
+    enhanced-mode: fake-ip #内核2022.5后版本建议使用fake-ip
     #default-nameserver:
       #- 114.114.114.114
     # DNS搜索 : https://kb.adguard.com/zh/general/dns-providers
     nameserver:
-      - https://doh.pub/dns-query #腾讯doh
-      - https://doh.dns.sb/dns-query #dnssb-doh
+      - https://doh.pub/dns-query # 腾讯doh
+      - https://dns.alidns.com/dns-query # 阿里doh
+      - https://doh.dns.sb/dns-query # dnssb-doh
     #建议不使用fallback,nameserver配置一个无污染的加密dns即可
     fallback:
       - tls://dns.google #Google-dot
