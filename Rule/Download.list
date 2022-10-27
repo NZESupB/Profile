@@ -81,6 +81,7 @@ DOMAIN-SUFFIX,btbtt.biz
 DOMAIN-SUFFIX,winudf.com
 DOMAIN-KEYWORD,devolutions
 DOMAIN-SUFFIX,nvidia.com
+DOMAIN-SUFFIX,playmods.net
 
 #termux
 DOMAIN-KEYWORD,termux
@@ -178,6 +179,7 @@ DOMAIN-KEYWORD,stripe
 DOMAIN-SUFFIX,b-cdn.net
 DOMAIN-SUFFIX,discourse-cdn.com
 DOMAIN-SUFFIX,cdn.jsdelivr.net
+DOMAIN-SUFFIX,i.imgur.com
 
 #bluestacks
 DOMAIN-SUFFIX,bluestacks.com

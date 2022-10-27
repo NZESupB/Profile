@@ -2,7 +2,6 @@ version: '3.1'
 
 services:
   soga:
-    #image: vaxilu/soga:latest-arm64
     image: vaxilu/soga:latest
     restart: always
     network_mode: host
