@@ -37,7 +37,6 @@ DOMAIN-SUFFIX,nssurge.com
 DOMAIN-KEYWORD,cppreference
 DOMAIN-KEYWORD,lineageos
 DOMAIN-SUFFIX,deviantart.com
-DOMAIN-SUFFIX,blog.000714.xyz
 DOMAIN-SUFFIX,nyacdn.com
 DOMAIN-SUFFIX,duangks.com
 DOMAIN-SUFFIX,sprov.xyz
@@ -118,10 +117,8 @@ DOMAIN-SUFFIX,hi-linux.com
 DOMAIN-SUFFIX,bnbstatic.com
 DOMAIN-SUFFIX,git.io
 DOMAIN-SUFFIX,do.co
-DOMAIN-SUFFIX,vmware.com
 DOMAIN-SUFFIX,flowerss-bot.now.sh
 DOMAIN-SUFFIX,vercel.com
-DOMAIN-SUFFIX,blogs.nvidia.com
 DOMAIN-SUFFIX,programmersought.com
 DOMAIN-SUFFIX,gogodl.com
 DOMAIN-SUFFIX,lih.kg
@@ -168,6 +165,7 @@ DOMAIN-SUFFIX,mokeedev.com
 DOMAIN-SUFFIX,longmabook.com
 DOMAIN-SUFFIX,lala.im
 DOMAIN-SUFFIX,hotexamples.com
+DOMAIN-SUFFIX,dalao.im
 
 #CPUInfo
 DOMAIN-SUFFIX,technical.city
