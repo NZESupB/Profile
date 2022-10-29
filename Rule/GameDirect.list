@@ -42,4 +42,5 @@ DOMAIN-SUFFIX,ubionline.com.cn
 
 # EADirect
 
-
+# Microsoft AppCheck
+DOMAIN,checkappexec.microsoft.com
