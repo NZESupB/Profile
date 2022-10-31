@@ -18,7 +18,7 @@ mixin: # object
       - +.*
   tun:
     enable: true
-    stack: system # system gvisor (Windows启用system需要手动放行防火墙)
+    stack: system # system gvisor (优先使用system，Windows启用system需要手动放行防火墙)
     dns-hijack:
       - any:53
     auto-route: true

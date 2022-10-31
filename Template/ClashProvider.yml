@@ -12,9 +12,11 @@ profile:
 #  - "user1:pass1"
 hosts:
   # hkdns: 202.14.67.4,202.14.67.14
-  services.googleapis.cn : 172.217.161.163
-  #'*.google.cn' : '*.google.com'
-  #'*.googleapis.cn' : '*.googleapis.com'
+  '*.googleapis.cn': 142.250.196.131
+  '*.google.cn': 142.250.196.131
+  '*.cnbeta.com': 104.26.6.163
+  '*.cnbeta.com': 104.26.7.163
+  '*.cnbeta.com': 172.67.73.211
   
 #ipconfig /renew
 #REGEDIT 将 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NlaSvc\Parameters\Internet 的 EnableActiveProbing 从 1 改为 0 来禁用，完成后重启即可。
