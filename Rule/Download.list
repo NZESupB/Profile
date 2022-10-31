@@ -117,9 +117,6 @@ DOMAIN-SUFFIX,ehgt.org
 DOMAIN-SUFFIX,yande.re
 DOMAIN-SUFFIX,sankakucomplex.com
 
-#NATTEST
-DOMAIN-SUFFIX,stun.ekiga.net
-
 #Java Download
 DOMAIN-SUFFIX,oracle.com
 DOMAIN-SUFFIX,java.net
@@ -159,12 +156,6 @@ DOMAIN-KEYWORD,uupdump
 
 # 未墙加速
 DOMAIN-SUFFIX,spacedesk.net
-
-# Spotify 可以无需代理
-PROCESS-NAME,Spotify.exe
-PROCESS-NAME,com.spotify.music
-DOMAIN-SUFFIX,spotifycdn.com
-DOMAIN-SUFFIX,spotify.com
 
 #电台
 DOMAIN-SUFFIX,radio.garden

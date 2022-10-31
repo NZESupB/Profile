@@ -15,6 +15,9 @@ DOMAIN-KEYWORD,andapp
 DOMAIN-KEYWORD,hekk
 DOMAIN-KEYWORD,johren
 
+# NAT测试地址
+DOMAIN-SUFFIX,stun.ekiga.net
+
 # Steam
 DOMAIN-SUFFIX,steam-chat.com
 DOMAIN-SUFFIX,steamcontent.com
