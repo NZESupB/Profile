@@ -23,3 +23,6 @@ DOMAIN-SUFFIX,emby.ml
 DOMAIN,mirror.zetup.net
 DOMAIN,mirrors.up.pt
 DOMAIN,mirrors.dotsrc.org
+
+# EmbyWebCdn
+DOMAIN-SUFFIX,xn--4gqtqza904kdq0av8fba.com
