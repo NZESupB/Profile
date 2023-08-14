@@ -8,6 +8,7 @@ DOMAIN,debug.skk.moe
 # 搜索服务器
 DOMAIN-SUFFIX,linuxspeedtest.com
 
+DOMAIN,wireless-mgmt.nezperce.org
 DOMAIN-KEYWORD,speedtest
 DOMAIN-KEYWORD,speedtest5
 DOMAIN-KEYWORD,speedtest4unn
