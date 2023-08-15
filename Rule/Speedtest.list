@@ -8,7 +8,6 @@ DOMAIN,debug.skk.moe
 # 搜索服务器
 #DOMAIN-SUFFIX,linuxspeedtest.com
 
-DOMAIN,wireless-mgmt.nezperce.org
 DOMAIN-KEYWORD,speedtest
 #DOMAIN-KEYWORD,speedtest5
 #DOMAIN-KEYWORD,speedtest4unn
@@ -42,6 +41,9 @@ DOMAIN-SUFFIX,hgc.com.hk
 DOMAIN-SUFFIX,faznet.co.id
 DOMAIN-SUFFIX,app-measurement.com
 DOMAIN-SUFFIX,api.skk.moe
+DOMAIN,wireless-mgmt.nezperce.org
+DOMAIN,its-ookla-01.gonzaga.edu
+DOMAIN,ookla5.eaglecable.net
 DOMAIN,ymt.ymsr.cloud
 DOMAIN,vnmhcmspt1.vietnamobile.com.vn
 DOMAIN,virtualdc.cloudhost.asia
@@ -56,6 +58,8 @@ DOMAIN,st.digi.com.my
 DOMAIN,st-btm.kejora.net.id
 DOMAIN,spttn2.taiwanmobile.com
 DOMAIN,spttc2.taiwanmobile.com
+DOMAIN,sptty1.taiwanmobile.com
+DOMAIN,spttp1.taiwanmobile.com
 DOMAIN,spt1.cmedia.net.id
 DOMAIN,sppku.centro.net.id
 DOMAIN,spl-spdtst-srv.convergeict.com
@@ -218,6 +222,7 @@ DOMAIN,infinity.orient-telecoms.com
 DOMAIN,iix1.mikaila.web.id
 #DOMAIN,hyispeedtestnet.totbroadband.com
 DOMAIN,hl-speed.twmbroadband.com
+DOMAIN,mct-speed.twmbroadband.com
 #DOMAIN,hcmspeedtest.cmctelecom.vn
 #DOMAIN,hcm-speedtest01.sctv.com.vn
 DOMAIN,hc1.chtm.hinet.net
@@ -228,6 +233,8 @@ DOMAIN,gigacommunity.id
 DOMAIN,fukuoka.server.1-0.rip
 DOMAIN,fpsti.ddns.net
 DOMAIN,fm-speed.kbro.com.tw
+DOMAIN,yms-speed.kbro.com.tw
+DOMAIN,kp-speed.kbro.com.tw
 DOMAIN,fetml1.seed.net.tw
 #DOMAIN,dav3-speedtest.globe.com.ph
 #DOMAIN,dav2-speedtest.globe.com.ph
