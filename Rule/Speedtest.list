@@ -2,7 +2,6 @@ USER-AGENT,SpeedTest*
 PROCESS-NAME,org.zwanoo.android.speedtest
 PROCESS-NAME,com.netflix.Speedtest
 PROCESS-NAME,Speedtest.exe
-USER-AGENT,SpeedTest*
 # IP测试
 DOMAIN,debug.skk.moe
 # 搜索服务器
@@ -125,6 +124,27 @@ DOMAIN,speedtst-que.asianvision.com.ph
 #DOMAIN,speedtest-alabang.skybroadband.com.ph
 #DOMAIN,speedtest-10g.ctsabah.net
 #DOMAIN,speedtest-1.wanxp.id
+DOMAIN,speed.udx.icscoe.jp
+DOMAIN,speed.coe.ad.jp
+DOMAIN,jp-nperf.verizon.net
+DOMAIN,sp5.atcc-gns.net
+DOMAIN,vvosp1.dv.rt.ru
+DOMAIN,sp.elcom-net.ru
+DOMAIN,speed.cable-giant.com.tw
+DOMAIN,sgn-nperf.verizon.net
+DOMAIN,sg-01.plactrix.net
+DOMAIN,myspeed.giantcomm.net
+DOMAIN,iola-st-ookla.kwikom.com
+DOMAIN,speed.vis21.net
+DOMAIN,testvelocidadmad.orange.es
+DOMAIN,ook-mad-x1.puregig.net
+DOMAIN,nets-mad01.servihosting.net
+DOMAIN,st.mad.spainwisp.net
+DOMAIN,netgearsj.com
+DOMAIN,ookla.unwiredltd.com
+DOMAIN,turo.pigscanfly.ca
+DOMAIN,stosat-scla-01.sys.comcast.net
+DOMAIN,stosat-scrm-01.sys.comcast.net
 DOMAIN,speedsin.phoenixnap.com
 DOMAIN,speedosht1.celcom.net.my
 DOMAIN,speedopdg1.celcom.net.my
@@ -223,9 +243,13 @@ DOMAIN,iix1.mikaila.web.id
 #DOMAIN,hyispeedtestnet.totbroadband.com
 DOMAIN,hl-speed.twmbroadband.com
 DOMAIN,mct-speed.twmbroadband.com
+DOMAIN,yjl-speed.twmbroadband.com
+DOMAIN,gvc-speed.twmbroadband.com
 #DOMAIN,hcmspeedtest.cmctelecom.vn
 #DOMAIN,hcm-speedtest01.sctv.com.vn
 DOMAIN,hc1.chtm.hinet.net
+DOMAIN,kh1.chtm.hinet.net
+DOMAIN,tp1.chtm.hinet.net
 #DOMAIN,hatyai.catspeedtest.net
 #DOMAIN,gscspeedtest1.dctechmicro.com
 DOMAIN,gms.id
@@ -235,6 +259,8 @@ DOMAIN,fpsti.ddns.net
 DOMAIN,fm-speed.kbro.com.tw
 DOMAIN,yms-speed.kbro.com.tw
 DOMAIN,kp-speed.kbro.com.tw
+DOMAIN,nty-speed.kbro.com.tw
+DOMAIN,da-speed.kbro.com.tw
 DOMAIN,fetml1.seed.net.tw
 #DOMAIN,dav3-speedtest.globe.com.ph
 #DOMAIN,dav2-speedtest.globe.com.ph
