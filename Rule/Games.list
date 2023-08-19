@@ -31,7 +31,6 @@ DOMAIN-SUFFIX,nexon.com
 DOMAIN-KEYWORD,nexoncdn
 DOMAIN,nxm-mt.akamaized.net
 # PROCESS-NAME,com.nexon.bluearchive
-DOMAIN,play-fe.googleapis.com
 DOMAIN,d2vaidpni345rp.cloudfront.net
 IP-CIDR,18.140.83.65/32
 
@@ -73,6 +72,7 @@ DOMAIN,game-intl.biligame.net
 
 # 万代南宫梦
 DOMAIN-SUFFIX,bandainamcoid.com
+DOMAIN-SUFFIX,bandainamco-ol.jp
 
 # 蓝色协议 (日服|锁定ip日本)
 DOMAIN-SUFFIX,blue-protocol.com
