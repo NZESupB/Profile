@@ -15,6 +15,8 @@ DOMAIN-SUFFIX,ai.com
 DOMAIN,cdn.auth0.com
 DOMAIN,openaiapi-site.azureedge.net
 DOMAIN,o33249.ingest.sentry.io
+DOMAIN-SUFFIX,featuregates.org
+DOMAIN,events.statsigapi.net
 
 # Chatgpt Cdn
 DOMAIN,nexus-websocket-a.intercom.io
