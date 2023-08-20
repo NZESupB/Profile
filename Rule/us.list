@@ -17,7 +17,6 @@ DOMAIN,openaiapi-site.azureedge.net
 DOMAIN,o33249.ingest.sentry.io
 DOMAIN-SUFFIX,featuregates.org
 DOMAIN,events.statsigapi.net
-DOMAIN-SUFFIX,challenges.cloudflare.com
 
 # Chatgpt Cdn
 DOMAIN,nexus-websocket-a.intercom.io
