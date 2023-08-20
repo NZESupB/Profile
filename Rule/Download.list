@@ -169,6 +169,8 @@ DOMAIN-SUFFIX,termux-mirror.ml
 DOMAIN-SUFFIX,bintray.com
 DOMAIN-SUFFIX,grimler.se
 DOMAIN-SUFFIX,kcubeterm.me
+DOMAIN,mirror.ossplanet.net
+DOMAIN,ftp.agdsn.de
 
 # ROM
 DOMAIN-SUFFIX,lineageos.org
@@ -196,6 +198,9 @@ DOMAIN,sb.adtidy.org
 DOMAIN,dl-cdn.alpinelinux.org
 DOMAIN-SUFFIX,ftp.acc.umu.se
 DOMAIN-SUFFIX,fedorapeople.org
+
+DOMAIN-SUFFIX,internetdownloadmanager.com
+
 
 # Docker / Images
 DOMAIN-SUFFIX,ghcr.io
