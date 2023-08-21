@@ -201,6 +201,7 @@ DOMAIN-SUFFIX,fedorapeople.org
 
 DOMAIN-SUFFIX,internetdownloadmanager.com
 
+DOMAIN-SUFFIX,dl.sourceforge.net
 
 # Docker / Images
 DOMAIN-SUFFIX,ghcr.io
