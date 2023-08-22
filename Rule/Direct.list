@@ -22,6 +22,7 @@ DOMAIN,ip.sb
 #DOMAIN,c.duomai.com
 #DOMAIN-SUFFIX,jd.com
 #DOMAIN-SUFFIX,jpush.cn
+DOMAIN-SUFFIX,duiba.com.cn
 
 # 无需代理的国际域名
 DOMAIN-SUFFIX,tampermonkey.net
