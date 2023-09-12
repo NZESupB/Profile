@@ -69,6 +69,7 @@ PROCESS-NAME,com.resilio.sync
 
 #Magisk
 DOMAIN-SUFFIX,magiskmanager.com
+DOMAIN-SUFFIX,lsposed.org
 
 #AuroraStore
 DOMAIN,aefd.nelreports.net
