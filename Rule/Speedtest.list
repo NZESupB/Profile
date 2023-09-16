@@ -8,19 +8,6 @@ DOMAIN,debug.skk.moe
 #DOMAIN-SUFFIX,linuxspeedtest.com
 
 DOMAIN-KEYWORD,speedtest
-#DOMAIN-KEYWORD,speedtest5
-#DOMAIN-KEYWORD,speedtest4unn
-#DOMAIN-KEYWORD,speedtest4
-#DOMAIN-KEYWORD,speedtest3unn
-#DOMAIN-KEYWORD,speedtest3
-#DOMAIN-KEYWORD,speedtest2unn
-#DOMAIN-KEYWORD,speedtest2
-#DOMAIN-KEYWORD,speedtest1unn
-#DOMAIN-KEYWORD,speedtest14
-#DOMAIN-KEYWORD,speedtest10
-#DOMAIN-KEYWORD,speedtest1
-#DOMAIN-KEYWORD,speedtest08
-#DOMAIN-KEYWORD,hkspeedtest
 DOMAIN-KEYWORD,ookla
 IP-CIDR,158.140.187.5/32
 IP-CIDR,122.2.174.30/32
@@ -35,7 +22,9 @@ DOMAIN-SUFFIX,speed.cloudflare.com
 DOMAIN-SUFFIX,ooklaserver.net
 DOMAIN-SUFFIX,fast.com
 DOMAIN-SUFFIX,speed.dler.io
-DOMAIN-SUFFIX,lg-hkg.fdcservers.net
+DOMAIN,lg-tok.fdcservers.net
+DOMAIN,lg-hkg.fdcservers.net
+DOMAIN,lg-sin.fdcservers.net
 DOMAIN-SUFFIX,hgc.com.hk
 DOMAIN-SUFFIX,faznet.co.id
 DOMAIN-SUFFIX,app-measurement.com
@@ -224,7 +213,6 @@ DOMAIN,medan.acehlink.id
 #DOMAIN,m1speedtest1.m1net.com.sg
 DOMAIN,lucenacity.smart.com.ph
 #DOMAIN,lhg2-speedtest.globe.com.ph
-DOMAIN,lg-sin.fdcservers.net
 DOMAIN,laspinas1.smart.com.ph
 #DOMAIN,kl-speedtest.ebb.my
 DOMAIN,kawagoe.server.1-0.rip
