@@ -27,6 +27,8 @@ DOMAIN,aagit.yougotme.cc
 DOMAIN-SUFFIX,cloudflareapps.com
 DOMAIN-SUFFIX,cloudflare.com
 
+DOMAIN-SUFFIX,godaddy.com
+
 # > Vercel
 DOMAIN-SUFFIX,vercel.com
 
@@ -249,6 +251,7 @@ DOMAIN-SUFFIX,586678.xyz
 DOMAIN-SUFFIX,898868.xyz
 DOMAIN-SUFFIX,digitalocean.com
 DOMAIN-SUFFIX,idc.wiki
+
 
 # VPS评测 & 论坛
 DOMAIN-SUFFIX,liyuans.com
