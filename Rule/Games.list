@@ -30,9 +30,13 @@ DOMAIN,o460330.ingest.sentry.io
 DOMAIN-SUFFIX,nexon.com
 DOMAIN-KEYWORD,nexoncdn
 DOMAIN,nxm-mt.akamaized.net
+DOMAIN,com.nexon.platform.store.billing
 # PROCESS-NAME,com.nexon.bluearchive
 DOMAIN,d2vaidpni345rp.cloudfront.net
 IP-CIDR,18.140.83.65/32
+
+#7DS (国际服)
+DOMAIN-SUFFIX,netmarble.com
 
 # 碧蓝档案(日服)
 DOMAIN-SUFFIX,bluearchiveyostar.com
