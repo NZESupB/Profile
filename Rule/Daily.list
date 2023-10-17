@@ -251,7 +251,7 @@ DOMAIN-SUFFIX,586678.xyz
 DOMAIN-SUFFIX,898868.xyz
 DOMAIN-SUFFIX,digitalocean.com
 DOMAIN-SUFFIX,idc.wiki
-
+DOMAIN-SUFFIX,mtf.is
 
 # VPS评测 & 论坛
 DOMAIN-SUFFIX,liyuans.com
@@ -292,9 +292,6 @@ DOMAIN-SUFFIX,bit.ly
 
 # 虚拟货币
 DOMAIN-SUFFIX,hi.com
-
-# > emby破解验证
-DOMAIN-SUFFIX,embycrack.tk
 
 # 磁力搜索站
 DOMAIN-SUFFIX,nyaa.si
