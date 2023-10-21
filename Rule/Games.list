@@ -35,8 +35,9 @@ DOMAIN,com.nexon.platform.store.billing
 DOMAIN,d2vaidpni345rp.cloudfront.net
 IP-CIDR,18.140.83.65/32
 
-#7DS (国际服)
+#7DS (国际服 Asia)
 DOMAIN-SUFFIX,netmarble.com
+DOMAIN,asia-northeast3-gw-heimdall.nmn.io
 
 # 碧蓝档案(日服)
 DOMAIN-SUFFIX,bluearchiveyostar.com
