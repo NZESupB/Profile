@@ -22,6 +22,8 @@ DOMAIN-SUFFIX,gamerch.com
 
 # soga文档
 DOMAIN,aagit.yougotme.cc
+# 奠信加速
+DOMAIN-SUFFIX,immersivetranslate.com
 
 # > Cloudflare
 DOMAIN-SUFFIX,cloudflareapps.com

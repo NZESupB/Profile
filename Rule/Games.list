@@ -57,6 +57,11 @@ DOMAIN-SUFFIX,appsflyer.com
 DOMAIN,gsg-sg.upupview.com
 DOMAIN,cdn-settings.appsflyersdk.com
 
+# The Finals
+DOMAIN,thefinals-bin.es-cf.net
+DOMAIN,auth.embark.net
+
+
 # Higan:Enruthyll 依露希尔:星晓 (港澳台)
 DOMAIN,prod-sg-delaytest-excalibur-sea.bilibiligame.net
 DOMAIN,prod-sg-gs-excalibur-sea.bilibiligame.net
