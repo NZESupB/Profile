@@ -59,7 +59,17 @@ DOMAIN,cdn-settings.appsflyersdk.com
 
 # The Finals
 DOMAIN,thefinals-bin.es-cf.net
+DOMAIN,client2pubsub.europe.es-dis.net
+DOMAIN,api-gateway.europe.es-dis.net
+DOMAIN,deeep-storage.anybrain.gg
+DOMAIN,embark.pubnubapi.com
 DOMAIN,auth.embark.net
+IP-CIDR,34.27.28.184/32
+IP-CIDR,34.72.55.81/32
+IP-CIDR,104.199.208.55/32
+IP-CIDR,35.201.166.152/32
+IP-CIDR,34.32.191.236/32
+
 
 
 # Higan:Enruthyll 依露希尔:星晓 (港澳台)
