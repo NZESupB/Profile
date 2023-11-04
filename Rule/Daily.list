@@ -25,6 +25,9 @@ DOMAIN,aagit.yougotme.cc
 # 奠信加速
 DOMAIN-SUFFIX,immersivetranslate.com
 
+# Pot Tesseract OCR
+DOMAIN,pub-f6afb74f13c64cd89561b4714dca1c27.r2.dev
+
 # > Cloudflare
 DOMAIN-SUFFIX,cloudflareapps.com
 DOMAIN-SUFFIX,cloudflare.com
