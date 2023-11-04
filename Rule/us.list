@@ -34,3 +34,8 @@ DOMAIN,labs.google.com
 
 # Claude 2
 DOMAIN-SUFFIX,claude.ai
+
+#ozan
+DOMAIN-SUFFIX,ozan.com
+DOMAIN-SUFFIX,ozanlimited.com
+DOMAIN,sdkapi.netmera.com
