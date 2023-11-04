@@ -7,7 +7,7 @@ ipv6: true
 external-controller: 0.0.0.0:9999
 external-ui: ui
 external-ui-name: xd 
-external-ui-url: "https://git.nxonw.top/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip" #从 GitHub Pages 分支获取
+external-ui-url: "https://git.nxnow.top/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip" #从 GitHub Pages 分支获取
 #experimental:
 #  sniff-tls-sni: true
 unified-delay: true
