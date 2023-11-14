@@ -37,6 +37,9 @@ DOMAIN-SUFFIX,vercel.com
 # > NextTrace Api
 DOMAIN,api.leo.moe
 
+# > DeeplxApi
+DOMAIN,api.deeplx.org
+
 # > 漫画源
 DOMAIN-SUFFIX,qiximh3.com
 DOMAIN-SUFFIX,baozimh.com
