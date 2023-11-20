@@ -164,6 +164,9 @@ DOMAIN-SUFFIX,libsyn.com
 DOMAIN-SUFFIX,jkisoft.com
 DOMAIN,ftp.ni.com
 
+#updates.64gr.am 64Gram update
+DOMAIN-SUFFIX,64gr.am
+
 # Termux
 DOMAIN-SUFFIX,termux.dev
 DOMAIN-SUFFIX,termux-mirror.ml
