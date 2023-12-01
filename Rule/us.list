@@ -18,6 +18,8 @@ DOMAIN,o33249.ingest.sentry.io
 DOMAIN-SUFFIX,featuregates.org
 DOMAIN,events.statsigapi.net
 DOMAIN-SUFFIX,challenges.cloudflare.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
 
 # Chatgpt Cdn
 DOMAIN,nexus-websocket-a.intercom.io
@@ -39,3 +41,6 @@ DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,ozan.com
 DOMAIN-SUFFIX,ozanlimited.com
 DOMAIN,sdkapi.netmera.com
+
+#Crunchbits (bancn)
+DOMAIN-SUFFIX,crunchbits.com
