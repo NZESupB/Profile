@@ -2,7 +2,6 @@ mixed-port: 7890
 allow-lan: true
 bind-address: "*"
 mode: rule
-log-level: info
 ipv6: true
 external-controller: 0.0.0.0:9999
 external-ui: ui
@@ -64,33 +63,22 @@ providerTest:
       },
   }
 
+nodeTest: &nodeTest
+  url: "http://cp.cloudflare.com/generate_204"
+  interval: 300
+  include-all-providers: true
+
 allProviderSelect: &allProviderSelect
   type: select
-  use:
-    - Provider1
-    - Provider2
-    - Provider3
-  # 自行添加其他机场
+  include-all-providers: true
 
 allProviderAuto: &allProviderAuto
   type: url-test
-  url: "http://cp.cloudflare.com/generate_204"
-  interval: 300
-  use:
-    - Provider1
-    - Provider2
-    - Provider3
-  # 自行添加其他机场
+  << *nodeTest
 
 allProviderLoadBalance: &allProviderLoadBalance
   type: load-balance
-  url: "http://cp.cloudflare.com/generate_204"
-  interval: 300
-  use:
-    - Provider1
-    - Provider2
-    - Provider3
-  # 自行添加其他机场
+  << *nodeTest
 
 proxies:
 
@@ -98,15 +86,12 @@ proxy-providers:
   Provider1:
     <<: *providerTest
     url: "list1" #自行修改订阅链接
-    path: ./Proxy/Provider1.yaml
   Provider2:
     <<: *providerTest
     url: "list2" #自行修改订阅链接
-    path: ./Proxy/Provider2.yaml
   Provider3:
     <<: *providerTest
     url: "list3" #自行修改订阅链接
-    path: ./Proxy/Provider3.yaml
   # 自行添加其他机场
 
 proxy-groups:
@@ -183,12 +168,6 @@ proxy-groups:
       - DIRECT
 
 rule-providers:
-  # 📲 TelegramIP:
-  #   type: http
-  #   behavior: ipcidr
-  #   path: ./RuleSet/TelegramIP.yaml
-  #   url: https://z.nxnow.top/iprule?url=aHR0cHM6Ly9ydWxlc2V0LnNray5tb2UvQ2xhc2gvaXAvdGVsZWdyYW0udHh0
-  #   interval: 43200
   🌍 国外媒体:
     type: http
     behavior: classical
@@ -292,13 +271,17 @@ rule-providers:
     url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvanAubGlzdA
     interval: 43200
 
+
 # 规则
 rules:
   - GEOIP,LAN,DIRECT
-  - AND,((DST-PORT,22),(RULE-SET,🎯 IP段直连)),DIRECT
-  - DST-PORT,22,🚀 全球互联
+  - GEOSITE,googlefcm,DIRECT
+  - AND,((NETWORK,UDP),(OR,((DST-PORT,12345),(DST-PORT,443),(DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,mcdn)))),REJECT
+  - AND,((NETWORK,TCP),(DOMAIN-KEYWORD,stun),(OR,((DOMAIN-KEYWORD,douyu),(DOMAIN-KEYWORD,bilibili)))),REJECT
   - AND,((GEOSITE,youtube),(NETWORK,udp)),REJECT
   - AND,((RULE-SET,🇺🇸 US_List),(NETWORK,udp)),REJECT
+  - AND,((DST-PORT,22),(RULE-SET,🎯 IP段直连)),DIRECT
+  - DST-PORT,22,🚀 全球互联
   - GEOSITE,category-games@cn,DIRECT
   - RULE-SET,🎮 游戏直连,DIRECT
   - GEOSITE,category-games,🎮 游戏娱乐
@@ -312,7 +295,6 @@ rules:
   - RULE-SET,🌏 其他媒体,🚀 全球互联
   - GEOSITE,telegram,📲 Telegram
   - GEOIP,telegram,📲 Telegram
-  #- RULE-SET,📲 TelegramIP,📲 Telegram
   - RULE-SET,⏬ 海外下载,⏬ 测速下载
   - RULE-SET,⚡ SpeedTest,⏬ 测速下载
   - RULE-SET,🌍 轻量浏览,🚀 全球互联
