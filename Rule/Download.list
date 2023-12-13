@@ -161,6 +161,9 @@ DOMAIN-SUFFIX,shazam.com
 DOMAIN-SUFFIX,dl.lamp.sh
 DOMAIN,download.mobatek.net
 
+#VA番茄插件
+DOMAIN-SUFFIX,wholetomato.com
+
 DOMAIN-SUFFIX,libsyn.com
 DOMAIN-SUFFIX,jkisoft.com
 DOMAIN,ftp.ni.com
