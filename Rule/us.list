@@ -8,6 +8,10 @@ DOMAIN-SUFFIX,gaming.amazon.com
 # TrumpTwitter
 DOMAIN-SUFFIX,truthsocial.com
 
+# Poe AI
+DOMAIN-SUFFIX,poe.com
+DOMAIN-SUFFIX,poecdn.net
+
 # Openai
 DOMAIN-SUFFIX,openai.com
 DOMAIN-SUFFIX,openaidev.ghost.io
