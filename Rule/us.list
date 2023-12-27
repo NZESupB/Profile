@@ -25,6 +25,8 @@ DOMAIN-SUFFIX,challenges.cloudflare.com
 DOMAIN-SUFFIX,oaistatic.com
 DOMAIN-SUFFIX,oaiusercontent.com
 
+DOMAIN-SUFFIX,perplexity.ai
+
 # Chatgpt Cdn
 DOMAIN,nexus-websocket-a.intercom.io
 DOMAIN,static.hsappstatic.net
