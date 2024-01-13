@@ -144,6 +144,7 @@ DOMAIN-SUFFIX,larksuite.com
 # BanCN
 DOMAIN-SUFFIX,engadget.com
 DOMAIN,blog.aiservices.tech
+DOMAIN-SUFFIX,bulianglin.com
 
 # 小工具
 DOMAIN-SUFFIX,regex101.com
@@ -260,7 +261,6 @@ DOMAIN-SUFFIX,586678.xyz
 DOMAIN-SUFFIX,898868.xyz
 DOMAIN-SUFFIX,digitalocean.com
 DOMAIN-SUFFIX,idc.wiki
-DOMAIN-SUFFIX,mtf.is
 
 # VPS评测 & 论坛
 DOMAIN-SUFFIX,liyuans.com
