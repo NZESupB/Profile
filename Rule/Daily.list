@@ -349,3 +349,6 @@ DOMAIN-SUFFIX,projectnaptha.com
 # 位置跟踪
 DOMAIN-SUFFIX,jmapinode.cc
 DOMAIN-SUFFIX,jmapiproxy3.cc
+
+# 国外网盘解析站
+DOMAIN-SUFFIX,leechpremium.net
