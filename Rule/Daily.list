@@ -14,6 +14,8 @@ PROCESS-NAME,WindTerm.exe
 DOMAIN,air.nzes.cf
 DOMAIN,node.nxnow.top
 
+DOMAIN,js.hcaptcha.com
+
 # 资讯
 DOMAIN-SUFFIX,dwnews.com
 DOMAIN-SUFFIX,udn.com
