@@ -149,6 +149,7 @@ DOMAIN-SUFFIX,engadget.com
 DOMAIN,blog.aiservices.tech
 DOMAIN-SUFFIX,bulianglin.com
 DOMAIN-SUFFIX,hicairo.com
+DOMAIN-SUFFIX,idev.dev
 
 # 小工具
 DOMAIN-SUFFIX,regex101.com
