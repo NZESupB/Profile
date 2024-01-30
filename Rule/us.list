@@ -32,6 +32,9 @@ DOMAIN,nexus-websocket-a.intercom.io
 DOMAIN,static.hsappstatic.net
 DOMAIN-SUFFIX,hsforms.com
 
+# Coze
+DOMAIN-SUFFIX,coze.com
+
 # Oracle
 DOMAIN-SUFFIX,oracle.com
 DOMAIN-SUFFIX,oraclecloud.com
