@@ -210,6 +210,10 @@ DOMAIN-SUFFIX,moec.top
 DOMAIN-SUFFIX,noisyfox.io
 DOMAIN-SUFFIX,fanqiangdang.com
 
+# News
+DOMAIN-SUFFIX,reuters.com
+DOMAIN-SUFFIX,hk01.com
+
 # mirror wss connect
 DOMAIN-SUFFIX,walletlink.org
 DOMAIN-SUFFIX,walletconnect.org
@@ -287,7 +291,6 @@ DOMAIN-SUFFIX,awen35u.net
 DOMAIN-SUFFIX,masta.store
 DOMAIN-SUFFIX,peiqishop.me
 DOMAIN-SUFFIX,ciii.cloud
-# DOMAIN-SUFFIX,azfa.me
 
 DOMAIN-SUFFIX,wombo.art
 DOMAIN-SUFFIX,rooot.fan
@@ -315,7 +318,6 @@ DOMAIN,share.acgnx.se
 DOMAIN-SUFFIX,ptt.cc
 
 # 羊毛api
-DOMAIN-SUFFIX,windfgg.cf
 DOMAIN-SUFFIX,fakermetaverse.xyz
 DOMAIN-SUFFIX,kingran.cf
 DOMAIN-SUFFIX,imagic.eu.org
