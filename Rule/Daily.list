@@ -11,7 +11,7 @@ PROCESS-NAME,Termius.exe
 PROCESS-NAME,WindTerm.exe
 
 # MyServices
-DOMAIN,air.nzes.cf
+DOMAIN,kitony.eu.org
 DOMAIN,node.nxnow.top
 
 DOMAIN,js.hcaptcha.com
