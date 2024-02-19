@@ -75,7 +75,6 @@ DOMAIN-SUFFIX,lsposed.org
 DOMAIN,aefd.nelreports.net
 DOMAIN,reports.exodus-privacy.eu.org
 DOMAIN-SUFFIX,goolag.store
-PROCESS-NAME,com.aurora.store
 DOMAIN,ftp.fau.de
 DOMAIN-SUFFIX,auroraoss.com
 
@@ -99,6 +98,9 @@ DOMAIN-SUFFIX,f-droid.org
 DOMAIN-SUFFIX,guardianproject.info
 DOMAIN,mirror.cyberbits.eu
 DOMAIN,ftp.lysator.liu.se
+DOMAIN,apt.izzysoft.de
+DOMAIN-SUFFIX,microg.org
+
 
 # 下载地址
 DOMAIN-SUFFIX,apk-cloud.com
