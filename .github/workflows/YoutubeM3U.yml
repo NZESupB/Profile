@@ -15,7 +15,7 @@ jobs:
 
       - name: Fetch and replace
         run: |
-          curl -sL https://raw.githubusercontent.com/benmoose39/YouTube_to_m3u/main/youtube.m3u | sed -e 's/raw.githubusercontent.com/raw.nxnow.top/g' -e 's/manifest.googlevideo.com/ee.nxnow.top:4436/g' -e 's/github.com/git.nxnow.top/g' -e 's/upload.wikimedia.org/ee.nxnow.top:4437/g' > ytb.m3u
+          curl -sL https://raw.githubusercontent.com/benmoose39/YouTube_to_m3u/main/youtube.m3u | sed -e 's/raw.githubusercontent.com/raw.nxnow.top/g' -e 's/manifest.googlevideo.com/ee.nxnow.top:4436/g' -e 's/github.com/git.nxnow.top/g' -e 's/upload.wikimedia.org/ee.nxnow.top:4437/g' -e 's/play-lh.googleusercontent.com/ee.nxnow.top:4438/g' -e 's/yt3.ggpht.com/ee.nxnow.top:4439/g'> ytb.m3u
 
       - name: Delete current release assets
         uses: 8Mi-Tech/delete-release-assets-action@main
