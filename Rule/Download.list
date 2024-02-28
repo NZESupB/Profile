@@ -69,12 +69,12 @@ PROCESS-NAME,com.resilio.sync
 
 #Magisk
 DOMAIN-SUFFIX,magiskmanager.com
+DOMAIN-SUFFIX,lsposed.org
 
 #AuroraStore
 DOMAIN,aefd.nelreports.net
 DOMAIN,reports.exodus-privacy.eu.org
 DOMAIN-SUFFIX,goolag.store
-PROCESS-NAME,com.aurora.store
 DOMAIN,ftp.fau.de
 DOMAIN-SUFFIX,auroraoss.com
 
@@ -98,6 +98,13 @@ DOMAIN-SUFFIX,f-droid.org
 DOMAIN-SUFFIX,guardianproject.info
 DOMAIN,mirror.cyberbits.eu
 DOMAIN,ftp.lysator.liu.se
+DOMAIN,apt.izzysoft.de
+DOMAIN-SUFFIX,microg.org
+
+#Mega
+DOMAIN-SUFFIX,mega.nz
+DOMAIN-SUFFIX,mega.co.nz
+
 
 # 下载地址
 DOMAIN-SUFFIX,apk-cloud.com
@@ -155,11 +162,21 @@ DOMAIN-SUFFIX,emeditor.info
 DOMAIN-SUFFIX,teamspeak-services.com
 DOMAIN-SUFFIX,teamspeak.com
 DOMAIN-SUFFIX,nite07.com
+DOMAIN-SUFFIX,nite07.org
 DOMAIN-SUFFIX,shazam.com
+DOMAIN-SUFFIX,dl.lamp.sh
+DOMAIN,download.mobatek.net
+
+#VA番茄插件
+DOMAIN-SUFFIX,wholetomato.com
+DOMAIN,downloadfiles.idera.com
 
 DOMAIN-SUFFIX,libsyn.com
 DOMAIN-SUFFIX,jkisoft.com
 DOMAIN,ftp.ni.com
+
+#updates.64gr.am 64Gram update
+DOMAIN-SUFFIX,64gr.am
 
 # Termux
 DOMAIN-SUFFIX,termux.dev
@@ -167,6 +184,8 @@ DOMAIN-SUFFIX,termux-mirror.ml
 DOMAIN-SUFFIX,bintray.com
 DOMAIN-SUFFIX,grimler.se
 DOMAIN-SUFFIX,kcubeterm.me
+DOMAIN,mirror.ossplanet.net
+DOMAIN,ftp.agdsn.de
 
 # ROM
 DOMAIN-SUFFIX,lineageos.org
@@ -195,6 +214,10 @@ DOMAIN,dl-cdn.alpinelinux.org
 DOMAIN-SUFFIX,ftp.acc.umu.se
 DOMAIN-SUFFIX,fedorapeople.org
 
+DOMAIN-SUFFIX,internetdownloadmanager.com
+
+DOMAIN-SUFFIX,sourceforge.net
+
 # Docker / Images
 DOMAIN-SUFFIX,ghcr.io
 DOMAIN-SUFFIX,lscr.io
@@ -213,6 +236,7 @@ DOMAIN-SUFFIX,apkmb.com
 DOMAIN-SUFFIX,modyolo.com
 DOMAIN-SUFFIX,moddroid.co
 DOMAIN-SUFFIX,dbeaver.io
+DOMAIN,res.lolli.tech
 
 DOMAIN-SUFFIX,proxmox.com
 DOMAIN-SUFFIX,ti.com
@@ -276,3 +300,7 @@ DOMAIN-SUFFIX,immortalwrt.org
 DOMAIN-SUFFIX,linkfire.com
 DOMAIN-SUFFIX,ncs.io
 DOMAIN,ncs.lnk.to
+
+#Nvida
+DOMAIN-SUFFIX,nvidia.com
+DOMAIN-SUFFIX,geforce.com

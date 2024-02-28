@@ -30,10 +30,14 @@ DOMAIN,o460330.ingest.sentry.io
 DOMAIN-SUFFIX,nexon.com
 DOMAIN-KEYWORD,nexoncdn
 DOMAIN,nxm-mt.akamaized.net
+DOMAIN,com.nexon.platform.store.billing
 # PROCESS-NAME,com.nexon.bluearchive
-DOMAIN,play-fe.googleapis.com
 DOMAIN,d2vaidpni345rp.cloudfront.net
 IP-CIDR,18.140.83.65/32
+
+#7DS (国际服 Asia)
+DOMAIN-SUFFIX,netmarble.com
+DOMAIN,asia-northeast3-gw-heimdall.nmn.io
 
 # 碧蓝档案(日服)
 DOMAIN-SUFFIX,bluearchiveyostar.com
@@ -52,6 +56,29 @@ DOMAIN-SUFFIX,qookkagames.com
 DOMAIN-SUFFIX,appsflyer.com
 DOMAIN,gsg-sg.upupview.com
 DOMAIN,cdn-settings.appsflyersdk.com
+
+# The Finals
+DOMAIN,thefinals-bin.es-cf.net
+DOMAIN,client2pubsub.europe.es-dis.net
+DOMAIN,api-gateway.europe.es-dis.net
+DOMAIN,deeep-storage.anybrain.gg
+DOMAIN,embark.pubnubapi.com
+DOMAIN,auth.embark.net
+#PORT,7600
+#PORT,7365
+IP-CIDR,34.27.28.184/32
+IP-CIDR,34.72.55.81/32
+IP-CIDR,104.199.208.55/32
+IP-CIDR,35.201.166.152/32
+IP-CIDR,34.32.191.236/32
+IP-CIDR,34.27.7.225/32
+IP-CIDR,34.81.117.208/32
+IP-CIDR,35.194.131.24/32
+#34.159.136.168:7600
+#Game IP
+IP-CIDR,34.81.56.63/32
+
+
 
 # Higan:Enruthyll 依露希尔:星晓 (港澳台)
 DOMAIN,prod-sg-delaytest-excalibur-sea.bilibiligame.net
@@ -73,6 +100,7 @@ DOMAIN,game-intl.biligame.net
 
 # 万代南宫梦
 DOMAIN-SUFFIX,bandainamcoid.com
+DOMAIN-SUFFIX,bandainamco-ol.jp
 
 # 蓝色协议 (日服|锁定ip日本)
 DOMAIN-SUFFIX,blue-protocol.com
@@ -218,8 +246,6 @@ DOMAIN-SUFFIX,xboxlive.com
 DOMAIN-SUFFIX,xboxservices.com
 DOMAIN-SUFFIX,gamepass.com
 DOMAIN,store-images.s-microsoft.com
-DOMAIN,img-prod-cms-rt-microsoft-com.akamaized.net
-DOMAIN,logincdn.msauth.net
 
 # Master Duel
 DOMAIN-SUFFIX,mo.konami.net

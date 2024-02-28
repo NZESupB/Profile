@@ -8,6 +8,27 @@ DOMAIN-SUFFIX,gaming.amazon.com
 # TrumpTwitter
 DOMAIN-SUFFIX,truthsocial.com
 
+
+# > 虚拟钱包
+DOMAIN-SUFFIX,binance.us
+#Argent X
+DOMAIN-SUFFIX,argent.xyz
+DOMAIN-SUFFIX,argent.net
+DOMAIN-SUFFIX,cloud.argent-api.com
+DOMAIN,ws-eu.pusher.com
+#Best Wallet
+DOMAIN-SUFFIX,tor.us
+DOMAIN-SUFFIX,auth.network
+DOMAIN-SUFFIX,web3auth.io
+DOMAIN-SUFFIX,bestwallet.com
+DOMAIN-SUFFIX,infura.io
+DOMAIN-SUFFIX,metamask.io
+
+
+# Poe AI
+DOMAIN-SUFFIX,poe.com
+DOMAIN-SUFFIX,poecdn.net
+
 # Openai
 DOMAIN-SUFFIX,openai.com
 DOMAIN-SUFFIX,openaidev.ghost.io
@@ -15,11 +36,21 @@ DOMAIN-SUFFIX,ai.com
 DOMAIN,cdn.auth0.com
 DOMAIN,openaiapi-site.azureedge.net
 DOMAIN,o33249.ingest.sentry.io
+DOMAIN-SUFFIX,featuregates.org
+DOMAIN,events.statsigapi.net
+DOMAIN-SUFFIX,challenges.cloudflare.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+
+DOMAIN-SUFFIX,perplexity.ai
 
 # Chatgpt Cdn
 DOMAIN,nexus-websocket-a.intercom.io
 DOMAIN,static.hsappstatic.net
 DOMAIN-SUFFIX,hsforms.com
+
+# Coze
+DOMAIN-SUFFIX,coze.com
 
 # Oracle
 DOMAIN-SUFFIX,oracle.com
@@ -31,3 +62,11 @@ DOMAIN,labs.google.com
 
 # Claude 2
 DOMAIN-SUFFIX,claude.ai
+
+#ozan
+DOMAIN-SUFFIX,ozan.com
+DOMAIN-SUFFIX,ozanlimited.com
+DOMAIN,sdkapi.netmera.com
+
+#Crunchbits (bancn)
+DOMAIN-SUFFIX,crunchbits.com

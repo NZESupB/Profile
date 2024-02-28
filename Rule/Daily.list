@@ -11,27 +11,40 @@ PROCESS-NAME,Termius.exe
 PROCESS-NAME,WindTerm.exe
 
 # MyServices
-DOMAIN,air.nzes.cf
+DOMAIN,kitony.eu.org
 DOMAIN,node.nxnow.top
+
+DOMAIN-SUFFIX,hcaptcha.com
 
 # 资讯
 DOMAIN-SUFFIX,dwnews.com
 DOMAIN-SUFFIX,udn.com
 DOMAIN-SUFFIX,mtonews.com
 DOMAIN-SUFFIX,gamerch.com
+DOMAIN-SUFFIX,surveycake.com
 
 # soga文档
 DOMAIN,aagit.yougotme.cc
+# 奠信加速
+DOMAIN-SUFFIX,immersivetranslate.com
+
+# Pot Tesseract OCR
+DOMAIN,pub-f6afb74f13c64cd89561b4714dca1c27.r2.dev
 
 # > Cloudflare
 DOMAIN-SUFFIX,cloudflareapps.com
 DOMAIN-SUFFIX,cloudflare.com
+
+DOMAIN-SUFFIX,godaddy.com
 
 # > Vercel
 DOMAIN-SUFFIX,vercel.com
 
 # > NextTrace Api
 DOMAIN,api.leo.moe
+
+# > DeeplxApi
+DOMAIN,api.deeplx.org
 
 # > 漫画源
 DOMAIN-SUFFIX,qiximh3.com
@@ -65,6 +78,7 @@ DOMAIN-SUFFIX,nyacdn.com
 DOMAIN-SUFFIX,duangks.com
 DOMAIN-SUFFIX,sprov.xyz
 DOMAIN-SUFFIX,hostbuf.com
+DOMAIN-SUFFIX,nodeseek.com
 DOMAIN-SUFFIX,discord.com
 DOMAIN-SUFFIX,rclone.org
 DOMAIN-SUFFIX,riffsy.com
@@ -78,7 +92,6 @@ DOMAIN-SUFFIX,curl.se
 DOMAIN-SUFFIX,curl.haxx.se
 DOMAIN-SUFFIX,gitbook.io
 DOMAIN-SUFFIX,crisp.chat
-DOMAIN-SUFFIX,sourceforge.net
 DOMAIN-SUFFIX,osboxes.org
 DOMAIN-SUFFIX,huaien.co
 DOMAIN-SUFFIX,zetup.net
@@ -134,6 +147,9 @@ DOMAIN-SUFFIX,larksuite.com
 # BanCN
 DOMAIN-SUFFIX,engadget.com
 DOMAIN,blog.aiservices.tech
+DOMAIN-SUFFIX,bulianglin.com
+DOMAIN-SUFFIX,hicairo.com
+DOMAIN-SUFFIX,idev.dev
 
 # 小工具
 DOMAIN-SUFFIX,regex101.com
@@ -193,6 +209,11 @@ DOMAIN-SUFFIX,qoo-app.com
 DOMAIN-SUFFIX,moec.top
 DOMAIN-SUFFIX,noisyfox.io
 DOMAIN-SUFFIX,fanqiangdang.com
+DOMAIN-SUFFIX,dun.im
+
+# News
+DOMAIN-SUFFIX,reuters.com
+DOMAIN-SUFFIX,hk01.com
 
 # mirror wss connect
 DOMAIN-SUFFIX,walletlink.org
@@ -237,7 +258,7 @@ DOMAIN-SUFFIX,id9.cc
 
 # > 机场订阅
 DOMAIN-SUFFIX,immtel.com
-DOMAIN-SUFFIX,semitelecom.net
+DOMAIN-SUFFIX,telecomsemi.xyz
 DOMAIN-SUFFIX,tomlink.org
 DOMAIN-SUFFIX,abc-net.us
 DOMAIN-SUFFIX,j01.best
@@ -250,6 +271,8 @@ DOMAIN-SUFFIX,586678.xyz
 DOMAIN-SUFFIX,898868.xyz
 DOMAIN-SUFFIX,digitalocean.com
 DOMAIN-SUFFIX,idc.wiki
+DOMAIN,control.tuancloud.com
+DOMAIN-SUFFIX,vimss.com
 
 # VPS评测 & 论坛
 DOMAIN-SUFFIX,liyuans.com
@@ -260,6 +283,7 @@ DOMAIN-SUFFIX,hostloc.com
 DOMAIN-SUFFIX,xiu.ee
 DOMAIN-SUFFIX,hostevaluate.com
 DOMAIN-SUFFIX,mjjhome.net
+DOMAIN-SUFFIX,serverplayer.com
 
 # 发卡
 DOMAIN-SUFFIX,hxsj.us
@@ -270,7 +294,7 @@ DOMAIN-SUFFIX,awen35u.net
 DOMAIN-SUFFIX,masta.store
 DOMAIN-SUFFIX,peiqishop.me
 DOMAIN-SUFFIX,ciii.cloud
-# DOMAIN-SUFFIX,azfa.me
+DOMAIN-SUFFIX,nnai.cc
 
 DOMAIN-SUFFIX,wombo.art
 DOMAIN-SUFFIX,rooot.fan
@@ -291,9 +315,6 @@ DOMAIN-SUFFIX,bit.ly
 # 虚拟货币
 DOMAIN-SUFFIX,hi.com
 
-# > emby破解验证
-DOMAIN-SUFFIX,embycrack.tk
-
 # 磁力搜索站
 DOMAIN-SUFFIX,nyaa.si
 DOMAIN-SUFFIX,tmdb.org
@@ -301,7 +322,6 @@ DOMAIN,share.acgnx.se
 DOMAIN-SUFFIX,ptt.cc
 
 # 羊毛api
-DOMAIN-SUFFIX,windfgg.cf
 DOMAIN-SUFFIX,fakermetaverse.xyz
 DOMAIN-SUFFIX,kingran.cf
 DOMAIN-SUFFIX,imagic.eu.org
@@ -335,12 +355,12 @@ DOMAIN-SUFFIX,ft.com
 # FullTClash
 DOMAIN,em-content.zobj.net
 
-# Poe AI
-DOMAIN-SUFFIX,poe.com
-
 # TessdataOCR
 DOMAIN-SUFFIX,projectnaptha.com
 
 # 位置跟踪
 DOMAIN-SUFFIX,jmapinode.cc
 DOMAIN-SUFFIX,jmapiproxy3.cc
+
+# 国外网盘解析站
+DOMAIN-SUFFIX,leechpremium.net
