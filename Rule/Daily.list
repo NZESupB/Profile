@@ -11,8 +11,7 @@ PROCESS-NAME,Termius.exe
 PROCESS-NAME,WindTerm.exe
 
 # MyServices
-DOMAIN,kitony.eu.org
-DOMAIN,node.nxnow.top
+DOMAIN,rstatus.nxnow.top
 
 DOMAIN-SUFFIX,hcaptcha.com
 
@@ -25,8 +24,6 @@ DOMAIN-SUFFIX,surveycake.com
 
 # soga文档
 DOMAIN,aagit.yougotme.cc
-# 奠信加速
-DOMAIN-SUFFIX,immersivetranslate.com
 
 # Pot Tesseract OCR
 DOMAIN,pub-f6afb74f13c64cd89561b4714dca1c27.r2.dev
@@ -34,8 +31,7 @@ DOMAIN,pub-f6afb74f13c64cd89561b4714dca1c27.r2.dev
 # > Cloudflare
 DOMAIN-SUFFIX,cloudflareapps.com
 DOMAIN-SUFFIX,cloudflare.com
-
-DOMAIN-SUFFIX,godaddy.com
+DOMAIN-SUFFIX,cloudflareinsights.com
 
 # > Vercel
 DOMAIN-SUFFIX,vercel.com
@@ -56,7 +52,6 @@ DOMAIN-SUFFIX,colamanhua.com
 DOMAIN-SUFFIX,baozimh.org
 DOMAIN-SUFFIX,godamanga.com
 DOMAIN-SUFFIX,baozimh.com
-
 
 # > ProtonMail
 DOMAIN-SUFFIX,protonmail.com
@@ -221,9 +216,6 @@ DOMAIN-SUFFIX,walletconnect.org
 
 DOMAIN-SUFFIX,notion.site
 
-# ServerStatusRust 
-DOMAIN-SUFFIX,ssr.rs
-
 # Reddit
 DOMAIN-SUFFIX,reddit.com
 DOMAIN-SUFFIX,redditmedia.com
@@ -247,8 +239,9 @@ DOMAIN-SUFFIX,ocd0522.tk
 DOMAIN-SUFFIX,ni-co.moe
 DOMAIN-SUFFIX,opensource.builders
 
-# Intel网站加速
+# 网站加速
 DOMAIN-SUFFIX,intel.com
+DOMAIN-SUFFIX,amd.com
 
 # > 品云
 DOMAIN-SUFFIX,52.mk
@@ -257,12 +250,11 @@ DOMAIN-SUFFIX,vps.wf
 DOMAIN-SUFFIX,id9.cc
 
 # > 机场订阅
-DOMAIN-SUFFIX,immtel.com
 DOMAIN-SUFFIX,telecomsemi.xyz
 DOMAIN-SUFFIX,tomlink.org
 DOMAIN-SUFFIX,abc-net.us
-DOMAIN-SUFFIX,j01.best
 DOMAIN-SUFFIX,no626.com
+DOMAIN-SUFFIX,657353.xyz
 
 # VPS/转发
 DOMAIN-SUFFIX,nnr.moe
