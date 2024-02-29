@@ -23,7 +23,8 @@ DOMAIN-SUFFIX,web3auth.io
 DOMAIN-SUFFIX,bestwallet.com
 DOMAIN-SUFFIX,infura.io
 DOMAIN-SUFFIX,metamask.io
-
+DOMAIN-SUFFIX,api.segment.io
+DOMAIN-SUFFIX,etherscan.io
 
 # Poe AI
 DOMAIN-SUFFIX,poe.com
