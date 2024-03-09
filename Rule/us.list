@@ -69,5 +69,8 @@ DOMAIN-SUFFIX,ozan.com
 DOMAIN-SUFFIX,ozanlimited.com
 DOMAIN,sdkapi.netmera.com
 
-#Crunchbits (bancn)
+#Crunchbits (BanCN)
 DOMAIN-SUFFIX,crunchbits.com
+
+#DeepSeek(中国区需要实名)
+DOMAIN-SUFFIX,deepseek.com
