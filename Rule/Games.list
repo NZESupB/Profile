@@ -190,6 +190,7 @@ DOMAIN,static.rgpub.io
 IP-CIDR,162.62.158.0/24,no-resolve
 IP-CIDR,44.242.62.13/32,no-resolve
 IP-CIDR,162.247.241.10/32,no-resolve
+IP-CIDR,192.207.0.0/24,no-resolve
 # LoLJPServer
 IP-CIDR,43.229.66.38/24,no-resolve
 DOMAIN,apne1-green.pp.sgp.pvp.net
