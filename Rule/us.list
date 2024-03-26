@@ -74,3 +74,6 @@ DOMAIN-SUFFIX,crunchbits.com
 
 #DeepSeek(中国区需要实名)
 DOMAIN-SUFFIX,deepseek.com
+
+#Talkatone
+DOMAIN-SUFFIX,talkatone.com
