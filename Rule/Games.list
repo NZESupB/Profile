@@ -78,8 +78,6 @@ IP-CIDR,35.194.131.24/32,no-resolve
 #Game IP
 IP-CIDR,34.81.56.63/32,no-resolve
 
-
-
 # Higan:Enruthyll 依露希尔:星晓 (港澳台)
 DOMAIN,prod-sg-delaytest-excalibur-sea.bilibiligame.net
 DOMAIN,prod-sg-gs-excalibur-sea.bilibiligame.net
@@ -246,7 +244,6 @@ DOMAIN-SUFFIX,sonyentertainmentnetwork.com
 DOMAIN-SUFFIX,xboxlive.com
 DOMAIN-SUFFIX,xboxservices.com
 DOMAIN-SUFFIX,gamepass.com
-DOMAIN,store-images.s-microsoft.com
 
 # Master Duel
 DOMAIN-SUFFIX,mo.konami.net
