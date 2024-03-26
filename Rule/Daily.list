@@ -358,3 +358,6 @@ DOMAIN-SUFFIX,jmapiproxy3.cc
 DOMAIN-SUFFIX,leechpremium.net
 
 DOMAIN-SUFFIX,earnapp.com
+
+#使用国际版
+DOMAIN-SUFFIX,canva.com
