@@ -62,11 +62,6 @@ DOMAIN-SUFFIX,azurestaticapps.net
 
 DOMAIN-SUFFIX,tmp.link
 
-# > Sync
-PROCESS-NAME,com.resilio.sync
-# DOMAIN-SUFFIX,getsync.com
-# DOMAIN-SUFFIX,resilio.com
-
 #Magisk
 DOMAIN-SUFFIX,magiskmanager.com
 DOMAIN-SUFFIX,lsposed.org

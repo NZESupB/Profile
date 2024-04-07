@@ -72,8 +72,6 @@ DOMAIN-SUFFIX,deviantart.com
 DOMAIN-SUFFIX,nyacdn.com
 DOMAIN-SUFFIX,duangks.com
 DOMAIN-SUFFIX,sprov.xyz
-DOMAIN-SUFFIX,hostbuf.com
-DOMAIN-SUFFIX,nodeseek.com
 DOMAIN-SUFFIX,discord.com
 DOMAIN-SUFFIX,rclone.org
 DOMAIN-SUFFIX,riffsy.com
@@ -205,6 +203,18 @@ DOMAIN-SUFFIX,moec.top
 DOMAIN-SUFFIX,noisyfox.io
 DOMAIN-SUFFIX,fanqiangdang.com
 DOMAIN-SUFFIX,dun.im
+DOMAIN-SUFFIX,liyuans.com
+DOMAIN-SUFFIX,2047.one
+DOMAIN-SUFFIX,vpsoff.net
+DOMAIN-SUFFIX,hostloc.com
+DOMAIN-SUFFIX,xiu.ee
+DOMAIN-SUFFIX,hostevaluate.com
+DOMAIN-SUFFIX,mjjhome.net
+DOMAIN-SUFFIX,serverplayer.com
+DOMAIN-SUFFIX,linux.do
+DOMAIN-SUFFIX,v2rayse.com
+DOMAIN-SUFFIX,hostbuf.com
+DOMAIN-SUFFIX,nodeseek.com
 
 # News
 DOMAIN-SUFFIX,reuters.com
@@ -242,6 +252,7 @@ DOMAIN-SUFFIX,opensource.builders
 # 网站加速
 DOMAIN-SUFFIX,intel.com
 DOMAIN-SUFFIX,amd.com
+DOMAIN-SUFFIX,socpk.com
 
 # > 品云
 DOMAIN-SUFFIX,52.mk
@@ -266,16 +277,6 @@ DOMAIN-SUFFIX,idc.wiki
 DOMAIN,control.tuancloud.com
 DOMAIN-SUFFIX,vimss.com
 
-# VPS评测 & 论坛
-DOMAIN-SUFFIX,liyuans.com
-DOMAIN-SUFFIX,2047.one
-DOMAIN-SUFFIX,vpsoff.net
-
-DOMAIN-SUFFIX,hostloc.com
-DOMAIN-SUFFIX,xiu.ee
-DOMAIN-SUFFIX,hostevaluate.com
-DOMAIN-SUFFIX,mjjhome.net
-DOMAIN-SUFFIX,serverplayer.com
 
 # 发卡
 DOMAIN-SUFFIX,hxsj.us
