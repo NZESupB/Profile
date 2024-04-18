@@ -1,3 +1,6 @@
+# 游戏加速器路由模式规则转换器
+# https://github.com/HoldOnBro/WinRoute2ClashRules
+
 # 梅露可物语
 DOMAIN-KEYWORD,andapp
 DOMAIN-KEYWORD,hekk
@@ -289,11 +292,4 @@ DOMAIN-SUFFIX,demonware.net
 DOMAIN-SUFFIX,callofduty.com
 DOMAIN,prod-data-energon.infra-ext.activision.com
 
-#PUBG(规则不全,服务器太多了)
-IP-CIDR,52.231.108.196/32,no-resolve
-IP-CIDR,40.82.155.46/32,no-resolve
-IP-CIDR,52.141.28.146/32,no-resolve
-#IP-CIDR,20.39.199.93/32
-#IP-CIDR,20.39.187.32/32
-IP-CIDR,20.39.0.0/16,no-resolve
 
