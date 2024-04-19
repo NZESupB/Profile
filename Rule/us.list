@@ -78,5 +78,6 @@ DOMAIN-SUFFIX,deepseek.com
 #Talkatone
 DOMAIN-SUFFIX,talkatone.com
 
-#Cohere(暂不确定是否屏蔽CNIP)
+#Cohere(屏蔽CN)
 DOMAIN-SUFFIX,cohere.com
+DOMAIN-SUFFIX,cohere.ai
