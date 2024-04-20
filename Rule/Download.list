@@ -88,6 +88,9 @@ DOMAIN,opgg-desktop-patch.akamaized.net
 DOMAIN,opgg-desktop-data.akamaized.net
 DOMAIN,opgg-static.akamaized.net
 
+#Akamaized Cdn 加速
+DOMAIN,nrk-od-world-52.akamaized.net
+
 #F-Droid
 DOMAIN-SUFFIX,f-droid.org
 DOMAIN-SUFFIX,guardianproject.info
