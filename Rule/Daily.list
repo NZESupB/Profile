@@ -276,8 +276,11 @@ DOMAIN-SUFFIX,586678.xyz
 DOMAIN-SUFFIX,898868.xyz
 DOMAIN-SUFFIX,digitalocean.com
 DOMAIN-SUFFIX,idc.wiki
-DOMAIN,control.tuancloud.com
+DOMAIN-SUFFIX,tuancloud.com
 DOMAIN-SUFFIX,vimss.com
+DOMAIN-SUFFIX,usercloud.host
+DOMAIN-SUFFIX,wawo.wiki
+DOMAIN-SUFFIX,bestvm.cloud
 
 
 # 发卡
