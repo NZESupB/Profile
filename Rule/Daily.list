@@ -367,3 +367,6 @@ DOMAIN-SUFFIX,earnapp.com
 
 #使用国际版
 DOMAIN-SUFFIX,canva.com
+
+# Api Proxy
+DOMAIN-SUFFIX,burn.hair
