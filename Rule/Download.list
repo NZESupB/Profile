@@ -62,11 +62,6 @@ DOMAIN-SUFFIX,azurestaticapps.net
 
 DOMAIN-SUFFIX,tmp.link
 
-# > Sync
-PROCESS-NAME,com.resilio.sync
-# DOMAIN-SUFFIX,getsync.com
-# DOMAIN-SUFFIX,resilio.com
-
 #Magisk
 DOMAIN-SUFFIX,magiskmanager.com
 DOMAIN-SUFFIX,lsposed.org
@@ -92,6 +87,9 @@ DOMAIN-SUFFIX,op.gg
 DOMAIN,opgg-desktop-patch.akamaized.net
 DOMAIN,opgg-desktop-data.akamaized.net
 DOMAIN,opgg-static.akamaized.net
+
+#Akamaized Cdn 加速
+DOMAIN,nrk-od-world-52.akamaized.net
 
 #F-Droid
 DOMAIN-SUFFIX,f-droid.org
@@ -166,6 +164,9 @@ DOMAIN-SUFFIX,nite07.org
 DOMAIN-SUFFIX,shazam.com
 DOMAIN-SUFFIX,dl.lamp.sh
 DOMAIN,download.mobatek.net
+DOMAIN-SUFFIX,vancedofficial.com
+DOMAIN-SUFFIX,vanced.pro
+DOMAIN-SUFFIX,emeditor.info
 
 #VA番茄插件
 DOMAIN-SUFFIX,wholetomato.com

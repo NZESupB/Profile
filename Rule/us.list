@@ -58,8 +58,8 @@ DOMAIN-SUFFIX,oracle.com
 DOMAIN-SUFFIX,oraclecloud.com
 
 # Google Bard
-DOMAIN,bard.google.com
 DOMAIN,labs.google.com
+DOMAIN,gemini.google.com
 
 # Claude 2
 DOMAIN-SUFFIX,claude.ai
@@ -69,5 +69,15 @@ DOMAIN-SUFFIX,ozan.com
 DOMAIN-SUFFIX,ozanlimited.com
 DOMAIN,sdkapi.netmera.com
 
-#Crunchbits (bancn)
+#Crunchbits (BanCN)
 DOMAIN-SUFFIX,crunchbits.com
+
+#DeepSeek(中国区需要实名)
+DOMAIN-SUFFIX,deepseek.com
+
+#Talkatone
+DOMAIN-SUFFIX,talkatone.com
+
+#Cohere(屏蔽CN)
+DOMAIN-SUFFIX,cohere.com
+DOMAIN-SUFFIX,cohere.ai
