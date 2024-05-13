@@ -221,6 +221,7 @@ DOMAIN-SUFFIX,catcat.blog
 # News
 DOMAIN-SUFFIX,reuters.com
 DOMAIN-SUFFIX,hk01.com
+DOMAIN-SUFFIX,hkepc.com
 
 # mirror wss connect
 DOMAIN-SUFFIX,walletlink.org
