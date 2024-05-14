@@ -8,7 +8,6 @@ DOMAIN-SUFFIX,gaming.amazon.com
 # TrumpTwitter
 DOMAIN-SUFFIX,truthsocial.com
 
-
 # > 虚拟钱包
 DOMAIN-SUFFIX,binance.us
 #Argent X
@@ -30,25 +29,7 @@ DOMAIN-SUFFIX,etherscan.io
 DOMAIN-SUFFIX,poe.com
 DOMAIN-SUFFIX,poecdn.net
 
-# Openai
-DOMAIN-SUFFIX,openai.com
-DOMAIN-SUFFIX,openaidev.ghost.io
-DOMAIN-SUFFIX,ai.com
-DOMAIN,cdn.auth0.com
-DOMAIN,openaiapi-site.azureedge.net
-DOMAIN,o33249.ingest.sentry.io
-DOMAIN-SUFFIX,featuregates.org
-DOMAIN,events.statsigapi.net
-DOMAIN-SUFFIX,challenges.cloudflare.com
-DOMAIN-SUFFIX,oaistatic.com
-DOMAIN-SUFFIX,oaiusercontent.com
-
 DOMAIN-SUFFIX,perplexity.ai
-
-# Chatgpt Cdn
-DOMAIN,nexus-websocket-a.intercom.io
-DOMAIN,static.hsappstatic.net
-DOMAIN-SUFFIX,hsforms.com
 
 # Coze
 DOMAIN-SUFFIX,coze.com

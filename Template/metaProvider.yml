@@ -186,18 +186,6 @@ rule-providers:
     path: ./RuleSet/StreamingCN.yaml
     url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmdDTi5saXN0
     interval: 43200
-  🛑 广告拦截:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Advertising.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvQmFuQUQubGlzdA
-    interval: 43200
-  🛑 DNS拦截:
-    type: http
-    behavior: classical
-    path: ./RuleSet/DNSBlock.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1ZpcmdpbENseW5lL0dldFNvbWVGcmllcy9tYWluL3J1bGVzZXQvSFRUUEROUy5CbG9jay5saXN0
-    interval: 43200
   🚀 全局规则:
     type: http
     behavior: classical
@@ -258,6 +246,13 @@ rule-providers:
     path: ./RuleSet/Daily.yaml
     url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGFpbHkubGlzdA
     interval: 43200
+  OpenAI:
+    type: http
+    behavior: classical
+    path: ./RuleSet/OpenAI.yaml
+    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JsYWNrbWF0cml4Ny9pb3NfcnVsZV9zY3JpcHQvbWFzdGVyL3J1bGUvU3VyZ2UvT3BlbkFJL09wZW5BSS5saXN0
+    #url: https://raw.nxnow.top/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list
+    interval: 43200
   🇺🇸 US_List:
     type: http
     behavior: domain
@@ -276,37 +271,39 @@ rule-providers:
 rules:
   - GEOIP,LAN,DIRECT
   - GEOSITE,googlefcm,DIRECT
-  - AND,((NETWORK,UDP),(OR,((DST-PORT,12345),(DST-PORT,443),(DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,mcdn)))),REJECT
+  - AND,((NETWORK,UDP),(OR,((DST-PORT,12345),(DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,mcdn)))),REJECT
   - AND,((NETWORK,TCP),(DOMAIN-KEYWORD,stun),(OR,((DOMAIN-KEYWORD,douyu),(DOMAIN-KEYWORD,bilibili)))),REJECT
-  - AND,((GEOSITE,youtube),(NETWORK,udp)),REJECT
-  - AND,((RULE-SET,🇺🇸 US_List),(NETWORK,udp)),REJECT
-  - AND,((DST-PORT,22),(RULE-SET,🎯 IP段直连)),DIRECT
-  - DST-PORT,22,🚀 全球互联
+  - AND,((NETWORK,UDP),(OR,(GEOSITE,youtube),(GEOSITE,openai))),REJECT
+  - GEOSITE,github,🚀 全球互联
+  - GEOSITE,category-scholar-!cn,🚀 全球互联
+  - RULE-SET,🌍 轻量浏览,🚀 全球互联
   - GEOSITE,category-games@cn,DIRECT
   - RULE-SET,🎮 游戏直连,DIRECT
   - GEOSITE,category-games,🎮 游戏娱乐
   - RULE-SET,🎮 游戏娱乐,🎮 游戏娱乐
+  - GEOSITE,openai,🇺🇸 美国
+  - RULE-SET,OpenAI,🇺🇸 美国
   - RULE-SET,🇺🇸 US_List,🇺🇸 美国
   - RULE-SET,🇯🇵 JP_List,🇯🇵 日本
   - RULE-SET,🎯 其他直连,DIRECT
-  - RULE-SET,🛑 DNS拦截,🛑 广告拦截
-  - RULE-SET,🛑 广告拦截,🛑 广告拦截
+  - GEOSITE,category-ads-all,🛑 广告拦截
+  - GEOSITE,apple@cn,DIRECT
+  - GEOSITE,apple,⏬ 测速下载
+  - GEOSITE,microsoft@cn,DIRECT
+  - GEOSITE,microsoft,⏬ 测速下载
+  - GEOSITE,category-dev,⏬ 测速下载
   - GEOSITE,youtube,🚀 全球互联
+  - GEOSITE,twitter,🚀 全球互联
   - RULE-SET,🌏 其他媒体,🚀 全球互联
   - GEOSITE,telegram,📲 Telegram
   - GEOIP,telegram,📲 Telegram
   - RULE-SET,⏬ 海外下载,⏬ 测速下载
   - RULE-SET,⚡ SpeedTest,⏬ 测速下载
-  - RULE-SET,🌍 轻量浏览,🚀 全球互联
   - RULE-SET,🌏 国内媒体,DIRECT
   - RULE-SET,🌍 国外媒体,🚀 全球互联
   - RULE-SET,🌍 国外媒体IP,🚀 全球互联
   - RULE-SET,🚀 全局规则,🚀 全球互联
-  - GEOSITE,apple@cn,DIRECT
-  - GEOSITE,apple,⏬ 测速下载
-  - GEOSITE,microsoft@cn,DIRECT
-  - GEOSITE,microsoft,⏬ 测速下载
   - GEOSITE,cn,DIRECT
-  - RULE-SET,🎯 国内直连,DIRECT
+  - GEOIP,cn,DIRECT
   - RULE-SET,🎯 IP段直连,DIRECT
   - MATCH,🐟 漏网之鱼
