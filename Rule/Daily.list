@@ -217,6 +217,7 @@ DOMAIN-SUFFIX,v2rayse.com
 DOMAIN-SUFFIX,hostbuf.com
 DOMAIN-SUFFIX,nodeseek.com
 DOMAIN-SUFFIX,catcat.blog
+DOMAIN-SUFFIX,linustechtips.com
 
 # News
 DOMAIN-SUFFIX,reuters.com
@@ -333,6 +334,7 @@ DOMAIN,129888.xyz
 # 教程加速
 DOMAIN-SUFFIX,wpf-tutorial.com
 DOMAIN,net-tutorials.onfastspring.com
+DOMAIN-SUFFIX,rsshub.app
 
 # 蛇皮验证码
 DOMAIN-SUFFIX,recaptcha.net
@@ -351,6 +353,7 @@ DOMAIN,ariang.mayswind.net
 
 # 加速
 DOMAIN-SUFFIX,ft.com
+DOMAIN-SUFFIX,burn.hair
 
 # FullTClash
 DOMAIN,em-content.zobj.net
@@ -370,5 +373,5 @@ DOMAIN-SUFFIX,earnapp.com
 #使用国际版
 DOMAIN-SUFFIX,canva.com
 
-# Api Proxy
-DOMAIN-SUFFIX,burn.hair
+#代理
+DOMAIN-SUFFIX,feedly.com
