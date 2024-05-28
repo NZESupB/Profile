@@ -275,8 +275,6 @@ DOMAIN-SUFFIX,657353.xyz
 # VPS/转发
 DOMAIN-SUFFIX,nnr.moe
 DOMAIN-SUFFIX,polocloud.xyz
-DOMAIN-SUFFIX,586678.xyz
-DOMAIN-SUFFIX,898868.xyz
 DOMAIN-SUFFIX,digitalocean.com
 DOMAIN-SUFFIX,idc.wiki
 DOMAIN-SUFFIX,tuancloud.com
@@ -285,20 +283,6 @@ DOMAIN-SUFFIX,usercloud.host
 DOMAIN-SUFFIX,wawo.wiki
 DOMAIN-SUFFIX,bestvm.cloud
 
-
-# 发卡
-DOMAIN-SUFFIX,hxsj.us
-DOMAIN-SUFFIX,32v.shop
-DOMAIN-SUFFIX,blzs.me
-DOMAIN-SUFFIX,azaggo.com
-DOMAIN-SUFFIX,awen35u.net
-DOMAIN-SUFFIX,masta.store
-DOMAIN-SUFFIX,peiqishop.me
-DOMAIN-SUFFIX,ciii.cloud
-DOMAIN-SUFFIX,nnai.cc
-
-DOMAIN-SUFFIX,wombo.art
-DOMAIN-SUFFIX,rooot.fan
 
 # 短连接
 DOMAIN-SUFFIX,goo.gl
