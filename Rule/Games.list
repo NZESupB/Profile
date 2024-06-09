@@ -197,6 +197,7 @@ IP-CIDR,43.229.66.38/24,no-resolve
 DOMAIN,apne1-green.pp.sgp.pvp.net
 # LoLTWServer
 IP-CIDR,103.240.224.1/22,no-resolve
+IP-CIDR,151.106.247.16/32,no-resolve
 DOMAIN,apse1-green.pp.sgp.pvp.net
 DOMAIN,apse1-red.pp.sgp.pvp.net
 # RiotGames
