@@ -91,6 +91,10 @@ DOMAIN,opgg-static.akamaized.net
 #Akamaized Cdn 加速
 DOMAIN,nrk-od-world-52.akamaized.net
 
+#Logi
+DOMAIN-SUFFIX,logitechg.com
+DOMAIN-SUFFIX,logitech.io
+
 #F-Droid
 DOMAIN-SUFFIX,f-droid.org
 DOMAIN-SUFFIX,guardianproject.info
