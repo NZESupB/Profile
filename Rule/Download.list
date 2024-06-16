@@ -87,6 +87,7 @@ DOMAIN-SUFFIX,op.gg
 DOMAIN,opgg-desktop-patch.akamaized.net
 DOMAIN,opgg-desktop-data.akamaized.net
 DOMAIN,opgg-static.akamaized.net
+DOMAIN,opggsupport.zendesk.com
 
 #Akamaized Cdn 加速
 DOMAIN,nrk-od-world-52.akamaized.net
