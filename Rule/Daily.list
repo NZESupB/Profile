@@ -217,10 +217,14 @@ DOMAIN-SUFFIX,v2rayse.com
 DOMAIN-SUFFIX,hostbuf.com
 DOMAIN-SUFFIX,nodeseek.com
 DOMAIN-SUFFIX,catcat.blog
+DOMAIN-SUFFIX,linustechtips.com
+DOMAIN-SUFFIX,xh86.me
 
 # News
 DOMAIN-SUFFIX,reuters.com
 DOMAIN-SUFFIX,hk01.com
+DOMAIN-SUFFIX,hkepc.com
+DOMAIN-SUFFIX,hkepc.net
 
 # mirror wss connect
 DOMAIN-SUFFIX,walletlink.org
@@ -272,8 +276,6 @@ DOMAIN-SUFFIX,657353.xyz
 # VPS/转发
 DOMAIN-SUFFIX,nnr.moe
 DOMAIN-SUFFIX,polocloud.xyz
-DOMAIN-SUFFIX,586678.xyz
-DOMAIN-SUFFIX,898868.xyz
 DOMAIN-SUFFIX,digitalocean.com
 DOMAIN-SUFFIX,idc.wiki
 DOMAIN-SUFFIX,tuancloud.com
@@ -282,20 +284,6 @@ DOMAIN-SUFFIX,usercloud.host
 DOMAIN-SUFFIX,wawo.wiki
 DOMAIN-SUFFIX,bestvm.cloud
 
-
-# 发卡
-DOMAIN-SUFFIX,hxsj.us
-DOMAIN-SUFFIX,32v.shop
-DOMAIN-SUFFIX,blzs.me
-DOMAIN-SUFFIX,azaggo.com
-DOMAIN-SUFFIX,awen35u.net
-DOMAIN-SUFFIX,masta.store
-DOMAIN-SUFFIX,peiqishop.me
-DOMAIN-SUFFIX,ciii.cloud
-DOMAIN-SUFFIX,nnai.cc
-
-DOMAIN-SUFFIX,wombo.art
-DOMAIN-SUFFIX,rooot.fan
 
 # 短连接
 DOMAIN-SUFFIX,goo.gl
@@ -331,6 +319,7 @@ DOMAIN,129888.xyz
 # 教程加速
 DOMAIN-SUFFIX,wpf-tutorial.com
 DOMAIN,net-tutorials.onfastspring.com
+DOMAIN-SUFFIX,rsshub.app
 
 # 蛇皮验证码
 DOMAIN-SUFFIX,recaptcha.net
@@ -349,6 +338,7 @@ DOMAIN,ariang.mayswind.net
 
 # 加速
 DOMAIN-SUFFIX,ft.com
+DOMAIN-SUFFIX,burn.hair
 
 # FullTClash
 DOMAIN,em-content.zobj.net
@@ -368,5 +358,5 @@ DOMAIN-SUFFIX,earnapp.com
 #使用国际版
 DOMAIN-SUFFIX,canva.com
 
-# Api Proxy
-DOMAIN-SUFFIX,burn.hair
+#代理
+DOMAIN-SUFFIX,feedly.com
