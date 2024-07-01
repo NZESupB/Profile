@@ -64,3 +64,9 @@ DOMAIN-SUFFIX,bilibili.tv
 DOMAIN-SUFFIX,ulivetv.net
 DOMAIN,r.jdshipin.com
 # DOMAIN,histar.tv
+
+#IPTV
+DOMAIN,litvpc-hichannel.cdn.hinet.net
+DOMAIN-SUFFIX,4gtv.tv
+DOMAIN-SUFFIX,livednow.com,Proxy
+DOMAIN-SUFFIX,orz-7.com,Proxy
