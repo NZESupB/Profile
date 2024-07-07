@@ -89,6 +89,15 @@ DOMAIN,opgg-desktop-data.akamaized.net
 DOMAIN,opgg-static.akamaized.net
 DOMAIN,opggsupport.zendesk.com
 
+#Epic Cdn
+DOMAIN,epicgames-download1.akamaized.net
+DOMAIN,fastly-download.epicgames.com
+DOMAIN,download.epicgames.com
+DOMAIN,download2.epicgame.com
+DOMAIN,download3.epicgames.com
+DOMAIN,download4.epicgames.com
+DOMAIN,cloudflare.epicgamescdn.com
+
 #Akamaized Cdn 加速
 DOMAIN,nrk-od-world-52.akamaized.net
 
@@ -172,6 +181,7 @@ DOMAIN,download.mobatek.net
 DOMAIN-SUFFIX,vancedofficial.com
 DOMAIN-SUFFIX,vanced.pro
 DOMAIN-SUFFIX,emeditor.info
+DOMAIN-SUFFIX,krakenfiles.com
 
 #VA番茄插件
 DOMAIN-SUFFIX,wholetomato.com
