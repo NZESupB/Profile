@@ -261,6 +261,8 @@ DOMAIN-SUFFIX,opensource.builders
 DOMAIN-SUFFIX,intel.com
 DOMAIN-SUFFIX,amd.com
 DOMAIN-SUFFIX,socpk.com
+DOMAIN-SUFFIX,cocopilot.org
+DOMAIN-SUFFIX,bgp.tools
 
 # > 品云
 DOMAIN-SUFFIX,52.mk
@@ -274,6 +276,7 @@ DOMAIN-SUFFIX,tomlink.org
 DOMAIN-SUFFIX,abc-net.us
 DOMAIN-SUFFIX,no626.com
 DOMAIN-SUFFIX,657353.xyz
+DOMAIN-SUFFIX,114515.best
 
 # VPS/转发
 DOMAIN-SUFFIX,nnr.moe
