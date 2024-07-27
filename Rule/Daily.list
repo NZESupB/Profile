@@ -343,7 +343,7 @@ DOMAIN,ariang.mayswind.net
 
 # 加速
 DOMAIN-SUFFIX,ft.com
-DOMAIN-SUFFIX,burn.hair
+DOMAIN,burn.hair
 
 # FullTClash
 DOMAIN,em-content.zobj.net
