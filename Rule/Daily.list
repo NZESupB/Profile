@@ -344,6 +344,11 @@ DOMAIN,ariang.mayswind.net
 # 加速
 DOMAIN-SUFFIX,ft.com
 DOMAIN,burn.hair
+DOMAIN-SUFFIX,sagernet.org
+DOMAIN-SUFFIX,pythonguis.com
+DOMAIN-SUFFIX,unite.ai
+DOMAIN-SUFFIX,tonsky.me
+DOMAIN-SUFFIX,wiki.metacubex.one
 
 # FullTClash
 DOMAIN,em-content.zobj.net

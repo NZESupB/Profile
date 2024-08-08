@@ -262,12 +262,12 @@ DOMAIN-SUFFIX,segger.com
 DOMAIN,download.amd.com
 DOMAIN-SUFFIX,deepl.com
 
-#WebOS
+# WebOS
 DOMAIN-SUFFIX,macos.now.sh
 DOMAIN-SUFFIX,codecanyon.net
 DOMAIN-SUFFIX,spagreen.net
 
-#ios模拟器
+# ios模拟器
 DOMAIN-SUFFIX,appetize.io
 
 # 网盘
@@ -286,6 +286,9 @@ DOMAIN-SUFFIX,mypikpak.com
 DOMAIN-SUFFIX,mypikpak.net
 DOMAIN-SUFFIX,pikpak.me
 DOMAIN-SUFFIX,dropgalaxy.com
+
+# 图床
+DOMAIN,i.mij.rip
 
 # UUPDump
 DOMAIN-SUFFIX,uupdump.net
