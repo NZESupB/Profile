@@ -332,9 +332,6 @@ DOMAIN-SUFFIX,recaptcha.net
 # 同步服务
 DOMAIN,immersive-translate.owenyoung.com
 
-# Codeium加速
-DOMAIN-SUFFIX,codeium.com
-
 # Public DashBoard
 DOMAIN,clash.razord.top
 DOMAIN,yacd.haishan.me
@@ -349,6 +346,8 @@ DOMAIN-SUFFIX,pythonguis.com
 DOMAIN-SUFFIX,unite.ai
 DOMAIN-SUFFIX,tonsky.me
 DOMAIN-SUFFIX,wiki.metacubex.one
+DOMAIN-SUFFIX,codeium.com
+DOMAIN-SUFFIX,cursor.sh
 
 # FullTClash
 DOMAIN,em-content.zobj.net
