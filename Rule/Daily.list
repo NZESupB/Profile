@@ -219,6 +219,8 @@ DOMAIN-SUFFIX,nodeseek.com
 DOMAIN-SUFFIX,catcat.blog
 DOMAIN-SUFFIX,linustechtips.com
 DOMAIN-SUFFIX,xh86.me
+DOMAIN-SUFFIX,yummy.best
+DOMAIN-SUFFIX,ouo.io
 
 # News
 DOMAIN-SUFFIX,reuters.com
@@ -259,6 +261,8 @@ DOMAIN-SUFFIX,opensource.builders
 DOMAIN-SUFFIX,intel.com
 DOMAIN-SUFFIX,amd.com
 DOMAIN-SUFFIX,socpk.com
+DOMAIN-SUFFIX,cocopilot.org
+DOMAIN-SUFFIX,bgp.tools
 
 # > 品云
 DOMAIN-SUFFIX,52.mk
@@ -272,6 +276,7 @@ DOMAIN-SUFFIX,tomlink.org
 DOMAIN-SUFFIX,abc-net.us
 DOMAIN-SUFFIX,no626.com
 DOMAIN-SUFFIX,657353.xyz
+DOMAIN-SUFFIX,114515.best
 
 # VPS/转发
 DOMAIN-SUFFIX,nnr.moe
@@ -327,9 +332,6 @@ DOMAIN-SUFFIX,recaptcha.net
 # 同步服务
 DOMAIN,immersive-translate.owenyoung.com
 
-# Codeium加速
-DOMAIN-SUFFIX,codeium.com
-
 # Public DashBoard
 DOMAIN,clash.razord.top
 DOMAIN,yacd.haishan.me
@@ -338,7 +340,14 @@ DOMAIN,ariang.mayswind.net
 
 # 加速
 DOMAIN-SUFFIX,ft.com
-DOMAIN-SUFFIX,burn.hair
+DOMAIN,burn.hair
+DOMAIN-SUFFIX,sagernet.org
+DOMAIN-SUFFIX,pythonguis.com
+DOMAIN-SUFFIX,unite.ai
+DOMAIN-SUFFIX,tonsky.me
+DOMAIN-SUFFIX,wiki.metacubex.one
+DOMAIN-SUFFIX,codeium.com
+DOMAIN-SUFFIX,cursor.sh
 
 # FullTClash
 DOMAIN,em-content.zobj.net

@@ -147,12 +147,9 @@ DOMAIN,steambroadcastchat.akamaized.net
 PROCESS-NAME,steamwebhelper.exe
 
 # Epic
-DOMAIN-SUFFIX,epicgames.com
 DOMAIN-SUFFIX,helpshift.com
 DOMAIN-SUFFIX,paragon.com
 DOMAIN-SUFFIX,unrealengine.com
-DOMAIN,epicgames-download1.akamaized.net
-DOMAIN,fastly-download.epicgames.com
 
 # Riot/LOL/PBE
 DOMAIN-SUFFIX,lol.sgp.pvp.net

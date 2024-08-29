@@ -89,6 +89,15 @@ DOMAIN,opgg-desktop-data.akamaized.net
 DOMAIN,opgg-static.akamaized.net
 DOMAIN,opggsupport.zendesk.com
 
+#Epic Cdn
+DOMAIN,epicgames-download1.akamaized.net
+DOMAIN,fastly-download.epicgames.com
+DOMAIN,download.epicgames.com
+DOMAIN,download2.epicgame.com
+DOMAIN,download3.epicgames.com
+DOMAIN,download4.epicgames.com
+DOMAIN,cloudflare.epicgamescdn.com
+
 #Akamaized Cdn 加速
 DOMAIN,nrk-od-world-52.akamaized.net
 
@@ -172,6 +181,8 @@ DOMAIN,download.mobatek.net
 DOMAIN-SUFFIX,vancedofficial.com
 DOMAIN-SUFFIX,vanced.pro
 DOMAIN-SUFFIX,emeditor.info
+DOMAIN-SUFFIX,krakenfiles.com
+DOMAIN-SUFFIX,scootersoftware.com
 
 #VA番茄插件
 DOMAIN-SUFFIX,wholetomato.com
@@ -219,7 +230,7 @@ DOMAIN,sb.adtidy.org
 DOMAIN,dl-cdn.alpinelinux.org
 DOMAIN-SUFFIX,ftp.acc.umu.se
 DOMAIN-SUFFIX,fedorapeople.org
-
+DOMAIN-SUFFIX,pixeldrain.com
 DOMAIN-SUFFIX,internetdownloadmanager.com
 
 DOMAIN-SUFFIX,sourceforge.net
@@ -251,12 +262,12 @@ DOMAIN-SUFFIX,segger.com
 DOMAIN,download.amd.com
 DOMAIN-SUFFIX,deepl.com
 
-#WebOS
+# WebOS
 DOMAIN-SUFFIX,macos.now.sh
 DOMAIN-SUFFIX,codecanyon.net
 DOMAIN-SUFFIX,spagreen.net
 
-#ios模拟器
+# ios模拟器
 DOMAIN-SUFFIX,appetize.io
 
 # 网盘
@@ -275,6 +286,9 @@ DOMAIN-SUFFIX,mypikpak.com
 DOMAIN-SUFFIX,mypikpak.net
 DOMAIN-SUFFIX,pikpak.me
 DOMAIN-SUFFIX,dropgalaxy.com
+
+# 图床
+DOMAIN,i.mij.rip
 
 # UUPDump
 DOMAIN-SUFFIX,uupdump.net
