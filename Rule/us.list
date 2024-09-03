@@ -8,8 +8,6 @@ DOMAIN-SUFFIX,gaming.amazon.com
 # TrumpTwitter
 DOMAIN-SUFFIX,truthsocial.com
 
-# > 虚拟钱包
-DOMAIN-SUFFIX,binance.us
 #Argent X
 DOMAIN-SUFFIX,argent.xyz
 DOMAIN-SUFFIX,argent.net

@@ -305,6 +305,9 @@ DOMAIN-SUFFIX,bit.ly
 
 # 虚拟货币
 DOMAIN-SUFFIX,hi.com
+DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,okx.ac
+
 
 # 磁力搜索站
 DOMAIN-SUFFIX,nyaa.si
