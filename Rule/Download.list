@@ -234,6 +234,7 @@ DOMAIN-SUFFIX,pixeldrain.com
 DOMAIN-SUFFIX,internetdownloadmanager.com
 
 DOMAIN-SUFFIX,sourceforge.net
+DOMAIN-SUFFIX,enigma.im
 
 # Docker / Images
 DOMAIN-SUFFIX,ghcr.io
