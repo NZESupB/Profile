@@ -292,6 +292,9 @@ DOMAIN-SUFFIX,dropgalaxy.com
 
 # 图床
 DOMAIN,i.mij.rip
+DOMAIN,ice.frostsky.com
+
+DOMAIN-SUFFIX,linux.do
 
 # UUPDump
 DOMAIN-SUFFIX,uupdump.net
