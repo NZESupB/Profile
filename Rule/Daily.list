@@ -212,7 +212,6 @@ DOMAIN-SUFFIX,xiu.ee
 DOMAIN-SUFFIX,hostevaluate.com
 DOMAIN-SUFFIX,mjjhome.net
 DOMAIN-SUFFIX,serverplayer.com
-DOMAIN-SUFFIX,linux.do
 DOMAIN-SUFFIX,v2rayse.com
 DOMAIN-SUFFIX,hostbuf.com
 DOMAIN-SUFFIX,nodeseek.com
@@ -305,6 +304,9 @@ DOMAIN-SUFFIX,bit.ly
 
 # 虚拟货币
 DOMAIN-SUFFIX,hi.com
+DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,okx.ac
+
 
 # 磁力搜索站
 DOMAIN-SUFFIX,nyaa.si
@@ -348,6 +350,7 @@ DOMAIN-SUFFIX,tonsky.me
 DOMAIN-SUFFIX,wiki.metacubex.one
 DOMAIN-SUFFIX,codeium.com
 DOMAIN-SUFFIX,cursor.sh
+DOMAIN-SUFFIX,cursor.com
 
 # FullTClash
 DOMAIN,em-content.zobj.net
@@ -369,3 +372,6 @@ DOMAIN-SUFFIX,canva.com
 
 #代理
 DOMAIN-SUFFIX,feedly.com
+DOMAIN-SUFFIX,matrix.org
+DOMAIN-SUFFIX,element.io
+IP-CIDR,35.190.71.189/32

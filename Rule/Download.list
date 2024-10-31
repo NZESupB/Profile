@@ -234,6 +234,7 @@ DOMAIN-SUFFIX,pixeldrain.com
 DOMAIN-SUFFIX,internetdownloadmanager.com
 
 DOMAIN-SUFFIX,sourceforge.net
+DOMAIN-SUFFIX,enigma.im
 
 # Docker / Images
 DOMAIN-SUFFIX,ghcr.io
@@ -254,6 +255,8 @@ DOMAIN-SUFFIX,modyolo.com
 DOMAIN-SUFFIX,moddroid.co
 DOMAIN-SUFFIX,dbeaver.io
 DOMAIN,res.lolli.tech
+DOMAIN-SUFFIX,massgrave.dev
+DOMAIN,download.todesktop.com
 
 DOMAIN-SUFFIX,proxmox.com
 DOMAIN-SUFFIX,ti.com
@@ -289,6 +292,9 @@ DOMAIN-SUFFIX,dropgalaxy.com
 
 # 图床
 DOMAIN,i.mij.rip
+DOMAIN,ice.frostsky.com
+
+DOMAIN-SUFFIX,linux.do
 
 # UUPDump
 DOMAIN-SUFFIX,uupdump.net
