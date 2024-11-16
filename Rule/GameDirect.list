@@ -50,6 +50,6 @@ DOMAIN-SUFFIX,ubionline.com.cn
 DOMAIN,checkappexec.microsoft.com
 
 # LOL国际服大厅
-DOMAIN,feapp.pbe1.lol.pvp.net
-DOMAIN,feapp.jp1.lol.pvp.net
-DOMAIN,feapp.tw2.lol.pvp.net
+# DOMAIN,feapp.pbe1.lol.pvp.net
+# DOMAIN,feapp.jp1.lol.pvp.net
+# DOMAIN,feapp.tw2.lol.pvp.net
