@@ -202,9 +202,9 @@ IP-CIDR,192.64.170.0/21,no-resolve
 IP-CIDR,104.160.128.0/19,no-resolve
 
 # LOL国际服大厅
-#DOMAIN,feapp.pbe1.lol.pvp.net
-#DOMAIN,feapp.jp1.lol.pvp.net
-#DOMAIN,feapp.tw2.lol.pvp.net
+# DOMAIN,feapp.pbe1.lol.pvp.net
+# DOMAIN,feapp.jp1.lol.pvp.net
+# DOMAIN,feapp.tw2.lol.pvp.net
 
 #糖豆人
 PROCESS-NAME,FallGuys_client_game.exe
