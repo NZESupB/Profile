@@ -33,9 +33,6 @@ DOMAIN-SUFFIX,cloudflareapps.com
 DOMAIN-SUFFIX,cloudflare.com
 DOMAIN-SUFFIX,cloudflareinsights.com
 
-# > Vercel
-DOMAIN-SUFFIX,vercel.com
-
 # > NextTrace Api
 DOMAIN,api.leo.moe
 
@@ -220,6 +217,8 @@ DOMAIN-SUFFIX,linustechtips.com
 DOMAIN-SUFFIX,xh86.me
 DOMAIN-SUFFIX,yummy.best
 DOMAIN-SUFFIX,ouo.io
+DOMAIN-SUFFIX,affman.xyz
+DOMAIN-SUFFIX,dmit.io
 
 # News
 DOMAIN-SUFFIX,reuters.com
@@ -317,10 +316,7 @@ DOMAIN-SUFFIX,ptt.cc
 # 羊毛api
 DOMAIN-SUFFIX,fakermetaverse.xyz
 DOMAIN-SUFFIX,kingran.cf
-DOMAIN-SUFFIX,imagic.eu.org
-DOMAIN-SUFFIX,ailoveu.eu.org
 DOMAIN-SUFFIX,api.nolanstore.top
-DOMAIN,lic.nolanhhhh.eu.org
 DOMAIN,129888.xyz
 
 # 教程加速
@@ -342,7 +338,7 @@ DOMAIN,ariang.mayswind.net
 
 # 加速
 DOMAIN-SUFFIX,ft.com
-DOMAIN,burn.hair
+DOMAIN-SUFFIX,burn.hair
 DOMAIN-SUFFIX,sagernet.org
 DOMAIN-SUFFIX,pythonguis.com
 DOMAIN-SUFFIX,unite.ai
@@ -351,6 +347,9 @@ DOMAIN-SUFFIX,wiki.metacubex.one
 DOMAIN-SUFFIX,codeium.com
 DOMAIN-SUFFIX,cursor.sh
 DOMAIN-SUFFIX,cursor.com
+DOMAIN-SUFFIX,lmarena.ai
+DOMAIN-SUFFIX,gitkraken.com
+
 
 # FullTClash
 DOMAIN,em-content.zobj.net
