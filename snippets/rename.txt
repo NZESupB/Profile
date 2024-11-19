@@ -36,6 +36,8 @@ JPN?@日本
 IND?@印度
 KR|KOR@韩国
 DEU?@德国
+PH@菲律宾
+Macao@澳门
 
 ;其他
 GZCM-香港|GZCM-P|GZCM|广移中继|GZ-P@广移
@@ -54,6 +56,9 @@ BGP-香港@BGP
 深圳电信@深电
 深圳联通@深联
 海南移动@琼移
+\[?Aliyun\]?@IEPL-Ali
+\[?Wcloud\]?@IEPL-Wei
+
 
 ;括号
 \[IEPL\]@IEPL
