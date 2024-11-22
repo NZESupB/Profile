@@ -309,6 +309,8 @@ DOMAIN-SUFFIX,dropgalaxy.com
 # 图床
 DOMAIN,i.mij.rip
 DOMAIN,ice.frostsky.com
+DOMAIN,oss.yoisp.cc
+DOMAIN,image.mooncloud.top
 
 DOMAIN-SUFFIX,linux.do
 
