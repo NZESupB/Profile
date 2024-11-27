@@ -142,6 +142,7 @@ DOMAIN-SUFFIX,hicairo.com
 DOMAIN-SUFFIX,idev.dev
 DOMAIN-SUFFIX,mobile01.com
 
+
 # 小工具
 DOMAIN-SUFFIX,regex101.com
 DOMAIN-SUFFIX,composerize.com
@@ -241,7 +242,7 @@ DOMAIN-SUFFIX,redd.it
 # Nitter
 DOMAIN-SUFFIX,nitter.net
 
-#CPUInfo
+# CPUInfo
 DOMAIN-SUFFIX,technical.city
 DOMAIN-SUFFIX,cpu-monkey.com
 
@@ -261,12 +262,6 @@ DOMAIN-SUFFIX,amd.com
 DOMAIN-SUFFIX,socpk.com
 DOMAIN-SUFFIX,cocopilot.org
 DOMAIN-SUFFIX,bgp.tools
-
-# > 品云
-DOMAIN-SUFFIX,52.mk
-DOMAIN-SUFFIX,3o.hk
-DOMAIN-SUFFIX,vps.wf
-DOMAIN-SUFFIX,id9.cc
 
 # > 机场订阅
 DOMAIN-SUFFIX,telecomsemi.xyz
@@ -288,7 +283,6 @@ DOMAIN-SUFFIX,wawo.wiki
 DOMAIN-SUFFIX,bestvm.cloud
 DOMAIN-SUFFIX,ggvision.net
 
-
 # 短连接
 DOMAIN-SUFFIX,goo.gl
 DOMAIN-SUFFIX,blankrefer.com
@@ -301,6 +295,12 @@ DOMAIN-SUFFIX,short-ly.co
 DOMAIN-SUFFIX,tinyurl.com
 DOMAIN-SUFFIX,tny.im
 DOMAIN-SUFFIX,bit.ly
+
+# > 品云
+DOMAIN-SUFFIX,52.mk
+DOMAIN-SUFFIX,3o.hk
+DOMAIN-SUFFIX,vps.wf
+DOMAIN-SUFFIX,id9.cc
 
 # 虚拟货币
 DOMAIN-SUFFIX,hi.com
@@ -350,10 +350,7 @@ DOMAIN-SUFFIX,cursor.sh
 DOMAIN-SUFFIX,cursor.com
 DOMAIN-SUFFIX,lmarena.ai
 DOMAIN-SUFFIX,gitkraken.com
-
-
-# FullTClash
-DOMAIN,em-content.zobj.net
+DOMAIN-SUFFIX,ephone.ai
 
 # TessdataOCR
 DOMAIN-SUFFIX,projectnaptha.com
