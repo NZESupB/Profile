@@ -29,12 +29,16 @@ DOMAIN-SUFFIX,poecdn.net
 
 DOMAIN-SUFFIX,perplexity.ai
 
+# Serv00
+DOMAIN-SUFFIX,serv00.com
+
 # Coze
 DOMAIN-SUFFIX,coze.com
 
 # Oracle
-DOMAIN-SUFFIX,oracle.com
-DOMAIN-SUFFIX,oraclecloud.com
+# DOMAIN-SUFFIX,oracle.com
+# DOMAIN-SUFFIX,oraclecloud.com
+DOMAIN-SUFFIX,custhelp.com
 
 # Google Bard
 DOMAIN,labs.google.com
