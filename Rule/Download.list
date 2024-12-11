@@ -246,7 +246,7 @@ DOMAIN-SUFFIX,docker.com
 DOMAIN-SUFFIX,docker.io
 
 # Java Download
-DOMAIN-SUFFIX,oracle.com
+# DOMAIN-SUFFIX,oracle.com
 DOMAIN-SUFFIX,java.net
 DOMAIN-SUFFIX,maven.org
 
