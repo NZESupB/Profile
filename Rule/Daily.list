@@ -348,9 +348,11 @@ DOMAIN-SUFFIX,wiki.metacubex.one
 DOMAIN-SUFFIX,codeium.com
 DOMAIN-SUFFIX,cursor.sh
 DOMAIN-SUFFIX,cursor.com
+DOMAIN-SUFFIX,cursor-cdn.com
 DOMAIN-SUFFIX,lmarena.ai
 DOMAIN-SUFFIX,gitkraken.com
 DOMAIN-SUFFIX,ephone.ai
+DOMAIN-SUFFIX,sider.ai
 
 # TessdataOCR
 DOMAIN-SUFFIX,projectnaptha.com
