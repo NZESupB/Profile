@@ -263,9 +263,16 @@ DOMAIN,download.todesktop.com
 DOMAIN-SUFFIX,devuploads.com
 DOMAIN-SUFFIX,thecubexguide.com
 DOMAIN-SUFFIX,mega4upload.com
+DOMAIN-SUFFIX,clashverge.dev
 # 两个抓包软件下载
 DOMAIN,plug-mirror.rcac.purdue.edu
 DOMAIN-SUFFIX,charlesproxy.com
+
+# AndroidTV Emotn Store
+DOMAIN-SUFFIX,emotn.com
+DOMAIN-SUFFIX,weesunday.com
+DOMAIN-SUFFIX,keeflys.com
+DOMAIN-SUFFIX,iptvsubscriptionmedia.com
 
 # 安卓模拟器国际版
 DOMAIN-SUFFIX,bluestacks.com
