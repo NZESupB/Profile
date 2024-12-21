@@ -33,9 +33,6 @@ DOMAIN-SUFFIX,cloudflareapps.com
 DOMAIN-SUFFIX,cloudflare.com
 DOMAIN-SUFFIX,cloudflareinsights.com
 
-# > Vercel
-DOMAIN-SUFFIX,vercel.com
-
 # > NextTrace Api
 DOMAIN,api.leo.moe
 
@@ -145,6 +142,7 @@ DOMAIN-SUFFIX,hicairo.com
 DOMAIN-SUFFIX,idev.dev
 DOMAIN-SUFFIX,mobile01.com
 
+
 # 小工具
 DOMAIN-SUFFIX,regex101.com
 DOMAIN-SUFFIX,composerize.com
@@ -220,6 +218,8 @@ DOMAIN-SUFFIX,linustechtips.com
 DOMAIN-SUFFIX,xh86.me
 DOMAIN-SUFFIX,yummy.best
 DOMAIN-SUFFIX,ouo.io
+DOMAIN-SUFFIX,affman.xyz
+DOMAIN-SUFFIX,dmit.io
 
 # News
 DOMAIN-SUFFIX,reuters.com
@@ -242,7 +242,7 @@ DOMAIN-SUFFIX,redd.it
 # Nitter
 DOMAIN-SUFFIX,nitter.net
 
-#CPUInfo
+# CPUInfo
 DOMAIN-SUFFIX,technical.city
 DOMAIN-SUFFIX,cpu-monkey.com
 
@@ -263,12 +263,6 @@ DOMAIN-SUFFIX,socpk.com
 DOMAIN-SUFFIX,cocopilot.org
 DOMAIN-SUFFIX,bgp.tools
 
-# > 品云
-DOMAIN-SUFFIX,52.mk
-DOMAIN-SUFFIX,3o.hk
-DOMAIN-SUFFIX,vps.wf
-DOMAIN-SUFFIX,id9.cc
-
 # > 机场订阅
 DOMAIN-SUFFIX,telecomsemi.xyz
 DOMAIN-SUFFIX,tomlink.org
@@ -287,7 +281,7 @@ DOMAIN-SUFFIX,vimss.com
 DOMAIN-SUFFIX,usercloud.host
 DOMAIN-SUFFIX,wawo.wiki
 DOMAIN-SUFFIX,bestvm.cloud
-
+DOMAIN-SUFFIX,ggvision.net
 
 # 短连接
 DOMAIN-SUFFIX,goo.gl
@@ -301,6 +295,12 @@ DOMAIN-SUFFIX,short-ly.co
 DOMAIN-SUFFIX,tinyurl.com
 DOMAIN-SUFFIX,tny.im
 DOMAIN-SUFFIX,bit.ly
+
+# > 品云
+DOMAIN-SUFFIX,52.mk
+DOMAIN-SUFFIX,3o.hk
+DOMAIN-SUFFIX,vps.wf
+DOMAIN-SUFFIX,id9.cc
 
 # 虚拟货币
 DOMAIN-SUFFIX,hi.com
@@ -317,10 +317,7 @@ DOMAIN-SUFFIX,ptt.cc
 # 羊毛api
 DOMAIN-SUFFIX,fakermetaverse.xyz
 DOMAIN-SUFFIX,kingran.cf
-DOMAIN-SUFFIX,imagic.eu.org
-DOMAIN-SUFFIX,ailoveu.eu.org
 DOMAIN-SUFFIX,api.nolanstore.top
-DOMAIN,lic.nolanhhhh.eu.org
 DOMAIN,129888.xyz
 
 # 教程加速
@@ -342,7 +339,7 @@ DOMAIN,ariang.mayswind.net
 
 # 加速
 DOMAIN-SUFFIX,ft.com
-DOMAIN,burn.hair
+DOMAIN-SUFFIX,burn.hair
 DOMAIN-SUFFIX,sagernet.org
 DOMAIN-SUFFIX,pythonguis.com
 DOMAIN-SUFFIX,unite.ai
@@ -351,9 +348,11 @@ DOMAIN-SUFFIX,wiki.metacubex.one
 DOMAIN-SUFFIX,codeium.com
 DOMAIN-SUFFIX,cursor.sh
 DOMAIN-SUFFIX,cursor.com
-
-# FullTClash
-DOMAIN,em-content.zobj.net
+DOMAIN-SUFFIX,cursor-cdn.com
+DOMAIN-SUFFIX,lmarena.ai
+DOMAIN-SUFFIX,gitkraken.com
+DOMAIN-SUFFIX,ephone.ai
+DOMAIN-SUFFIX,sider.ai
 
 # TessdataOCR
 DOMAIN-SUFFIX,projectnaptha.com

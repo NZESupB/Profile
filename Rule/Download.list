@@ -35,7 +35,8 @@ DOMAIN-SUFFIX,pages.dev
 DOMAIN-SUFFIX,cloudflare-ipfs.com
 DOMAIN-SUFFIX,cf-ipfs.com
 
-# Vercel CDN
+# > Vercel & CDN
+DOMAIN-SUFFIX,vercel.com
 DOMAIN-SUFFIX,vercel.app
 DOMAIN-SUFFIX,now.sh
 DOMAIN-SUFFIX,vercel.dev
@@ -60,6 +61,9 @@ DOMAIN-SUFFIX,csb.app
 # >> Microsoft Azure
 DOMAIN-SUFFIX,azurestaticapps.net
 
+# All EUORG
+DOMAIN-SUFFIX,eu.org
+
 DOMAIN-SUFFIX,tmp.link
 
 #Magisk
@@ -68,7 +72,6 @@ DOMAIN-SUFFIX,lsposed.org
 
 #AuroraStore
 DOMAIN,aefd.nelreports.net
-DOMAIN,reports.exodus-privacy.eu.org
 DOMAIN-SUFFIX,goolag.store
 DOMAIN,ftp.fau.de
 DOMAIN-SUFFIX,auroraoss.com
@@ -97,6 +100,8 @@ DOMAIN,download2.epicgame.com
 DOMAIN,download3.epicgames.com
 DOMAIN,download4.epicgames.com
 DOMAIN,cloudflare.epicgamescdn.com
+#Epic App Download
+DOMAIN-SUFFIX,dtignite.com
 
 #Akamaized Cdn 加速
 DOMAIN,nrk-od-world-52.akamaized.net
@@ -243,7 +248,7 @@ DOMAIN-SUFFIX,docker.com
 DOMAIN-SUFFIX,docker.io
 
 # Java Download
-DOMAIN-SUFFIX,oracle.com
+# DOMAIN-SUFFIX,oracle.com
 DOMAIN-SUFFIX,java.net
 DOMAIN-SUFFIX,maven.org
 
@@ -257,6 +262,26 @@ DOMAIN-SUFFIX,dbeaver.io
 DOMAIN,res.lolli.tech
 DOMAIN-SUFFIX,massgrave.dev
 DOMAIN,download.todesktop.com
+DOMAIN-SUFFIX,devuploads.com
+DOMAIN-SUFFIX,thecubexguide.com
+DOMAIN-SUFFIX,mega4upload.com
+DOMAIN-SUFFIX,clashverge.dev
+# 两个抓包软件下载
+DOMAIN,plug-mirror.rcac.purdue.edu
+DOMAIN-SUFFIX,charlesproxy.com
+
+# AndroidTV Emotn Store
+DOMAIN-SUFFIX,emotn.com
+DOMAIN-SUFFIX,weesunday.com
+DOMAIN-SUFFIX,keeflys.com
+DOMAIN-SUFFIX,iptvsubscriptionmedia.com
+
+# 安卓模拟器国际版
+DOMAIN-SUFFIX,bluestacks.com
+DOMAIN-SUFFIX,bignox.com
+DOMAIN-SUFFIX,appmeasurements.com
+
+DOMAIN-SUFFIX,freemp3downloads.online
 
 DOMAIN-SUFFIX,proxmox.com
 DOMAIN-SUFFIX,ti.com
@@ -293,6 +318,8 @@ DOMAIN-SUFFIX,dropgalaxy.com
 # 图床
 DOMAIN,i.mij.rip
 DOMAIN,ice.frostsky.com
+DOMAIN,oss.yoisp.cc
+DOMAIN,image.mooncloud.top
 
 DOMAIN-SUFFIX,linux.do
 
@@ -305,19 +332,8 @@ DOMAIN-SUFFIX,spacedesk.net
 # 电台
 DOMAIN-SUFFIX,radio.garden
 
-# 两个抓包软件下载
-DOMAIN,plug-mirror.rcac.purdue.edu
-DOMAIN-SUFFIX,charlesproxy.com
-
 # FixLocationMap
 DOMAIN-SUFFIX,openstreetmap.org
-
-# 安卓模拟器国际版
-DOMAIN-SUFFIX,bluestacks.com
-DOMAIN-SUFFIX,bignox.com
-DOMAIN-SUFFIX,appmeasurements.com
-
-DOMAIN-SUFFIX,freemp3downloads.online
 
 # OpenWrt
 DOMAIN-SUFFIX,immortalwrt.org
