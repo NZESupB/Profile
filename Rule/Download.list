@@ -100,6 +100,8 @@ DOMAIN,download2.epicgame.com
 DOMAIN,download3.epicgames.com
 DOMAIN,download4.epicgames.com
 DOMAIN,cloudflare.epicgamescdn.com
+#Epic App Download
+DOMAIN-SUFFIX,dtignite.com
 
 #Akamaized Cdn 加速
 DOMAIN,nrk-od-world-52.akamaized.net
