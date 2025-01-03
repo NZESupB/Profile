@@ -186,6 +186,8 @@ DOMAIN-SUFFIX,vanced.pro
 DOMAIN-SUFFIX,emeditor.info
 DOMAIN-SUFFIX,krakenfiles.com
 DOMAIN-SUFFIX,scootersoftware.com
+DOMAIN-SUFFIX,landrop.app
+DOMAIN-SUFFIX,marticliment.com
 
 #VA番茄插件
 DOMAIN-SUFFIX,wholetomato.com
@@ -318,6 +320,7 @@ DOMAIN,i.mij.rip
 DOMAIN,ice.frostsky.com
 DOMAIN,oss.yoisp.cc
 DOMAIN,image.mooncloud.top
+DOMAIN,imgfans.com
 
 DOMAIN-SUFFIX,linux.do
 
@@ -344,3 +347,5 @@ DOMAIN,ncs.lnk.to
 #Nvida
 DOMAIN-SUFFIX,nvidia.com
 DOMAIN-SUFFIX,geforce.com
+
+#
