@@ -64,3 +64,6 @@ DOMAIN-SUFFIX,talkatone.com
 #Cohere(屏蔽CN)
 DOMAIN-SUFFIX,cohere.com
 DOMAIN-SUFFIX,cohere.ai
+
+#Qinwen(奠信连不上，加速)
+DOMAIN-SUFFIX,qwenlm.ai
