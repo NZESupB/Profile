@@ -252,9 +252,6 @@ DOMAIN-SUFFIX,docker.io
 DOMAIN-SUFFIX,java.net
 DOMAIN-SUFFIX,maven.org
 
-# 三角洲更新
-DOMAIN,download.dgameglobal.com
-
 # 软件下载
 DOMAIN-SUFFIX,screentogif.com
 DOMAIN-SUFFIX,netsarang.net

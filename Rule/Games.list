@@ -210,22 +210,6 @@ DOMAIN,feapp.pbe1.lol.pvp.net
 DOMAIN,feapp.jp1.lol.pvp.net
 DOMAIN,feapp.tw2.lol.pvp.net
 
-# 三角洲国际服
-DOMAIN,pc.perfsight.wetest.net
-DOMAIN,sg.tdatamaster.com
-DOMAIN-SUFFIX,dmpplat.com
-DOMAIN,crl.globalsign.net
-DOMAIN,tqos-yun.anticheatexpert.com
-DOMAIN,down.anticheatexpert.com
-DOMAIN,asia.cschannel.anticheatexpert.com
-# 三角洲国际服 可能与国内部分冲突
-DOMAIN,rptdata.wb.qq.com
-DOMAIN,netbarsvr.iigw.qq.com
-DOMAIN,sg.jupiterlauncher.com
-DOMAIN,na.fleetlogd.com
-PROCESS-NAME,df_launcher_global.exe
-PROCESS-NAME,DeltaForceClient-Win64-Shipping.exe
-
 #糖豆人
 PROCESS-NAME,FallGuys_client_game.exe
 IP-CIDR,156.59.221.101/32,no-resolve
