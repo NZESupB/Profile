@@ -208,6 +208,10 @@ DOMAIN,feapp.pbe1.lol.pvp.net
 DOMAIN,feapp.jp1.lol.pvp.net
 DOMAIN,feapp.tw2.lol.pvp.net
 
+# 三角洲国际服
+DOMAIN,pc.perfsight.wetest.net
+
+
 #糖豆人
 PROCESS-NAME,FallGuys_client_game.exe
 IP-CIDR,156.59.221.101/32,no-resolve
