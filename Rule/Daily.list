@@ -376,3 +376,5 @@ DOMAIN-SUFFIX,feedly.com
 DOMAIN-SUFFIX,matrix.org
 DOMAIN-SUFFIX,element.io
 IP-CIDR,35.190.71.189/32
+
+DOMAIN,rss.nxnow.top
