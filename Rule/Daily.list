@@ -375,6 +375,7 @@ DOMAIN-SUFFIX,canva.com
 DOMAIN-SUFFIX,feedly.com
 DOMAIN-SUFFIX,matrix.org
 DOMAIN-SUFFIX,element.io
+DOMAIN-SUFFIX,greasyfork.org
 IP-CIDR,35.190.71.189/32
 
 DOMAIN,rss.nxnow.top
