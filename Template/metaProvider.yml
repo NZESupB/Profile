@@ -2,29 +2,46 @@ mixed-port: 7890
 allow-lan: true
 bind-address: "*"
 mode: rule
+log-level: info
 ipv6: true
 external-controller: 0.0.0.0:9999
-external-ui: ui
+external-ui: ui/
 external-ui-name: xd 
-external-ui-url: "https://git.nxnow.top/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip" #从 GitHub Pages 分支获取
+external-ui-url: "https://gh.nxnow.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip" #从 GitHub Pages 分支获取
 #experimental:
 #  sniff-tls-sni: true
 unified-delay: true
-secret: "dashborad_password"
+secret: "https://github.com/Zephyruso/zashboard" #rpc 密钥自行修改
 #authentication:
-#- "meta_socks_user:meta_password"
+#- "meta_user:meta_pwd"
 hosts:
   # hkdns: 202.14.67.4,202.14.67.14
-  ".googleapis.cn": 142.250.196.131
-  ".google.cn": 142.250.196.131
+  '.googleapis.cn': 142.250.196.131
+  '.google.cn': 142.250.196.131
+  #'mtalk.google.com' : [108.177.125.188, 2404:6800:4008:c07::bc]
+  #'alt1-mtalk.google.com' : [142.250.141.188, 2607:f8b0:4023:c0b::bc]
+  #'alt2-mtalk.google.com' : 142.250.115.188
+  #'alt3-mtalk.google.com' : 64.233.171.188
+  #'alt4-mtalk.google.com' : 173.194.202.188
+  #'alt5-mtalk.google.com' : [142.250.141.188, 2607:f8b0:4023:1::bc]
+  #'alt6-mtalk.google.com' : 142.250.115.188
+  #'alt7-mtalk.google.com' : [74.125.200.188, 2607:f8b0:4002:c03::bc]
+  #'alt8-mtalk.google.com' : 142.250.152.188
+
+global-ua: ClashMetaForAndroid/2.11.5
+
+# keep-alive-interval: 10
 
 geodata-mode: true
+geo-auto-update: true
+geo-update-interval: 24
 geox-url:
-  geoip: "https://git.nxnow.top/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
-  geosite: "https://git.nxnow.top/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
-  mmdb: "https://git.nxnow.top/MetaCubeX/meta-rules-dat/releases/download/latest/Country.mmdb"
+  geoip: "https://gh.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
+  geosite: "https://gh.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://gh.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/Country.mmdb"
+  asn: "https://gh.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
 
-# 不开启tun没必要启用
+# 不开启tun/使用第三方gui没必要启用
 #dns:
   #enable: true
   #ipv6: true
@@ -35,275 +52,281 @@ geox-url:
     #- https://dns.alidns.com/dns-query
     #- https://doh.dns.sb/dns-query
     #自行修改dns
+  #fallback:
+  #  - https://doh.apad.pro/dns-query
   #fake-ip-filter:
     #- +.*
   #nameserver-policy:
-    #"geosite:cn,private,games-cn":
+    #"geosite:cn,private,category-games@cn,googlefcm,microsoft@cn,apple@cn":
+      #- dhcp://en0
+      #- system
       #- 119.29.29.29
       #- https://dns.alidns.com/dns-query
       #如设备网络环境固定,可修改为路由器/网关/运营商dns，加快速度
 #tun:
-  #enable: false
-  #stack: system #gvisor system
-  #dns-hijack:
-    #- any:53
-  #auto-route: true
-  #auto-detect-interface: true
-  #auto-redir: true #Linux专属自动路由
+#  enable: true
+#  stack: system
+#  dns-hijack:
+#    - any:53
+#  auto-route: true
+#  auto-redirect: true
+#  auto-detect-interface: true
 
-providerTest:
+ProviderTest:
   &providerTest {
     type: http,
     interval: 43200,
     health-check:
-      {
-        enable: true,
-        url: http://cp.cloudflare.com/generate_204,
-        interval: 14400,
-      },
+      { enable: true, url: https://cp.cloudflare.com, interval: 14400 },
   }
 
-nodeTest: &nodeTest
-  url: "http://cp.cloudflare.com/generate_204"
-  interval: 300
-  include-all-providers: true
-
-allProviderSelect: &allProviderSelect
+GroupSelect: &gSelect
   type: select
   include-all-providers: true
 
-allProviderAuto: &allProviderAuto
+# 使用需自行添加use
+GroupAuto: &gAuto
   type: url-test
-  << *nodeTest
+  url: https://cp.cloudflare.com
+  interval: 300
+  tolerance: 20
 
-allProviderLoadBalance: &allProviderLoadBalance
+# 使用需自行添加use
+GroupLoadBalance: &gLoadBalance
   type: load-balance
-  << *nodeTest
+  url: https://cp.cloudflare.com
+  interval: 300
+ 
+# 使用需自行添加use
+GroupFallBack: &gFallBack
+  type: fallback
+  url: https://cp.cloudflare.com
+  interval: 300
 
 proxies:
+# 独立节点
 
 proxy-providers:
-  Provider1:
-    <<: *providerTest
-    url: "list1" #自行修改订阅链接
-  Provider2:
-    <<: *providerTest
-    url: "list2" #自行修改订阅链接
-  Provider3:
-    <<: *providerTest
-    url: "list3" #自行修改订阅链接
-  # 自行添加其他机场
+# 订阅列表, Cloud1 自行修改对应名，也可以不改，url 后链接修改为订阅链接，多个订阅复制多个Cloud1 改成不同名即可
+  #Cloud1:
+  #  <<: *providerTest
+  #  url: "https://wg.114514.wdnmd/api/v1/client/subscribe?token=aaaaaaaaaaaaaaaaaaaaaa"
+  #  path: ./Proxy/Cloud1
 
 proxy-groups:
-  - name: "🚀 全球互联"
-    <<: *allProviderSelect
-    filter: "(港*IPLC|IEPL|专线)|香港"
+  - name: "全球互联"
+    <<: *gSelect
+    filter: "(港*IPLC|IEPL|专线|UDPN)"
     proxies:
       - 🇭🇰 香港
       - 🇯🇵 日本
       - 🇺🇸 美国
-      - 🇹🇼 台湾
+      #- 🇹🇼 台湾
       - 🇸🇬 新加坡
-  - name: "🎮 游戏娱乐"
-    <<: *allProviderSelect
-    filter: "(IPLC|IEPL|专线|Game|伟の)"
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Global.png
+  - name: "游戏娱乐"
+    <<: *gSelect
+    filter: "(IPLC|IEPL|专线|Game|UDPN)"
     proxies:
       - 🇭🇰 香港
       - 🇯🇵 日本
       - 🇺🇸 美国
-      - 🇹🇼 台湾
+      #- 🇹🇼 台湾
       - 🇸🇬 新加坡
       - DIRECT
-  - name: "⏬ 测速下载"
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Game.png
+  - name: "测速下载"
     type: select
-    #use:
-    #  - Provier
+    #将Cloud1的所有节点添加至此规则组一份
+    use:
+      - Cloud1
     proxies:
       - DIRECT
       - 🇭🇰 香港
-      - 🇹🇼 台湾
+      #- 🇹🇼 台湾
       - 🇯🇵 日本
       - 🇺🇸 美国
       - 🇸🇬 新加坡
-      - 🚀 全球互联
-  - name: "🐟 漏网之鱼"
+      - 全球互联
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png
+  - name: "漏网之鱼"
     type: select
     proxies:
       - DIRECT
-      - 🚀 全球互联
-  - name: "📲 Telegram"
+      - 全球互联
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Final.png
+  - name: "TelegramDC5" #新加坡服务器，亚洲节点
     type: select
     proxies:
-      - 🇸🇬 新加坡Balance
       - 🇸🇬 新加坡
-      - 🇺🇸 美国Auto
-      - 🇺🇸 美国
       - 🇭🇰 香港
-    url: "http://telesco.pe"
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Telegram.png
+  - name: "TelegramDC4" # 欧洲服务器，欧洲或者香港节点
+    type: select
+    proxies:
+      - 🇭🇰 香港
+      - 🇺🇸 美国
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Telegram.png
+  - name: "直连域名"
+    type: select
+    proxies:
+      - DIRECT
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Direct.png
   - name: "🇭🇰 香港"
-    <<: *allProviderSelect
-    filter: "(^(?!.*(游戏|Game).*).*(香港))"
+    <<: *gSelect
+    filter: "(^(?!.*(Frp|游戏|Game).*).*(-港|香港|HKT|HKBN))"
+    proxies:
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Hong_Kong.png
   - name: "🇯🇵 日本"
-    <<: *allProviderSelect
-    filter: "(^(?!.*(游戏|Game).*).*(日本))"
+    <<: *gSelect
+    filter: "(^(?!.*(Frp|游戏|Game).*).*(-日|日本))"
+    proxies:
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Japan.png
   - name: "🇸🇬 新加坡"
-    <<: *allProviderSelect
-    filter: "(^(?!.*(游戏|Game).*).*(新加坡))"
-  - name: "🇸🇬 新加坡Balance"
-    <<: *allProviderLoadBalance
-    filter: "(^(?!.*(游戏|Game).*).*(新加坡))"
+    <<: *gSelect
+    filter: "(^(?!.*(Frp|游戏|Game).*).*(-坡|新加坡))"
+    proxies:
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Singapore.png
   - name: "🇺🇸 美国"
-    <<: *allProviderSelect
-    filter: "(^(?!.*(游戏|Game).*).*(美国))"
-  - name: "🇺🇸 美国Auto"
-    <<: *allProviderAuto
-    filter: "(^(?!.*(游戏|Game).*).*(美国))"
-  - name: "🇹🇼 台湾Auto"
-    <<: *allProviderAuto
-    filter: "(^(?!.*(游戏|Game).*).*(台湾))"
-  - name: "🛑 广告拦截"
+    <<: *gSelect
+    filter: "(^(?!.*(Frp|游戏|Game).*).*(-美|美国|圣何塞))"
+    #proxies:
+      #- 美国1
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/United_States.png
+  - name: "广告拦截"
     type: select
     proxies:
       - REJECT
       - DIRECT
+    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Advertising.png
+
 
 rule-providers:
-  🌍 国外媒体:
+  国际媒体:
     type: http
     behavior: classical
     path: ./RuleSet/Streaming.yaml
     url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9ydWxlc2V0LnNray5tb2UvQ2xhc2gvbm9uX2lwL3N0cmVhbS50eHQ
     interval: 43200
-  🌍 国外媒体IP:
+  国际媒体IP:
     type: http
     behavior: classical
     path: ./RuleSet/StreamingIP.yaml
     url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9ydWxlc2V0LnNray5tb2UvQ2xhc2gvaXAvc3RyZWFtLnR4dA
     interval: 43200
-  🌏 国内媒体:
-    type: http
-    behavior: classical
-    path: ./RuleSet/StreamingCN.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RpdmluZUVuZ2luZS9Qcm9maWxlcy9tYXN0ZXIvU3VyZ2UvUnVsZXNldC9TdHJlYW1pbmdNZWRpYS9TdHJlYW1pbmdDTi5saXN0
-    interval: 43200
-  🚀 全局规则:
+  全局规则:
     type: http
     behavior: classical
     path: ./RuleSet/Global.yaml
     url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUHJveHlMaXRlLmxpc3Q
     interval: 43200
-  🎯 国内直连:
-    type: http
-    behavior: domain
-    path: ./RuleSet/China.yaml
-    url: https://git.nxnow.top/MetaCubeX/meta-rules-dat/releases/download/latest/cn_domain.yaml
-    interval: 43200
-  🎯 IP段直连:
+  CN_IP:
     type: http
     behavior: ipcidr
     path: ./RuleSet/ChinaIP.yaml
-    url: https://z.nxnow.top/iprule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JsYWNrbWF0cml4Ny9pb3NfcnVsZV9zY3JpcHQvbWFzdGVyL3J1bGUvU3VyZ2UvQ2hpbmFJUHMvQ2hpbmFJUHNfUmVzb2x2ZS5saXN0
+    url: https://z.nxnow.top/iprule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RILVRlYW1zL0RILUdlb19BU19JUF9DTi9tYWluL0dlb19BU19JUF9DTl9BbGxfU3VyZ2UubGlzdA
     interval: 43200
-  🎯 其他直连:
+  其他直连:
     type: http
     behavior: domain
     path: ./RuleSet/OtherDirect.yaml
     url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGlyZWN0Lmxpc3Q
     interval: 43200
-  🎮 游戏娱乐:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Game.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvR2FtZXMubGlzdA
-    interval: 43200
-  🎮 游戏直连:
+  游戏娱乐: { type: http, behavior: classical, path: ./RuleSet/Game, format: text, url: 'https://raw.nxnow.top/NZESupB/Profile/main/Rule/Games.list', interval: 43200 }
+  游戏直连:
     type: http
     behavior: domain
     path: ./RuleSet/GameDirect.yaml
     url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvR2FtZURpcmVjdC5saXN0
     interval: 43200
-  ⏬ 海外下载:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Download.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRG93bmxvYWQubGlzdA
-    interval: 43200
-  🌏 其他媒体:
+  海外下载: { type: http, behavior: classical, format: text, path: ./RuleSet/Download, url: 'https://raw.nxnow.top/NZESupB/Profile/main/Rule/Download.list', interval: 43200 }
+  其他媒体:
     type: http
     behavior: domain
     path: ./RuleSet/Video.yaml
     url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvVmlkZW8ubGlzdA
     interval: 43200
-  ⚡ SpeedTest:
+  SpeedTest:
     type: http
     behavior: classical
     path: ./RuleSet/SpeedTest.yaml
     url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvU3BlZWR0ZXN0Lmxpc3Q
     interval: 43200
-  🌍 轻量浏览:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Daily.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGFpbHkubGlzdA
-    interval: 43200
+  轻量浏览: { type: http, behavior: classical, format: text, path: ./RuleSet/Daily, url: 'https://raw.nxnow.top/NZESupB/Profile/main/Rule/Daily.list', interval: 43200 }
   OpenAI:
     type: http
     behavior: classical
-    path: ./RuleSet/OpenAI.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JsYWNrbWF0cml4Ny9pb3NfcnVsZV9zY3JpcHQvbWFzdGVyL3J1bGUvU3VyZ2UvT3BlbkFJL09wZW5BSS5saXN0
-    #url: https://raw.nxnow.top/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list
+    path: ./RuleSet/OpenAI
+    format: text
+    #url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JsYWNrbWF0cml4Ny9pb3NfcnVsZV9zY3JpcHQvbWFzdGVyL3J1bGUvU3VyZ2UvT3BlbkFJL09wZW5BSS5saXN0
+    url: https://raw.nxnow.top/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list
     interval: 43200
-  🇺🇸 US_List:
+  US_List:
     type: http
     behavior: domain
     path: ./RuleSet/US_Rule.yaml
     url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvdXMubGlzdA
     interval: 43200
-  🇯🇵 JP_List:
+  JP_List:
     type: http
     behavior: domain
     path: ./RuleSet/JP_Rule.yaml
     url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvanAubGlzdA
     interval: 43200
+  Reject_List:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Reject_List.list
+    format: text
+    url: https://raw.nxnow.top/NZESupB/Profile/main/Rule/Reject.list
+    interval: 43200
 
 
 # 规则
 rules:
-  - GEOIP,LAN,DIRECT
+  - GEOIP,LAN,DIRECT,no-resolve
   - GEOSITE,googlefcm,DIRECT
   - AND,((NETWORK,UDP),(OR,((DST-PORT,12345),(DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,mcdn)))),REJECT
   - AND,((NETWORK,TCP),(DOMAIN-KEYWORD,stun),(OR,((DOMAIN-KEYWORD,douyu),(DOMAIN-KEYWORD,bilibili)))),REJECT
   - AND,((NETWORK,UDP),(OR,(GEOSITE,youtube),(GEOSITE,openai))),REJECT
-  - GEOSITE,github,🚀 全球互联
-  - GEOSITE,category-scholar-!cn,🚀 全球互联
-  - RULE-SET,🌍 轻量浏览,🚀 全球互联
+  - GEOSITE,category-dev,测速下载
+  - RULE-SET,海外下载,测速下载
+  - RULE-SET,SpeedTest,测速下载
+  - GEOSITE,github,全球互联
+  - GEOSITE,category-scholar-!cn,全球互联
+  - RULE-SET,Reject_List,REJECT
+  - RULE-SET,轻量浏览,全球互联
   - GEOSITE,category-games@cn,DIRECT
-  - RULE-SET,🎮 游戏直连,DIRECT
-  - GEOSITE,category-games,🎮 游戏娱乐
-  - RULE-SET,🎮 游戏娱乐,🎮 游戏娱乐
+  - RULE-SET,游戏直连,DIRECT
+  - GEOSITE,category-games,游戏娱乐
+  - RULE-SET,游戏娱乐,游戏娱乐
   - GEOSITE,openai,🇺🇸 美国
   - RULE-SET,OpenAI,🇺🇸 美国
-  - RULE-SET,🇺🇸 US_List,🇺🇸 美国
-  - RULE-SET,🇯🇵 JP_List,🇯🇵 日本
-  - RULE-SET,🎯 其他直连,DIRECT
-  - GEOSITE,category-ads-all,🛑 广告拦截
-  - GEOSITE,apple@cn,DIRECT
-  - GEOSITE,apple,⏬ 测速下载
-  - GEOSITE,microsoft@cn,DIRECT
-  - GEOSITE,microsoft,⏬ 测速下载
-  - GEOSITE,category-dev,⏬ 测速下载
-  - GEOSITE,youtube,🚀 全球互联
-  - GEOSITE,twitter,🚀 全球互联
-  - RULE-SET,🌏 其他媒体,🚀 全球互联
-  - GEOSITE,telegram,📲 Telegram
-  - GEOIP,telegram,📲 Telegram
-  - RULE-SET,⏬ 海外下载,⏬ 测速下载
-  - RULE-SET,⚡ SpeedTest,⏬ 测速下载
-  - RULE-SET,🌏 国内媒体,DIRECT
-  - RULE-SET,🌍 国外媒体,🚀 全球互联
-  - RULE-SET,🌍 国外媒体IP,🚀 全球互联
-  - RULE-SET,🚀 全局规则,🚀 全球互联
-  - GEOSITE,cn,DIRECT
-  - GEOIP,cn,DIRECT
-  - RULE-SET,🎯 IP段直连,DIRECT
-  - MATCH,🐟 漏网之鱼
+  - RULE-SET,US_List,🇺🇸 美国
+  - RULE-SET,JP_List,🇯🇵 日本
+  - RULE-SET,其他直连,直连域名
+  - GEOSITE,category-ads-all,广告拦截
+  - GEOSITE,apple@cn,直连域名
+  - GEOSITE,apple,测速下载
+  - GEOSITE,microsoft@cn,直连域名
+  - GEOSITE,microsoft,测速下载
+  - AND,((NETWORK,UDP),(DST-PORT,3478)),测速下载 # MSTeam
+  - GEOSITE,youtube,全球互联
+  - GEOSITE,twitter,全球互联
+  - RULE-SET,其他媒体,全球互联
+  - IP-ASN,44907,TelegramDC5,no-resolve
+  - IP-ASN,62014,TelegramDC5,no-resolve
+  - IP-ASN,59930,🇺🇸 美国,no-resolve
+  - IP-ASN,62041,TelegramDC4,no-resolve
+  - IP-ASN,211157,TelegramDC4,no-resolve
+  - IP-CIDR,5.28.192.0/18,TelegramDC4,no-resolve
+  - IP-CIDR,109.239.140.0/24,TelegramDC4,no-resolve
+  - GEOSITE,telegram,全球互联
+  - GEOIP,telegram,全球互联,no-resolve
+  - RULE-SET,国际媒体,全球互联
+  - RULE-SET,国际媒体IP,全球互联
+  - RULE-SET,全局规则,全球互联
+  - GEOSITE,cn,直连域名
+  - RULE-SET,CN_IP,直连域名
+  - GEOIP,cn,直连域名
+  - MATCH,漏网之鱼
