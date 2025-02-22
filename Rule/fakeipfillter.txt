@@ -1,0 +1,23 @@
+#   fake-ip-filter:
+#    - '*'
+#    - +.lan
+#    - +.local
+#    - geosite:cn
+#    - rule-set:fakeipfillter
+#  fakeipfillter:
+#    type: http
+#    behavior: domain
+#    path: ./RuleSet/fakeipfillter
+#    format: text
+#    interval: 86400
+#    url: "https://raw.nxnow.top/NZESupB/Profile/refs/heads/main/Rule/fakeipfillter.txt" 
++.stun.*.*
++.stun.*.*.*
++.stun.*.*.*.*
++.stun.*.*.*.*.*
+*.n.n.srv.nintendo.net
++.stun.playstation.net
+xbox.*.*.microsoft.com
+*.*.xboxlive.com
+*.msftncsi.com
+*.msftconnecttest.com
