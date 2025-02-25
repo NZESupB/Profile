@@ -44,6 +44,8 @@ DOMAIN-SUFFIX,custhelp.com
 # Google Bard
 DOMAIN,labs.google.com
 DOMAIN,gemini.google.com
+DOMAIN,aistudio.google.com
+DOMAIN,ai.google.dev
 
 # Claude 2
 DOMAIN-SUFFIX,claude.ai
