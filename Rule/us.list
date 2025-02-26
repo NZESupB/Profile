@@ -38,11 +38,19 @@ DOMAIN-SUFFIX,coze.com
 # Oracle
 # DOMAIN-SUFFIX,oracle.com
 # DOMAIN-SUFFIX,oraclecloud.com
+# DOMAIN-SUFFIX,oracleinfinity.io
 DOMAIN-SUFFIX,custhelp.com
 
 # Google Bard
 DOMAIN,labs.google.com
 DOMAIN,gemini.google.com
+DOMAIN,aistudio.google.com
+DOMAIN,ai.google.dev
+#aistudio ip 判断
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+
+#X ai
+DOMAIN-SUFFIX,x.ai
 
 # Claude 2
 DOMAIN-SUFFIX,claude.ai
@@ -64,3 +72,6 @@ DOMAIN-SUFFIX,talkatone.com
 #Cohere(屏蔽CN)
 DOMAIN-SUFFIX,cohere.com
 DOMAIN-SUFFIX,cohere.ai
+
+#Qinwen(奠信连不上，加速)
+DOMAIN-SUFFIX,qwenlm.ai

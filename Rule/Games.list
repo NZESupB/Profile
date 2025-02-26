@@ -145,8 +145,10 @@ DOMAIN,edge.steam-dns.top.comcast.net
 IP-CIDR,155.133.245.20/32,no-resolve
 DOMAIN,steambroadcastchat.akamaized.net
 PROCESS-NAME,steamwebhelper.exe、
-#远程同乐
-IP-CIDR,103.28.54.0/24,no-resolve
+#远程同乐 Valve IP
+IP-CIDR,103.10.124.0/23,no-resolve
+IP-CIDR,103.28.54.0/23,no-resolve
+
 
 # Epic
 DOMAIN-SUFFIX,helpshift.com

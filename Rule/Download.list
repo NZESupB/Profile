@@ -138,9 +138,7 @@ DOMAIN-SUFFIX,apkadmin.com
 DOMAIN-SUFFIX,mediafire.com
 DOMAIN-SUFFIX,wintun.net
 DOMAIN-SUFFIX,openwrt.org
-DOMAIN-SUFFIX,github-releases.githubusercontent.com
-DOMAIN-SUFFIX,actions.githubusercontent.com
-DOMAIN-SUFFIX,objects.githubusercontent.com
+DOMAIN-SUFFIX,githubusercontent.com
 DOMAIN-SUFFIX,fydeos.io
 DOMAIN-SUFFIX,cloudfront.net
 DOMAIN-SUFFIX,neverware.com
@@ -182,12 +180,15 @@ DOMAIN-SUFFIX,nite07.com
 DOMAIN-SUFFIX,nite07.org
 DOMAIN-SUFFIX,shazam.com
 DOMAIN-SUFFIX,dl.lamp.sh
-DOMAIN,download.mobatek.net
+DOMAIN-SUFFIX,mobatek.net
 DOMAIN-SUFFIX,vancedofficial.com
 DOMAIN-SUFFIX,vanced.pro
 DOMAIN-SUFFIX,emeditor.info
 DOMAIN-SUFFIX,krakenfiles.com
 DOMAIN-SUFFIX,scootersoftware.com
+DOMAIN-SUFFIX,landrop.app
+DOMAIN-SUFFIX,marticliment.com
+DOMAIN-SUFFIX,ocool.online
 
 #VA番茄插件
 DOMAIN-SUFFIX,wholetomato.com
@@ -237,6 +238,7 @@ DOMAIN-SUFFIX,ftp.acc.umu.se
 DOMAIN-SUFFIX,fedorapeople.org
 DOMAIN-SUFFIX,pixeldrain.com
 DOMAIN-SUFFIX,internetdownloadmanager.com
+DOMAIN,cdn-fastly.obsproject.com
 
 DOMAIN-SUFFIX,sourceforge.net
 DOMAIN-SUFFIX,enigma.im
@@ -320,6 +322,7 @@ DOMAIN,i.mij.rip
 DOMAIN,ice.frostsky.com
 DOMAIN,oss.yoisp.cc
 DOMAIN,image.mooncloud.top
+DOMAIN,imgfans.com
 
 DOMAIN-SUFFIX,linux.do
 
@@ -346,3 +349,9 @@ DOMAIN,ncs.lnk.to
 #Nvida
 DOMAIN-SUFFIX,nvidia.com
 DOMAIN-SUFFIX,geforce.com
+
+DOMAIN-SUFFIX,lrepacks.net
+DOMAIN-SUFFIX,filespayout.com
+DOMAIN-SUFFIX,frdl.to
+DOMAIN-SUFFIX,turbobit.net
+DOMAIN-SUFFIX,katfile.com
