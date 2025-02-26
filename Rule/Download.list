@@ -238,6 +238,7 @@ DOMAIN-SUFFIX,ftp.acc.umu.se
 DOMAIN-SUFFIX,fedorapeople.org
 DOMAIN-SUFFIX,pixeldrain.com
 DOMAIN-SUFFIX,internetdownloadmanager.com
+DOMAIN,cdn-fastly.obsproject.com
 
 DOMAIN-SUFFIX,sourceforge.net
 DOMAIN-SUFFIX,enigma.im

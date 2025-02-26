@@ -49,6 +49,9 @@ DOMAIN,ai.google.dev
 #aistudio ip 判断
 DOMAIN,alkalimakersuite-pa.clients6.google.com
 
+#X ai
+DOMAIN-SUFFIX,x.ai
+
 # Claude 2
 DOMAIN-SUFFIX,claude.ai
 
