@@ -49,11 +49,14 @@ DOMAIN,ai.google.dev
 #aistudio ip 判断
 DOMAIN,alkalimakersuite-pa.clients6.google.com
 
-#X ai
+#AI
 DOMAIN-SUFFIX,x.ai
-
-# Claude 2
 DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,genspark.ai
+DOMAIN-SUFFIX,cohere.com
+DOMAIN-SUFFIX,cohere.ai
+#Qinwen(奠信连不上，加速)
+DOMAIN-SUFFIX,qwenlm.ai
 
 #ozan
 DOMAIN-SUFFIX,ozan.com
@@ -69,9 +72,3 @@ DOMAIN-SUFFIX,deepseek.com
 #Talkatone
 DOMAIN-SUFFIX,talkatone.com
 
-#Cohere(屏蔽CN)
-DOMAIN-SUFFIX,cohere.com
-DOMAIN-SUFFIX,cohere.ai
-
-#Qinwen(奠信连不上，加速)
-DOMAIN-SUFFIX,qwenlm.ai
