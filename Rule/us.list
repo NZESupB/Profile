@@ -51,6 +51,7 @@ DOMAIN,alkalimakersuite-pa.clients6.google.com
 
 #AI
 DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,grok.com
 DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,genspark.ai
 DOMAIN-SUFFIX,cohere.com

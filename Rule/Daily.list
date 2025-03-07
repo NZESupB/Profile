@@ -326,6 +326,7 @@ DOMAIN,129888.xyz
 DOMAIN-SUFFIX,wpf-tutorial.com
 DOMAIN,net-tutorials.onfastspring.com
 DOMAIN-SUFFIX,rsshub.app
+DOMAIN-SUFFIX,nn.ci
 
 # 蛇皮验证码
 DOMAIN-SUFFIX,recaptcha.net
