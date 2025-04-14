@@ -253,14 +253,6 @@ rule-providers:
     url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvU3BlZWR0ZXN0Lmxpc3Q
     interval: 43200
   轻量浏览: { type: http, behavior: classical, format: text, path: ./RuleSet/Daily, url: 'https://raw.nxnow.top/NZESupB/Profile/main/Rule/Daily.list', interval: 43200 }
-  OpenAI:
-    type: http
-    behavior: classical
-    path: ./RuleSet/OpenAI
-    format: text
-    #url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JsYWNrbWF0cml4Ny9pb3NfcnVsZV9zY3JpcHQvbWFzdGVyL3J1bGUvU3VyZ2UvT3BlbkFJL09wZW5BSS5saXN0
-    url: https://raw.nxnow.top/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI.list
-    interval: 43200
   US_List:
     type: http
     behavior: domain
@@ -288,7 +280,7 @@ rules:
   - GEOSITE,googlefcm,DIRECT
   - AND,((NETWORK,UDP),(OR,((DST-PORT,12345),(DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,mcdn)))),REJECT
   - AND,((NETWORK,TCP),(DOMAIN-KEYWORD,stun),(OR,((DOMAIN-KEYWORD,douyu),(DOMAIN-KEYWORD,bilibili)))),REJECT
-  - AND,((NETWORK,UDP),(OR,(GEOSITE,youtube),(GEOSITE,openai))),REJECT
+  - AND,((NETWORK,UDP),(GEOSITE,youtube)),REJECT
   - GEOSITE,category-dev,测速下载
   - RULE-SET,海外下载,测速下载
   - RULE-SET,SpeedTest,测速下载
@@ -300,8 +292,6 @@ rules:
   - RULE-SET,游戏直连,DIRECT
   - GEOSITE,category-games,游戏娱乐
   - RULE-SET,游戏娱乐,游戏娱乐
-  - GEOSITE,openai,🇺🇸 美国
-  - RULE-SET,OpenAI,🇺🇸 美国
   - RULE-SET,US_List,🇺🇸 美国
   - RULE-SET,JP_List,🇯🇵 日本
   - RULE-SET,其他直连,直连域名

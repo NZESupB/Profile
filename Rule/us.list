@@ -23,41 +23,76 @@ DOMAIN-SUFFIX,metamask.io
 DOMAIN-SUFFIX,api.segment.io
 DOMAIN-SUFFIX,etherscan.io
 
+# Serv00
+DOMAIN-SUFFIX,serv00.com
+
+# Oracle
+# DOMAIN-SUFFIX,oracle.com
+# DOMAIN-SUFFIX,oraclecloud.com
+# DOMAIN-SUFFIX,oracleinfinity.io
+# DOMAIN-SUFFIX,custhelp.com
+
+#AI
+# > xAI/Grok
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,grok.com
+DOMAIN-SUFFIX,genspark.ai
+DOMAIN-SUFFIX,cohere.com
+DOMAIN-SUFFIX,cohere.ai
+#Qinwen(奠信连不上，加速)
+DOMAIN-SUFFIX,qwenlm.ai
+# > Anthropic/Claude
+DOMAIN,cdn.usefathom.com
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claudeusercontent.com
+# > Dify AI
+DOMAIN-SUFFIX,dify.ai
+# > Google AI (Gemini/Bard)
+DOMAIN,ai.google.dev
+DOMAIN,makersuite.google.com
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,apis.google.com
+DOMAIN-SUFFIX,clients6.google.com
+DOMAIN-SUFFIX,clients4.google.com
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,deepmind.google
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,colab.google.com
+DOMAIN-SUFFIX,colab.research.google.com
+DOMAIN-SUFFIX,developerprofiles.google.com
+DOMAIN-SUFFIX,googleusercontent.com
+#aistudio ip 判断
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+DOMAIN,labs.google.com
+DOMAIN,aistudio.google.com
+# > JetBrains AI
+DOMAIN-SUFFIX,grazie.ai
+# > Meta
+DOMAIN-SUFFIX,meta.ai
+DOMAIN-SUFFIX,meta.com
+# > Midjourney
+DOMAIN-SUFFIX,midjourney.com
+# > OpenAI/ChatGPT
+DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net
+DOMAIN,openaicomproductionae4b.blob.core.windows.net
+DOMAIN,production-openaicom-storage.azureedge.net
+DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,livekit.cloud
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,azureedge.net
+DOMAIN-SUFFIX,imgix.net
+# Coze
+DOMAIN-SUFFIX,coze.com
 # Poe AI
 DOMAIN-SUFFIX,poe.com
 DOMAIN-SUFFIX,poecdn.net
 
 DOMAIN-SUFFIX,perplexity.ai
 
-# Serv00
-DOMAIN-SUFFIX,serv00.com
-
-# Coze
-DOMAIN-SUFFIX,coze.com
-
-# Oracle
-# DOMAIN-SUFFIX,oracle.com
-# DOMAIN-SUFFIX,oraclecloud.com
-# DOMAIN-SUFFIX,oracleinfinity.io
-DOMAIN-SUFFIX,custhelp.com
-
-# Google Bard
-DOMAIN,labs.google.com
-DOMAIN,gemini.google.com
-DOMAIN,aistudio.google.com
-DOMAIN,ai.google.dev
-#aistudio ip 判断
-DOMAIN,alkalimakersuite-pa.clients6.google.com
-
-#AI
-DOMAIN-SUFFIX,x.ai
-DOMAIN-SUFFIX,grok.com
-DOMAIN-SUFFIX,claude.ai
-DOMAIN-SUFFIX,genspark.ai
-DOMAIN-SUFFIX,cohere.com
-DOMAIN-SUFFIX,cohere.ai
-#Qinwen(奠信连不上，加速)
-DOMAIN-SUFFIX,qwenlm.ai
 
 #ozan
 DOMAIN-SUFFIX,ozan.com
