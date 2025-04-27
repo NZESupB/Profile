@@ -72,3 +72,7 @@ DOMAIN,litvpc-hichannel.cdn.hinet.net
 DOMAIN-SUFFIX,4gtv.tv
 DOMAIN-SUFFIX,livednow.com
 DOMAIN-SUFFIX,orz-7.com
+
+#Tiktok
+DOMAIN-SUFFIX,tiktokv.com
+DOMAIN-SUFFIX,tiktokcdn.com
