@@ -94,7 +94,9 @@ DOMAIN-SUFFIX,poecdn.net
 DOMAIN-SUFFIX,perplexity.ai
 # Huggingface
 DOMAIN-SUFFIX,huggingface.co
-
+# manus
+DOMAIN-SUFFIX,manuscdn.com
+DOMAIN-SUFFIX,manus.im
 
 #ozan
 DOMAIN-SUFFIX,ozan.com
