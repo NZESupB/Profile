@@ -143,6 +143,9 @@ DOMAIN-SUFFIX,hicairo.com
 DOMAIN-SUFFIX,idev.dev
 DOMAIN-SUFFIX,mobile01.com
 
+# HKMovie
+DOMAIN-SUFFIX,mclcinema.com
+
 
 # 小工具
 DOMAIN-SUFFIX,regex101.com
@@ -263,6 +266,7 @@ DOMAIN-SUFFIX,amd.com
 DOMAIN-SUFFIX,socpk.com
 DOMAIN-SUFFIX,cocopilot.org
 DOMAIN-SUFFIX,bgp.tools
+DOMAIN-SUFFIX,trychen.com
 
 # > 机场订阅
 DOMAIN-SUFFIX,telecomsemi.xyz
