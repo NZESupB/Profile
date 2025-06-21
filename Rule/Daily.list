@@ -133,6 +133,7 @@ DOMAIN-SUFFIX,programmersought.com
 DOMAIN-SUFFIX,gogodl.com
 DOMAIN-SUFFIX,lih.kg
 DOMAIN-SUFFIX,larksuite.com
+DOMAIN-SUFFIX,scmp.com
 
 # BanCN
 DOMAIN-SUFFIX,engadget.com
@@ -141,6 +142,9 @@ DOMAIN-SUFFIX,bulianglin.com
 DOMAIN-SUFFIX,hicairo.com
 DOMAIN-SUFFIX,idev.dev
 DOMAIN-SUFFIX,mobile01.com
+
+# HKMovie
+DOMAIN-SUFFIX,mclcinema.com
 
 
 # 小工具
@@ -262,6 +266,7 @@ DOMAIN-SUFFIX,amd.com
 DOMAIN-SUFFIX,socpk.com
 DOMAIN-SUFFIX,cocopilot.org
 DOMAIN-SUFFIX,bgp.tools
+DOMAIN-SUFFIX,trychen.com
 
 # > 机场订阅
 DOMAIN-SUFFIX,telecomsemi.xyz
@@ -388,3 +393,7 @@ DOMAIN-SUFFIX,tbtool.cn
 DOMAIN-SUFFIX,suanli.cn
 
 DOMAIN,rss.nxnow.top
+
+
+IP-CIDR,1.1.1.1/32
+IP-CIDR,1.0.0.1/32

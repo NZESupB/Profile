@@ -268,6 +268,8 @@ DOMAIN-SUFFIX,devuploads.com
 DOMAIN-SUFFIX,thecubexguide.com
 DOMAIN-SUFFIX,mega4upload.com
 DOMAIN-SUFFIX,clashverge.dev
+DOMAIN-SUFFIX,fullfiles.xyz
+DOMAIN-SUFFIX,frdl.my
 # 两个抓包软件下载
 DOMAIN,plug-mirror.rcac.purdue.edu
 DOMAIN-SUFFIX,charlesproxy.com
@@ -319,10 +321,11 @@ DOMAIN-SUFFIX,dropgalaxy.com
 
 # 图床
 DOMAIN,i.mij.rip
+DOMAIN,mjj.today
 DOMAIN,ice.frostsky.com
-DOMAIN,oss.yoisp.cc
 DOMAIN,image.mooncloud.top
-DOMAIN,imgfans.com
+DOMAIN,i.111666.best
+DOMAIN,image.acg.lol
 
 DOMAIN-SUFFIX,linux.do
 
@@ -356,3 +359,4 @@ DOMAIN-SUFFIX,frdl.to
 DOMAIN-SUFFIX,turbobit.net
 DOMAIN-SUFFIX,katfile.com
 DOMAIN-SUFFIX,voidtools.com
+DOMAIN-SUFFIX,broadcom.com
