@@ -189,6 +189,7 @@ DOMAIN-SUFFIX,scootersoftware.com
 DOMAIN-SUFFIX,landrop.app
 DOMAIN-SUFFIX,marticliment.com
 DOMAIN-SUFFIX,ocool.online
+DOMAIN-SUFFIX,dll-files.com
 
 #VA番茄插件
 DOMAIN-SUFFIX,wholetomato.com
@@ -321,6 +322,7 @@ DOMAIN-SUFFIX,dropgalaxy.com
 
 # 图床
 DOMAIN,i.mij.rip
+DOMAIN,i.mji.rip
 DOMAIN,mjj.today
 DOMAIN,ice.frostsky.com
 DOMAIN,image.mooncloud.top
