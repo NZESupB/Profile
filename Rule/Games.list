@@ -149,6 +149,9 @@ PROCESS-NAME,steamwebhelper.exe、
 IP-CIDR,103.10.124.0/23,no-resolve
 IP-CIDR,103.28.54.0/23,no-resolve
 
+# 双穹幻想
+DOMAIN-SUFFIX,ero-labs.com
+
 
 # Epic
 DOMAIN-SUFFIX,helpshift.com
