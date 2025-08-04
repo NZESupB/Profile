@@ -151,7 +151,9 @@ IP-CIDR,103.28.54.0/23,no-resolve
 
 # 双穹幻想
 DOMAIN-SUFFIX,ero-labs.com
-
+DOMAIN-SUFFIX,funyoursgames.cc
+DOMAIN-SUFFIX,ebuajk.com
+DOMAIN-SUFFIX,hyenadata.net
 
 # Epic
 DOMAIN-SUFFIX,helpshift.com
