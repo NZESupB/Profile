@@ -261,8 +261,6 @@ DOMAIN-SUFFIX,ni-co.moe
 DOMAIN-SUFFIX,opensource.builders
 
 # 网站加速
-DOMAIN-SUFFIX,intel.com
-DOMAIN-SUFFIX,amd.com
 DOMAIN-SUFFIX,socpk.com
 DOMAIN-SUFFIX,cocopilot.org
 DOMAIN-SUFFIX,bgp.tools

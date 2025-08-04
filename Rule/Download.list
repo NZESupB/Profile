@@ -281,6 +281,10 @@ DOMAIN-SUFFIX,weesunday.com
 DOMAIN-SUFFIX,keeflys.com
 DOMAIN-SUFFIX,iptvsubscriptionmedia.com
 
+# 驱动update
+DOMAIN-SUFFIX,intel.com
+DOMAIN-SUFFIX,amd.com
+
 # 安卓模拟器国际版
 DOMAIN-SUFFIX,bluestacks.com
 DOMAIN-SUFFIX,bignox.com
