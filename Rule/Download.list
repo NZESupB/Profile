@@ -368,3 +368,12 @@ DOMAIN-SUFFIX,turbobit.net
 DOMAIN-SUFFIX,katfile.com
 DOMAIN-SUFFIX,voidtools.com
 DOMAIN-SUFFIX,broadcom.com
+
+DOMAIN-SUFFIX,mega4down.com
+DOMAIN-SUFFIX,mega4upload.net
+DOMAIN-SUFFIX,upfion.com
+DOMAIN-SUFFIX,upfiles.download
+DOMAIN-SUFFIX,urleecher.com
+
+#MS Store
+IP-CIDR,103.46.230.61/32
