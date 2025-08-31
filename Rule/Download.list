@@ -189,6 +189,9 @@ DOMAIN-SUFFIX,scootersoftware.com
 DOMAIN-SUFFIX,landrop.app
 DOMAIN-SUFFIX,marticliment.com
 DOMAIN-SUFFIX,ocool.online
+DOMAIN-SUFFIX,dll-files.com
+
+DOMAIN-SUFFIX,qingjiaota.com
 
 #VA番茄插件
 DOMAIN-SUFFIX,wholetomato.com
@@ -280,6 +283,10 @@ DOMAIN-SUFFIX,weesunday.com
 DOMAIN-SUFFIX,keeflys.com
 DOMAIN-SUFFIX,iptvsubscriptionmedia.com
 
+# 驱动update
+DOMAIN-SUFFIX,intel.com
+DOMAIN-SUFFIX,amd.com
+
 # 安卓模拟器国际版
 DOMAIN-SUFFIX,bluestacks.com
 DOMAIN-SUFFIX,bignox.com
@@ -321,6 +328,7 @@ DOMAIN-SUFFIX,dropgalaxy.com
 
 # 图床
 DOMAIN,i.mij.rip
+DOMAIN,i.mji.rip
 DOMAIN,mjj.today
 DOMAIN,ice.frostsky.com
 DOMAIN,image.mooncloud.top
@@ -360,3 +368,12 @@ DOMAIN-SUFFIX,turbobit.net
 DOMAIN-SUFFIX,katfile.com
 DOMAIN-SUFFIX,voidtools.com
 DOMAIN-SUFFIX,broadcom.com
+
+DOMAIN-SUFFIX,mega4down.com
+DOMAIN-SUFFIX,mega4upload.net
+DOMAIN-SUFFIX,upfion.com
+DOMAIN-SUFFIX,upfiles.download
+DOMAIN-SUFFIX,urleecher.com
+
+#MS Store
+IP-CIDR,103.46.230.61/32
