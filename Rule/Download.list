@@ -138,7 +138,6 @@ DOMAIN-SUFFIX,apkadmin.com
 DOMAIN-SUFFIX,mediafire.com
 DOMAIN-SUFFIX,wintun.net
 DOMAIN-SUFFIX,openwrt.org
-DOMAIN-SUFFIX,githubusercontent.com
 DOMAIN-SUFFIX,fydeos.io
 DOMAIN-SUFFIX,cloudfront.net
 DOMAIN-SUFFIX,neverware.com
@@ -190,6 +189,9 @@ DOMAIN-SUFFIX,landrop.app
 DOMAIN-SUFFIX,marticliment.com
 DOMAIN-SUFFIX,ocool.online
 DOMAIN-SUFFIX,dll-files.com
+
+DOMAIN-SUFFIX,githubusercontent.com
+DOMAIN-SUFFIX,hf.co
 
 DOMAIN-SUFFIX,qingjiaota.com
 
