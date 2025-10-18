@@ -44,6 +44,7 @@ GZCM-香港|GZCM-P|GZCM|广移中继|GZ-P@广移
 CN2-香港@CN2
 CSCU-香港|CSCU|CUCU|HZCU-香港|HZCU|SHCU|河南联通|湖南联通|湖南聯通@联通
 ZJ(-P)?@浙江
+SZ@深圳
 GZ@广州
 YZ@扬州
 SH@上海
