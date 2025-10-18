@@ -1,5 +1,6 @@
 # GooglePlay
 PROCESS-NAME,com.android.vending
+PROCESS-NAME,com.yohomobile.yoho_esim
 DOMAIN-SUFFIX,googleapis.cn
 DOMAIN-SUFFIX,googleapis.com
 DOMAIN-SUFFIX,googleusercontent.com
@@ -47,6 +48,7 @@ DOMAIN-SUFFIX,onrender.com
 
 # >> Netlify
 DOMAIN-SUFFIX,netlify.app
+
 
 # >> Surge.sh
 DOMAIN-SUFFIX,surge.sh
@@ -379,4 +381,4 @@ DOMAIN-SUFFIX,upfiles.download
 DOMAIN-SUFFIX,urleecher.com
 
 #MS Store
-IP-CIDR,103.46.230.61/32
+IP-CIDR,103.46.230.61/32,no-resolve
