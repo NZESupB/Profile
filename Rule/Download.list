@@ -1,5 +1,6 @@
 # GooglePlay
 PROCESS-NAME,com.android.vending
+PROCESS-NAME,com.yohomobile.yoho_esim
 DOMAIN-SUFFIX,googleapis.cn
 DOMAIN-SUFFIX,googleapis.com
 DOMAIN-SUFFIX,googleusercontent.com
@@ -47,6 +48,7 @@ DOMAIN-SUFFIX,onrender.com
 
 # >> Netlify
 DOMAIN-SUFFIX,netlify.app
+
 
 # >> Surge.sh
 DOMAIN-SUFFIX,surge.sh
@@ -138,7 +140,6 @@ DOMAIN-SUFFIX,apkadmin.com
 DOMAIN-SUFFIX,mediafire.com
 DOMAIN-SUFFIX,wintun.net
 DOMAIN-SUFFIX,openwrt.org
-DOMAIN-SUFFIX,githubusercontent.com
 DOMAIN-SUFFIX,fydeos.io
 DOMAIN-SUFFIX,cloudfront.net
 DOMAIN-SUFFIX,neverware.com
@@ -190,6 +191,9 @@ DOMAIN-SUFFIX,landrop.app
 DOMAIN-SUFFIX,marticliment.com
 DOMAIN-SUFFIX,ocool.online
 DOMAIN-SUFFIX,dll-files.com
+
+DOMAIN-SUFFIX,githubusercontent.com
+DOMAIN-SUFFIX,hf.co
 
 DOMAIN-SUFFIX,qingjiaota.com
 
@@ -336,6 +340,7 @@ DOMAIN,i.111666.best
 DOMAIN,image.acg.lol
 
 DOMAIN-SUFFIX,linux.do
+DOMAIN-SUFFIX,idcflare.com
 
 # UUPDump
 DOMAIN-SUFFIX,uupdump.net
@@ -376,4 +381,4 @@ DOMAIN-SUFFIX,upfiles.download
 DOMAIN-SUFFIX,urleecher.com
 
 #MS Store
-IP-CIDR,103.46.230.61/32
+IP-CIDR,103.46.230.61/32,no-resolve
