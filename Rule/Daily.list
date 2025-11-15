@@ -279,13 +279,12 @@ DOMAIN-SUFFIX,114515.best
 DOMAIN-SUFFIX,nnr.moe
 DOMAIN-SUFFIX,polocloud.xyz
 DOMAIN-SUFFIX,digitalocean.com
-DOMAIN-SUFFIX,idc.wiki
-DOMAIN-SUFFIX,tuancloud.com
 DOMAIN-SUFFIX,vimss.com
 DOMAIN-SUFFIX,usercloud.host
 DOMAIN-SUFFIX,wawo.wiki
 DOMAIN-SUFFIX,bestvm.cloud
 DOMAIN-SUFFIX,ggvision.net
+DOMAIN-SUFFIX,nezha.tech
 
 # 短连接
 DOMAIN-SUFFIX,goo.gl
@@ -390,7 +389,7 @@ DOMAIN-SUFFIX,feedly.com
 DOMAIN-SUFFIX,matrix.org
 DOMAIN-SUFFIX,element.io
 DOMAIN-SUFFIX,greasyfork.org
-IP-CIDR,35.190.71.189/32
+IP-CIDR,35.190.71.189/32,no-resolve
 
 DOMAIN-SUFFIX,userbenchmark.com
 DOMAIN-SUFFIX,tbtool.cn
@@ -399,5 +398,8 @@ DOMAIN-SUFFIX,suanli.cn
 DOMAIN,rss.nxnow.top
 
 
-IP-CIDR,1.1.1.1/32
-IP-CIDR,1.0.0.1/32
+IP-CIDR,1.1.1.1/32,no-resolve
+IP-CIDR,1.0.0.1/32,no-resolve
+
+#公益站
+DOMAIN-SUFFIX,anyrouter.top
