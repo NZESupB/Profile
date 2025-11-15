@@ -156,6 +156,9 @@ DOMAIN-SUFFIX,ebuajk.com
 DOMAIN-SUFFIX,hyenadata.net
 DOMAIN-SUFFIX,ero-labs.live
 
+# 棕色尘埃2
+DOMAIN-SUFFIX,bd2.pmang.cloud
+
 # Epic
 DOMAIN-SUFFIX,helpshift.com
 DOMAIN-SUFFIX,paragon.com
@@ -242,9 +245,6 @@ DOMAIN,bn-payment.wrightflyer.net
 # RockStar
 DOMAIN-SUFFIX,rockstargames.com
 DOMAIN-SUFFIX,rsg.sc
-DOMAIN,gamedownloads-rockstargames-com.akamaized.net
-DOMAIN,media-rockstargames-com.akamaized.net
-DOMAIN,videos-rockstargames-com.akamaized.net
 
 # UBisoft
 DOMAIN-SUFFIX,ubi.com

@@ -382,3 +382,14 @@ DOMAIN-SUFFIX,urleecher.com
 
 #MS Store
 IP-CIDR,103.46.230.61/32,no-resolve
+
+# 棕色尘埃2 下载CDN
+DOMAIN,bd2-cdn.akamaized.net
+
+# R星下载CDN
+DOMAIN,gamedownloads-rockstargames-com.akamaized.net
+DOMAIN,media-rockstargames-com.akamaized.net
+DOMAIN,videos-rockstargames-com.akamaized.net
+
+# 某音乐站
+DOMAIN-SUFFIX,boomplay.com
