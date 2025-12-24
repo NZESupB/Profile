@@ -285,6 +285,7 @@ DOMAIN-SUFFIX,wawo.wiki
 DOMAIN-SUFFIX,bestvm.cloud
 DOMAIN-SUFFIX,ggvision.net
 DOMAIN-SUFFIX,nezha.tech
+DOMAIN-SUFFIX,vipcloud.cc
 
 # 短连接
 DOMAIN-SUFFIX,goo.gl
@@ -403,3 +404,4 @@ IP-CIDR,1.0.0.1/32,no-resolve
 
 #公益站
 DOMAIN-SUFFIX,anyrouter.top
+DOMAIN-SUFFIX,prism.uno
