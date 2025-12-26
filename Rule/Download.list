@@ -343,6 +343,9 @@ DOMAIN-SUFFIX,nodeimage.com
 DOMAIN-SUFFIX,linux.do
 DOMAIN-SUFFIX,idcflare.com
 
+# Windsurf
+DOMAIN-SUFFIX,windsurf-stable.codeiumdata.com
+
 # UUPDump
 DOMAIN-SUFFIX,uupdump.net
 
