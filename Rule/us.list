@@ -65,6 +65,7 @@ DOMAIN-SUFFIX,colab.google.com
 DOMAIN-SUFFIX,colab.research.google.com
 DOMAIN-SUFFIX,developerprofiles.google.com
 DOMAIN-SUFFIX,googleusercontent.com
+DOMAIN-SUFFIX,labs.google
 
 #aistudio ip 判断
 DOMAIN,alkalimakersuite-pa.clients6.google.com

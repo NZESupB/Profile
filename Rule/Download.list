@@ -346,6 +346,9 @@ DOMAIN-SUFFIX,idcflare.com
 # Windsurf
 DOMAIN-SUFFIX,windsurf-stable.codeiumdata.com
 
+#OpenCode
+DOMAIN-SUFFIX,opencode.ai
+
 # UUPDump
 DOMAIN-SUFFIX,uupdump.net
 
