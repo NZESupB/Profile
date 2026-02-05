@@ -392,6 +392,8 @@ DOMAIN-SUFFIX,feedly.com
 DOMAIN-SUFFIX,matrix.org
 DOMAIN-SUFFIX,element.io
 DOMAIN-SUFFIX,greasyfork.org
+DOMAIN-SUFFIX,openclaw.ai
+DOMAIN-SUFFIX,qzz.io
 IP-CIDR,35.190.71.189/32,no-resolve
 
 DOMAIN-SUFFIX,macaujc.com
