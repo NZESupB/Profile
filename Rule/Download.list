@@ -346,6 +346,9 @@ DOMAIN-SUFFIX,idcflare.com
 # Windsurf
 DOMAIN-SUFFIX,windsurf-stable.codeiumdata.com
 
+#OpenCode
+DOMAIN-SUFFIX,opencode.ai
+
 # UUPDump
 DOMAIN-SUFFIX,uupdump.net
 
@@ -398,3 +401,5 @@ DOMAIN,videos-rockstargames-com.akamaized.net
 
 # 某音乐站
 DOMAIN-SUFFIX,boomplay.com
+
+DOMAIN-SUFFIX,katfile.online
