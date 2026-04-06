@@ -7,7 +7,7 @@ ipv6: true
 external-controller: 0.0.0.0:9999
 external-ui: ui/
 external-ui-name: xd 
-external-ui-url: "https://gh.nxnow.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip" #从 GitHub Pages 分支获取
+external-ui-url: "https://ghu.nxnow.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip" #从 GitHub Pages 分支获取
 #experimental:
 #  sniff-tls-sni: true
 unified-delay: true
@@ -16,8 +16,8 @@ secret: "https://github.com/Zephyruso/zashboard" #rpc 密钥自行修改
 #- "meta_user:meta_pwd"
 hosts:
   # hkdns: 202.14.67.4,202.14.67.14
-  '.googleapis.cn': 142.250.196.131
-  '.google.cn': 142.250.196.131
+  #'.googleapis.cn': 142.250.196.131
+  #'.google.cn': 142.250.196.131
   #'mtalk.google.com' : [108.177.125.188, 2404:6800:4008:c07::bc]
   #'alt1-mtalk.google.com' : [142.250.141.188, 2607:f8b0:4023:c0b::bc]
   #'alt2-mtalk.google.com' : 142.250.115.188
@@ -36,10 +36,10 @@ geodata-mode: true
 geo-auto-update: true
 geo-update-interval: 24
 geox-url:
-  geoip: "https://gh.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
-  geosite: "https://gh.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
-  mmdb: "https://gh.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/Country.mmdb"
-  asn: "https://gh.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
+  geoip: "https://ghu.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
+  geosite: "https://ghu.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://ghu.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/Country.mmdb"
+  asn: "https://ghu.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
 
 # 不开启tun/使用第三方gui没必要启用
 #dns:
