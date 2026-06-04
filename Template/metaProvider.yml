@@ -6,7 +6,7 @@ log-level: info
 ipv6: true
 external-controller: 0.0.0.0:9999
 external-ui: ui/
-external-ui-name: xd 
+external-ui-name: xd
 external-ui-url: "https://ghu.nxnow.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip" #从 GitHub Pages 分支获取
 #experimental:
 #  sniff-tls-sni: true
@@ -72,13 +72,13 @@ geox-url:
 #  auto-redirect: true
 #  auto-detect-interface: true
 
-ProviderTest:
-  &providerTest {
-    type: http,
-    interval: 43200,
-    health-check:
-      { enable: true, url: https://cp.cloudflare.com, interval: 14400 },
-  }
+ProviderTest: &providerTest
+  type: http
+  interval: 43200
+  health-check:
+    enable: true
+    url: https://cp.cloudflare.com
+    interval: 14400
 
 GroupSelect: &gSelect
   type: select
@@ -96,7 +96,7 @@ GroupLoadBalance: &gLoadBalance
   type: load-balance
   url: https://cp.cloudflare.com
   interval: 300
- 
+
 # 使用需自行添加use
 GroupFallBack: &gFallBack
   type: fallback

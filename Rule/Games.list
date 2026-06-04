@@ -89,12 +89,11 @@ DOMAIN,l11-gameinfoc-intl.biligame.net
 DOMAIN,l11-prod-patch-excalibur-sea.bilibiligame.net
 DOMAIN,l11-prod-sg-login-excalibur-sea.bilibiligame.net
 DOMAIN,l11-prod-sg-serverlist-excalibur-sea.bilibiligame.net
-DOMAIN,l11-sdk-login-intl.biligame.net 
+DOMAIN,l11-sdk-login-intl.biligame.net
 DOMAIN,l11-realtime-api-intl.biligame.net
-DOMAIN,firebase-settings.crashlytics.com 
-DOMAIN,bilibiligame.aihelp.net 
+DOMAIN,firebase-settings.crashlytics.com
+DOMAIN,bilibiligame.aihelp.net
 DOMAIN,launches.appsflyer.com
-DOMAIN,dl.listdl.com
 DOMAIN,inapps.appsflyer.com
 DOMAIN,static-intl.biligame.net
 DOMAIN,game-intl.biligame.net
@@ -127,7 +126,6 @@ DOMAIN-SUFFIX,steamgames.com
 DOMAIN-SUFFIX,steampowered.com
 DOMAIN-SUFFIX,steamstat.us
 DOMAIN-SUFFIX,steamstatic.com
-DOMAIN-SUFFIX,steamusercontent.com
 DOMAIN,steambroadcast.akamaized.net
 DOMAIN,steamcdn-a.akamaihd.net
 DOMAIN,steamcommunity-a.akamaihd.net
@@ -298,11 +296,8 @@ DOMAIN,gog-cdn-lumen.secure2.footprint.net
 
 # EA
 DOMAIN-SUFFIX,ea.com
-DOMAIN,origin-a.akamaihd.net
 
 # COD2022
 DOMAIN-SUFFIX,demonware.net
 DOMAIN-SUFFIX,callofduty.com
 DOMAIN,prod-data-energon.infra-ext.activision.com
-
-

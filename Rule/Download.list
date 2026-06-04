@@ -35,6 +35,10 @@ DOMAIN-SUFFIX,pages.dev
 # Cloudflare IPFS Gateway
 DOMAIN-SUFFIX,cloudflare-ipfs.com
 DOMAIN-SUFFIX,cf-ipfs.com
+# > Cloudflare
+DOMAIN-SUFFIX,cloudflareapps.com
+DOMAIN-SUFFIX,cloudflare.com
+DOMAIN-SUFFIX,cloudflareinsights.com
 
 # > Vercel & CDN
 DOMAIN-SUFFIX,vercel.com
@@ -184,7 +188,6 @@ DOMAIN-SUFFIX,dl.lamp.sh
 DOMAIN-SUFFIX,mobatek.net
 DOMAIN-SUFFIX,vancedofficial.com
 DOMAIN-SUFFIX,vanced.pro
-DOMAIN-SUFFIX,emeditor.info
 DOMAIN-SUFFIX,krakenfiles.com
 DOMAIN-SUFFIX,scootersoftware.com
 DOMAIN-SUFFIX,landrop.app

@@ -28,11 +28,6 @@ DOMAIN,aagit.yougotme.cc
 # Pot Tesseract OCR
 DOMAIN,pub-f6afb74f13c64cd89561b4714dca1c27.r2.dev
 
-# > Cloudflare
-DOMAIN-SUFFIX,cloudflareapps.com
-DOMAIN-SUFFIX,cloudflare.com
-DOMAIN-SUFFIX,cloudflareinsights.com
-
 # > NextTrace Api
 DOMAIN,api.leo.moe
 
@@ -48,7 +43,6 @@ DOMAIN-SUFFIX,manhuagui.com
 DOMAIN-SUFFIX,colamanhua.com
 DOMAIN-SUFFIX,baozimh.org
 DOMAIN-SUFFIX,godamanga.com
-DOMAIN-SUFFIX,baozimh.com
 
 # > ProtonMail
 DOMAIN-SUFFIX,protonmail.com
@@ -91,10 +85,8 @@ DOMAIN-SUFFIX,vpskp.com
 DOMAIN-SUFFIX,vikacg.com
 DOMAIN-SUFFIX,cablemap.info
 DOMAIN-SUFFIX,submarinecablemap.com
-DOMAIN-SUFFIX,mega.co.nz
 DOMAIN-SUFFIX,pximg.net
 DOMAIN-SUFFIX,lg-firmwares.com
-DOMAIN-SUFFIX,pypi.org
 DOMAIN-SUFFIX,emojipedia.org
 DOMAIN-SUFFIX,timwhitlock.info
 DOMAIN-SUFFIX,eyny.com
