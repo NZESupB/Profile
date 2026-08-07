@@ -273,12 +273,12 @@ DOMAIN-SUFFIX,nnr.moe
 DOMAIN-SUFFIX,polocloud.xyz
 DOMAIN-SUFFIX,digitalocean.com
 DOMAIN-SUFFIX,vimss.com
-DOMAIN-SUFFIX,usercloud.host
 DOMAIN-SUFFIX,wawo.wiki
 DOMAIN-SUFFIX,bestvm.cloud
 DOMAIN-SUFFIX,ggvision.net
 DOMAIN-SUFFIX,nezha.tech
 DOMAIN-SUFFIX,vipcloud.cc
+
 DOMAIN-SUFFIX,icc-u.cc
 
 # 短连接
@@ -422,3 +422,9 @@ DOMAIN-SUFFIX,hybgzs.com
 DOMAIN-SUFFIX,x666.me
 DOMAIN-SUFFIX,v.ua
 DOMAIN-SUFFIX,windhub.cc
+DOMAIN-SUFFIX,ooioo.work
+DOMAIN-SUFFIX,42w.shop
+DOMAIN-SUFFIX,aihub.top
+DOMAIN-SUFFIX,abrdns.com
+DOMAIN-SUFFIX,agentrouter.org
+DOMAIN-SUFFIX,hezubus.cc
