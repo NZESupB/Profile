@@ -43,6 +43,9 @@ DOMAIN-SUFFIX,cohere.ai
 #Qinwen
 DOMAIN-SUFFIX,qwenlm.ai
 
+DOMAIN-SUFFIX,z.ai
+DOMAIN-SUFFIX,workbuddy.ai
+
 # > Anthropic/Claude
 DOMAIN,cdn.usefathom.com
 DOMAIN-SUFFIX,anthropic.com
