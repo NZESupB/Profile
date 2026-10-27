@@ -93,8 +93,6 @@ DOMAIN,l11-sdk-login-intl.biligame.net
 DOMAIN,l11-realtime-api-intl.biligame.net
 DOMAIN,firebase-settings.crashlytics.com
 DOMAIN,bilibiligame.aihelp.net
-DOMAIN,launches.appsflyer.com
-DOMAIN,inapps.appsflyer.com
 DOMAIN,static-intl.biligame.net
 DOMAIN,game-intl.biligame.net
 
@@ -165,7 +163,6 @@ DOMAIN-SUFFIX,unrealengine.com
 # Riot/LOL/PBE
 DOMAIN-SUFFIX,lol.sgp.pvp.net
 DOMAIN-SUFFIX,riotcdn.net
-DOMAIN-SUFFIX,dyn.riotcdn.net
 DOMAIN-SUFFIX,riotgames.com
 DOMAIN-SUFFIX,leagueoflegends.ca
 DOMAIN-SUFFIX,leagueoflegends.co.kr
@@ -275,7 +272,6 @@ DOMAIN-SUFFIX,battleye.com
 DOMAIN-SUFFIX,origin.com
 DOMAIN,cloudsync-prod.s3.amazonaws.com
 DOMAIN,origin-a.akamaihd.net
-DOMAIN,ssl-lvlt.cdn.ea.com
 DOMAIN,rtm.tnt-ea.com
 
 # Switch

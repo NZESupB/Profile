@@ -23,10 +23,7 @@ DOMAIN,xz.pphimalayanrt.com
 # EPIC Download Direct
 DOMAIN-SUFFIX,epicgames.com
 DOMAIN,epicgames-download1-1251447533.file.myqcloud.com
-DOMAIN,account-public-service-prod03.ol.epicgames.com
-DOMAIN,launcher-public-service-prod06.ol.epicgames.com
 DOMAIN,epicgames-download1.akamaized.net
-DOMAIN,download.epicgames.com
 
 # BattleDirect
 DOMAIN-SUFFIX,battlenet.com.cn

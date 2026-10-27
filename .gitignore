@@ -1,1 +1,10 @@
 .DS_Store
+
+# Mihomo 构建产物和本地开发环境
+dist/
+.cache/
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+.rules-stage-*/

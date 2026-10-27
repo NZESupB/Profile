@@ -243,7 +243,6 @@ DOMAIN-SUFFIX,fontawesome.com
 DOMAIN-SUFFIX,alpinelinux.org
 DOMAIN,cdn.tailwindcss.com
 DOMAIN,sb.adtidy.org
-DOMAIN,dl-cdn.alpinelinux.org
 DOMAIN-SUFFIX,ftp.acc.umu.se
 DOMAIN-SUFFIX,fedorapeople.org
 DOMAIN-SUFFIX,pixeldrain.com
@@ -305,11 +304,9 @@ DOMAIN-SUFFIX,proxmox.com
 DOMAIN-SUFFIX,ti.com
 DOMAIN-SUFFIX,blackhawk-dsp.com
 DOMAIN-SUFFIX,segger.com
-DOMAIN,download.amd.com
 DOMAIN-SUFFIX,deepl.com
 
 # WebOS
-DOMAIN-SUFFIX,macos.now.sh
 DOMAIN-SUFFIX,codecanyon.net
 DOMAIN-SUFFIX,spagreen.net
 

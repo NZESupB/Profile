@@ -1,0 +1,28 @@
+version: 1
+# 所有 .list 均纳入解析与编译；未接入当前模板的文件仍输出产物但不改变分流。
+local:
+  Daily.list: {provider: 轻量浏览}
+  Direct.list: {provider: 其他直连}
+  Download.list: {provider: 海外下载}
+  GameDirect.list: {provider: 游戏直连}
+  Games.list: {provider: 游戏娱乐}
+  Reject.list: {provider: Reject_List}
+  Speedtest.list:
+    provider: SpeedTest
+    exclusions:
+      USER-AGENT,SpeedTest*: Mihomo 不支持 USER-AGENT；保留原文件供其他客户端使用
+  Torrent.list: {provider: null}
+  Video.list: {provider: 其他媒体}
+  jp.list: {provider: JP_List}
+  tw.list: {provider: null}
+  us.list: {provider: US_List}
+dns_filter: fakeipfillter.txt
+# 使用全量 classical 导出，保留 GEOSITE 类别中的关键词及正则。
+upstreams:
+  category-dev: {provider: 开发服务, behavior: classical, format: yaml}
+  games-cn: {provider: 国内游戏, behavior: classical, format: yaml}
+  games: {provider: 公共游戏, behavior: classical, format: yaml}
+  stream: {provider: 国际媒体, behavior: classical, format: text}
+  stream-ip: {provider: 国际媒体IP, behavior: classical, format: text}
+  global: {provider: 全局规则, behavior: classical, format: text}
+  china-ip: {provider: CN_IP, behavior: classical, format: text}

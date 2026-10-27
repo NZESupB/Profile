@@ -1,0 +1,96 @@
+name: 构建 Mihomo 规则
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Rule/**'
+      - 'Template/metaProvider.yml'
+      - 'Shell/rules.py'
+      - 'Shell/requirements-rules.txt'
+      - '.github/workflows/build-rules.yml'
+  pull_request:
+    paths:
+      - 'Rule/**'
+      - 'Template/metaProvider.yml'
+      - 'Shell/rules.py'
+      - 'Shell/requirements-rules.txt'
+      - '.github/workflows/build-rules.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mihomo-rules-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      MIHOMO_VERSION: v1.19.33
+      MIHOMO_ARCHIVE_SHA256: 8ec92e7b2fdc6b853ba00156bab7e4e965c8b0d843b8c4ac8ab98795f02ad524
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+      - name: 准备 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: Shell/requirements-rules.txt
+      - name: 安装检查依赖
+        run: python -m pip install -r Shell/requirements-rules.txt
+      - name: 检查脚本
+        run: |
+          ruff check Shell/rules.py
+          ruff format --check Shell/rules.py
+          python -m py_compile Shell/rules.py
+      - name: 缓存已校验的上游快照
+        uses: actions/cache@v4
+        with:
+          path: .cache/rules
+          key: mihomo-rule-snapshots-${{ hashFiles('Rule/upstreams.lock.json', 'Rule/snapshots/*') }}
+      - name: 下载固定内核并校验归档
+        shell: bash
+        run: |
+          set -euo pipefail
+          core_dir="$RUNNER_TEMP/mihomo-core"
+          mkdir -p "$core_dir"
+          archive="mihomo-linux-amd64-v1-${MIHOMO_VERSION}.gz"
+          curl --fail --location --retry 3 --output "$core_dir/core.gz" \
+            "https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/${archive}"
+          printf '%s  %s\n' "$MIHOMO_ARCHIVE_SHA256" "$core_dir/core.gz" | sha256sum --check
+          gzip -dc "$core_dir/core.gz" > "$core_dir/mihomo"
+          chmod +x "$core_dir/mihomo"
+          echo "$core_dir" >> "$GITHUB_PATH"
+          "$core_dir/mihomo" -v
+      - name: 审计规则与策略覆盖
+        run: python Shell/rules.py audit --report "${{ runner.temp }}/rule-audit.json"
+      - name: 编译 MRS、回读并验证内核加载
+        run: python Shell/rules.py build --output dist/mihomo
+      - name: 验证锁定输入的重复构建一致性
+        shell: bash
+        run: |
+          set -euo pipefail
+          python Shell/rules.py build --offline --output "$RUNNER_TEMP/mihomo-repeat"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          first = json.loads(Path('dist/mihomo/manifest.json').read_text())
+          second = json.loads((Path(os.environ['RUNNER_TEMP']) / 'mihomo-repeat/manifest.json').read_text())
+          assert first == second, '相同输入的两次构建产物不一致'
+          assert first['mode'] == 'mrs', '正式运行包必须包含 MRS'
+          assert any(item['format'] == 'mrs' for item in first['artifacts']), '未生成 MRS 文件'
+          PY
+      - name: 打包运行配置、规则与审计报告
+        run: tar -czf dist/mihomo-rules.tar.gz -C dist mihomo
+      - name: 上传运行包
+        uses: actions/upload-artifact@v4
+        with:
+          name: mihomo-rules-${{ github.sha }}
+          path: dist/mihomo-rules.tar.gz
+          if-no-files-found: error
+          retention-days: 30

@@ -1,296 +1,242 @@
+# 参考 AIsouler/MyClash：公共锚点 → 订阅 → DNS → 规则集 → 策略组 → 路由。
+# 本文件是构建输入；先运行 Shell/rules.py build，再使用输出目录的 config.yaml。
+proxy_providers_common: &proxy_provider
+  type: http
+  interval: 43200
+  proxy: DIRECT
+  health-check:
+    enable: true
+    url: https://cp.cloudflare.com/generate_204
+    interval: 600
+    lazy: true
+
+rule_providers_common:
+  classical_text: &classical_text {type: http, behavior: classical, format: text, interval: 43200, proxy: DIRECT}
+  classical_yaml: &classical_yaml {type: http, behavior: classical, format: yaml, interval: 43200, proxy: DIRECT}
+
+group_common:
+  select: &select {type: select}
+  nodes: &nodes {type: select, include-all-providers: true}
+
+# 在本机填写订阅，多个 provider 使用不同名称和 path；不要提交真实订阅。
+proxy-providers: {}
+#  Cloud1:
+#    <<: *proxy_provider
+#    url: "在此填写订阅链接"
+#    path: ./proxy-providers/Cloud1.yaml
+#    override:
+#      additional-prefix: "Cloud1 | "
+proxies: []
+
 mixed-port: 7890
 allow-lan: true
 bind-address: "*"
 mode: rule
 log-level: info
 ipv6: true
-external-controller: 0.0.0.0:9999
-external-ui: ui/
-external-ui-name: xd
-external-ui-url: "https://ghu.nxnow.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip" #从 GitHub Pages 分支获取
-#experimental:
-#  sniff-tls-sni: true
 unified-delay: true
-secret: "https://github.com/Zephyruso/zashboard" #rpc 密钥自行修改
-#authentication:
-#- "meta_user:meta_pwd"
-hosts:
-  # hkdns: 202.14.67.4,202.14.67.14
-  #'.googleapis.cn': 142.250.196.131
-  #'.google.cn': 142.250.196.131
-  #'mtalk.google.com' : [108.177.125.188, 2404:6800:4008:c07::bc]
-  #'alt1-mtalk.google.com' : [142.250.141.188, 2607:f8b0:4023:c0b::bc]
-  #'alt2-mtalk.google.com' : 142.250.115.188
-  #'alt3-mtalk.google.com' : 64.233.171.188
-  #'alt4-mtalk.google.com' : 173.194.202.188
-  #'alt5-mtalk.google.com' : [142.250.141.188, 2607:f8b0:4023:1::bc]
-  #'alt6-mtalk.google.com' : 142.250.115.188
-  #'alt7-mtalk.google.com' : [74.125.200.188, 2607:f8b0:4002:c03::bc]
-  #'alt8-mtalk.google.com' : 142.250.152.188
-
-global-ua: ClashMetaForAndroid/2.11.5
-
-# keep-alive-interval: 10
-
+tcp-concurrent: true
+find-process-mode: strict
+external-controller: 127.0.0.1:9999
+secret: ""
+external-ui: ui
+external-ui-name: zashboard
+external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
+profile:
+  store-selected: true
+  store-fake-ip: true
 geodata-mode: true
 geo-auto-update: true
 geo-update-interval: 24
 geox-url:
-  geoip: "https://ghu.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
-  geosite: "https://ghu.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
-  mmdb: "https://ghu.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/Country.mmdb"
-  asn: "https://ghu.nxnow.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
+  geoip: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat
+  geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+  mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb
+  asn: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb
 
-# 不开启tun/使用第三方gui没必要启用
-#dns:
-  #enable: true
-  #ipv6: true
-  #prefer-h3: true
-  #enhanced-mode: fake-ip
-  #nameserver:
-    #- https://doh.pub/dns-query
-    #- https://dns.alidns.com/dns-query
-    #- https://doh.dns.sb/dns-query
-    #自行修改dns
-  #fallback:
-  #  - https://doh.apad.pro/dns-query
-  #fake-ip-filter:
-    #- +.*
-  #nameserver-policy:
-    #"geosite:cn,private,category-games@cn,googlefcm,microsoft@cn,apple@cn":
-      #- dhcp://en0
-      #- system
-      #- 119.29.29.29
-      #- https://dns.alidns.com/dns-query
-      #如设备网络环境固定,可修改为路由器/网关/运营商dns，加快速度
-#tun:
-#  enable: true
-#  stack: system
-#  dns-hijack:
-#    - any:53
-#  auto-route: true
-#  auto-redirect: true
-#  auto-detect-interface: true
-
-ProviderTest: &providerTest
-  type: http
-  interval: 43200
-  health-check:
-    enable: true
-    url: https://cp.cloudflare.com
-    interval: 14400
-
-GroupSelect: &gSelect
-  type: select
-  include-all-providers: true
-
-# 使用需自行添加use
-GroupAuto: &gAuto
-  type: url-test
-  url: https://cp.cloudflare.com
-  interval: 300
-  tolerance: 20
-
-# 使用需自行添加use
-GroupLoadBalance: &gLoadBalance
-  type: load-balance
-  url: https://cp.cloudflare.com
-  interval: 300
-
-# 使用需自行添加use
-GroupFallBack: &gFallBack
-  type: fallback
-  url: https://cp.cloudflare.com
-  interval: 300
-
-proxies:
-# 独立节点
-
-proxy-providers:
-# 订阅列表, Cloud1 自行修改对应名，也可以不改，url 后链接修改为订阅链接，多个订阅复制多个Cloud1 改成不同名即可
-  #Cloud1:
-  #  <<: *providerTest
-  #  url: "https://wg.114514.wdnmd/api/v1/client/subscribe?token=aaaaaaaaaaaaaaaaaaaaaa"
-  #  path: ./Proxy/Cloud1
-
-proxy-groups:
-  - name: "全球互联"
-    <<: *gSelect
-    filter: "(港*IPLC|IEPL|专线|UDPN)"
-    proxies:
-      - 🇭🇰 香港
-      - 🇯🇵 日本
-      - 🇺🇸 美国
-      #- 🇹🇼 台湾
-      - 🇸🇬 新加坡
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Global.png
-  - name: "游戏娱乐"
-    <<: *gSelect
-    filter: "(IPLC|IEPL|专线|Game|UDPN)"
-    proxies:
-      - 🇭🇰 香港
-      - 🇯🇵 日本
-      - 🇺🇸 美国
-      #- 🇹🇼 台湾
-      - 🇸🇬 新加坡
-      - DIRECT
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Game.png
-  - name: "测速下载"
-    type: select
-    #将Cloud1的所有节点添加至此规则组一份
-    use:
-      - Cloud1
-    proxies:
-      - DIRECT
-      - 🇭🇰 香港
-      #- 🇹🇼 台湾
-      - 🇯🇵 日本
-      - 🇺🇸 美国
-      - 🇸🇬 新加坡
-      - 全球互联
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png
-  - name: "漏网之鱼"
-    type: select
-    proxies:
-      - DIRECT
-      - 全球互联
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Final.png
-  - name: "TelegramDC5" #新加坡服务器，亚洲节点
-    type: select
-    proxies:
-      - 🇸🇬 新加坡
-      - 🇭🇰 香港
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Telegram.png
-  - name: "TelegramDC4" # 欧洲服务器，欧洲或者香港节点
-    type: select
-    proxies:
-      - 🇭🇰 香港
-      - 🇺🇸 美国
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Telegram.png
-  - name: "直连域名"
-    type: select
-    proxies:
-      - DIRECT
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Direct.png
-  - name: "🇭🇰 香港"
-    <<: *gSelect
-    filter: "(^(?!.*(Frp|游戏|Game).*).*(-港|香港|HKT|HKBN))"
-    proxies:
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Hong_Kong.png
-  - name: "🇯🇵 日本"
-    <<: *gSelect
-    filter: "(^(?!.*(Frp|游戏|Game).*).*(-日|日本))"
-    proxies:
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Japan.png
-  - name: "🇸🇬 新加坡"
-    <<: *gSelect
-    filter: "(^(?!.*(Frp|游戏|Game).*).*(-坡|新加坡))"
-    proxies:
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Singapore.png
-  - name: "🇺🇸 美国"
-    <<: *gSelect
-    filter: "(^(?!.*(Frp|游戏|Game).*).*(-美|美国|圣何塞))"
-    #proxies:
-      #- 美国1
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/United_States.png
-  - name: "广告拦截"
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-    icon: https://raw.nxnow.top/Koolson/Qure/refs/heads/master/IconSet/Color/Advertising.png
-
+# 构建时将 Rule/fakeipfillter.txt 的原始 DNS 通配模式追加到 fake-ip-filter。
+dns:
+  enable: true
+  listen: 127.0.0.1:1053
+  ipv6: true
+  use-hosts: true
+  use-system-hosts: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - "+.home.arpa"
+  default-nameserver: [223.5.5.5, 119.29.29.29]
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+  nameserver:
+    - https://cloudflare-dns.com/dns-query#全球互联
+    - https://dns.google/dns-query#全球互联
+  direct-nameserver:
+    - https://dns.alidns.com/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+  direct-nameserver-follow-policy: true
+  nameserver-policy:
+    "geosite:private": system
+    "geosite:cn,category-games@cn,googlefcm,apple@cn,microsoft@cn":
+      - https://dns.alidns.com/dns-query#DIRECT
+      - https://doh.pub/dns-query#DIRECT
+    "rule-set:游戏直连,其他直连":
+      - https://dns.alidns.com/dns-query#DIRECT
+      - https://doh.pub/dns-query#DIRECT
+hosts:
+  dns.alidns.com: [223.5.5.5, 223.6.6.6]
+  doh.pub: [1.12.12.12, 120.53.53.53]
+  cloudflare-dns.com: [1.1.1.1, 1.0.0.1]
+  dns.google: [8.8.8.8, 8.8.4.4]
+# 独立运行需要 TUN 时启用；使用 BettBox 时由客户端管理。
+tun:
+  enable: false
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack: [any:53, tcp://any:53]
 
 rule-providers:
+  开发服务:
+    <<: *classical_yaml
+    path: ./rule-providers/category-dev.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/classical/category-dev.yaml
+  国内游戏:
+    <<: *classical_yaml
+    path: ./rule-providers/games-cn.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/classical/category-games@cn.yaml
+  公共游戏:
+    <<: *classical_yaml
+    path: ./rule-providers/games.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/classical/category-games.yaml
   国际媒体:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Streaming.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9ydWxlc2V0LnNray5tb2UvQ2xhc2gvbm9uX2lwL3N0cmVhbS50eHQ
-    interval: 43200
+    <<: *classical_text
+    path: ./rule-providers/stream.list
+    url: https://ruleset.skk.moe/Clash/non_ip/stream.txt
   国际媒体IP:
-    type: http
-    behavior: classical
-    path: ./RuleSet/StreamingIP.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9ydWxlc2V0LnNray5tb2UvQ2xhc2gvaXAvc3RyZWFtLnR4dA
-    interval: 43200
+    <<: *classical_text
+    path: ./rule-providers/stream-ip.list
+    url: https://ruleset.skk.moe/Clash/ip/stream.txt
   全局规则:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Global.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvUHJveHlMaXRlLmxpc3Q
-    interval: 43200
+    <<: *classical_text
+    path: ./rule-providers/global.list
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
   CN_IP:
-    type: http
-    behavior: ipcidr
-    path: ./RuleSet/ChinaIP.yaml
-    url: https://z.nxnow.top/iprule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0RILVRlYW1zL0RILUdlb19BU19JUF9DTi9tYWluL0dlb19BU19JUF9DTl9BbGxfU3VyZ2UubGlzdA
-    interval: 43200
+    <<: *classical_text
+    path: ./rule-providers/china-ip.list
+    url: https://raw.githubusercontent.com/DH-Teams/DH-Geo_AS_IP_CN/main/Geo_AS_IP_CN_All_Surge.list
   其他直连:
-    type: http
-    behavior: domain
-    path: ./RuleSet/OtherDirect.yaml
-    url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvRGlyZWN0Lmxpc3Q
-    interval: 43200
-  游戏娱乐: { type: http, behavior: classical, path: ./RuleSet/Game, format: text, url: 'https://raw.nxnow.top/NZESupB/Profile/main/Rule/Games.list', interval: 43200 }
+    <<: *classical_text
+    path: ./rule-providers/Direct.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Direct.list
+  游戏娱乐:
+    <<: *classical_text
+    path: ./rule-providers/Games.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Games.list
   游戏直连:
-    type: http
-    behavior: domain
-    path: ./RuleSet/GameDirect.yaml
-    url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvR2FtZURpcmVjdC5saXN0
-    interval: 43200
-  海外下载: { type: http, behavior: classical, format: text, path: ./RuleSet/Download, url: 'https://raw.nxnow.top/NZESupB/Profile/main/Rule/Download.list', interval: 43200 }
+    <<: *classical_text
+    path: ./rule-providers/GameDirect.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/GameDirect.list
+  海外下载:
+    <<: *classical_text
+    path: ./rule-providers/Download.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Download.list
   其他媒体:
-    type: http
-    behavior: domain
-    path: ./RuleSet/Video.yaml
-    url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvVmlkZW8ubGlzdA
-    interval: 43200
+    <<: *classical_text
+    path: ./rule-providers/Video.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Video.list
   SpeedTest:
-    type: http
+    # USER-AGENT 仅供其他客户端使用；构建命令生成移除该项的文本源。
+    type: file
     behavior: classical
-    path: ./RuleSet/SpeedTest.yaml
-    url: https://z.nxnow.top/crule?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvU3BlZWR0ZXN0Lmxpc3Q
-    interval: 43200
-  轻量浏览: { type: http, behavior: classical, format: text, path: ./RuleSet/Daily, url: 'https://raw.nxnow.top/NZESupB/Profile/main/Rule/Daily.list', interval: 43200 }
-  US_List:
-    type: http
-    behavior: domain
-    path: ./RuleSet/US_Rule.yaml
-    url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvdXMubGlzdA
-    interval: 43200
-  JP_List:
-    type: http
-    behavior: domain
-    path: ./RuleSet/JP_Rule.yaml
-    url: https://z.nxnow.top/cruled?url=aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05aRVN1cEIvUHJvZmlsZS9tYWluL1J1bGUvanAubGlzdA
-    interval: 43200
-  Reject_List:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Reject_List.list
     format: text
-    url: https://raw.nxnow.top/NZESupB/Profile/main/Rule/Reject.list
-    interval: 43200
+    path: ./rules/source/Speedtest.list
+  轻量浏览:
+    <<: *classical_text
+    path: ./rule-providers/Daily.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Daily.list
+  US_List:
+    <<: *classical_text
+    path: ./rule-providers/us.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/us.list
+  JP_List:
+    <<: *classical_text
+    path: ./rule-providers/jp.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/jp.list
+  Reject_List:
+    <<: *classical_text
+    path: ./rule-providers/Reject.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Reject.list
 
+proxy-groups:
+  - name: 全球互联
+    <<: *nodes
+    filter: "(?i)(IPLC|IEPL|专线|UDPN)"
+    proxies: [🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇸🇬 新加坡]
+  - name: 游戏娱乐
+    <<: *nodes
+    filter: "(?i)(IPLC|IEPL|专线|Game|UDPN)"
+    proxies: [🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇸🇬 新加坡, DIRECT]
+  - name: 测速下载
+    <<: *nodes
+    proxies: [DIRECT, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇸🇬 新加坡, 全球互联]
+  - name: 漏网之鱼
+    <<: *select
+    proxies: [DIRECT, 全球互联]
+  - name: TelegramDC5
+    <<: *select
+    proxies: [🇸🇬 新加坡, 🇭🇰 香港]
+  - name: TelegramDC4
+    <<: *select
+    proxies: [🇭🇰 香港, 🇺🇸 美国]
+  - name: 直连域名
+    <<: *select
+    proxies: [DIRECT]
+  - name: 🇭🇰 香港
+    <<: *nodes
+    filter: "(?i)(香港|港|Hong.?Kong|HK|HKT|HKBN)"
+    exclude-filter: "(?i)(Frp|游戏|Game)"
+    proxies: [REJECT]
+  - name: 🇯🇵 日本
+    <<: *nodes
+    filter: "(?i)(日本|东京|大阪|Japan|JP)"
+    exclude-filter: "(?i)(Frp|游戏|Game)"
+    proxies: [REJECT]
+  - name: 🇸🇬 新加坡
+    <<: *nodes
+    filter: "(?i)(新加坡|狮城|Singapore|SG)"
+    exclude-filter: "(?i)(Frp|游戏|Game)"
+    proxies: [REJECT]
+  - name: 🇺🇸 美国
+    <<: *nodes
+    filter: "(?i)(美国|圣何塞|洛杉矶|United.?States|US)"
+    exclude-filter: "(?i)(Frp|游戏|Game)"
+    proxies: [REJECT]
+  - name: 广告拦截
+    <<: *select
+    proxies: [REJECT, DIRECT]
 
-# 规则
+# 按首条命中处理；构建仅在原位置替换 provider 分片，不重排业务策略。
 rules:
   - GEOIP,LAN,DIRECT,no-resolve
   - GEOSITE,googlefcm,DIRECT
   - AND,((NETWORK,UDP),(OR,((DST-PORT,12345),(DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,mcdn)))),REJECT
   - AND,((NETWORK,TCP),(DOMAIN-KEYWORD,stun),(OR,((DOMAIN-KEYWORD,douyu),(DOMAIN-KEYWORD,bilibili)))),REJECT
   - AND,((NETWORK,UDP),(GEOSITE,youtube)),REJECT
-  - GEOSITE,category-dev,测速下载
+  - RULE-SET,开发服务,测速下载
   - RULE-SET,海外下载,测速下载
   - RULE-SET,SpeedTest,测速下载
   - GEOSITE,github,全球互联
   - GEOSITE,category-scholar-!cn,全球互联
   - RULE-SET,Reject_List,REJECT
   - RULE-SET,轻量浏览,全球互联
-  - GEOSITE,category-games@cn,DIRECT
+  - RULE-SET,国内游戏,DIRECT
   - RULE-SET,游戏直连,DIRECT
-  - GEOSITE,category-games,游戏娱乐
+  - RULE-SET,公共游戏,游戏娱乐
   - RULE-SET,游戏娱乐,游戏娱乐
   - RULE-SET,US_List,🇺🇸 美国
   - RULE-SET,JP_List,🇯🇵 日本
@@ -300,7 +246,7 @@ rules:
   - GEOSITE,apple,测速下载
   - GEOSITE,microsoft@cn,直连域名
   - GEOSITE,microsoft,测速下载
-  - AND,((NETWORK,UDP),(DST-PORT,3478)),测速下载 # MSTeam
+  - AND,((NETWORK,UDP),(DST-PORT,3478)),测速下载
   - GEOSITE,youtube,全球互联
   - GEOSITE,twitter,全球互联
   - RULE-SET,其他媒体,全球互联

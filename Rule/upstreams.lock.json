@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "snapshot_date": "2026-10-27",
+  "rules": {
+    "category-dev": {
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-dev.yaml",
+      "sha256": "89c76c5c3ce7a27ff79ee0080197d9d875de500e64bdb7aa6257be23d4750427"
+    },
+    "games-cn": {
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-games@cn.yaml",
+      "sha256": "1be9a9b68eab6a014739b18c6424032a980e3b89085311f27c8f7147803bbf8b"
+    },
+    "games": {
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-games.yaml",
+      "sha256": "2d56909930b7249a65ef6bf3afe514a5e44ee3cd4a39922daf80cee147e1d4f2"
+    },
+    "global": {
+      "url": "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/6987aa2bf0350f39db4d9f54b84b0e92118a7f6e/Clash/ProxyLite.list",
+      "sha256": "3792437f9641479c671ed57e4d3aa81505c5f7dc5d9087fdeabe76551ecda671"
+    },
+    "china-ip": {
+      "url": "https://raw.githubusercontent.com/DH-Teams/DH-Geo_AS_IP_CN/e8647801fd345b0dea2f7d7ef324d9b5854df83b/Geo_AS_IP_CN_All_Surge.list",
+      "sha256": "5972b7b0ee48c2225a94a6454661f73d89389035c8d4dbcb0a4d135c9f1230e2"
+    },
+    "stream": {
+      "url": "https://ruleset.skk.moe/Clash/non_ip/stream.txt",
+      "sha256": "87152d51177a81caaa49baaa8b776810abed514443d27f3312b48a514e14ce5e",
+      "snapshot": "snapshots/stream.list"
+    },
+    "stream-ip": {
+      "url": "https://ruleset.skk.moe/Clash/ip/stream.txt",
+      "sha256": "e99e1e589e7bb2c92f9f68dbfed59e3e1182adfb78eeedb8d74d62b5156dc348",
+      "snapshot": "snapshots/stream-ip.list"
+    }
+  },
+  "assets": {
+    "GeoSite.dat": {
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/02ae05ac06e8c9287916fbabfe61ef5c8591407f/geosite.dat",
+      "sha256": "c57333596b44aa061e84c3c224e97a4475c759a5e3baab1fcda002e48b4dc313"
+    },
+    "GeoIP.dat": {
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/02ae05ac06e8c9287916fbabfe61ef5c8591407f/geoip.dat",
+      "sha256": "a6271d3c96361d96156e6d3f7cf1550ef21b00d2f951deb772f464db91e89ac5"
+    },
+    "ASN.mmdb": {
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/02ae05ac06e8c9287916fbabfe61ef5c8591407f/GeoLite2-ASN.mmdb",
+      "sha256": "4f480469576dba3e84b1f5c17313059982b70a62b8d35fb1ed225e39109b0531"
+    }
+  }
+}
