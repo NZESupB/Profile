@@ -1,0 +1,41 @@
+# 非 MRS 条件；段号对应 Games.list 的原始匹配位置。
+# @part 001
+DOMAIN-KEYWORD,andapp
+DOMAIN-KEYWORD,hekk
+PROCESS-NAME,mercstoria.exe
+PROCESS-NAME,jp.co.happyelements.toto
+PROCESS-NAME,jp.gamegift
+
+# @part 002
+DOMAIN-KEYWORD,nikke
+
+# @part 003
+PROCESS-NAME,com.proximabeta.nikke
+
+# @part 004
+DOMAIN-KEYWORD,nexoncdn
+
+# @part 005
+PROCESS-NAME,com.riotgames.league.wildrift
+
+# @part 006
+DOMAIN-KEYWORD,mobage
+DOMAIN-KEYWORD,dynamodb
+
+# @part 007
+DOMAIN-KEYWORD,johren
+
+# @part 008
+PROCESS-NAME,steamwebhelper.exe
+
+# @part 009
+PROCESS-NAME,FallGuys_client_game.exe
+
+# @part 010
+PROCESS-NAME,com.boltrend.floen
+
+# @part 011
+PROCESS-NAME,com.bandainamcoent.tensuramrkww
+
+# @part 012
+PROCESS-NAME,eldenring.exe

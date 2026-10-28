@@ -22,6 +22,7 @@ from rule_formats import (
     classical_lines,
     client_lines,
     fetch_url,
+    github_proxy_url,
     read_mrs,
     write_lines,
 )
@@ -112,7 +113,7 @@ def convert(args):
     relative = f"rule-providers/{args.name}.{'mrs' if fmt == 'mrs' else 'txt'}"
     provider = {
         "type": "http",
-        "url": args.url,
+        "url": github_proxy_url(args.url),
         "path": "./" + relative,
         "behavior": behavior,
         "format": "mrs" if fmt == "mrs" else "text",

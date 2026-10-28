@@ -1,6 +1,5 @@
 # GooglePlay
-PROCESS-NAME,com.android.vending
-PROCESS-NAME,com.yohomobile.yoho_esim
+# @classical 001
 DOMAIN-SUFFIX,googleapis.cn
 DOMAIN-SUFFIX,googleapis.com
 DOMAIN-SUFFIX,googleusercontent.com

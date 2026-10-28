@@ -1,14 +1,5 @@
-# 谷歌全家桶
-PROCESS-NAME,com.google.android.apps.googlevoice
-PROCESS-NAME,com.google.android.apps.cloudconsole
-PROCESS-NAME,com.google.android.apps.docs
-PROCESS-NAME,com.google.android.play.games
-
-# Shell
-PROCESS-NAME,fjava.exe
-PROCESS-NAME,Xshell.exe
-PROCESS-NAME,Termius.exe
-PROCESS-NAME,WindTerm.exe
+# classical 补充在原位置由 Actions 接入。
+# @classical 001
 
 # MyServices
 DOMAIN,rstatus.nxnow.top

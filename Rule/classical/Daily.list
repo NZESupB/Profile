@@ -1,0 +1,10 @@
+# 非 MRS 条件；由 Daily.list 的顺序标记在原位置接入。
+# @part 001
+PROCESS-NAME,com.google.android.apps.googlevoice
+PROCESS-NAME,com.google.android.apps.cloudconsole
+PROCESS-NAME,com.google.android.apps.docs
+PROCESS-NAME,com.google.android.play.games
+PROCESS-NAME,fjava.exe
+PROCESS-NAME,Xshell.exe
+PROCESS-NAME,Termius.exe
+PROCESS-NAME,WindTerm.exe

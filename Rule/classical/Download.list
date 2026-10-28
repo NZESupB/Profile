@@ -1,0 +1,4 @@
+# 非 MRS 条件；由 Download.list 的顺序标记在原位置接入。
+# @part 001
+PROCESS-NAME,com.android.vending
+PROCESS-NAME,com.yohomobile.yoho_esim

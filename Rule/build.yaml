@@ -1,18 +1,21 @@
 version: 1
 # 人工维护各组的 .list；正式 MRS 由 Actions 编译，其他客户端同步导出。
 publish_base: https://raw.githubusercontent.com/NZESupB/Profile/rules
+# 公开 GitHub 文件下载使用 ghproxy URL 前缀，保留原始来源与 SHA-256。
+github_proxy: https://gh-proxy.com/
 local:
-  Daily.list: {provider: 轻量浏览}
+  Daily.list: {provider: 轻量浏览, classical: classical/Daily.list}
   Direct.list: {provider: 其他直连}
-  Download.list: {provider: 海外下载}
+  Download.list: {provider: 海外下载, classical: classical/Download.list}
   GameDirect.list: {provider: 游戏直连}
-  Games.list: {provider: 游戏娱乐}
+  Games.list: {provider: 游戏娱乐, classical: classical/Games.list}
   Reject.list: {provider: Reject_List}
   Speedtest.list:
     provider: SpeedTest
+    classical: classical/Speedtest.list
     exclusions:
       USER-AGENT,SpeedTest*: Mihomo 不支持 USER-AGENT；其他支持的客户端继续导出
-  Torrent.list: {provider: null}
+  Torrent.list: {provider: null, classical: classical/Torrent.list}
   Video.list: {provider: 其他媒体}
   jp.list: {provider: JP_List}
   tw.list: {provider: null}
@@ -80,3 +83,58 @@ client_policies:
   surfboard: *client_policies
   shadowrocket: *client_policies
   quantumultx: *client_policies
+# 这里维护拆分前的逻辑路由；模板中的 MRS/classical 引用由构建器展开。
+routing:
+  dns:
+    fake-ip-filter:
+      - +.lan
+      - +.local
+      - rule-set:国内域名,连通性检测,私有域名,其他直连
+    nameserver-policy:
+      'rule-set:国内域名,私有域名':
+        - system
+        - https://120.53.53.53/dns-query
+        - https://223.5.5.5/dns-query
+  rules:
+    - IP-CIDR,192.168.32.1/24,直连Fallback,no-resolve
+    - RULE-SET,FCM域名,DIRECT
+    - DOMAIN-SUFFIX,air.114432.xyz,全球互联
+    - AND,((NETWORK,UDP),(OR,((DST-PORT,12345),(DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,mcdn)))),REJECT
+    - AND,((NETWORK,TCP),(DOMAIN-KEYWORD,stun),(OR,((DOMAIN-KEYWORD,douyu),(DOMAIN-KEYWORD,bilibili)))),REJECT
+    - AND,((NETWORK,UDP),(OR,((RULE-SET,YouTube域名),(RULE-SET,OpenAI域名)))),REJECT
+    - AND,((NETWORK,TCP),(NOT,((RULE-SET,CN_IP,no-resolve))),(OR,((DST-PORT,65022),(DST-PORT,22)))),全球互联
+    - RULE-SET,开发服务,测速下载
+    - RULE-SET,国内游戏,DIRECT
+    - RULE-SET,游戏直连,DIRECT
+    - RULE-SET,海外下载,测速下载
+    - RULE-SET,SpeedTest,测速下载
+    - RULE-SET,download_domainset,测速下载
+    - RULE-SET,轻量浏览,全球互联
+    - RULE-SET,国内域名,直连域名
+    - RULE-SET,GitHub域名,全球互联
+    - RULE-SET,学术域名,全球互联
+    - RULE-SET,Reject_List,REJECT
+    - RULE-SET,公共游戏,游戏娱乐
+    - RULE-SET,游戏娱乐,游戏娱乐
+    - RULE-SET,OpenAI域名,🇺🇸 美国
+    - RULE-SET,OpenAI,🇺🇸 美国
+    - RULE-SET,US_List,🇺🇸 美国
+    - RULE-SET,JP_List,🇯🇵 日本
+    - RULE-SET,其他直连,直连域名
+    - RULE-SET,广告域名,广告拦截
+    - RULE-SET,苹果国内,直连域名
+    - RULE-SET,苹果服务,测速下载
+    - RULE-SET,微软服务,测速下载
+    - AND,((NETWORK,UDP),(DST-PORT,3478)),测速下载
+    - RULE-SET,YouTube域名,全球互联
+    - RULE-SET,Twitter域名,全球互联
+    - RULE-SET,其他媒体,全球互联
+    - RULE-SET,telegram_ip,TelegramDC5,no-resolve
+    - RULE-SET,Telegram域名,TelegramDC5
+    - RULE-SET,国际媒体,全球互联
+    - RULE-SET,全局规则,全球互联
+    - RULE-SET,国际媒体2,全球互联
+    - RULE-SET,国际媒体IP,全球互联,no-resolve
+    - RULE-SET,lan_ip,DIRECT,no-resolve
+    - RULE-SET,CN_IP,直连域名,no-resolve
+    - MATCH,漏网之鱼

@@ -12,7 +12,7 @@ from rule_formats import (
     CAPABILITIES,
     client_lines,
     client_route,
-    public_url,
+    github_proxy_url,
     write_lines,
 )
 
@@ -36,7 +36,7 @@ def write_source(directory: Path, slug: str, client: str, lines: list[str]):
 
 
 def emit_clients(root, config, sources, spec, split, target):
-    base = public_url(spec["publish_base"]).rstrip("/")
+    base = github_proxy_url(spec["publish_base"]).rstrip("/")
     by_provider = {
         source["provider"]: source for source in sources.values() if source["provider"]
     }
@@ -169,7 +169,7 @@ def emit_clients(root, config, sources, spec, split, target):
 
 def remote_config(config, artifacts, base):
     result = copy.deepcopy(config)
-    base = public_url(base).rstrip("/")
+    base = github_proxy_url(base).rstrip("/")
     for item in artifacts:
         provider = result["rule-providers"][item["name"]]
         path = item["path"]

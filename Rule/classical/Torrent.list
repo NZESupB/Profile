@@ -1,0 +1,17 @@
+# 非 MRS 条件；由 Torrent.list 的顺序标记在原位置接入。
+# @part 001
+PROCESS-NAME,Thunder
+PROCESS-NAME,DownloadService
+PROCESS-NAME,qBittorrent
+PROCESS-NAME,Transmission
+PROCESS-NAME,aria2c
+PROCESS-NAME,Folx
+PROCESS-NAME,NetTransport
+PROCESS-NAME,uTorrent
+PROCESS-NAME,WebTorrent
+PROCESS-NAME,BitComet
+PROCESS-NAME,qbittorrent
+PROCESS-NAME,ThunderVIP
+PROCESS-NAME,transmission-daemon
+PROCESS-NAME,transmission-qt
+PROCESS-NAME,dandanplay.exe

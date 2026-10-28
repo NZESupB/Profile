@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import copy
 import hashlib
 import ipaddress
 import json
@@ -30,6 +29,8 @@ from rule_formats import (
     fetch_url,
     split_fields,
 )
+from rule_sources import read_local_source
+from rule_templates import logical_config, mrs_config, render_template, template_payload
 
 ROOT = Path(__file__).resolve().parents[1]
 BUILTINS = {"DIRECT", "REJECT", "REJECT-DROP", "PASS", "COMPATIBLE", "GLOBAL"}
@@ -145,7 +146,7 @@ def parse_rule(text: str, source: str, line: int) -> Rule:
     return Rule(kind, value, tuple(params), source, line)
 
 
-def parse_rules(raw: bytes, source: str, fmt="text", exclusions=None):
+def parse_rules(raw: bytes, source: str, fmt="text", exclusions=None, locations=None):
     text = raw.decode("utf-8-sig")
     exclusions = exclusions or {}
     if fmt == "yaml":
@@ -165,8 +166,11 @@ def parse_rules(raw: bytes, source: str, fmt="text", exclusions=None):
     rules, excluded = [], []
     used_exclusions = set()
     for number, raw_line in entries:
+        entry_source, entry_number = (
+            locations[number - 1] if locations is not None else (source, number)
+        )
         if not isinstance(raw_line, str):
-            raise RuleError(f"{source}:{number}: 规则必须是字符串")
+            raise RuleError(f"{entry_source}:{entry_number}: 规则必须是字符串")
         line = raw_line.strip()
         if not line or line.startswith(("#", ";", "//")):
             continue
@@ -174,15 +178,15 @@ def parse_rules(raw: bytes, source: str, fmt="text", exclusions=None):
         if line in exclusions:
             excluded.append(
                 {
-                    "source": source,
-                    "line": number,
+                    "source": entry_source,
+                    "line": entry_number,
                     "rule": line,
                     "reason": exclusions[line],
                 }
             )
             used_exclusions.add(line)
             continue
-        rules.append(parse_rule(line, source, number))
+        rules.append(parse_rule(line, entry_source, entry_number))
     if set(exclusions) - used_exclusions:
         raise RuleError(f"{source}: 排除清单存在已失效的条目，请检查源文件")
     return rules, excluded
@@ -415,12 +419,23 @@ def prepare(args):
     lock = json.loads(args.lock.read_text(encoding="utf-8"))
     if spec.get("version") != 1 or lock.get("version") != 1:
         raise RuleError("不支持的构建清单或锁文件版本")
+    config = logical_config(config, spec)
     validate_config(config)
     actual = {p.name for p in args.rules_dir.glob("*.list")}
     if actual != set(spec["local"]):
         raise RuleError(
             f"本地规则与清单不一致: {sorted(actual.symmetric_difference(spec['local']))}"
         )
+    companions = [
+        item["classical"] for item in spec["local"].values() if item.get("classical")
+    ]
+    actual_companions = {
+        path.relative_to(args.rules_dir).as_posix()
+        for path in (args.rules_dir / "classical").rglob("*")
+        if path.is_file()
+    }
+    if len(companions) != len(set(companions)) or set(companions) != actual_companions:
+        raise RuleError("classical 配套文件与构建清单不一致或重复映射")
     sources, report, inputs = (
         {},
         {"removed": [], "retained_overlap": [], "excluded": [], "files": {}},
@@ -428,15 +443,21 @@ def prepare(args):
     )
     for filename, item in spec["local"].items():
         path = args.rules_dir / filename
-        raw = path.read_bytes()
-        rules, excluded = parse_rules(
-            raw, "Rule/" + filename, exclusions=item.get("exclusions")
+        raw, locations, files = read_local_source(
+            path, item, args.rules_dir, DOMAIN_KINDS | IP_KINDS
         )
+        rules, excluded = parse_rules(
+            raw,
+            "Rule/" + filename,
+            exclusions=item.get("exclusions"),
+            locations=locations,
+        )
+        order = {location: index for index, location in enumerate(locations)}
         export_lines = [
             text
             for _, text in sorted(
-                [(r.line, r.text) for r in rules]
-                + [(e["line"], e["rule"]) for e in excluded]
+                [(order[(r.source, r.line)], r.text) for r in rules]
+                + [(order[(e["source"], e["line"])], e["rule"]) for e in excluded]
             )
         ]
         rules, removed = self_dedupe(rules)
@@ -448,7 +469,7 @@ def prepare(args):
             "local": True,
             "export_lines": export_lines,
         }
-        inputs["Rule/" + filename] = sha256(raw)
+        inputs.update({name: sha256(content) for name, content in files.items()})
         report["files"][filename] = {
             "parsed": len(rules) + len(removed),
             "excluded": len(excluded),
@@ -854,19 +875,7 @@ def rewrite_dns(config, replacements):
 
 def build_into(args, root: Path, prepared, core: str):
     config, sources, upstream_records, lock, report, inputs = prepared
-    config = copy.deepcopy(config)
-    for key in (
-        "proxy_providers_common",
-        "rule_providers_common",
-        "group_common",
-        "ProviderTest",
-        "GroupSelect",
-        "GroupLoadBalance",
-        "RuleSet_classical",
-        "RuleSet_geosite",
-        "RuleSet_ipcidr",
-    ):
-        config.pop(key, None)
+    config = template_payload(config)
     replacements, artifacts, providers = {}, [], {}
     for name, source in sources.items():
         provider = source["provider"]
@@ -975,6 +984,13 @@ def build_into(args, root: Path, prepared, core: str):
     save_json(root / "clients/report.json", clients)
     online = remote_config(config, artifacts, spec["publish_base"])
     validate_config(online)
+    template = render_template(mrs_config(config, artifacts, spec["publish_base"]))
+    if args.check_template and template_payload(
+        load_yaml(args.config)
+    ) != template_payload(yaml.load(template, Loader=UniqueLoader)):
+        raise RuleError(
+            "Meta.yaml 与当前规则不一致；请 build --text-only --write-template 更新"
+        )
     (root / "config.remote.yaml").write_text(
         yaml.safe_dump(online, allow_unicode=True, sort_keys=False), encoding="utf-8"
     )
@@ -990,7 +1006,9 @@ def build_into(args, root: Path, prepared, core: str):
         "mode": "text" if args.text_only else "mrs",
         "mihomo": version,
         "inputs": inputs,
-        "config_input_sha256": sha256(args.config.read_bytes()),
+        "config_input_sha256": sha256(
+            template.encode() if args.write_template else args.config.read_bytes()
+        ),
         "build_spec_sha256": sha256(args.manifest.read_bytes()),
         "artifacts": artifacts,
         "summary": report["summary"],
@@ -1009,6 +1027,7 @@ def build_into(args, root: Path, prepared, core: str):
         },
     }
     save_json(root / "manifest.json", manifest)
+    return template
 
 
 def http_json(port: int, path: str):
@@ -1155,7 +1174,7 @@ def build(args, core: str):
     ) as directory:
         stage = Path(directory) / "package"
         stage.mkdir()
-        build_into(args, stage, prepared, core)
+        template = build_into(args, stage, prepared, core)
         manifest = check_output(stage, core)
         backup = Path(directory) / "previous"
         if output.exists():
@@ -1166,6 +1185,8 @@ def build(args, core: str):
             if backup.exists():
                 backup.rename(output)
             raise
+        if args.write_template:
+            args.config.write_text(template, encoding="utf-8")
     return manifest
 
 
@@ -1185,9 +1206,20 @@ def main(argv=None):
         help="仅生成文本规则供本机测试；正式 MRS 构建在 Actions 执行",
     )
     parser.add_argument("--offline", action="store_true")
+    templates = parser.add_mutually_exclusive_group()
+    templates.add_argument(
+        "--write-template", action="store_true", help="验证构建后更新完整 MRS 部署模板"
+    )
+    templates.add_argument(
+        "--check-template",
+        action="store_true",
+        help="验证模板与当前 MRS/classical 产物引用一致",
+    )
     parser.add_argument("--report", type=Path, help="audit 的 JSON 报告输出路径")
     args = parser.parse_args(argv)
     try:
+        if (args.write_template or args.check_template) and args.command != "build":
+            raise RuleError("模板更新或校验参数仅适用于 build")
         if args.command == "audit":
             *_, report, _inputs = prepare(args)
             if args.report:

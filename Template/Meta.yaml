@@ -1,429 +1,1168 @@
-# 基于根目录 Meta.yaml 的公开构建模板；原配置与真实密钥保留在本机。
-# 使用 Actions 产物 config.yaml（同包文件）或 mihomo.yaml（rules 分支远程规则）。
-ProviderTest: &ProviderTest
-  type: http
-  interval: 43200
-  health-check:
-    enable: true
-    url: https://cp.cloudflare.com
-    interval: 14400
-GroupSelect: &GroupSelect
-  type: select
+# 唯一的完整 Mihomo MRS 部署模板；来源与逻辑路由由 Rule/build.yaml 维护。
+# 修改来源后使用 rules.py build --text-only --write-template 更新引用；正式 MRS 仅由 Actions 编译。
+# mode: rule
+# log-level: info
+# secret: ''
+mixed-port: 7890
+allow-lan: true
+external-controller: 127.0.0.1:9999
+external-ui: ui
+external-ui-name: xd
+external-ui-url: https://gh-proxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
+unified-delay: true
+global-ua: ClashMetaForAndroid/2.11.18
+hosts:
+  mtalk.google.com:
+  - 142.250.107.188
+  - 142.251.170.188
+  alt1-mtalk.google.com: 192.178.164.188
+  alt2-mtalk.google.com: 192.178.164.188
+  alt3-mtalk.google.com:
+  - 192.178.164.188
+  - 74.125.131.188
+  alt4-mtalk.google.com:
+  - 192.178.164.188
+  - 74.125.131.188
+  alt5-mtalk.google.com:
+  - 108.177.125.188
+  - 74.125.131.188
+  alt6-mtalk.google.com:
+  - 192.178.131.188
+  - 209.85.144.188
+  alt7-mtalk.google.com:
+  - 192.178.131.188
+  - 209.85.144.188
+  alt8-mtalk.google.com:
+  - 192.178.131.188
+  - 209.85.144.188
+dns:
+  enable: true
+  cache-algorithm: arc
+  ipv6: true
+  enhanced-mode: fake-ip
+  fake-ip-range6: fc00::/18
+  default-nameserver:
+  - system
+  - 119.29.29.29
+  - 223.5.5.5
+  nameserver:
+  - system
+  - https://cn.udns.dev:851/dns-query
+  proxy-server-nameserver:
+  - system
+  - https://cn.udns.dev:851/dns-query
+  fake-ip-filter:
+  - +.lan
+  - +.local
+  - rule-set:国内域名,连通性检测,私有域名__001,私有域名__002,其他直连__001
+  - '*'
+  - '*.lan'
+  - '*.localdomain'
+  - '*.example'
+  - '*.invalid'
+  - '*.localhost'
+  - '*.test'
+  - '*.local'
+  - '*.home.arpa'
+  - '*.direct'
+  - time.*.com
+  - time.*.gov
+  - time.*.edu.cn
+  - time.*.apple.com
+  - time-ios.apple.com
+  - time1.*.com
+  - time2.*.com
+  - time3.*.com
+  - time4.*.com
+  - time5.*.com
+  - time6.*.com
+  - time7.*.com
+  - ntp.*.com
+  - ntp1.*.com
+  - ntp2.*.com
+  - ntp3.*.com
+  - ntp4.*.com
+  - ntp5.*.com
+  - ntp6.*.com
+  - ntp7.*.com
+  - '*.time.edu.cn'
+  - '*.ntp.org.cn'
+  - +.pool.ntp.org
+  - time1.cloud.tencent.com
+  - music.163.com
+  - '*.music.163.com'
+  - '*.126.net'
+  - musicapi.taihe.com
+  - music.taihe.com
+  - songsearch.kugou.com
+  - trackercdn.kugou.com
+  - '*.kuwo.cn'
+  - api-jooxtt.sanook.com
+  - api.joox.com
+  - joox.com
+  - y.qq.com
+  - '*.y.qq.com'
+  - streamoc.music.tc.qq.com
+  - mobileoc.music.tc.qq.com
+  - isure.stream.qqmusic.qq.com
+  - dl.stream.qqmusic.qq.com
+  - aqqmusic.tc.qq.com
+  - amobile.music.tc.qq.com
+  - '*.xiami.com'
+  - '*.music.migu.cn'
+  - music.migu.cn
+  - +.msftconnecttest.com
+  - +.msftncsi.com
+  - localhost.ptlogin2.qq.com
+  - localhost.sec.qq.com
+  - localhost.*.weixin.qq.com
+  - +.steamcontent.com
+  - +.srv.nintendo.net
+  - '*.n.n.srv.nintendo.net'
+  - +.cdn.nintendo.net
+  - xbox.*.*.microsoft.com
+  - '*.*.xboxlive.com'
+  - xbox.*.microsoft.com
+  - xnotify.xboxlive.com
+  - +.battle.net
+  - +.battlenet.com.cn
+  - +.wotgame.cn
+  - +.wggames.cn
+  - +.wowsgame.cn
+  - +.wargaming.net
+  - proxy.golang.org
+  - +.stun.*.*
+  - +.stun.*.*.*
+  - +.stun.*.*.*.*
+  - +.stun.*.*.*.*.*
+  - heartbeat.belkin.com
+  - '*.linksys.com'
+  - '*.linksyssmartwifi.com'
+  - '*.router.asus.com'
+  - mesu.apple.com
+  - swscan.apple.com
+  - swquery.apple.com
+  - swdownload.apple.com
+  - swcdn.apple.com
+  - swdist.apple.com
+  - lens.l.google.com
+  - na.b.g-tun.com
+  - +.nflxvideo.net
+  - '*.square-enix.com'
+  - '*.finalfantasyxiv.com'
+  - '*.ffxiv.com'
+  - '*.ff14.sdo.com'
+  - ff.dorado.sdo.com
+  - '*.mcdn.bilivideo.cn'
+  - +.media.dssott.com
+  - shark007.net
+  - Mijia Cloud
+  - +.market.xiaomi.com
+  - +.cmbchina.com
+  - +.cmbimg.com
+  - adguardteam.github.io
+  - adrules.top
+  - anti-ad.net
+  - local.adguard.org
+  - static.adtidy.org
+  - +.sandai.net
+  - +.n0808.com
+  - +.3gppnetwork.org
+  - +.uu.163.com
+  - ps.res.netease.com
+  - +.pub.3gppnetwork.org
+  - +.oray.com
+  - +.orayimg.com
+  - +.gcloudcs.com
+  - +.gcloudsdk.com
+  nameserver-policy:
+    rule-set:国内域名,私有域名__001,私有域名__002:
+    - system
+    - https://120.53.53.53/dns-query
+    - https://223.5.5.5/dns-query
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack:
+  - any:53
+  - tcp://any:53
+  strict-route: true
+  auto-redirect: true
+  mtu: 1280
+  disable-icmp-forwarding: true
+proxy-providers:
+  Kitony:
+    type: inline
+    payload:
+    - name: 订阅直连占位
+      type: direct
+  Home_Proxy:
+    type: inline
+    payload:
+    - name: 家庭直连占位
+      type: direct
+proxy-groups:
+- type: select
   url: https://cp.cloudflare.com
   include-all-providers: true
-GroupLoadBalance: &GroupLoadBalance
-  type: load-balance
+  name: 全球互联
+  filter: (港*IPLC|IEPL|专线|UDPN|TX|阿里)
+  proxies:
+  - 🇭🇰 香港
+  - 🇯🇵 日本
+  - 🇺🇸 美国
+  - 🇹🇼 台湾
+  - 🇸🇬 新加坡
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Global.png
+- type: select
+  url: https://cp.cloudflare.com
+  include-all-providers: true
+  name: 游戏娱乐
+  filter: (IPLC|IEPL|专线|Game|UDPN|TX)
+  proxies:
+  - 全球互联
+  - 🇭🇰 香港
+  - 🇯🇵 日本
+  - 🇺🇸 美国
+  - 🇹🇼 台湾
+  - 🇸🇬 新加坡
+  - DIRECT
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Game.png
+- name: 测速下载
+  type: select
+  use:
+  - Kitony
+  proxies:
+  - DIRECT
+  - 🇭🇰 香港
+  - 🇹🇼 台湾
+  - 🇯🇵 日本
+  - 🇺🇸 美国
+  - 🇸🇬 新加坡
+  - 全球互联
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png
+- name: 漏网之鱼
+  type: select
+  proxies:
+  - DIRECT
+  - 全球互联
+  - 🇭🇰 香港
+  - 🇹🇼 台湾
+  - 🇯🇵 日本
+  - 🇺🇸 美国
+  - 🇸🇬 新加坡
+  - 所有地区
+  - 直连Fallback
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Final.png
+- name: TelegramDC5
+  type: select
+  proxies:
+  - 全球互联
+  - 🇭🇰 香港
+  - 🇯🇵 日本
+  - 🇺🇸 美国
+  - 🇹🇼 台湾
+  - 🇸🇬 新加坡
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Telegram.png
+- name: 直连域名
+  type: select
+  proxies:
+  - DIRECT
+  - 直连Fallback
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Direct.png
+- type: select
+  url: https://cp.cloudflare.com
+  include-all-providers: true
+  name: 🇭🇰 香港
+  filter: (^(?!.*(Frp|游戏|Game).*).*(-港|香港|HKT|HKBN))
+  proxies:
+  - 香港LoadBalance
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Hong_Kong.png
+- type: load-balance
   url: https://cp.cloudflare.com
   interval: 300
-  lazy: true
   strategy: round-robin
   timeout: 2000
   max-failed-times: 3
   include-all-providers: true
-RuleSet_classical: &RuleSet_classical
-  type: http
-  behavior: classical
-  format: text
-  interval: 43200
-  proxy: DIRECT
-RuleSet_geosite: &RuleSet_geosite
-  type: http
-  behavior: classical
-  format: yaml
-  interval: 43200
-  proxy: DIRECT
-RuleSet_ipcidr: &RuleSet_ipcidr
-  type: http
-  behavior: ipcidr
-  format: mrs
-  interval: 43200
-  proxy: DIRECT
+  name: 香港LoadBalance
+  filter: HKT
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Back.png
+- type: select
+  url: https://cp.cloudflare.com
+  include-all-providers: true
+  name: 🇯🇵 日本
+  filter: (^(?!.*(Frp|游戏|Game).*).*(-日|日本))
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Japan.png
+- type: select
+  url: https://cp.cloudflare.com
+  include-all-providers: true
+  name: 🇹🇼 台湾
+  filter: (^(?!.*(Frp|游戏|Game).*).*(-台|台湾))
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Taiwan.png
+- type: select
+  url: https://cp.cloudflare.com
+  include-all-providers: true
+  name: 🇸🇬 新加坡
+  filter: (^(?!.*(Frp|游戏|Game).*).*(-坡|新加坡))
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Singapore.png
+- type: select
+  url: https://cp.cloudflare.com
+  include-all-providers: true
+  name: 🇺🇸 美国
+  filter: (^(?!.*(Frp|游戏|Game).*).*(-美|美国|圣何塞))
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/United_States.png
+- type: select
+  url: https://cp.cloudflare.com
+  include-all-providers: true
+  name: 所有地区
+  filter: (^(?!.*(Frp|游戏|Game|公告).*).*)
+- name: 直连Fallback
+  type: fallback
+  use:
+  - Home_Proxy
+  url: http://g.alicdn.com
+  interval: 7200
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Back.png
+- name: 广告拦截
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+  icon: https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Advertising.png
 
-mixed-port: 7890
-allow-lan: true
-bind-address: '*'
-mode: rule
-log-level: info
-ipv6: true
-external-controller: 127.0.0.1:9999
-secret: ''
-external-ui: ui
-external-ui-name: xd
-external-ui-url: https://ghu.nxnow.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
-unified-delay: true
-global-ua: ClashMetaForAndroid/2.11.18
-hosts:
-  mtalk.google.com: [142.250.107.188, 142.251.170.188]
-  alt1-mtalk.google.com: 192.178.164.188
-  alt2-mtalk.google.com: 192.178.164.188
-  alt3-mtalk.google.com: [192.178.164.188, 74.125.131.188]
-  alt4-mtalk.google.com: [192.178.164.188, 74.125.131.188]
-  alt5-mtalk.google.com: [108.177.125.188, 74.125.131.188]
-  alt6-mtalk.google.com: [192.178.131.188, 209.85.144.188]
-  alt7-mtalk.google.com: [192.178.131.188, 209.85.144.188]
-  alt8-mtalk.google.com: [192.178.131.188, 209.85.144.188]
+rule_common:
+  domain: &mrs_domain {type: http, behavior: domain, format: mrs, interval: 86400, proxy: DIRECT}
+  ip: &mrs_ip {type: http, behavior: ipcidr, format: mrs, interval: 86400, proxy: DIRECT}
+  extra: &classical {type: http, behavior: classical, format: text, interval: 86400, proxy: DIRECT}
 
-dns:
-  enable: true
-  prefer-h3: false
-  cache-algorithm: arc
-  ipv6: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-range6: fc00::/18
-  use-hosts: true
-  use-system-hosts: true
-  respect-rules: false
-  rebind: false
-  default-nameserver: [system, 119.29.29.29, 223.5.5.5]
-  nameserver:
-    - system
-    - https://cn.udns.dev:851/dns-query
-  proxy-server-nameserver:
-    - system
-    - https://cn.udns.dev:851/dns-query
-  fake-ip-filter:
-    - +.lan
-    - +.local
-    - rule-set:国内域名,连通性检测,私有域名,其他直连
-    # 构建时追加 Rule/fakeipfillter.txt 的原始 DNS 通配模式。
-  nameserver-policy:
-    'rule-set:国内域名,私有域名':
-      - system
-      - https://120.53.53.53/dns-query
-      - https://223.5.5.5/dns-query
-
-tun:
-  enable: true
-  stack: mixed
-  dns-hijack: [any:53, tcp://any:53]
-  strict-route: true
-  auto-route: true
-  auto-redirect: true
-  auto-detect-interface: true
-  mtu: 1280
-  disable-icmp-forwarding: true
-
-# 直连占位不含订阅信息。在本机替换为 <<: *ProviderTest、url 和独立 path。
-proxies: []
-proxy-providers:
-  Kitony:
-    type: inline
-    payload: [{name: 订阅直连占位, type: direct}]
-  Home_Proxy:
-    type: inline
-    payload: [{name: 家庭直连占位, type: direct}]
-proxy-groups:
-  - name: 全球互联
-    <<: *GroupSelect
-    filter: '(港*IPLC|IEPL|专线|UDPN|TX|阿里)'
-    proxies: [🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇹🇼 台湾, 🇸🇬 新加坡]
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Global.png
-  - name: 游戏娱乐
-    <<: *GroupSelect
-    filter: '(IPLC|IEPL|专线|Game|UDPN|TX)'
-    proxies: [全球互联, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇹🇼 台湾, 🇸🇬 新加坡, DIRECT]
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Game.png
-  - name: 测速下载
-    type: select
-    use: [Kitony]
-    proxies: [DIRECT, 🇭🇰 香港, 🇹🇼 台湾, 🇯🇵 日本, 🇺🇸 美国, 🇸🇬 新加坡, 全球互联]
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png
-  - name: 漏网之鱼
-    type: select
-    proxies: [DIRECT, 全球互联, 🇭🇰 香港, 🇹🇼 台湾, 🇯🇵 日本, 🇺🇸 美国, 🇸🇬 新加坡, 所有地区, 直连Fallback]
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Final.png
-  - name: TelegramDC5
-    type: select
-    proxies: [全球互联, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇹🇼 台湾, 🇸🇬 新加坡]
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Telegram.png
-  - name: 直连域名
-    type: select
-    proxies: [DIRECT, 直连Fallback]
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Direct.png
-  - name: 🇭🇰 香港
-    <<: *GroupSelect
-    filter: '(^(?!.*(Frp|游戏|Game).*).*(-港|香港|HKT|HKBN))'
-    proxies: [香港LoadBalance]
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Hong_Kong.png
-  - name: 香港LoadBalance
-    <<: *GroupLoadBalance
-    filter: HKT
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Back.png
-  - name: 🇯🇵 日本
-    <<: *GroupSelect
-    filter: '(^(?!.*(Frp|游戏|Game).*).*(-日|日本))'
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Japan.png
-  - name: 🇹🇼 台湾
-    <<: *GroupSelect
-    filter: '(^(?!.*(Frp|游戏|Game).*).*(-台|台湾))'
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Taiwan.png
-  - name: 🇸🇬 新加坡
-    <<: *GroupSelect
-    filter: '(^(?!.*(Frp|游戏|Game).*).*(-坡|新加坡))'
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Singapore.png
-  - name: 🇺🇸 美国
-    <<: *GroupSelect
-    filter: '(^(?!.*(Frp|游戏|Game).*).*(-美|美国|圣何塞))'
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/United_States.png
-  - name: 所有地区
-    <<: *GroupSelect
-    filter: '(^(?!.*(Frp|游戏|Game|公告).*).*)'
-  - name: 直连Fallback
-    type: fallback
-    use: [Home_Proxy]
-    url: http://g.alicdn.com
-    interval: 7200
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Back.png
-  - name: 广告拦截
-    type: select
-    proxies: [REJECT, DIRECT]
-    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Advertising.png
-
-# 完整 classical 输入保留关键词/正则；构建清单锁定 MRS 及同版补充规则。
 rule-providers:
-  开发服务:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/category-dev.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-dev.yaml
-  国内游戏:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/games-cn.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-games@cn.yaml
-  公共游戏:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/games.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-games.yaml
-  国际媒体:
-    <<: *RuleSet_classical
-    path: ./rule-providers/stream.list
-    url: https://ruleset.skk.moe/Clash/non_ip/stream.txt
-  国际媒体IP:
-    <<: *RuleSet_classical
-    path: ./rule-providers/stream-ip.list
-    url: https://ruleset.skk.moe/Clash/ip/stream.txt
-  全局规则:
-    <<: *RuleSet_classical
-    path: ./rule-providers/global.list
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/6987aa2bf0350f39db4d9f54b84b0e92118a7f6e/Clash/ProxyLite.list
-  CN_IP:
-    <<: *RuleSet_classical
-    path: ./rule-providers/china-ip.list
-    url: https://raw.githubusercontent.com/DH-Teams/DH-Geo_AS_IP_CN/e8647801fd345b0dea2f7d7ef324d9b5854df83b/Geo_AS_IP_CN_All_Surge.list
-  其他直连:
-    <<: *RuleSet_classical
-    path: ./rule-providers/Direct.list
-    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Direct.list
-  游戏娱乐:
-    <<: *RuleSet_classical
-    path: ./rule-providers/Games.list
-    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Games.list
-  游戏直连:
-    <<: *RuleSet_classical
-    path: ./rule-providers/GameDirect.list
-    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/GameDirect.list
-  海外下载:
-    <<: *RuleSet_classical
-    path: ./rule-providers/Download.list
-    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Download.list
-  其他媒体:
-    <<: *RuleSet_classical
-    path: ./rule-providers/Video.list
-    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Video.list
-  SpeedTest:
-    <<: *RuleSet_classical
-    path: ./rule-providers/Speedtest.list
-    # 该地址在首次默认分支发布后可用；运行包始终内置处理后的文本。
-    url: https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/source/Speedtest.list
-  轻量浏览:
-    <<: *RuleSet_classical
-    path: ./rule-providers/Daily.list
-    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Daily.list
-  US_List:
-    <<: *RuleSet_classical
-    path: ./rule-providers/us.list
-    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/us.list
-  JP_List:
-    <<: *RuleSet_classical
-    path: ./rule-providers/jp.list
-    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/jp.list
-  Reject_List:
-    <<: *RuleSet_classical
-    path: ./rule-providers/Reject.list
-    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Reject.list
-  私有域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/private.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/private.yaml
-  FCM域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/googlefcm.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/googlefcm.yaml
-  GitHub域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/github.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/github.yaml
-  学术域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/scholar.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-scholar-!cn.yaml
-  广告域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/ads.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-ads-all.yaml
-  苹果国内:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/apple-cn.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/apple@cn.yaml
-  苹果服务:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/apple.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/apple.yaml
-  微软国内:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/microsoft-cn.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/microsoft@cn.yaml
-  微软服务:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/microsoft.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/microsoft.yaml
-  YouTube域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/youtube.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/youtube.yaml
-  Twitter域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/twitter.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/twitter.yaml
-  Telegram域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/telegram.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/telegram.yaml
-  国内域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/cn.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/cn.yaml
-  Google域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/google.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/google.yaml
-  AI域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/ai.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-ai-!cn.yaml
-  Netflix域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/netflix.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/netflix.yaml
-  Spotify域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/spotify.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/spotify.yaml
-  私有IP:
-    <<: *RuleSet_ipcidr
-    path: ./rule-providers/private-ip.mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geoip/private.mrs
-  TelegramIP:
-    <<: *RuleSet_ipcidr
-    path: ./rule-providers/telegram-ip.mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geoip/telegram.mrs
-  国内IP:
-    <<: *RuleSet_ipcidr
-    path: ./rule-providers/cn-ip.mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geoip/cn.mrs
-  TelegramASN44907:
-    <<: *RuleSet_ipcidr
-    path: ./rule-providers/asn-44907.mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/asn/AS44907.mrs
-  TelegramASN62014:
-    <<: *RuleSet_ipcidr
-    path: ./rule-providers/asn-62014.mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/asn/AS62014.mrs
-  TelegramASN59930:
-    <<: *RuleSet_ipcidr
-    path: ./rule-providers/asn-59930.mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/asn/AS59930.mrs
-  TelegramASN62041:
-    <<: *RuleSet_ipcidr
-    path: ./rule-providers/asn-62041.mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/asn/AS62041.mrs
-  TelegramASN211157:
-    <<: *RuleSet_ipcidr
-    path: ./rule-providers/asn-211157.mrs
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/asn/AS211157.mrs
-  OpenAI域名:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/openai.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/openai.yaml
-  连通性检测:
-    <<: *RuleSet_geosite
-    path: ./rule-providers/connectivity-check.yaml
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/connectivity-check.yaml
-  OpenAI:
-    <<: *RuleSet_classical
-    path: ./rule-providers/openai-extra.list
-    url: https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/source/upstream-openai-extra.list
-  国际媒体2:
-    <<: *RuleSet_classical
-    path: ./rule-providers/stream-extra.list
-    url: https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/source/upstream-stream-extra.list
-  download_domainset:
-    type: http
-    behavior: domain
-    format: text
-    path: ./rule-providers/download-domainset.txt
-    interval: 43200
-    url: https://ruleset.skk.moe/Clash/domainset/download.txt
-  lan_ip:
-    <<: *RuleSet_classical
-    path: ./rule-providers/lan.list
-    url: https://ruleset.skk.moe/Clash/ip/lan.txt
-  telegram_ip:
-    <<: *RuleSet_classical
-    path: ./rule-providers/telegram-sukka.list
-    url: https://ruleset.skk.moe/Clash/ip/telegram.txt
+  "轻量浏览__001":
+    <<: *classical
+    path: ./rules/local/Daily/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Daily/001.classical.txt
+  "轻量浏览__002":
+    <<: *mrs_domain
+    path: ./rules/local/Daily/002.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Daily/002.domain.mrs
+  "轻量浏览__003":
+    <<: *mrs_ip
+    path: ./rules/local/Daily/003.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Daily/003.ipcidr-no-resolve.mrs
+  "轻量浏览__004":
+    <<: *mrs_domain
+    path: ./rules/local/Daily/004.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Daily/004.domain.mrs
+  "轻量浏览__005":
+    <<: *mrs_ip
+    path: ./rules/local/Daily/005.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Daily/005.ipcidr-no-resolve.mrs
+  "轻量浏览__006":
+    <<: *mrs_domain
+    path: ./rules/local/Daily/006.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Daily/006.domain.mrs
+  "其他直连__001":
+    <<: *mrs_domain
+    path: ./rules/local/Direct/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Direct/001.domain.mrs
+  "海外下载__001":
+    <<: *classical
+    path: ./rules/local/Download/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Download/001.classical.txt
+  "海外下载__002":
+    <<: *mrs_domain
+    path: ./rules/local/Download/002.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Download/002.domain.mrs
+  "海外下载__003":
+    <<: *mrs_ip
+    path: ./rules/local/Download/003.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Download/003.ipcidr-no-resolve.mrs
+  "海外下载__004":
+    <<: *mrs_domain
+    path: ./rules/local/Download/004.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Download/004.domain.mrs
+  "游戏直连__001":
+    <<: *mrs_domain
+    path: ./rules/local/GameDirect/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/GameDirect/001.domain.mrs
+  "游戏娱乐__001":
+    <<: *classical
+    path: ./rules/local/Games/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/001.classical.txt
+  "游戏娱乐__002":
+    <<: *mrs_domain
+    path: ./rules/local/Games/002.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/002.domain.mrs
+  "游戏娱乐__003":
+    <<: *classical
+    path: ./rules/local/Games/003.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/003.classical.txt
+  "游戏娱乐__004":
+    <<: *mrs_domain
+    path: ./rules/local/Games/004.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/004.domain.mrs
+  "游戏娱乐__005":
+    <<: *classical
+    path: ./rules/local/Games/005.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/005.classical.txt
+  "游戏娱乐__006":
+    <<: *mrs_domain
+    path: ./rules/local/Games/006.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/006.domain.mrs
+  "游戏娱乐__007":
+    <<: *mrs_ip
+    path: ./rules/local/Games/007.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/007.ipcidr-no-resolve.mrs
+  "游戏娱乐__008":
+    <<: *mrs_domain
+    path: ./rules/local/Games/008.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/008.domain.mrs
+  "游戏娱乐__009":
+    <<: *classical
+    path: ./rules/local/Games/009.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/009.classical.txt
+  "游戏娱乐__010":
+    <<: *mrs_domain
+    path: ./rules/local/Games/010.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/010.domain.mrs
+  "游戏娱乐__011":
+    <<: *mrs_ip
+    path: ./rules/local/Games/011.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/011.ipcidr-no-resolve.mrs
+  "游戏娱乐__012":
+    <<: *mrs_domain
+    path: ./rules/local/Games/012.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/012.domain.mrs
+  "游戏娱乐__013":
+    <<: *classical
+    path: ./rules/local/Games/013.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/013.classical.txt
+  "游戏娱乐__014":
+    <<: *mrs_domain
+    path: ./rules/local/Games/014.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/014.domain.mrs
+  "游戏娱乐__015":
+    <<: *mrs_ip
+    path: ./rules/local/Games/015.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/015.ipcidr-no-resolve.mrs
+  "游戏娱乐__016":
+    <<: *mrs_domain
+    path: ./rules/local/Games/016.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/016.domain.mrs
+  "游戏娱乐__017":
+    <<: *mrs_ip
+    path: ./rules/local/Games/017.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/017.ipcidr-no-resolve.mrs
+  "游戏娱乐__018":
+    <<: *mrs_domain
+    path: ./rules/local/Games/018.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/018.domain.mrs
+  "游戏娱乐__019":
+    <<: *classical
+    path: ./rules/local/Games/019.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/019.classical.txt
+  "游戏娱乐__020":
+    <<: *mrs_domain
+    path: ./rules/local/Games/020.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/020.domain.mrs
+  "游戏娱乐__021":
+    <<: *classical
+    path: ./rules/local/Games/021.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/021.classical.txt
+  "游戏娱乐__022":
+    <<: *mrs_domain
+    path: ./rules/local/Games/022.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/022.domain.mrs
+  "游戏娱乐__023":
+    <<: *mrs_ip
+    path: ./rules/local/Games/023.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/023.ipcidr-no-resolve.mrs
+  "游戏娱乐__024":
+    <<: *mrs_domain
+    path: ./rules/local/Games/024.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/024.domain.mrs
+  "游戏娱乐__025":
+    <<: *classical
+    path: ./rules/local/Games/025.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/025.classical.txt
+  "游戏娱乐__026":
+    <<: *mrs_ip
+    path: ./rules/local/Games/026.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/026.ipcidr-no-resolve.mrs
+  "游戏娱乐__027":
+    <<: *mrs_domain
+    path: ./rules/local/Games/027.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/027.domain.mrs
+  "游戏娱乐__028":
+    <<: *mrs_ip
+    path: ./rules/local/Games/028.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/028.ipcidr-no-resolve.mrs
+  "游戏娱乐__029":
+    <<: *classical
+    path: ./rules/local/Games/029.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/029.classical.txt
+  "游戏娱乐__030":
+    <<: *mrs_ip
+    path: ./rules/local/Games/030.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/030.ipcidr-no-resolve.mrs
+  "游戏娱乐__031":
+    <<: *mrs_domain
+    path: ./rules/local/Games/031.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/031.domain.mrs
+  "游戏娱乐__032":
+    <<: *classical
+    path: ./rules/local/Games/032.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/032.classical.txt
+  "游戏娱乐__033":
+    <<: *mrs_domain
+    path: ./rules/local/Games/033.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/033.domain.mrs
+  "游戏娱乐__034":
+    <<: *classical
+    path: ./rules/local/Games/034.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/034.classical.txt
+  "游戏娱乐__035":
+    <<: *mrs_domain
+    path: ./rules/local/Games/035.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/035.domain.mrs
+  "游戏娱乐__036":
+    <<: *classical
+    path: ./rules/local/Games/036.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/036.classical.txt
+  "游戏娱乐__037":
+    <<: *mrs_domain
+    path: ./rules/local/Games/037.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Games/037.domain.mrs
+  "Reject_List__001":
+    <<: *mrs_domain
+    path: ./rules/local/Reject/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Reject/001.domain.mrs
+  "SpeedTest__001":
+    <<: *classical
+    path: ./rules/local/Speedtest/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Speedtest/001.classical.txt
+  "SpeedTest__002":
+    <<: *mrs_domain
+    path: ./rules/local/Speedtest/002.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Speedtest/002.domain.mrs
+  "SpeedTest__003":
+    <<: *classical
+    path: ./rules/local/Speedtest/003.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Speedtest/003.classical.txt
+  "SpeedTest__004":
+    <<: *mrs_ip
+    path: ./rules/local/Speedtest/004.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Speedtest/004.ipcidr-no-resolve.mrs
+  "SpeedTest__005":
+    <<: *mrs_domain
+    path: ./rules/local/Speedtest/005.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Speedtest/005.domain.mrs
+  "extra_Torrent__001":
+    <<: *classical
+    path: ./rules/local/Torrent/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Torrent/001.classical.txt
+  "其他媒体__001":
+    <<: *mrs_domain
+    path: ./rules/local/Video/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/Video/001.domain.mrs
+  "JP_List__001":
+    <<: *mrs_domain
+    path: ./rules/local/jp/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/jp/001.domain.mrs
+  "extra_tw__001":
+    <<: *mrs_domain
+    path: ./rules/local/tw/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/tw/001.domain.mrs
+  "US_List__001":
+    <<: *mrs_domain
+    path: ./rules/local/us/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/local/us/001.domain.mrs
+  "开发服务__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/category-dev/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/category-dev/001.domain.mrs
+  "开发服务__002":
+    <<: *classical
+    path: ./rules/upstream/category-dev/002.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/category-dev/002.classical.txt
+  "开发服务__003":
+    <<: *mrs_domain
+    path: ./rules/upstream/category-dev/003.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/category-dev/003.domain.mrs
+  "国内游戏__001":
+    <<: *classical
+    path: ./rules/upstream/games-cn/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/games-cn/001.classical.txt
+  "国内游戏__002":
+    <<: *mrs_domain
+    path: ./rules/upstream/games-cn/002.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/games-cn/002.domain.mrs
+  "国内游戏__003":
+    <<: *classical
+    path: ./rules/upstream/games-cn/003.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/games-cn/003.classical.txt
+  "国内游戏__004":
+    <<: *mrs_domain
+    path: ./rules/upstream/games-cn/004.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/games-cn/004.domain.mrs
+  "公共游戏__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/games/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/games/001.domain.mrs
+  "公共游戏__002":
+    <<: *classical
+    path: ./rules/upstream/games/002.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/games/002.classical.txt
+  "公共游戏__003":
+    <<: *mrs_domain
+    path: ./rules/upstream/games/003.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/games/003.domain.mrs
+  "公共游戏__004":
+    <<: *classical
+    path: ./rules/upstream/games/004.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/games/004.classical.txt
+  "公共游戏__005":
+    <<: *mrs_domain
+    path: ./rules/upstream/games/005.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/games/005.domain.mrs
+  "国际媒体__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream/001.domain.mrs
+  "国际媒体__002":
+    <<: *classical
+    path: ./rules/upstream/stream/002.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream/002.classical.txt
+  "国际媒体IP__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-ip/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-ip/001.domain.mrs
+  "国际媒体IP__002":
+    <<: *mrs_ip
+    path: ./rules/upstream/stream-ip/002.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-ip/002.ipcidr-no-resolve.mrs
+  "全局规则__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/001.domain.mrs
+  "全局规则__002":
+    <<: *classical
+    path: ./rules/upstream/global/002.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/002.classical.txt
+  "全局规则__003":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/003.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/003.domain.mrs
+  "全局规则__004":
+    <<: *mrs_ip
+    path: ./rules/upstream/global/004.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/004.ipcidr-no-resolve.mrs
+  "全局规则__005":
+    <<: *classical
+    path: ./rules/upstream/global/005.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/005.classical.txt
+  "全局规则__006":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/006.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/006.domain.mrs
+  "全局规则__007":
+    <<: *mrs_ip
+    path: ./rules/upstream/global/007.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/007.ipcidr-no-resolve.mrs
+  "全局规则__008":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/008.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/008.domain.mrs
+  "全局规则__009":
+    <<: *mrs_ip
+    path: ./rules/upstream/global/009.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/009.ipcidr-no-resolve.mrs
+  "全局规则__010":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/010.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/010.domain.mrs
+  "全局规则__011":
+    <<: *mrs_ip
+    path: ./rules/upstream/global/011.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/011.ipcidr-no-resolve.mrs
+  "全局规则__012":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/012.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/012.domain.mrs
+  "全局规则__013":
+    <<: *mrs_ip
+    path: ./rules/upstream/global/013.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/013.ipcidr-no-resolve.mrs
+  "全局规则__014":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/014.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/014.domain.mrs
+  "全局规则__015":
+    <<: *classical
+    path: ./rules/upstream/global/015.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/015.classical.txt
+  "全局规则__016":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/016.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/016.domain.mrs
+  "全局规则__017":
+    <<: *classical
+    path: ./rules/upstream/global/017.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/017.classical.txt
+  "全局规则__018":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/018.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/018.domain.mrs
+  "全局规则__019":
+    <<: *classical
+    path: ./rules/upstream/global/019.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/019.classical.txt
+  "全局规则__020":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/020.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/020.domain.mrs
+  "全局规则__021":
+    <<: *mrs_ip
+    path: ./rules/upstream/global/021.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/021.ipcidr-no-resolve.mrs
+  "全局规则__022":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/022.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/022.domain.mrs
+  "全局规则__023":
+    <<: *mrs_ip
+    path: ./rules/upstream/global/023.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/023.ipcidr-no-resolve.mrs
+  "全局规则__024":
+    <<: *mrs_domain
+    path: ./rules/upstream/global/024.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/global/024.domain.mrs
+  "CN_IP":
+    <<: *mrs_ip
+    path: ./rules/upstream/china-ip/001.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/china-ip/001.ipcidr-no-resolve.mrs
+  "私有域名__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/private.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/private.domain.mrs
+  "私有域名__002":
+    <<: *classical
+    path: ./rules/upstream/private/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/private/supplement/001.classical.txt
+  "FCM域名":
+    <<: *mrs_domain
+    path: ./rules/upstream/googlefcm.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/googlefcm.domain.mrs
+  "GitHub域名":
+    <<: *mrs_domain
+    path: ./rules/upstream/github.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/github.domain.mrs
+  "学术域名":
+    <<: *mrs_domain
+    path: ./rules/upstream/category-scholar-!cn.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/category-scholar-%21cn.domain.mrs
+  "广告域名__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/category-ads-all.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/category-ads-all.domain.mrs
+  "广告域名__002":
+    <<: *classical
+    path: ./rules/upstream/category-ads-all/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/category-ads-all/supplement/001.classical.txt
+  "苹果国内":
+    <<: *mrs_domain
+    path: ./rules/upstream/apple@cn.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/apple%40cn.domain.mrs
+  "苹果服务":
+    <<: *mrs_domain
+    path: ./rules/upstream/apple.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/apple.domain.mrs
+  "微软国内":
+    <<: *mrs_domain
+    path: ./rules/upstream/microsoft@cn.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/microsoft%40cn.domain.mrs
+  "微软服务__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/microsoft.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/microsoft.domain.mrs
+  "微软服务__002":
+    <<: *classical
+    path: ./rules/upstream/microsoft/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/microsoft/supplement/001.classical.txt
+  "YouTube域名":
+    <<: *mrs_domain
+    path: ./rules/upstream/youtube.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/youtube.domain.mrs
+  "Twitter域名":
+    <<: *mrs_domain
+    path: ./rules/upstream/twitter.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/twitter.domain.mrs
+  "Telegram域名":
+    <<: *mrs_domain
+    path: ./rules/upstream/telegram.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/telegram.domain.mrs
+  "国内域名":
+    <<: *mrs_domain
+    path: ./rules/upstream/cn.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/cn.domain.mrs
+  "Google域名__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/google.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/google.domain.mrs
+  "Google域名__002":
+    <<: *classical
+    path: ./rules/upstream/google/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/google/supplement/001.classical.txt
+  "AI域名__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/category-ai-!cn.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/category-ai-%21cn.domain.mrs
+  "AI域名__002":
+    <<: *classical
+    path: ./rules/upstream/category-ai-!cn/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/category-ai-%21cn/supplement/001.classical.txt
+  "Netflix域名__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/netflix.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/netflix.domain.mrs
+  "Netflix域名__002":
+    <<: *classical
+    path: ./rules/upstream/netflix/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/netflix/supplement/001.classical.txt
+  "Spotify域名":
+    <<: *mrs_domain
+    path: ./rules/upstream/spotify.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/spotify.domain.mrs
+  "私有IP":
+    <<: *mrs_ip
+    path: ./rules/upstream/private-ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/private-ip.ipcidr.mrs
+  "TelegramIP":
+    <<: *mrs_ip
+    path: ./rules/upstream/telegram-ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/telegram-ip.ipcidr.mrs
+  "国内IP":
+    <<: *mrs_ip
+    path: ./rules/upstream/cn-ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/cn-ip.ipcidr.mrs
+  "TelegramASN44907":
+    <<: *mrs_ip
+    path: ./rules/upstream/asn-44907.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/asn-44907.ipcidr.mrs
+  "TelegramASN62014":
+    <<: *mrs_ip
+    path: ./rules/upstream/asn-62014.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/asn-62014.ipcidr.mrs
+  "TelegramASN59930":
+    <<: *mrs_ip
+    path: ./rules/upstream/asn-59930.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/asn-59930.ipcidr.mrs
+  "TelegramASN62041":
+    <<: *mrs_ip
+    path: ./rules/upstream/asn-62041.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/asn-62041.ipcidr.mrs
+  "TelegramASN211157":
+    <<: *mrs_ip
+    path: ./rules/upstream/asn-211157.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/asn-211157.ipcidr.mrs
+  "OpenAI域名__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/openai.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/openai.domain.mrs
+  "OpenAI域名__002":
+    <<: *classical
+    path: ./rules/upstream/openai/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/openai/supplement/001.classical.txt
+  "连通性检测":
+    <<: *mrs_domain
+    path: ./rules/upstream/connectivity-check.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/connectivity-check.domain.mrs
+  "OpenAI__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/openai-extra/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/openai-extra/001.domain.mrs
+  "OpenAI__002":
+    <<: *classical
+    path: ./rules/upstream/openai-extra/002.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/openai-extra/002.classical.txt
+  "OpenAI__003":
+    <<: *mrs_ip
+    path: ./rules/upstream/openai-extra/003.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/openai-extra/003.ipcidr-no-resolve.mrs
+  "国际媒体2__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/001.domain.mrs
+  "国际媒体2__002":
+    <<: *classical
+    path: ./rules/upstream/stream-extra/002.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/002.classical.txt
+  "国际媒体2__003":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/003.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/003.domain.mrs
+  "国际媒体2__004":
+    <<: *classical
+    path: ./rules/upstream/stream-extra/004.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/004.classical.txt
+  "国际媒体2__005":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/005.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/005.domain.mrs
+  "国际媒体2__006":
+    <<: *classical
+    path: ./rules/upstream/stream-extra/006.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/006.classical.txt
+  "国际媒体2__007":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/007.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/007.domain.mrs
+  "国际媒体2__008":
+    <<: *classical
+    path: ./rules/upstream/stream-extra/008.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/008.classical.txt
+  "国际媒体2__009":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/009.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/009.domain.mrs
+  "国际媒体2__010":
+    <<: *classical
+    path: ./rules/upstream/stream-extra/010.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/010.classical.txt
+  "国际媒体2__011":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/011.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/011.domain.mrs
+  "国际媒体2__012":
+    <<: *classical
+    path: ./rules/upstream/stream-extra/012.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/012.classical.txt
+  "国际媒体2__013":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/013.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/013.domain.mrs
+  "国际媒体2__014":
+    <<: *classical
+    path: ./rules/upstream/stream-extra/014.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/014.classical.txt
+  "国际媒体2__015":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/015.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/015.domain.mrs
+  "国际媒体2__016":
+    <<: *classical
+    path: ./rules/upstream/stream-extra/016.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/016.classical.txt
+  "国际媒体2__017":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/017.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/017.domain.mrs
+  "国际媒体2__018":
+    <<: *classical
+    path: ./rules/upstream/stream-extra/018.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/018.classical.txt
+  "国际媒体2__019":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/019.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/019.domain.mrs
+  "国际媒体2__020":
+    <<: *classical
+    path: ./rules/upstream/stream-extra/020.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/020.classical.txt
+  "国际媒体2__021":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/021.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/021.domain.mrs
+  "国际媒体2__022":
+    <<: *classical
+    path: ./rules/upstream/stream-extra/022.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/022.classical.txt
+  "国际媒体2__023":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/023.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/023.domain.mrs
+  "国际媒体2__024":
+    <<: *mrs_ip
+    path: ./rules/upstream/stream-extra/024.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/024.ipcidr-no-resolve.mrs
+  "国际媒体2__025":
+    <<: *mrs_domain
+    path: ./rules/upstream/stream-extra/025.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/stream-extra/025.domain.mrs
+  "download_domainset":
+    <<: *mrs_domain
+    path: ./rules/upstream/download-domainset/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/download-domainset/001.domain.mrs
+  "lan_ip__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/lan/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/lan/001.domain.mrs
+  "lan_ip__002":
+    <<: *mrs_ip
+    path: ./rules/upstream/lan/002.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/lan/002.ipcidr.mrs
+  "telegram_ip__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/telegram-sukka/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/telegram-sukka/001.domain.mrs
+  "telegram_ip__002":
+    <<: *mrs_ip
+    path: ./rules/upstream/telegram-sukka/002.ipcidr-no-resolve.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/telegram-sukka/002.ipcidr-no-resolve.mrs
 
-# 首条命中；只在原位置替换 Geodata 和 provider，不重排业务策略。
 rules:
-  - IP-CIDR,192.168.32.1/24,直连Fallback,no-resolve
-  - RULE-SET,FCM域名,DIRECT
-  - DOMAIN-SUFFIX,air.114432.xyz,全球互联
-  - AND,((NETWORK,UDP),(OR,((DST-PORT,12345),(DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,mcdn)))),REJECT
-  - AND,((NETWORK,TCP),(DOMAIN-KEYWORD,stun),(OR,((DOMAIN-KEYWORD,douyu),(DOMAIN-KEYWORD,bilibili)))),REJECT
-  - AND,((NETWORK,UDP),(OR,((RULE-SET,YouTube域名),(RULE-SET,OpenAI域名)))),REJECT
-  - AND,((NETWORK,TCP),(NOT,((RULE-SET,CN_IP,no-resolve))),(OR,((DST-PORT,65022),(DST-PORT,22)))),全球互联
-  - RULE-SET,开发服务,测速下载
-  - RULE-SET,国内游戏,DIRECT
-  - RULE-SET,游戏直连,DIRECT
-  - RULE-SET,海外下载,测速下载
-  - RULE-SET,SpeedTest,测速下载
-  - RULE-SET,download_domainset,测速下载
-  - RULE-SET,轻量浏览,全球互联
-  - RULE-SET,国内域名,直连域名
-  - RULE-SET,GitHub域名,全球互联
-  - RULE-SET,学术域名,全球互联
-  - RULE-SET,Reject_List,REJECT
-  - RULE-SET,公共游戏,游戏娱乐
-  - RULE-SET,游戏娱乐,游戏娱乐
-  - RULE-SET,OpenAI域名,🇺🇸 美国
-  - RULE-SET,OpenAI,🇺🇸 美国
-  - RULE-SET,US_List,🇺🇸 美国
-  - RULE-SET,JP_List,🇯🇵 日本
-  - RULE-SET,其他直连,直连域名
-  - RULE-SET,广告域名,广告拦截
-  - RULE-SET,苹果国内,直连域名
-  - RULE-SET,苹果服务,测速下载
-  - RULE-SET,微软服务,测速下载
-  - AND,((NETWORK,UDP),(DST-PORT,3478)),测速下载
-  - RULE-SET,YouTube域名,全球互联
-  - RULE-SET,Twitter域名,全球互联
-  - RULE-SET,其他媒体,全球互联
-  - RULE-SET,telegram_ip,TelegramDC5,no-resolve
-  - RULE-SET,Telegram域名,TelegramDC5
-  - RULE-SET,国际媒体,全球互联
-  - RULE-SET,全局规则,全球互联
-  - RULE-SET,国际媒体2,全球互联
-  - RULE-SET,国际媒体IP,全球互联,no-resolve
-  - RULE-SET,lan_ip,DIRECT,no-resolve
-  - RULE-SET,CN_IP,直连域名,no-resolve
-  - MATCH,漏网之鱼
+- IP-CIDR,192.168.32.1/24,直连Fallback,no-resolve
+- RULE-SET,FCM域名,DIRECT
+- DOMAIN-SUFFIX,air.114432.xyz,全球互联
+- AND,((NETWORK,UDP),(OR,((DST-PORT,12345),(DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,mcdn)))),REJECT
+- AND,((NETWORK,TCP),(DOMAIN-KEYWORD,stun),(OR,((DOMAIN-KEYWORD,douyu),(DOMAIN-KEYWORD,bilibili)))),REJECT
+- AND,((NETWORK,UDP),(OR,((RULE-SET,YouTube域名),(OR,((RULE-SET,OpenAI域名__001),(RULE-SET,OpenAI域名__002)))))),REJECT
+- AND,((NETWORK,TCP),(NOT,((RULE-SET,CN_IP,no-resolve))),(OR,((DST-PORT,65022),(DST-PORT,22)))),全球互联
+- RULE-SET,开发服务__001,测速下载
+- RULE-SET,开发服务__002,测速下载
+- RULE-SET,开发服务__003,测速下载
+- RULE-SET,国内游戏__001,DIRECT
+- RULE-SET,国内游戏__002,DIRECT
+- RULE-SET,国内游戏__003,DIRECT
+- RULE-SET,国内游戏__004,DIRECT
+- RULE-SET,游戏直连__001,DIRECT
+- RULE-SET,海外下载__001,测速下载
+- RULE-SET,海外下载__002,测速下载
+- RULE-SET,海外下载__003,测速下载,no-resolve
+- RULE-SET,海外下载__004,测速下载
+- RULE-SET,SpeedTest__001,测速下载
+- RULE-SET,SpeedTest__002,测速下载
+- RULE-SET,SpeedTest__003,测速下载
+- RULE-SET,SpeedTest__004,测速下载,no-resolve
+- RULE-SET,SpeedTest__005,测速下载
+- RULE-SET,download_domainset,测速下载
+- RULE-SET,轻量浏览__001,全球互联
+- RULE-SET,轻量浏览__002,全球互联
+- RULE-SET,轻量浏览__003,全球互联,no-resolve
+- RULE-SET,轻量浏览__004,全球互联
+- RULE-SET,轻量浏览__005,全球互联,no-resolve
+- RULE-SET,轻量浏览__006,全球互联
+- RULE-SET,国内域名,直连域名
+- RULE-SET,GitHub域名,全球互联
+- RULE-SET,学术域名,全球互联
+- RULE-SET,Reject_List__001,REJECT
+- RULE-SET,公共游戏__001,游戏娱乐
+- RULE-SET,公共游戏__002,游戏娱乐
+- RULE-SET,公共游戏__003,游戏娱乐
+- RULE-SET,公共游戏__004,游戏娱乐
+- RULE-SET,公共游戏__005,游戏娱乐
+- RULE-SET,游戏娱乐__001,游戏娱乐
+- RULE-SET,游戏娱乐__002,游戏娱乐
+- RULE-SET,游戏娱乐__003,游戏娱乐
+- RULE-SET,游戏娱乐__004,游戏娱乐
+- RULE-SET,游戏娱乐__005,游戏娱乐
+- RULE-SET,游戏娱乐__006,游戏娱乐
+- RULE-SET,游戏娱乐__007,游戏娱乐,no-resolve
+- RULE-SET,游戏娱乐__008,游戏娱乐
+- RULE-SET,游戏娱乐__009,游戏娱乐
+- RULE-SET,游戏娱乐__010,游戏娱乐
+- RULE-SET,游戏娱乐__011,游戏娱乐,no-resolve
+- RULE-SET,游戏娱乐__012,游戏娱乐
+- RULE-SET,游戏娱乐__013,游戏娱乐
+- RULE-SET,游戏娱乐__014,游戏娱乐
+- RULE-SET,游戏娱乐__015,游戏娱乐,no-resolve
+- RULE-SET,游戏娱乐__016,游戏娱乐
+- RULE-SET,游戏娱乐__017,游戏娱乐,no-resolve
+- RULE-SET,游戏娱乐__018,游戏娱乐
+- RULE-SET,游戏娱乐__019,游戏娱乐
+- RULE-SET,游戏娱乐__020,游戏娱乐
+- RULE-SET,游戏娱乐__021,游戏娱乐
+- RULE-SET,游戏娱乐__022,游戏娱乐
+- RULE-SET,游戏娱乐__023,游戏娱乐,no-resolve
+- RULE-SET,游戏娱乐__024,游戏娱乐
+- RULE-SET,游戏娱乐__025,游戏娱乐
+- RULE-SET,游戏娱乐__026,游戏娱乐,no-resolve
+- RULE-SET,游戏娱乐__027,游戏娱乐
+- RULE-SET,游戏娱乐__028,游戏娱乐,no-resolve
+- RULE-SET,游戏娱乐__029,游戏娱乐
+- RULE-SET,游戏娱乐__030,游戏娱乐,no-resolve
+- RULE-SET,游戏娱乐__031,游戏娱乐
+- RULE-SET,游戏娱乐__032,游戏娱乐
+- RULE-SET,游戏娱乐__033,游戏娱乐
+- RULE-SET,游戏娱乐__034,游戏娱乐
+- RULE-SET,游戏娱乐__035,游戏娱乐
+- RULE-SET,游戏娱乐__036,游戏娱乐
+- RULE-SET,游戏娱乐__037,游戏娱乐
+- RULE-SET,OpenAI域名__001,🇺🇸 美国
+- RULE-SET,OpenAI域名__002,🇺🇸 美国
+- RULE-SET,OpenAI__001,🇺🇸 美国
+- RULE-SET,OpenAI__002,🇺🇸 美国
+- RULE-SET,OpenAI__003,🇺🇸 美国,no-resolve
+- RULE-SET,US_List__001,🇺🇸 美国
+- RULE-SET,JP_List__001,🇯🇵 日本
+- RULE-SET,其他直连__001,直连域名
+- RULE-SET,广告域名__001,广告拦截
+- RULE-SET,广告域名__002,广告拦截
+- RULE-SET,苹果国内,直连域名
+- RULE-SET,苹果服务,测速下载
+- RULE-SET,微软服务__001,测速下载
+- RULE-SET,微软服务__002,测速下载
+- AND,((NETWORK,UDP),(DST-PORT,3478)),测速下载
+- RULE-SET,YouTube域名,全球互联
+- RULE-SET,Twitter域名,全球互联
+- RULE-SET,其他媒体__001,全球互联
+- RULE-SET,telegram_ip__001,TelegramDC5,no-resolve
+- RULE-SET,telegram_ip__002,TelegramDC5,no-resolve
+- RULE-SET,Telegram域名,TelegramDC5
+- RULE-SET,国际媒体__001,全球互联
+- RULE-SET,国际媒体__002,全球互联
+- RULE-SET,全局规则__001,全球互联
+- RULE-SET,全局规则__002,全球互联
+- RULE-SET,全局规则__003,全球互联
+- RULE-SET,全局规则__004,全球互联,no-resolve
+- RULE-SET,全局规则__005,全球互联
+- RULE-SET,全局规则__006,全球互联
+- RULE-SET,全局规则__007,全球互联,no-resolve
+- RULE-SET,全局规则__008,全球互联
+- RULE-SET,全局规则__009,全球互联,no-resolve
+- RULE-SET,全局规则__010,全球互联
+- RULE-SET,全局规则__011,全球互联,no-resolve
+- RULE-SET,全局规则__012,全球互联
+- RULE-SET,全局规则__013,全球互联,no-resolve
+- RULE-SET,全局规则__014,全球互联
+- RULE-SET,全局规则__015,全球互联
+- RULE-SET,全局规则__016,全球互联
+- RULE-SET,全局规则__017,全球互联
+- RULE-SET,全局规则__018,全球互联
+- RULE-SET,全局规则__019,全球互联
+- RULE-SET,全局规则__020,全球互联
+- RULE-SET,全局规则__021,全球互联,no-resolve
+- RULE-SET,全局规则__022,全球互联
+- RULE-SET,全局规则__023,全球互联,no-resolve
+- RULE-SET,全局规则__024,全球互联
+- RULE-SET,国际媒体2__001,全球互联
+- RULE-SET,国际媒体2__002,全球互联
+- RULE-SET,国际媒体2__003,全球互联
+- RULE-SET,国际媒体2__004,全球互联
+- RULE-SET,国际媒体2__005,全球互联
+- RULE-SET,国际媒体2__006,全球互联
+- RULE-SET,国际媒体2__007,全球互联
+- RULE-SET,国际媒体2__008,全球互联
+- RULE-SET,国际媒体2__009,全球互联
+- RULE-SET,国际媒体2__010,全球互联
+- RULE-SET,国际媒体2__011,全球互联
+- RULE-SET,国际媒体2__012,全球互联
+- RULE-SET,国际媒体2__013,全球互联
+- RULE-SET,国际媒体2__014,全球互联
+- RULE-SET,国际媒体2__015,全球互联
+- RULE-SET,国际媒体2__016,全球互联
+- RULE-SET,国际媒体2__017,全球互联
+- RULE-SET,国际媒体2__018,全球互联
+- RULE-SET,国际媒体2__019,全球互联
+- RULE-SET,国际媒体2__020,全球互联
+- RULE-SET,国际媒体2__021,全球互联
+- RULE-SET,国际媒体2__022,全球互联
+- RULE-SET,国际媒体2__023,全球互联
+- RULE-SET,国际媒体2__024,全球互联,no-resolve
+- RULE-SET,国际媒体2__025,全球互联
+- RULE-SET,国际媒体IP__001,全球互联,no-resolve
+- RULE-SET,国际媒体IP__002,全球互联,no-resolve
+- RULE-SET,lan_ip__001,DIRECT,no-resolve
+- RULE-SET,lan_ip__002,DIRECT,no-resolve
+- RULE-SET,CN_IP,直连域名,no-resolve
+- MATCH,漏网之鱼

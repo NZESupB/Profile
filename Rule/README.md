@@ -1,40 +1,52 @@
-Daily.list(https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Daily.list) CDN加速(https://raw.nxnow.top/NZESupB/Profile/main/Rule/Daily.list) 低流量日常网站 
+# 个人规则与自动构建
 
-Direct.list(https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Direct.list) CDN加速(https://raw.nxnow.top/NZESupB/Profile/main/Rule/Direct.list) 国内漏网之鱼直连&部分误杀恢复
+个人规则按用途维护，发布后的 Mihomo 配置统一使用 MRS 域名/IP 分片与 classical 补充。
 
-Download.list(https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Download.list) CDN加速(https://raw.nxnow.top/NZESupB/Profile/main/Rule/Download.list)需要大带宽下载的地址
+| 主文件 | 用途 | classical 配套文件 |
+| --- | --- | --- |
+| `Daily.list` | 低流量日常网站 | `classical/Daily.list` |
+| `Direct.list` | 国内漏网直连与误杀恢复 | 无 |
+| `Download.list` | 大带宽下载 | `classical/Download.list` |
+| `GameDirect.list` | 游戏直连和国内 CDN | 无 |
+| `Games.list` | 游戏代理，节点需支持 UDP | `classical/Games.list` |
+| `Reject.list` | 自定义拦截 | 无 |
+| `Speedtest.list` | 测速服务 | `classical/Speedtest.list` |
+| `Torrent.list` | 下载进程与域名 | `classical/Torrent.list` |
+| `Video.list` | Emby 等影视站 | 无 |
+| `jp.list`、`us.list`、`tw.list` | 区域限制服务 | 无 |
 
-GameDirect.list(https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/GameDirect.list) CDN加速(https://raw.nxnow.top/NZESupB/Profile/main/Rule/GameDirect.list) 游戏直连规则或者自动分配国内cdn地址直连
+主文件只保留 DOMAIN、DOMAIN-SUFFIX、IP-CIDR、IP-CIDR6，Actions 将所有域名/IP 连续段打包为 MRS。关键词、正则、进程等不支持 MRS 的条件独立维护在 `classical/`，保持 classical/text 格式。
 
-Games.list(https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Games.list) CDN加速(https://raw.nxnow.top/NZESupB/Profile/main/Rule/Games.list) 游戏代理规则,节点需要开启udp
+例如主文件中：
 
-Speedtest.list(https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Speedtest.list) CDN加速(https://raw.nxnow.top/NZESupB/Profile/main/Rule/Speedtest.list) 测速节点,不过不太准,fast由于是Netflix提供,走Netflix策略
+```text
+DOMAIN,example.net
+# @classical 001
+DOMAIN-SUFFIX,example.org
+```
 
-jp.list(https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/jp.list) CDN加速(https://raw.nxnow.top/NZESupB/Profile/main/Rule/jp.list) 为锁日本ip的域名
+其声明的配套文件中：
 
-us.list(https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/us.list) CDN加速(https://raw.nxnow.top/NZESupB/Profile/main/Rule/us.list) 为锁美国ip的域名或者一些服务器位于美国的网站
+```text
+# @part 001
+PROCESS-NAME,example.exe
+```
 
-tw.list(https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/tw.list) CDN加速(https://raw.nxnow.top/NZESupB/Profile/main/Rule/tw.list) 为锁台湾ip的域名
+构建器在两条域名规则之间恢复该进程规则。段号可复用在不同来源中，同一来源内必须唯一且全部引用。主文件与配套文件分别校验哈希，审计报告指向真实文件和行号。新增配套文件需同步 `build.yaml` 的 `local.<主文件>.classical`。
 
-Video.list(https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Video.list) CDN加速(https://raw.nxnow.top/NZESupB/Profile/main/Rule/Video.list) Emby和一些其他的需要代理的影视站
+**拆分后的主 `.list` 不再是完整的独立订阅。** 其他客户端使用发布产物的 `clients/<客户端>/sources/`，这些文件按原顺序合并主文件与 classical 条件，并明确报告客户端能力差异。Mihomo 的 `rules/source/` 是去重、排除后的净化文本，不能代替所有客户端的完整来源。
 
+- `build.yaml`：来源映射、classical 路径、明确排除项、逻辑路由/DNS、发布基址和客户端策略名。
+- `upstreams.lock.json`：不可变上游地址、快照和 SHA-256；现成 MRS 同时锁定同版文本与完整 classical 补充。
+- `snapshots/`：Sukka 原始发布快照，保留来源和许可证头，供可重复构建使用。
+- `fakeipfillter.txt`：原样接入 DNS 的通配模式，不编译为分流 MRS。
+- `Torrent.list`、`tw.list`：生成域名/IP MRS 和 classical 产物，但不增加原配置未定义的路由。
+- `classical/Speedtest.list`：USER-AGENT 供支持的客户端导出，Mihomo 按清单明确排除。
 
+`Template/Meta.yaml` 是唯一的完整 MRS 部署模板。修改规则后运行 `rules.py build --text-only --write-template`，生成通过隔离内核检查的文本包并同步模板引用；正式 MRS 编译和回读验证只在 Actions 执行。工作流使用 `--check-template` 防止分片过期。
 
-## Mihomo 自动化
+只删除由更早、同策略、同参数上游完整覆盖且 DNS 兼容的本地项，差量仅用于 Mihomo 运行包。其他客户端使用未做上游减法的完整有序来源。关键词、正则和 no-resolve 不得因 MRS 拆分而丢失；不支持的条件写入 `clients/report.json`。
 
-共享 `.list` 保持文本规则；同文件的等价覆盖可以清理，跨策略覆盖保留。正式 MRS 编译与验证通过 GitHub Actions 完成，入口及依赖说明见 [Shell/README.md](../Shell/README.md)。
+默认分支构建成功后发布到独立 `rules` 分支，功能分支仅验证和上传 artifact。GitHub 公开文件 URL 使用 `build.yaml` 的 ghproxy 前缀。首次发布前远程路径不可用，可先使用 Actions artifact。
 
-- `build.yaml`：本地规则与模板 provider 的映射、明确排除项及上游格式。
-- `upstreams.lock.json`：不可变上游地址、原始发布快照和 SHA-256。
-- `snapshots/`：Sukka 流媒体、下载域名集、局域网及 Telegram IP 的原始发布文本，保留来源与许可证头，供可重复构建使用；与根目录自定义规则分开维护。
-- `Torrent.list`、`tw.list`：编译产物但不新增当前模板路由。
-- `fakeipfillter.txt`：DNS 通配模式来源，单独接入 fake-ip-filter，不转换为分流 MRS。
-- `Speedtest.list`：USER-AGENT 供其他客户端使用，在 Mihomo 产物中按清单明确排除，其余未知格式会阻止构建。
-
-构建生成的去重报告记录来源行号、覆盖依据和保留原因。上游差量只用于同一运行包，不回写共享规则文件。
-
-当前构建模板为 `Template/Meta.yaml`。人工维护 `.list` 分组、`build.yaml` 的来源/策略映射和锁文件后，Actions 自动生成 Mihomo MRS/classical 及 Clash、Surge、Surfboard、Shadowrocket、Quantumult X 规则。默认分支成功构建后同步到独立 `rules` 分支，功能分支只验证并上传 artifact。
-
-固定 MRS 同时校验同版文本与完整 classical 补充，关键词和正则不会因使用纯域名 MRS 而丢失。OpenAI 补充来源中的 AS20473 通过清单显式展开为锁定 CIDR；不保留运行时 Geodata 依赖。客户端不支持的逻辑、正则、进程或 no-resolve 等规则列入 `clients/report.json`，不会静默改写匹配范围。
-
-规则片段需要目标客户端已有相应策略组；按 `clients/report.json` 的 `policy_names` 对接。单 URL 的 MRS/文本/YAML 接入与完整使用方法见 [Shell/README.md](../Shell/README.md)。
+构建命令、单 URL 导入、产物路径及使用限制见 [Shell/README.md](../Shell/README.md) 和 [MRS 方案](../Shell/MIHOMO-MRS.md)。

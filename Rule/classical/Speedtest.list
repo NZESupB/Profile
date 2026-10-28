@@ -1,0 +1,10 @@
+# 非 MRS 条件；USER-AGENT 只导出给支持它的客户端，Mihomo 明确排除。
+# @part 001
+USER-AGENT,SpeedTest*
+PROCESS-NAME,org.zwanoo.android.speedtest
+PROCESS-NAME,com.netflix.Speedtest
+PROCESS-NAME,Speedtest.exe
+
+# @part 002
+DOMAIN-KEYWORD,speedtest
+DOMAIN-KEYWORD,ookla

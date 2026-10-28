@@ -1,14 +1,18 @@
 # 规则构建与单 URL 转换
 
-当前构建输入为 `Template/Meta.yaml`，以根目录个人 `Meta.yaml` 为基准。根目录原文件不参与 CI，也不得提交其中的控制器密钥或订阅信息。`Template/metaProvider.yml` 保留为旧模板，当前构建入口以新模板为准。
+`Template/Meta.yaml` 是唯一的完整 Mihomo MRS 部署模板，基于根目录个人配置脱敏生成；不再区分文本模板和 MRS 示例。全局配置、订阅占位、策略组、DNS 和 TUN 保留在模板中，来源映射与拆分前的逻辑路由由 `Rule/build.yaml` 维护。根目录私人原文件不参与 CI，`Template/metaProvider.yml` 保留为旧模板。
+
+规则拆分、完整工作流及 URL/缓存路径说明见 [Mihomo MRS 方案](MIHOMO-MRS.md)。
 
 ## 配置与来源
 
-新模板保留原配置的 42 条路由顺序、15 个策略组、FCM hosts、DNS 上游及 TUN 参数。国内域名仍提前走直连，OpenAI 走美国，Telegram 走 `TelegramDC5`，台湾、香港负载均衡及家庭代理组继续保留。修复了原 UDP 逻辑中 OR 子表达式的括号，并将 Geodata 条件替换为显式 provider。
+构建清单保留原配置的 42 条逻辑路由顺序，模板自动展开为 MRS/classical 引用，同时保留 15 个策略组、FCM hosts、DNS 上游及 TUN 参数。国内域名仍提前走直连，OpenAI 走美国，Telegram 走 `TelegramDC5`，台湾、香港负载均衡及家庭代理组继续保留。修复了原 UDP 逻辑中 OR 子表达式的括号，并将 Geodata 条件替换为显式 provider。
 
 公开模板的控制器监听改为 `127.0.0.1:9999`，`secret` 留空。`Kitony`、`Home_Proxy` 使用明确命名的直连占位，保证缺少订阅时可以解析；它们不提供代理连接。使用前在本机替换为真实订阅，并在区域组中选择实际节点。家庭组仅使用 `Home_Proxy`，不在真实家庭节点前插入永久直连项。
 
-模板是构建输入，推荐使用生成包中的 `config.yaml`。模板内 SpeedTest、OpenAI 补充和第二份媒体列表指向 `rules` 分支的净化文本，首次默认分支发布前这些远程入口不可用；本地构建包已内置全部文件，不依赖这些入口。
+模板的 domain/ipcidr provider 全部使用 MRS；关键词、正则、进程等不支持 MRS 的条件使用独立 classical/text 分片。全部规则地址指向 `rules` 分支，首次默认分支发布前不能远程获取；下载 Actions 运行包后，`config.yaml` 使用同包文件，`mihomo.yaml` 使用远程文件。
+
+`Rule/build.yaml` 的 `github_proxy: https://gh-proxy.com/` 控制公开 GitHub 文件的 URL 反代前缀；模板、图标、生成配置和客户端引用均使用该前缀。Actions 内核下载、锁定规则源及单 URL 导入也由公共下载函数添加前缀。`proxy: DIRECT` 表示连接 ghproxy 站点，不改变业务策略或路由顺序。锁文件保留原始 URL 与 SHA-256；修改前缀时同步模板图标、面板等静态 URL，再更新模板引用。认证 Git remote 和发布推送保持原生机制。
 
 ## 本地环境与文本验证
 
@@ -27,6 +31,17 @@ python3 -m venv .venv
 ```
 
 `audit` 不调用内核。首次下载上游后，`--offline` 可使用 `.cache/rules` 中的哈希缓存与 `Rule/snapshots/` 原始快照。`build --text-only` 生成 `mode: text` 的完整文本包并启动隔离内核检查；不会编译 MRS。正式文本转 MRS 只能在 GitHub Actions 执行，本机不得设置伪造的 Actions 环境绕过该限制。
+
+修改来源或 `Rule/build.yaml` 后，使用以下命令更新唯一部署模板；`--write-template` 只在文本包通过隔离加载后写回 MRS 地址，不生成本地 MRS。`--check-template` 用于检查现有模板是否与当前规则一致，Actions 正式构建也执行该检查。
+
+```bash
+.venv/bin/python Shell/rules.py build --text-only --write-template \
+  --output dist/meta-text --mihomo /path/to/mihomo
+.venv/bin/python Shell/rules.py build --text-only --check-template \
+  --output dist/meta-text --mihomo /path/to/mihomo
+```
+
+个人主列表 `Rule/*.list` 只维护 DOMAIN、DOMAIN-SUFFIX、IP-CIDR、IP-CIDR6。其他类型位于 `Rule/classical/{Daily,Download,Games,Speedtest,Torrent}.list`；主文件的 `# @classical 001` 对应配套文件的 `# @part 001`，构建器在原位置插入。新段须有唯一编号，且在 `build.yaml` 的 `local` 项中声明 `classical` 路径。缺失、重复、未引用的段、放错类型及越界路径都会失败。主文件与配套文件分别计入输入哈希，报告保留真实文件与行号。
 
 所有显式相对参数以调用目录为准，默认路径以脚本所在仓库为准。可覆盖 `--config`、`--rules-dir`、`--manifest`、`--lock`、`--cache`、`--output`；自定义规则目录须有配套清单和锁文件。
 
@@ -62,7 +77,7 @@ SHA-256 校验只约束本次下载。普通 HTTP provider 后续由内核更新
 
 工作流为 `.github/workflows/build-rules.yml`，名称「构建并同步代理规则」。规则、脚本、新模板或工作流变动的 push/PR 触发检查，也支持手动运行。
 
-工作流使用固定 Mihomo v1.19.33 及归档 SHA-256，依赖版本见 `requirements-rules.txt`。它审计来源、编译分片、回读 MRS 比较匹配集合、执行 `mihomo -t` 和 provider 实际加载，验证单 URL 的 domain/ipcidr 接入，再离线重建比较清单。
+工作流使用固定 Mihomo v1.19.33 及归档 SHA-256，依赖版本见 `requirements-rules.txt`。它审计来源、编译分片、回读 MRS 比较匹配集合、执行 `mihomo -t` 和 provider 实际加载，核对完整模板的 168 个 provider、格式和地址，验证单 URL domain/ipcidr 接入，再离线重建比较清单。
 
 每次成功运行上传 `mihomo-rules-<提交SHA>` artifact。**只有默认分支的非 PR 构建成功后**，独立 publish job 才以 `contents: write` 将已验证的公开产物同步到 `rules` 分支；功能分支只验证和上传。发布保留 `rules` 分支历史，不合并业务分支，不发布 release。
 
@@ -97,7 +112,7 @@ Clash、Surge、Surfboard、Shadowrocket 在原路由位置交替输出内联与
 
 ## 覆盖与验证约束
 
-- 共享 `Rule/*.list` 保持人工维护，不回写 Mihomo 专用上游差量。其他客户端导出使用完整分组来源，不使用 Mihomo 的路由去重结果。
+- 人工源由 `Rule/*.list` 与声明的 `Rule/classical/*.list` 合并恢复。单独订阅拆分后的主列表会遗漏 classical 条件，应使用生成的 `clients/<客户端>/sources/`。其他客户端导出使用完整有序来源，不使用 Mihomo 的上游差量。
 - 只删除被更早、同策略、同参数上游完整覆盖的本地项；DNS 引用还须有相同条件下的覆盖证明。逻辑规则引用的本地来源不做此类删除。
 - 域名/IP 使用 MRS，关键词、正则、通配与进程规则保留 classical；固定 MRS 同时锁定同版文本及完整 classical 补充，不用纯域名列表代替完整分类。
 - provider 在原位置按连续分片展开；嵌套 RULE-SET 展开为 OR 并集，使外层 NOT/AND 继续作用于完整来源。`no-resolve` 保留在每个需要的分片上。

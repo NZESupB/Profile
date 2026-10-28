@@ -2,24 +2,20 @@
 # https://github.com/HoldOnBro/WinRoute2ClashRules
 
 # 梅露可物语
-DOMAIN-KEYWORD,andapp
-DOMAIN-KEYWORD,hekk
-PROCESS-NAME,mercstoria.exe
-PROCESS-NAME,jp.co.happyelements.toto
-PROCESS-NAME,jp.gamegift
+# @classical 001
 
 # Nikke
 DOMAIN-SUFFIX,intlgame.com
 DOMAIN-SUFFIX,nikke-kr.com
 DOMAIN-SUFFIX,nikke-jp.com
-DOMAIN-KEYWORD,nikke
+# @classical 002
 DOMAIN,cdp.cloud.unity3d.com
 DOMAIN,perf-events.cloud.unity3d.com
 DOMAIN,us.mtp.iegcom.com
 DOMAIN-SUFFIX,centauriglobal.com
 DOMAIN,dl.listdl.com
 DOMAIN-SUFFIX,gamamobi.com
-PROCESS-NAME,com.proximabeta.nikke
+# @classical 003
 
 # Mobile Length
 DOMAIN-SUFFIX,youngjoygame.com
@@ -31,7 +27,7 @@ IP-CIDR,161.202.48.36/32,no-resolve
 DOMAIN,toy.log.nexon.io
 DOMAIN,o460330.ingest.sentry.io
 DOMAIN-SUFFIX,nexon.com
-DOMAIN-KEYWORD,nexoncdn
+# @classical 004
 DOMAIN,nxm-mt.akamaized.net
 DOMAIN,com.nexon.platform.store.billing
 # PROCESS-NAME,com.nexon.bluearchive
@@ -52,7 +48,7 @@ DOMAIN-SUFFIX,stun.ekiga.net
 
 # WildRift
 DOMAIN,wildrift-na.akamaized.net
-PROCESS-NAME,com.riotgames.league.wildrift
+# @classical 005
 
 # 代号鸢
 DOMAIN-SUFFIX,qookkagames.com
@@ -112,10 +108,9 @@ DOMAIN,cwres.ting-zhou.com
 # PROCESS-NAME,com.tingzhou.cwcxtw.qooapp
 
 DOMAIN-SUFFIX,ponosgames.com
-DOMAIN-KEYWORD,mobage
-DOMAIN-KEYWORD,dynamodb
+# @classical 006
 DOMAIN-SUFFIX,piapro.net
-DOMAIN-KEYWORD,johren
+# @classical 007
 
 # Steam
 DOMAIN-SUFFIX,steam-chat.com
@@ -140,7 +135,7 @@ DOMAIN,edge.steam-dns.top.comcast.net
 # Steam直播
 IP-CIDR,155.133.245.20/32,no-resolve
 DOMAIN,steambroadcastchat.akamaized.net
-PROCESS-NAME,steamwebhelper.exe
+# @classical 008
 #远程同乐 Valve IP
 IP-CIDR,103.10.124.0/23,no-resolve
 IP-CIDR,103.28.54.0/23,no-resolve
@@ -215,7 +210,7 @@ DOMAIN,feapp.jp1.lol.pvp.net
 DOMAIN,feapp.tw2.lol.pvp.net
 
 #糖豆人
-PROCESS-NAME,FallGuys_client_game.exe
+# @classical 009
 IP-CIDR,156.59.221.101/32,no-resolve
 DOMAIN-SUFFIX,gamefuel.info
 DOMAIN,qos.multiplay.com
@@ -228,11 +223,11 @@ DOMAIN,sg-tdm.iegcom.com
 DOMAIN,gcloud.pokemo-unitepgame.com
 
 #Fantasy Life
-PROCESS-NAME,com.boltrend.floen
+# @classical 010
 DOMAIN-SUFFIX,boltrend.com
 
 # SLIME IM
-PROCESS-NAME,com.bandainamcoent.tensuramrkww
+# @classical 011
 DOMAIN,ten-sura-m-assets-ap.akamaized.net
 DOMAIN,api-ap.ten-sura-m.wfs.games
 DOMAIN,bn-payment.wrightflyer.net
@@ -261,7 +256,7 @@ DOMAIN-SUFFIX,mo.konami.net
 
 # 艾尔登联机
 DOMAIN-SUFFIX,fromsoftware-game.net
-PROCESS-NAME,eldenring.exe
+# @classical 012
 
 # PUBG
 DOMAIN-SUFFIX,pubgbluehole.com

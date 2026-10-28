@@ -59,9 +59,16 @@ jobs:
           set -euo pipefail
           core_dir="$RUNNER_TEMP/mihomo-core"
           mkdir -p "$core_dir"
-          archive="mihomo-linux-amd64-v1-${MIHOMO_VERSION}.gz"
-          curl --fail --location --retry 3 --output "$core_dir/core.gz" \
-            "https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/${archive}"
+          python - "$core_dir/core.gz" "$MIHOMO_VERSION" <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, 'Shell')
+          from rule_formats import fetch_url
+          version = sys.argv[2]
+          archive = f'mihomo-linux-amd64-v1-{version}.gz'
+          Path(sys.argv[1]).write_bytes(fetch_url(
+              f'https://github.com/MetaCubeX/mihomo/releases/download/{version}/{archive}'))
+          PY
           printf '%s  %s\n' "$MIHOMO_ARCHIVE_SHA256" "$core_dir/core.gz" | sha256sum --check
           gzip -dc "$core_dir/core.gz" > "$core_dir/mihomo"
           chmod +x "$core_dir/mihomo"
@@ -69,7 +76,100 @@ jobs:
       - name: 审计共享规则
         run: python Shell/rules.py audit --report "${{ runner.temp }}/rule-audit.json"
       - name: 编译 MRS、验证来源并生成各客户端
-        run: python Shell/rules.py build --output dist/mihomo
+        run: python Shell/rules.py build --check-template --output dist/mihomo
+      - name: 验证 rules 分支与 ghproxy URL
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          import sys
+          from pathlib import Path
+          from urllib.parse import unquote, urlsplit
+          sys.path.insert(0, 'Shell')
+          from rules import contained_file, load_yaml, validate_config
+          from rule_formats import github_origin_url, github_proxy_url, is_github_url
+          package = Path(os.environ.get('RULE_PACKAGE', 'dist/mihomo')).resolve()
+          spec = load_yaml(Path('Rule/build.yaml'))
+          base = urlsplit(github_origin_url(spec['publish_base'].rstrip('/')))
+          assert base.hostname == 'raw.githubusercontent.com'
+          assert len(base.path.strip('/').split('/')) == 3
+          assert base.path.rsplit('/', 1)[-1] == 'rules', '发布地址必须指向 rules 分支'
+          repository = base.path.rsplit('/', 1)[0] + '/'
+          def inspect(value):
+              if isinstance(value, dict):
+                  for item in value.values():
+                      inspect(item)
+              elif isinstance(value, list):
+                  for item in value:
+                      inspect(item)
+              elif isinstance(value, str) and value.startswith(('http://', 'https://')):
+                  url = urlsplit(value)
+                  nested = url.path.lstrip('/')
+                  if nested.startswith(('http://', 'https://')) and is_github_url(nested):
+                      assert value == github_proxy_url(nested), 'GitHub URL 的 ghproxy 前缀不一致'
+                  origin = github_origin_url(value)
+                  if is_github_url(origin):
+                      assert value == github_proxy_url(origin), 'GitHub URL 必须经过 ghproxy'
+                      source = urlsplit(origin)
+                      if source.hostname == base.hostname and source.path.startswith(repository):
+                          assert source.path.startswith(base.path + '/'), '本仓库 URL 未引用 rules 分支'
+                          contained_file(package, unquote(source.path[len(base.path) + 1:]))
+          for path in (Path('Template/Meta.yaml'), package / 'config.yaml',
+                       package / 'config.remote.yaml', package / 'mihomo.yaml'):
+              config = load_yaml(path)
+              validate_config(config)
+              inspect(config)
+          print('rules 分支、ghproxy URL、图标及本仓库文件路径检查通过')
+          PY
+      - name: 验证完整 MRS 模板与实际产物对应
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import copy
+          import json
+          import os
+          import shutil
+          import sys
+          import tempfile
+          from pathlib import Path
+          from urllib.parse import quote
+          import yaml
+          sys.path.insert(0, 'Shell')
+          from rules import check_core, contained_file, load_yaml, validate_config
+          from rule_formats import github_proxy_url
+          package = Path(os.environ.get('RULE_PACKAGE', 'dist/mihomo')).resolve()
+          manifest = json.loads((package / 'manifest.json').read_text())
+          assert manifest['mode'] == 'mrs'
+          spec = load_yaml(Path('Rule/build.yaml'))
+          artifacts = {item['name']: item for item in manifest['artifacts']}
+          base = github_proxy_url(spec['publish_base']).rstrip('/')
+          config = copy.deepcopy(load_yaml(Path('Template/Meta.yaml')))
+          validate_config(config)
+          assert not config.get('secret')
+          assert set(config['rule-providers']) == set(artifacts), '模板未包含完整产物'
+          with tempfile.TemporaryDirectory(prefix='mrs-template-', dir=os.environ['RUNNER_TEMP']) as directory:
+              home = Path(directory)
+              for name, provider in config['rule-providers'].items():
+                  item = artifacts[name]
+                  assert provider['url'] == base + '/' + quote(item['path'])
+                  assert provider['path'] == './' + item['path']
+                  assert (provider['behavior'], provider['format']) == (item['behavior'], item['format'])
+                  assert provider['proxy'] == 'DIRECT'
+                  if provider['behavior'] in {'domain', 'ipcidr'}:
+                      assert provider['format'] == 'mrs'
+                  source = contained_file(package, item['path'])
+                  target = home / item['path']
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.copyfile(source, target)
+                  provider.clear()
+                  provider.update(type='file', path='./' + item['path'], behavior=item['behavior'], format=item['format'])
+              validate_config(config, home)
+              (home / 'config.yaml').write_text(yaml.safe_dump(config, allow_unicode=True, sort_keys=False), encoding='utf-8')
+              check_core(shutil.which('mihomo'), home)
+          print('完整 MRS 模板：全部 URL、格式、路径及 provider 加载检查通过')
+          PY
       - name: 验证单 URL 的域名和 IP MRS 接入
         shell: bash
         run: |

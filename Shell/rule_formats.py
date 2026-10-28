@@ -45,12 +45,61 @@ def public_url(value: str) -> str:
     return value
 
 
+def is_github_url(value: str) -> bool:
+    host = urllib.parse.urlsplit(value).hostname or ""
+    return any(
+        host == domain or host.endswith("." + domain)
+        for domain in (
+            "github.com",
+            "githubusercontent.com",
+            "githubassets.com",
+            "github.io",
+        )
+    )
+
+
+def github_proxy_prefix() -> str:
+    path = Path(__file__).resolve().parents[1] / "Rule/build.yaml"
+    spec = yaml.load(path.read_text(encoding="utf-8"), Loader=UniqueLoader)
+    if not isinstance(spec, dict) or not isinstance(spec.get("github_proxy"), str):
+        raise RuleError("构建清单缺少 github_proxy URL 前缀")
+    prefix = public_url(spec["github_proxy"]).rstrip("/") + "/"
+    parts = urllib.parse.urlsplit(prefix)
+    if parts.scheme != "https" or parts.path != "/" or is_github_url(prefix):
+        raise RuleError("github_proxy 必须为独立 HTTPS 反代站点的根地址")
+    return prefix
+
+
+def github_origin_url(value: str) -> str:
+    value = public_url(value)
+    prefix = github_proxy_prefix()
+    if value.startswith(prefix):
+        origin = public_url(value[len(prefix) :])
+        if not is_github_url(origin):
+            raise RuleError("ghproxy 仅用于公开 GitHub URL，不能重复套用前缀")
+        return origin
+    return value
+
+
+def github_proxy_url(value: str) -> str:
+    origin = github_origin_url(value)
+    return github_proxy_prefix() + origin if is_github_url(origin) else origin
+
+
+class GitHubProxyRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, request, response, code, message, headers, new_url):
+        return super().redirect_request(
+            request, response, code, message, headers, github_proxy_url(new_url)
+        )
+
+
 def fetch_url(url: str) -> bytes:
     request = urllib.request.Request(
-        public_url(url), headers={"User-Agent": "Profile-rule-build/2"}
+        github_proxy_url(url), headers={"User-Agent": "Profile-rule-build/2"}
     )
     try:
-        with urllib.request.urlopen(request, timeout=45) as response:
+        opener = urllib.request.build_opener(GitHubProxyRedirect())
+        with opener.open(request, timeout=45) as response:
             public_url(response.url)
             raw = response.read(64 * 1024 * 1024 + 1)
     except (OSError, ValueError) as error:
