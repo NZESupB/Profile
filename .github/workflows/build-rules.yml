@@ -127,7 +127,7 @@ jobs:
               inspect(config)
           print('rules 分支、ghproxy URL、图标及本仓库文件路径检查通过')
           PY
-      - name: 验证完整 MRS 模板与实际产物对应
+      - name: 验证个人发布、上游直引与内嵌模板
         shell: bash
         run: |
           set -euo pipefail
@@ -144,9 +144,11 @@ jobs:
           sys.path.insert(0, 'Shell')
           from rules import check_core, contained_file, load_yaml, validate_config
           from rule_formats import github_proxy_url
+          from verify_public_rules import publication_files
           package = Path(os.environ.get('RULE_PACKAGE', 'dist/mihomo')).resolve()
           manifest = json.loads((package / 'manifest.json').read_text())
           assert manifest['mode'] == 'mrs'
+          published = set(publication_files(package, manifest))
           spec = load_yaml(Path('Rule/build.yaml'))
           artifacts = {item['name']: item for item in manifest['artifacts']}
           base = github_proxy_url(spec['publish_base']).rstrip('/')
@@ -158,12 +160,23 @@ jobs:
               home = Path(directory)
               for name, provider in config['rule-providers'].items():
                   item = artifacts[name]
-                  assert provider['url'] == base + '/' + quote(item['path'])
+                  deployment = item.get('deployment')
+                  if deployment and deployment['type'] == 'inline':
+                      assert provider == deployment
+                      assert provider['payload'] == contained_file(package, item['path']).read_text().splitlines()
+                      continue
+                  if item['origin'] == 'local':
+                      assert item['path'] in published
+                      assert provider['url'] == base + '/' + quote(item['path'])
+                      if provider['behavior'] in {'domain', 'ipcidr'}:
+                          assert provider['format'] == 'mrs'
+                  else:
+                      assert item['path'] not in published
+                      assert provider['url'] == github_proxy_url(deployment['url'])
+                      assert not provider['url'].startswith(base + '/')
                   assert provider['path'] == './' + item['path']
                   assert (provider['behavior'], provider['format']) == (item['behavior'], item['format'])
                   assert provider['proxy'] == 'DIRECT'
-                  if provider['behavior'] in {'domain', 'ipcidr'}:
-                      assert provider['format'] == 'mrs'
                   source = contained_file(package, item['path'])
                   target = home / item['path']
                   target.parent.mkdir(parents=True, exist_ok=True)
@@ -173,7 +186,7 @@ jobs:
               validate_config(config, home)
               (home / 'config.yaml').write_text(yaml.safe_dump(config, allow_unicode=True, sort_keys=False), encoding='utf-8')
               check_core(shutil.which('mihomo'), home)
-          print('完整 MRS 模板：全部 URL、格式、路径及 provider 加载检查通过')
+          print('个人发布白名单、上游地址、内嵌补充及 provider 加载检查通过')
           PY
       - name: 验证单 URL 的域名和 IP MRS 接入
         shell: bash
@@ -222,6 +235,8 @@ jobs:
           assert not any(Path(p).suffix in {'.dat', '.mmdb'} for p in first['files'])
           assert set(first['clients']) == {'clash', 'surge', 'surfboard', 'shadowrocket', 'quantumultx'}
           PY
+      - name: 验证上游直引文件哈希
+        run: python Shell/verify_public_rules.py --package dist/mihomo --upstreams --report "$RUNNER_TEMP/upstream-check.json"
       - name: 打包全部运行配置和客户端规则
         run: tar -czf dist/mihomo-rules.tar.gz -C dist mihomo
       - name: 上传完整运行包
@@ -231,7 +246,7 @@ jobs:
           path: dist/mihomo-rules.tar.gz
           if-no-files-found: error
           retention-days: 30
-      - name: 上传待发布目录
+      - name: 上传发布校验包
         if: (github.ref_name == github.event.repository.default_branch && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && inputs.publish_rules)
         uses: actions/upload-artifact@v4
         with:
@@ -264,32 +279,32 @@ jobs:
         with:
           name: generated-proxy-rules
           path: ${{ runner.temp }}/generated-rules
+      - name: 仅提取个人 MRS 和 list
+        run: python Shell/verify_public_rules.py --package "$RUNNER_TEMP/generated-rules" --stage "$RUNNER_TEMP/personal-rules"
       - name: 发布到独立 rules 分支
         shell: bash
         env:
           SOURCE_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
-          # rules 分支只作为公开产物快照：每次以本次已验证产物重建单一提交，
-          # 避免旧产物在分支历史中残留；--force-with-lease 防止并发覆盖。
+          # 只在全新 worktree 中生成单提交快照，不删除既有目录。
           worktree="$RUNNER_TEMP/publish-rules"
-          lease=()
-          if old=$(git ls-remote --heads origin rules | cut -f1) && [ -n "$old" ]; then
-            lease=("--force-with-lease=refs/heads/rules:$old")
-          fi
+          old=$(git ls-remote --heads origin refs/heads/rules)
+          old="${old%%$'\t'*}"
           git worktree add --detach "$worktree"
           cd "$worktree"
           git switch --orphan rules-publish
-          # rules 分支只是公开产物快照：清空后仅复制本次已验证产物，避免旧文件残留。
-          git rm -r --ignore-unmatch . >/dev/null 2>&1 || true
-          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
-          cp -R "$RUNNER_TEMP/generated-rules/." .
+          python - <<'PY'
+          from pathlib import Path
+          assert all(p.name == '.git' for p in Path('.').iterdir()), '发布目录不是空 worktree'
+          PY
+          cp -R "$RUNNER_TEMP/personal-rules/." .
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add --all
           git commit -m "同步代理规则 ${SOURCE_SHA}"
-          git push "${lease[@]}" origin HEAD:rules
-      - name: 验证公开配置与全部 MRS/classical 下载
+          git push "--force-with-lease=refs/heads/rules:$old" origin HEAD:rules
+      - name: 验证公开个人 MRS 和 list 下载
         run: python Shell/verify_public_rules.py --package "$RUNNER_TEMP/generated-rules" --report "$RUNNER_TEMP/public-rules-check.json"
       - name: 上传公开下载验证报告
         if: always()

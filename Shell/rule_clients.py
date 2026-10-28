@@ -36,7 +36,6 @@ def write_source(directory: Path, slug: str, client: str, lines: list[str]):
 
 
 def emit_clients(root, config, sources, spec, split, target):
-    base = github_proxy_url(spec["publish_base"]).rstrip("/")
     by_provider = {
         source["provider"]: source for source in sources.values() if source["provider"]
     }
@@ -85,7 +84,7 @@ def emit_clients(root, config, sources, spec, split, target):
                 _, provider, _, *params = parts
                 source = by_provider[provider]
                 source_path = source_paths[provider]
-                if client == "quantumultx":
+                if client != "clash":
                     raw = list(source["export_lines"])
                     if "no-resolve" in params:
                         raw = [
@@ -95,26 +94,28 @@ def emit_clients(root, config, sources, spec, split, target):
                             else line
                             for line in raw
                         ]
-                    converted, excluded = client_lines(raw, client, policy)
-                    dropped.extend({"route": index, **item} for item in excluded)
-                    routes.extend(converted)
+                    if client == "quantumultx":
+                        converted, excluded = client_lines(raw, client, policy)
+                        dropped.extend({"route": index, **item} for item in excluded)
+                        routes.extend(converted)
+                    else:
+                        for line in raw:
+                            converted, excluded = client_route(line, client, policy)
+                            dropped.extend(
+                                {"route": index, **item} for item in excluded
+                            )
+                            if converted:
+                                routes.append(converted)
                 elif client == "clash":
                     provider_name = "source_" + source_slug(provider)
                     clash_providers[provider_name] = {
-                        "type": "http",
+                        "type": "file",
                         "behavior": "classical",
                         "format": "yaml",
-                        "url": f"{base}/clients/{client}/sources/{quote(source_path.name)}",
-                        "path": f"./rule-providers/clients/{source_path.name}",
-                        "interval": 86400,
+                        "path": "./" + source_path.relative_to(directory).as_posix(),
                     }
                     suffix = "," + ",".join(params) if params else ""
                     routes.append(f"RULE-SET,{provider_name},{policy}{suffix}")
-                else:
-                    routes.append(
-                        f"RULE-SET,{base}/clients/{client}/sources/{quote(source_path.name)},{policy}"
-                        + (",no-resolve" if "no-resolve" in params else "")
-                    )
                 reference_count += 1
                 continue
             if parts[0] in {"AND", "OR", "NOT"}:
@@ -142,21 +143,14 @@ def emit_clients(root, config, sources, spec, split, target):
                 encoding="utf-8",
             )
         elif client == "quantumultx":
-            # 所有可转换路由放入同一远程文件，避免 filter_local 与 filter_remote 分段重排。
-            final = [line for line in routes if line.startswith("final,")]
+            # 规则随构建包导入本地段，保留顺序且不引用未发布的 clients URL。
             write_lines(
                 directory / "routes.list",
                 [line for line in routes if not line.startswith("final,")],
             )
             write_lines(
                 directory / "rules.conf",
-                [
-                    "[filter_remote]",
-                    f"{base}/clients/{client}/routes.list, tag=Profile, enabled=true",
-                    "",
-                    "[filter_local]",
-                    *final,
-                ],
+                ["[filter_local]", *routes],
             )
         else:
             write_lines(directory / "rules.conf", ["[Rule]", *routes])
@@ -180,6 +174,20 @@ def remote_config(config, artifacts, base):
     for item in artifacts:
         provider = result["rule-providers"][item["name"]]
         path = item["path"]
+        deployment = item.get("deployment")
+        if deployment:
+            provider.clear()
+            provider.update(copy.deepcopy(deployment))
+            if deployment["type"] == "inline":
+                continue
+            provider["url"] = github_proxy_url(deployment["url"])
+            suffix = ".mrs" if deployment["format"] == "mrs" else Path(path).suffix
+            provider.update(
+                path="./" + str(Path(path).with_suffix(suffix)),
+                interval=86400,
+                proxy="DIRECT",
+            )
+            continue
         provider.update(
             {
                 "type": "http",

@@ -66,7 +66,10 @@ def mrs_config(config: dict, artifacts: list[dict], base: str) -> dict:
     result = template_payload(config)
     projected = copy.deepcopy(artifacts)
     for item in projected:
-        if item["behavior"] in {"domain", "ipcidr"}:
+        if item.get("origin", "local") == "local" and item["behavior"] in {
+            "domain",
+            "ipcidr",
+        }:
             item["path"] = Path(item["path"]).with_suffix(".mrs").as_posix()
             item["format"] = "mrs"
         provider = result["rule-providers"][item["name"]]
@@ -79,8 +82,8 @@ def render_template(config: dict) -> str:
     providers = config.pop("rule-providers")
     routes = config.pop("rules")
     output = [
-        "# 唯一的完整 Mihomo MRS 部署模板；来源与逻辑路由由 Rule/build.yaml 维护。\n",
-        "# 修改来源后使用 rules.py build --text-only --write-template 更新引用；正式 MRS 仅由 Actions 编译。\n",
+        "# 完整 Mihomo 部署模板；个人规则引用 rules 分支，第三方直接引用上游或内嵌补充。\n",
+        "# 修改来源后使用 rules.py build --text-only --write-template 更新引用；个人 MRS 仅由 Actions 编译。\n",
     ]
     for key, value in (("mode", "rule"), ("log-level", "info"), ("secret", "''")):
         if key not in config:
@@ -99,6 +102,23 @@ def render_template(config: dict) -> str:
         ("classical", "text"): "classical",
     }
     for name, provider in providers.items():
+        if (
+            provider["type"] == "inline"
+            or provider.get("format") == "yaml"
+            or (
+                provider["behavior"] in {"domain", "ipcidr"}
+                and provider.get("format") == "text"
+            )
+        ):
+            output.append(
+                indent(
+                    yaml.safe_dump(
+                        {name: provider}, allow_unicode=True, sort_keys=False
+                    ),
+                    "  ",
+                )
+            )
+            continue
         kind = provider["behavior"], provider["format"]
         if kind not in anchors:
             raise RuleError("部署模板存在非 MRS 域名/IP provider 或无效 classical 格式")

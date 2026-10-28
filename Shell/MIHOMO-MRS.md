@@ -1,6 +1,6 @@
 # 统一 Mihomo MRS 配置与构建
 
-`Template/Meta.yaml` 是唯一的完整部署模板。域名/IP provider 统一使用 MRS，MRS 不支持的关键词、正则、进程等条件使用 classical/text。AIsouler/MyClash 的实际来源、全部路由和 DNS 引用通过锁文件接入，保留本仓库个人规则的优先顺序。
+`Template/Meta.yaml` 是唯一的完整部署模板。个人域名/IP provider 使用 MRS，其余个人条件使用 classical/list。第三方现成 MRS 和未经修改的文本直接引用上游 URL，需要转换的补充使用 inline provider；本仓库不再镜像第三方供模板调用。AIsouler 来源、路由和 DNS 引用仍通过锁文件验证，保留个人规则的优先顺序。
 
 ## 文件职责
 
@@ -14,18 +14,20 @@
 | `rules.py`、`rule_sources.py`、`rule_templates.py` | 顺序恢复、审计、分片、模板生成与验证 |
 | `../.github/workflows/build-rules.yml` | 正式编译、回读、加载、打包和独立分支发布 |
 
-`Rule/aisouler.lock.json` 锁定参考配置及 46 个 provider 的实际来源；10 个以同版哈希复用现有来源，36 个新增。58 条参考路由中 51 条插入原个人规则之后、综合兜底之前，6 条复用原路由，MATCH 复用原最终策略；不是完整替换参考配置的原优先级。新增路由中的 14 条内联条件逐条保留原序号和派生快照，6 条域名进入 MRS，8 条关键词/进程进入 classical。7 项 DNS 引用均纳入，其中私有/国内解析器保留本仓库设置。逐项结果见产物 `reference.json`，更新入口与策略表见 [README.md](README.md)。
+`Rule/aisouler.lock.json` 锁定参考配置及 46 个 provider 的实际来源；10 个复用同版来源、36 个独立来源均直接引用上游 MRS。58 条参考路由中 51 条插入原个人规则之后、综合兜底之前，6 条复用原路由，MATCH 复用原最终策略。14 条参考内联条件按原序号转为模板 inline provider（6 domain、8 classical），不发布对应文件。7 项 DNS 引用全部纳入；逐项结果见构建包 `reference.json`。
 
 模板保留全球互联、游戏娱乐、测速下载、漏网之鱼、TelegramDC5、直连域名、地区选择、香港负载均衡、家庭回退及广告拦截。国内域名提前直连，OpenAI 使用美国，Telegram 使用 TelegramDC5。`Kitony`、`Home_Proxy` 是明确命名的直连占位，需在本机替换为真实订阅。
 
 ## 规则格式与顺序
 
-| 原始条件 | 正式产物 |
+| 个人原始条件 | 正式产物 |
 | --- | --- |
 | DOMAIN、DOMAIN-SUFFIX | `behavior: domain`、`format: mrs` |
 | IPv4/IPv6 CIDR | `behavior: ipcidr`、`format: mrs` |
 | 关键词、正则、进程等 | `behavior: classical`、`format: text` |
 | USER-AGENT | Mihomo 明确排除并报告；支持的其他客户端仍导出 |
+
+上游 MRS 直引原文件；未经转换的上游文本保持原 behavior/format。差量、净化、ASN 展开及参考内联规则使用 `type: inline`，不进行第三方文本转 MRS。离线构建包仍保存验证副本和同版文本，用于回读、覆盖证明与客户端转换。
 
 个人主文件中的 `# @classical 001` 对应配套文件中的 `# @part 001`。构建器把配套段放回原位置，再按连续规则类型生成 MRS/classical 分片。Games 的交错进程、关键词条件也按原顺序保留。缺失、重复、未引用、空段、越界路径或放错类型会阻止构建。
 
@@ -47,7 +49,7 @@ MRS 仅支持 domain/ipcidr，不能通过更改后缀转换 classical。DOMAIN 
   --output dist/meta-text --mihomo /path/to/mihomo
 ```
 
-`--write-template` 在文本包通过隔离加载检查后更新完整 MRS 地址引用，不在本机编译 MRS；文本包仍如实标记 `mode: text`，其运行配置仍使用文本文件。`--check-template` 只核对，不写回模板。正式二进制编译使用固定官方 Mihomo `v1.19.33`，只允许在 Actions 执行，不伪造 Actions 环境变量。
+`--write-template` 在文本包和 inline provider 隔离加载通过后更新模板，不在本机编译 MRS。文本包标记 `mode: text`，本地配置使用文本，远程配置中的第三方 MRS 仍直引现成上游文件。`--check-template` 只核对、不写回。个人 MRS 的二进制编译使用固定官方 Mihomo `v1.19.33`，只允许在 Actions 执行。
 
 以下是 **Actions 内部**的编译方式：
 
@@ -63,7 +65,7 @@ publish_base: https://raw.githubusercontent.com/NZESupB/Profile/rules
 github_proxy: https://gh-proxy.com/
 ```
 
-基址最后的 `rules` 是分支名，产物中也有 `rules/` 目录，因此 URL 中的 `rules/rules/` 是正常路径。统一模板和生成的远程配置都引用 manifest 中的完整 MRS/classical 分片。例如：
+基址最后的 `rules` 是分支名，发布产物也有 `rules/` 目录，因此 URL 中的 `rules/rules/` 是正常路径。该基址仅用于个人规则；第三方 URL 从锁文件读取。例如个人分片：
 
 ```yaml
 rule-providers:
@@ -91,9 +93,9 @@ Fork 后修改 `publish_base`、静态图标/面板等 GitHub URL 前缀，再�
 
 工作流检查 Python、下载并校验固定内核，随后审计来源、正式编译 MRS、回读匹配集合、验证配置和全部 provider 加载。`--check-template` 核对完整模板，独立步骤逐项检查其 provider 名称、URL、格式、路径及 ghproxy/rules 分支引用，再验证单 URL 导入与离线重复构建。
 
-每次成功运行上传 `mihomo-rules-<提交SHA>` artifact。默认分支非 PR 构建成功后自动发布；功能分支普通 push/PR 只验证，手动运行显式设置 `publish_rules=true` 可以发布。publish job 单独使用 `contents: write`，普通 build job 保持只读。发布完成后实际下载全部规则 URL 和远程配置，验证哈希并上传公开下载报告；避免仅编译成功但远程仍为 404。工作流排除 `rules` 分支自身触发。
+成功运行上传完整 `mihomo-rules-<提交SHA>` artifact，保留离线文件、配置和验证报告。默认分支非 PR 构建自动发布；功能分支普通 push/PR 只验证，手动设置 `publish_rules=true` 才发布。publish job 从 `manifest.publish_files` 提取个人文件，并在全新 worktree 中创建单提交快照。发布后仅检查这些个人文件 URL，直引上游的 URL 在构建阶段另行下载并校验锁定哈希。
 
-如果尚未发布 `rules` 分支，远程地址不可用；应先执行带 `publish_rules=true` 的手动构建并确认公开下载检查通过，或使用完整 artifact 的本地文件配置：
+`rules` 分支只发布 `rules/local/` 下的个人 `.mrs`/`.list` 及 `rules/source/<个人组>.list`。完整个人列表按原顺序恢复并规范化，不做上游差量，也包含其他客户端支持的 USER-AGENT；Mihomo 使用分片及能力排除结果。配置、第三方副本、客户端目录、manifest 与报告均不进入发布分支。首次个人规则发布前，可使用 artifact 的本地文件配置：
 
 ```bash
 gh run download <运行编号> -n mihomo-rules-<提交SHA> -D artifacts
@@ -102,10 +104,6 @@ tar -xzf artifacts/mihomo-rules.tar.gz -C artifacts
   --output artifacts/mihomo --mihomo /path/to/mihomo
 ```
 
-`config.yaml` 使用同包文件，`mihomo.yaml`、`config.remote.yaml` 使用发布分支 URL。发布后的远程完整配置为：
-
-```text
-https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/mihomo.yaml
-```
+`config.yaml` 使用同包文件；`mihomo.yaml`、`config.remote.yaml` 使用个人发布 URL、上游 URL 及内嵌补充。完整配置从源码 `Template/Meta.yaml` 或 artifact 获取，`rules/mihomo.yaml` 不再提供。客户端文件也仅随包提供；Clash 规则片段引用同包 sources，其余客户端规则按顺序展开供本地导入。
 
 验证后在副本填写本机订阅，不将个人密钥和节点上传。其他客户端输出是规则片段，需要对接 `clients/report.json` 中的策略名和能力差异。隔离内核加载不证明真实节点连通，也不代表已在 BettBox 或付费客户端导入测试。其余命令及限制见 [README.md](README.md)。

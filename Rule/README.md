@@ -34,7 +34,7 @@ PROCESS-NAME,example.exe
 
 构建器在两条域名规则之间恢复该进程规则。段号可复用在不同来源中，同一来源内必须唯一且全部引用。主文件与配套文件分别校验哈希，审计报告指向真实文件和行号。新增配套文件需同步 `build.yaml` 的 `local.<主文件>.classical`。
 
-**拆分后的主 `.list` 不再是完整的独立订阅。** 其他客户端使用发布产物的 `clients/<客户端>/sources/`，这些文件按原顺序合并主文件与 classical 条件，并明确报告客户端能力差异。Mihomo 的 `rules/source/` 是去重、排除后的净化文本，不能代替所有客户端的完整来源。
+**拆分后的主 `.list` 不再是完整的独立订阅。** `rules` 分支发布的 `rules/source/<组>.list` 会按原顺序恢复完整个人条件、规范化地址且不做上游减法；其中 USER-AGENT 等仍需按客户端能力处理。客户端转换版本位于 Actions 构建包的 `clients/<客户端>/sources/`，不发布到 rules 分支。个人运行分片在 `rules/local/`，域名/IP 为 MRS，其余及对照文本为 `.list`。
 
 - `build.yaml`：来源映射、classical 路径、明确排除项、逻辑路由/DNS、发布基址和客户端策略名。
 - `upstreams.lock.json`：不可变上游地址、快照和 SHA-256；现成 MRS 同时锁定同版文本与完整 classical 补充。
@@ -47,6 +47,6 @@ PROCESS-NAME,example.exe
 
 只删除由更早、同策略、同参数上游完整覆盖且 DNS 兼容的本地项，差量仅用于 Mihomo 运行包。其他客户端使用未做上游减法的完整有序来源。关键词、正则和 no-resolve 不得因 MRS 拆分而丢失；不支持的条件写入 `clients/report.json`。
 
-默认分支构建成功后发布到独立 `rules` 分支，功能分支仅验证和上传 artifact。GitHub 公开文件 URL 使用 `build.yaml` 的 ghproxy 前缀。首次发布前远程路径不可用，可先使用 Actions artifact。
+默认分支构建成功或手动设置 `publish_rules=true` 后，仅将个人来源生成的 `.mrs`/`.list` 发布到独立 `rules` 单提交快照分支；功能分支普通构建只验证和上传 artifact。第三方现成 MRS 和未经转换的文本直引上游，转换补充内嵌模板，不在 rules 分支镜像。配置、报告和客户端目录仅随完整 artifact 提供。GitHub 公开文件 URL 继续使用 ghproxy 前缀。
 
 构建命令、单 URL 导入、产物路径及使用限制见 [Shell/README.md](../Shell/README.md) 和 [MRS 方案](../Shell/MIHOMO-MRS.md)。

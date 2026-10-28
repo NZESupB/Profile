@@ -610,6 +610,12 @@ def prepare(args):
             "rules": rules,
             "local": False,
             "dns_only": dns_only,
+            "direct_text": bool(
+                text_entry.get("url")
+                and not text_entry.get("snapshot")
+                and not item.get("expand_rules")
+                and not excluded
+            ),
             "native_rules": native_rules,
             "supplements": supplements,
             "native_count": len(lines) if dns_only else len(native_rules),
@@ -826,7 +832,9 @@ def emit_local(root: Path, name: str, rules: list[Rule], core: str, text_only=Fa
         values = list(values)
         behavior = shard.split("-", 1)[0]
         base = Path("rules") / name / f"{index:03d}.{shard}"
-        text_path = base.with_name(base.name + ".txt")
+        text_path = base.with_name(
+            base.name + (".list" if name.startswith("local/") else ".txt")
+        )
         target = root / text_path
         target.parent.mkdir(parents=True, exist_ok=True)
         if behavior == "domain":
@@ -920,21 +928,28 @@ def rewrite_dns(config, replacements):
 def build_into(args, root: Path, prepared, core: str):
     config, sources, upstream_records, lock, report, inputs = prepared
     config = template_payload(config)
-    replacements, artifacts, providers = {}, [], {}
+    replacements, artifacts, providers, publish_files = {}, [], {}, set()
     for name, source in sources.items():
         provider = source["provider"]
         if source["local"]:
             fragments = emit_local(root, name, source["rules"], core, args.text_only)
-            # 保留清理过的 classical 文本源，便于其他文本方式调用及审查。
+            # 完整个人来源用于独立文本调用，包含其他客户端支持的条件。
             source_path = root / "rules/source" / (name.split("/")[-1] + ".list")
             source_path.parent.mkdir(parents=True, exist_ok=True)
             source_path.write_text(
-                "\n".join(r.text for r in source["rules"]) + "\n", encoding="utf-8"
+                "\n".join(source["export_lines"]) + "\n", encoding="utf-8"
             )
+            publish_files.add(source_path.relative_to(root).as_posix())
+            for fragment in fragments:
+                fragment["origin"] = "local"
+                publish_files.add(fragment["path"])
+                if fragment.get("source_path"):
+                    publish_files.add(fragment["source_path"])
         else:
             key = name.split("/")[-1]
             raw, spec = upstream_records[key]
-            # 含 ASN 展开的净化来源可独立公开，不再触发 Geodata 下载。
+            entry = lock["rules"][key]
+            # 第三方净化文本仅保留在离线验证包，不进入公开分支。
             if not source.get("dns_only"):
                 source_path = root / "rules/source" / (name.replace("/", "-") + ".list")
                 source_path.parent.mkdir(parents=True, exist_ok=True)
@@ -967,6 +982,13 @@ def build_into(args, root: Path, prepared, core: str):
                         "count": source["native_count"],
                         "no_resolve": False,
                         "dns_compatible": behavior == "domain",
+                        "deployment": {
+                            "type": "http",
+                            "url": entry["url"],
+                            "behavior": behavior,
+                            "format": "mrs",
+                        },
+                        "remote_sha256": entry["sha256"],
                     }
                 ]
                 if fmt == "mrs":
@@ -978,14 +1000,48 @@ def build_into(args, root: Path, prepared, core: str):
                             name + "/supplement",
                             source["supplements"],
                             core,
-                            args.text_only,
+                            True,
                         )
                     )
-            else:
-                fragments = emit_local(
-                    root, name, source["rules"], core, args.text_only
+            elif source["direct_text"]:
+                behavior, fmt = spec["behavior"], spec["format"]
+                path = (
+                    Path("rules/upstream")
+                    / f"{key}.{'yaml' if fmt == 'yaml' else 'txt'}"
                 )
+                (root / path).parent.mkdir(parents=True, exist_ok=True)
+                (root / path).write_bytes(raw)
+                fragments = [
+                    {
+                        "path": path.as_posix(),
+                        "behavior": behavior,
+                        "format": fmt,
+                        "count": source["native_count"],
+                        "no_resolve": False,
+                        "dns_compatible": any(
+                            r.kind.startswith("DOMAIN") for r in source["rules"]
+                        ),
+                        "deployment": {
+                            "type": "http",
+                            "url": entry.get("text", entry)["url"],
+                            "behavior": behavior,
+                            "format": fmt,
+                        },
+                        "remote_sha256": entry.get("text", entry)["sha256"],
+                    }
+                ]
+            else:
+                fragments = emit_local(root, name, source["rules"], core, True)
             for fragment in fragments:
+                fragment["origin"] = "upstream"
+                if "deployment" not in fragment:
+                    fragment["deployment"] = {
+                        "type": "inline",
+                        "behavior": fragment["behavior"],
+                        "payload": (root / fragment["path"])
+                        .read_text(encoding="utf-8")
+                        .splitlines(),
+                    }
                 if len(fragments) > 1:
                     fragment["split"] = True
         named = []
@@ -1058,6 +1114,7 @@ def build_into(args, root: Path, prepared, core: str):
         ),
         "build_spec_sha256": sha256(args.manifest.read_bytes()),
         "artifacts": artifacts,
+        "publish_files": sorted(publish_files),
         "summary": report["summary"],
         "clients": {
             name: {
@@ -1171,6 +1228,40 @@ def check_core(core: str, output: Path):
                     process.wait()
 
 
+def check_deployment(output: Path, core: str, manifest: dict):
+    """实际加载内嵌 provider；HTTP 来源使用包内已校验副本隔离网络。"""
+    config = load_yaml(output / "config.remote.yaml")
+    artifacts = {item["name"]: item for item in manifest["artifacts"]}
+    if set(config["rule-providers"]) != set(artifacts):
+        raise RuleError("部署配置与产物 provider 清单不一致")
+    with tempfile.TemporaryDirectory(prefix="rules-deployment-") as directory:
+        home = Path(directory)
+        for name, provider in config["rule-providers"].items():
+            item = artifacts[name]
+            if provider["type"] == "inline":
+                if (
+                    provider != item.get("deployment")
+                    or provider["payload"]
+                    != contained_file(output, item["path"]).read_text().splitlines()
+                ):
+                    raise RuleError("内嵌 provider 与验证来源不一致")
+                continue
+            path = item["path"]
+            target = home / path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(contained_file(output, path), target)
+            provider.clear()
+            provider.update(
+                type="file",
+                **{key: item[key] for key in ("path", "behavior", "format")},
+            )
+        (home / "config.yaml").write_text(
+            yaml.safe_dump(config, allow_unicode=True, sort_keys=False),
+            encoding="utf-8",
+        )
+        check_core(core, home)
+
+
 def check_output(output: Path, core: str):
     # 新运行包不能携带旧 Geodata 资产，即使未被配置引用。
     if any(p.suffix in {".dat", ".mmdb"} for p in output.rglob("*")):
@@ -1184,6 +1275,8 @@ def check_output(output: Path, core: str):
         if item["format"] == "mrs":
             verify_mrs(core, output, item)
     check_core(core, output)
+    if "publish_files" in manifest:
+        check_deployment(output, core, manifest)
     return manifest
 
 
