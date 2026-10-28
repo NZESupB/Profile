@@ -16,13 +16,20 @@ import subprocess
 import sys
 import tempfile
 import time
-import urllib.error
 import urllib.request
 from dataclasses import dataclass
 from itertools import groupby
 from pathlib import Path
 
 import yaml
+from rule_clients import emit_clients, remote_config
+from rule_formats import (
+    RuleError,
+    UniqueLoader,
+    classical_lines,
+    fetch_url,
+    split_fields,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 BUILTINS = {"DIRECT", "REJECT", "REJECT-DROP", "PASS", "COMPATIBLE", "GLOBAL"}
@@ -58,24 +65,6 @@ CLASSICAL_KINDS = {
 }
 
 
-class RuleError(ValueError):
-    """输入不符合构建契约。"""
-
-
-class UniqueLoader(yaml.SafeLoader):
-    def construct_mapping(self, node, deep=False):
-        seen = set()
-        for key, _ in node.value:
-            if key.tag == "tag:yaml.org,2002:merge":
-                continue
-            name = self.construct_object(key, deep=deep)
-            if name in seen:
-                raise RuleError(f"YAML 第 {key.start_mark.line + 1} 行存在重复键")
-            seen.add(name)
-        self.flatten_mapping(node)
-        return super().construct_mapping(node, deep=deep)
-
-
 def load_yaml(path: Path):
     data = yaml.load(path.read_text(encoding="utf-8-sig"), Loader=UniqueLoader)
     if not isinstance(data, dict):
@@ -95,21 +84,7 @@ def save_json(path: Path, data):
 
 
 def fields(text: str) -> list[str]:
-    """仅拆分顶层逗号，保留逻辑规则的括号内容。"""
-    result, start, depth = [], 0, 0
-    for index, char in enumerate(text):
-        if char == "(":
-            depth += 1
-        elif char == ")":
-            depth -= 1
-        elif char == "," and depth == 0:
-            result.append(text[start:index].strip())
-            start = index + 1
-        if depth < 0:
-            raise RuleError("规则括号不匹配")
-    if depth:
-        raise RuleError("规则括号不匹配")
-    return result + [text[start:].strip()]
+    return split_fields(text)
 
 
 def domain(value: str) -> str:
@@ -146,6 +121,8 @@ class Rule:
 
 
 def parse_rule(text: str, source: str, line: int) -> Rule:
+    if re.search(r"(?:GEOSITE|GEOIP|SRC-GEOIP|IP-ASN|SRC-IP-ASN),", text, re.I):
+        raise RuleError(f"{source}:{line}: Geodata 规则必须改为显式域名或 CIDR")
     parts = fields(text)
     if len(parts) < 2 or not parts[1]:
         raise RuleError(f"{source}:{line}: 缺少规则参数")
@@ -260,6 +237,7 @@ def rule_target(text: str) -> str:
 
 
 def validate_config(config: dict, home: Path | None = None):
+    reject_geodata(config)
     groups = config.get("proxy-groups") or []
     group_names = [g["name"] for g in groups]
     proxy_names = [p["name"] for p in config.get("proxies") or []]
@@ -332,6 +310,25 @@ def contained_file(root: Path, relative: str) -> Path:
     return path
 
 
+def reject_geodata(config):
+    forbidden = {
+        "geodata-mode",
+        "geodata-loader",
+        "geo-auto-update",
+        "geo-update-interval",
+        "geox-url",
+    }
+    if forbidden.intersection(config):
+        raise RuleError("配置仍包含 Geodata 资源设置")
+    text = yaml.safe_dump(config, allow_unicode=True)
+    if re.search(
+        r"(?<![\w-])(?:GEOSITE|GEOIP|SRC-GEOIP|IP-ASN|SRC-IP-ASN),|(?<![\w-])(?:geosite|geoip):|(?:GeoSite|GeoIP)\.dat|\.mmdb",
+        text,
+        re.I,
+    ):
+        raise RuleError("配置仍包含 Geodata 规则或资源依赖")
+
+
 def snapshot(
     entry: dict, cache: Path, offline: bool, base: Path | None = None
 ) -> bytes:
@@ -348,16 +345,7 @@ def snapshot(
     elif offline:
         raise RuleError(f"离线缓存缺失: {digest}")
     else:
-        request = urllib.request.Request(
-            entry["url"], headers={"User-Agent": "Profile-rule-build/1"}
-        )
-        try:
-            with urllib.request.urlopen(request, timeout=45) as response:
-                data = response.read(64 * 1024 * 1024 + 1)
-        except (OSError, urllib.error.URLError) as error:
-            raise RuleError(f"上游下载失败 ({type(error).__name__})") from None
-        if len(data) > 64 * 1024 * 1024:
-            raise RuleError("上游文件超过 64 MiB")
+        data = fetch_url(entry["url"])
     if sha256(data) != digest:
         raise RuleError(
             f"上游快照校验失败: {digest}；需要显式更新锁文件，不能继续使用变动内容"
@@ -384,6 +372,43 @@ def dns_compatible(config: dict, local: str, public: str) -> bool:
     return True
 
 
+class CoverageIndex:
+    """索引覆盖证明，避免大型域名集与本地规则逐项相乘。"""
+
+    def __init__(self, rules):
+        self.exact, self.suffix, self.networks = {}, {}, {}
+        for rule in rules:
+            self.exact.setdefault((rule.kind, rule.value, rule.params), rule)
+            if rule.kind == "DOMAIN-SUFFIX":
+                self.suffix.setdefault((rule.value, rule.params), rule)
+            elif rule.kind in IP_KINDS:
+                net = ipaddress.ip_network(rule.value)
+                self.networks.setdefault(
+                    (net.version, net.prefixlen, int(net.network_address), rule.params),
+                    rule,
+                )
+
+    def covering(self, rule):
+        if match := self.exact.get((rule.kind, rule.value, rule.params)):
+            return match
+        if rule.kind in DOMAIN_KINDS:
+            labels = rule.value.split(".")
+            for offset in range(len(labels)):
+                if match := self.suffix.get((".".join(labels[offset:]), rule.params)):
+                    return match
+        elif rule.kind in IP_KINDS:
+            net = ipaddress.ip_network(rule.value)
+            for prefix in range(net.prefixlen + 1):
+                parent = (
+                    net.supernet(new_prefix=prefix) if prefix < net.prefixlen else net
+                )
+                if match := self.networks.get(
+                    (net.version, prefix, int(parent.network_address), rule.params)
+                ):
+                    return match
+        return None
+
+
 def prepare(args):
     config = load_yaml(args.config)
     spec = load_yaml(args.manifest)
@@ -407,6 +432,13 @@ def prepare(args):
         rules, excluded = parse_rules(
             raw, "Rule/" + filename, exclusions=item.get("exclusions")
         )
+        export_lines = [
+            text
+            for _, text in sorted(
+                [(r.line, r.text) for r in rules]
+                + [(e["line"], e["rule"]) for e in excluded]
+            )
+        ]
         rules, removed = self_dedupe(rules)
         report["excluded"].extend(excluded)
         report["removed"].extend(removed)
@@ -414,6 +446,7 @@ def prepare(args):
             "provider": item["provider"],
             "rules": rules,
             "local": True,
+            "export_lines": export_lines,
         }
         inputs["Rule/" + filename] = sha256(raw)
         report["files"][filename] = {
@@ -423,22 +456,129 @@ def prepare(args):
         }
     upstream_records = {}
     for name, item in spec["upstreams"].items():
-        if item.get("behavior") != "classical":
-            raise RuleError("上游输入清单必须保留 classical 的完整语义")
         entry = lock["rules"][name]
-        raw = snapshot(entry, args.cache, args.offline, args.lock.parent)
-        rules, _ = parse_rules(raw, "upstream/" + name, fmt=item["format"])
+        if "path" in entry:
+            prefix = lock["mrs_base"] + entry["path"]
+            entry = {
+                "url": prefix + ".mrs",
+                "sha256": entry["sha256"],
+                "text": {"url": prefix + ".list", "sha256": entry["text_sha256"]},
+                **(
+                    {
+                        "classical": {
+                            "url": prefix.replace("/geosite/", "/geosite/classical/")
+                            + ".yaml",
+                            "sha256": entry["classical_sha256"],
+                        }
+                    }
+                    if entry.get("classical_sha256")
+                    else {}
+                ),
+            }
+            lock["rules"][name] = entry
+        text_entry = entry.get("text", entry)
+        raw = snapshot(text_entry, args.cache, args.offline, args.lock.parent)
+        original_digest = sha256(raw)
+        behavior = item.get("behavior", "classical")
+        fmt = (
+            item.get("text_format", "text")
+            if item["format"] == "mrs"
+            else item["format"]
+        )
+        if item.get("expand_rules"):
+            if fmt != "text" or behavior != "classical":
+                raise RuleError("显式规则展开仅支持 classical 文本来源")
+            expanded = raw.decode("utf-8-sig").splitlines()
+            for old, key in item["expand_rules"].items():
+                if old not in expanded:
+                    raise RuleError("显式规则展开条目已失效")
+                cidr_raw = snapshot(
+                    lock["expansions"][key], args.cache, args.offline, args.lock.parent
+                )
+                cidrs = classical_lines(cidr_raw, "ipcidr")
+                suffix = ",no-resolve" if old.endswith(",no-resolve") else ""
+                expanded = [
+                    value
+                    for line in expanded
+                    for value in (
+                        [cidr + suffix for cidr in cidrs] if line == old else [line]
+                    )
+                ]
+                inputs["expansion/" + key] = sha256(cidr_raw)
+            raw = ("\n".join(expanded) + "\n").encode()
+        excluded = []
+        if behavior == "classical":
+            entries = classical_lines(raw, behavior, fmt)
+            exclusions = {
+                line: "Mihomo 不支持 USER-AGENT；支持该规则的客户端继续导出"
+                for line in entries
+                if line.startswith("USER-AGENT,")
+            }
+            rules, excluded = parse_rules(
+                raw, "upstream/" + name, fmt=fmt, exclusions=exclusions
+            )
+            report["excluded"].extend(excluded)
+        else:
+            lines = classical_lines(raw, behavior, fmt)
+            rules, _ = parse_rules(
+                ("\n".join(lines) + "\n").encode(), "upstream/" + name
+            )
+        native_rules = list(rules)
+        supplements = []
+        if behavior != "classical" and entry.get("classical"):
+            full_raw = snapshot(
+                entry["classical"], args.cache, args.offline, args.lock.parent
+            )
+            full, _ = parse_rules(
+                full_raw, "upstream/" + name + "/classical", fmt="yaml"
+            )
+            native_domains = [
+                ("+." if rule.kind == "DOMAIN-SUFFIX" else "") + rule.value
+                for rule in native_rules
+                if rule.kind in DOMAIN_KINDS
+            ]
+            full_domains = [
+                ("+." if rule.kind == "DOMAIN-SUFFIX" else "") + rule.value
+                for rule in full
+                if rule.kind in DOMAIN_KINDS
+            ]
+            if domain_set(native_domains) != domain_set(full_domains):
+                raise RuleError(f"{name}: MRS 域名覆盖与完整 classical 来源不一致")
+            supplements = [r for r in full if r.kind not in DOMAIN_KINDS]
+            inputs["upstream/" + name + "/classical"] = sha256(full_raw)
+        rules = native_rules + supplements
         upstream_records[name] = (raw, item)
+        inputs["upstream/" + name] = original_digest
         sources["upstream/" + name] = {
             "provider": item["provider"],
             "rules": rules,
             "local": False,
+            "native_rules": native_rules,
+            "supplements": supplements,
+            "native_count": len(native_rules),
+            "export_lines": (
+                [
+                    text
+                    for _, text in sorted(
+                        [(r.line, r.text) for r in rules]
+                        + [(e["line"], e["rule"]) for e in excluded]
+                    )
+                ]
+                if behavior == "classical"
+                else [r.text for r in rules]
+            ),
         }
     declared = {source["provider"] for source in sources.values() if source["provider"]}
     if declared != set(config.get("rule-providers") or {}):
         raise RuleError("模板 rule-providers 与构建清单不一致")
     routes = config.get("rules") or []
     references = {}
+    nested = {
+        name
+        for route in routes
+        if fields(route)[0] != "RULE-SET"
+        for name in re.findall(r"\(RULE-SET,([^,()]+)", route)
+    }
     for index, route in enumerate(routes):
         parts = fields(route)
         if parts[0] == "RULE-SET":
@@ -446,14 +586,22 @@ def prepare(args):
                 (index, rule_target(route), tuple(parts[3:]))
             )
     # 先保留完整来源用于覆盖证明；公共规则不参与本地互删，避免级联空洞。
-    upstreams = [s for s in sources.values() if not s["local"]]
+    upstreams = [
+        (source, CoverageIndex(source["rules"]))
+        for source in sources.values()
+        if not source["local"]
+    ]
     for source in (s for s in sources.values() if s["local"] and s["provider"]):
         kept = []
-        positions = references.get(source["provider"], [])
+        positions = (
+            []
+            if source["provider"] in nested
+            else references.get(source["provider"], [])
+        )
         for rule in source["rules"]:
             candidates = []
-            for public in upstreams:
-                match = next((r for r in public["rules"] if covers(r, rule)), None)
+            for public, index in upstreams:
+                match = index.covering(rule)
                 if match:
                     candidates.append((public, match))
             proof = None
@@ -525,6 +673,24 @@ def prepare(args):
     return config, sources, upstream_records, lock, report, inputs
 
 
+def core_log_errors(text):
+    for line in text.splitlines():
+        # 官方内核提示 classical DNS provider 只参与域名匹配，并非解析失败。
+        if re.search(
+            r'level=warning msg="[^"\n]+ provider is Classical, only matching '
+            r'(?:it contain domain rule|domain rules in fake-ip-filter)"\s*$',
+            line,
+        ):
+            continue
+        if re.search(
+            r"skip invalid|parse classical rule.*error|level=(?:warning|error|fatal)",
+            line,
+            re.I,
+        ):
+            return True
+    return False
+
+
 def run_core(core: str, args: list[str], timeout=30) -> str:
     try:
         result = subprocess.run(
@@ -533,11 +699,7 @@ def run_core(core: str, args: list[str], timeout=30) -> str:
     except (OSError, subprocess.TimeoutExpired) as error:
         raise RuleError(f"Mihomo 调用失败 ({type(error).__name__})") from None
     text = result.stdout + result.stderr
-    if result.returncode or re.search(
-        r"skip invalid|parse classical rule.*error|level=(?:warning|error|fatal)",
-        text,
-        re.I,
-    ):
+    if result.returncode or core_log_errors(text):
         # 内核日志可能含有用户本机 URL 或节点名称，不向外打印原始日志。
         raise RuleError(
             f"Mihomo 检查失败，退出码 {result.returncode}；请在隔离目录直接运行对应命令检查"
@@ -617,8 +779,13 @@ def emit_local(root: Path, name: str, rules: list[Rule], core: str, text_only=Fa
             "format": "text",
             "count": len(values),
             "no_resolve": shard == "ipcidr-no-resolve",
+            "dns_compatible": any(rule.kind.startswith("DOMAIN") for rule in values),
         }
         if behavior != "classical" and not text_only:
+            if os.environ.get("GITHUB_ACTIONS") != "true":
+                raise RuleError(
+                    "正式 MRS 编译只在 GitHub Actions 执行；本机请使用 --text-only"
+                )
             mrs = base.with_name(base.name + ".mrs")
             run_core(
                 core,
@@ -635,6 +802,28 @@ def emit_local(root: Path, name: str, rules: list[Rule], core: str, text_only=Fa
     return fragments
 
 
+def expand_nested(route, replacements):
+    """把嵌套 RULE-SET 替换为有序分片的并集，NOT/AND 仍作用于整个集合。"""
+    pattern = r"\(RULE-SET,([^,()]+)((?:,[^()]*)?)\)"
+
+    def replace(match):
+        provider, params = match.groups()
+        fragments = replacements[provider]
+        if not fragments:
+            raise RuleError("嵌套规则引用了空 provider，无法保留匹配语义")
+        children = []
+        for item in fragments:
+            options = [value for value in params.split(",") if value]
+            if item["no_resolve"] and "no-resolve" not in options:
+                options.append("no-resolve")
+            children.append("(" + ",".join(["RULE-SET", item["name"], *options]) + ")")
+        if len(children) == 1:
+            return children[0]
+        return "(OR,(" + ",".join(children) + "))"
+
+    return re.sub(pattern, replace, route)
+
+
 def rewrite_dns(config, replacements):
     def names(value):
         expanded = []
@@ -642,7 +831,7 @@ def rewrite_dns(config, replacements):
             expanded.extend(
                 item["name"]
                 for item in replacements[name]
-                if item["behavior"] != "ipcidr"
+                if item.get("dns_compatible", item["behavior"] == "domain")
             )
         return "rule-set:" + ",".join(expanded) if expanded else None
 
@@ -666,7 +855,17 @@ def rewrite_dns(config, replacements):
 def build_into(args, root: Path, prepared, core: str):
     config, sources, upstream_records, lock, report, inputs = prepared
     config = copy.deepcopy(config)
-    for key in ("proxy_providers_common", "rule_providers_common", "group_common"):
+    for key in (
+        "proxy_providers_common",
+        "rule_providers_common",
+        "group_common",
+        "ProviderTest",
+        "GroupSelect",
+        "GroupLoadBalance",
+        "RuleSet_classical",
+        "RuleSet_geosite",
+        "RuleSet_ipcidr",
+    ):
         config.pop(key, None)
     replacements, artifacts, providers = {}, [], {}
     for name, source in sources.items():
@@ -682,24 +881,64 @@ def build_into(args, root: Path, prepared, core: str):
         else:
             key = name.split("/")[-1]
             raw, spec = upstream_records[key]
-            ext = "yaml" if spec["format"] == "yaml" else "list"
-            path = Path("rules/upstream") / f"{key}.{ext}"
-            (root / path).parent.mkdir(parents=True, exist_ok=True)
-            (root / path).write_bytes(raw)
-            fragments = [
-                {
-                    "path": path.as_posix(),
-                    "behavior": spec["behavior"],
-                    "format": spec["format"],
-                    "count": len(source["rules"]),
-                    "no_resolve": False,
-                }
-            ]
+            # 含 ASN 展开的净化来源可独立公开，不再触发 Geodata 下载。
+            source_path = root / "rules/source" / (name.replace("/", "-") + ".list")
+            source_path.parent.mkdir(parents=True, exist_ok=True)
+            source_path.write_text(
+                "\n".join(r.text for r in source["rules"]) + "\n", encoding="utf-8"
+            )
+            if spec["format"] == "mrs":
+                behavior = spec["behavior"]
+                text_path = Path("rules/upstream") / f"{key}.{behavior}.txt"
+                (root / text_path).parent.mkdir(parents=True, exist_ok=True)
+                (root / text_path).write_bytes(raw)
+                path = text_path
+                fmt = "text"
+                if not args.text_only:
+                    path = text_path.with_suffix(".mrs")
+                    (root / path).write_bytes(
+                        snapshot(
+                            lock["rules"][key],
+                            args.cache,
+                            args.offline,
+                            args.lock.parent,
+                        )
+                    )
+                    fmt = "mrs"
+                fragments = [
+                    {
+                        "path": path.as_posix(),
+                        "behavior": behavior,
+                        "format": fmt,
+                        "count": source["native_count"],
+                        "no_resolve": False,
+                        "dns_compatible": behavior == "domain",
+                    }
+                ]
+                if fmt == "mrs":
+                    fragments[0]["source_path"] = text_path.as_posix()
+                if source["supplements"]:
+                    fragments.extend(
+                        emit_local(
+                            root,
+                            name + "/supplement",
+                            source["supplements"],
+                            core,
+                            args.text_only,
+                        )
+                    )
+            else:
+                fragments = emit_local(
+                    root, name, source["rules"], core, args.text_only
+                )
+            for fragment in fragments:
+                if len(fragments) > 1:
+                    fragment["split"] = True
         named = []
         for index, fragment in enumerate(fragments, 1):
             fragment["name"] = (
                 f"{provider}__{index:03d}"
-                if source["local"] and provider
+                if provider and (source["local"] or fragment.get("split"))
                 else (provider or f"extra_{name.split('/')[-1]}__{index:03d}")
             )
             if fragment["name"] in providers:
@@ -723,28 +962,24 @@ def build_into(args, root: Path, prepared, core: str):
                     options.append("no-resolve")
                 routes.append(",".join(["RULE-SET", item["name"], target, *options]))
         else:
-            for provider in re.findall(r"(?:^|\()RULE-SET,([^,()]+)", route):
-                if (
-                    len(replacements[provider]) != 1
-                    or replacements[provider][0]["name"] != provider
-                ):
-                    raise RuleError(
-                        "嵌套逻辑规则引用了需要拆分的本地 provider，请先改成顶层 RULE-SET"
-                    )
-            routes.append(route)
+            routes.append(expand_nested(route, replacements))
     config["rules"] = routes
     config["rule-providers"] = providers
     rewrite_dns(config, replacements)
-    for filename, entry in lock.get("assets", {}).items():
-        if Path(filename).name != filename:
-            raise RuleError("Geo 数据文件名必须位于输出根目录")
-        (root / filename).write_bytes(
-            snapshot(entry, args.cache, args.offline, args.lock.parent)
-        )
-    config["geo-auto-update"] = False
     validate_config(config, root)
     (root / "config.yaml").write_text(
         yaml.safe_dump(config, allow_unicode=True, sort_keys=False), encoding="utf-8"
+    )
+    spec = load_yaml(args.manifest)
+    clients = emit_clients(root, prepared[0], sources, spec, fields, rule_target)
+    save_json(root / "clients/report.json", clients)
+    online = remote_config(config, artifacts, spec["publish_base"])
+    validate_config(online)
+    (root / "config.remote.yaml").write_text(
+        yaml.safe_dump(online, allow_unicode=True, sort_keys=False), encoding="utf-8"
+    )
+    (root / "mihomo.yaml").write_text(
+        yaml.safe_dump(online, allow_unicode=True, sort_keys=False), encoding="utf-8"
     )
     save_json(root / "audit.json", report)
     save_json(root / "upstreams.lock.json", lock)
@@ -759,6 +994,14 @@ def build_into(args, root: Path, prepared, core: str):
         "build_spec_sha256": sha256(args.manifest.read_bytes()),
         "artifacts": artifacts,
         "summary": report["summary"],
+        "clients": {
+            name: {
+                "excluded_count": item["excluded_count"],
+                "source_files": item["source_files"],
+                "route_references": item["route_references"],
+            }
+            for name, item in clients.items()
+        },
         "files": {
             p.relative_to(root).as_posix(): sha256(p.read_bytes())
             for p in sorted(root.rglob("*"))
@@ -851,11 +1094,7 @@ def check_core(core: str, output: Path):
                 logs.flush()
                 logs.seek(0)
                 text = logs.read()
-                if re.search(
-                    r"skip invalid|parse classical rule.*error|level=(?:warning|error|fatal)",
-                    text,
-                    re.I,
-                ):
+                if core_log_errors(text):
                     raise RuleError("隔离内核运行日志包含警告或错误")
             finally:
                 process.terminate()
@@ -867,6 +1106,9 @@ def check_core(core: str, output: Path):
 
 
 def check_output(output: Path, core: str):
+    # 新运行包不能携带旧 Geodata 资产，即使未被配置引用。
+    if any(p.suffix in {".dat", ".mmdb"} for p in output.rglob("*")):
+        raise RuleError("运行包仍包含 Geodata 资产")
     manifest = json.loads((output / "manifest.json").read_text(encoding="utf-8"))
     for relative, digest in manifest["files"].items():
         if sha256(contained_file(output, relative).read_bytes()) != digest:
@@ -880,6 +1122,8 @@ def check_output(output: Path, core: str):
 
 
 def build(args, core: str):
+    if not args.text_only and os.environ.get("GITHUB_ACTIONS") != "true":
+        raise RuleError("正式 MRS 构建只在 GitHub Actions 执行；本机请使用 --text-only")
     if args.output.is_symlink():
         raise RuleError("输出目录不能是符号链接")
     output = args.output.resolve()
@@ -890,6 +1134,7 @@ def build(args, core: str):
         or output in args.manifest.resolve().parents
         or output in args.lock.resolve().parents
         or output == args.rules_dir.resolve()
+        or output in ROOT.parents
     ):
         raise RuleError("输出目录不能覆盖工程或规则输入目录")
     if output.exists() and (
@@ -927,9 +1172,7 @@ def build(args, core: str):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("audit", "build", "check"))
-    parser.add_argument(
-        "--config", type=Path, default=ROOT / "Template/metaProvider.yml"
-    )
+    parser.add_argument("--config", type=Path, default=ROOT / "Template/Meta.yaml")
     parser.add_argument("--rules-dir", type=Path, default=ROOT / "Rule")
     parser.add_argument("--manifest", type=Path, default=ROOT / "Rule/build.yaml")
     parser.add_argument("--lock", type=Path, default=ROOT / "Rule/upstreams.lock.json")

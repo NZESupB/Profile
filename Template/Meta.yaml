@@ -1,0 +1,429 @@
+# 基于根目录 Meta.yaml 的公开构建模板；原配置与真实密钥保留在本机。
+# 使用 Actions 产物 config.yaml（同包文件）或 mihomo.yaml（rules 分支远程规则）。
+ProviderTest: &ProviderTest
+  type: http
+  interval: 43200
+  health-check:
+    enable: true
+    url: https://cp.cloudflare.com
+    interval: 14400
+GroupSelect: &GroupSelect
+  type: select
+  url: https://cp.cloudflare.com
+  include-all-providers: true
+GroupLoadBalance: &GroupLoadBalance
+  type: load-balance
+  url: https://cp.cloudflare.com
+  interval: 300
+  lazy: true
+  strategy: round-robin
+  timeout: 2000
+  max-failed-times: 3
+  include-all-providers: true
+RuleSet_classical: &RuleSet_classical
+  type: http
+  behavior: classical
+  format: text
+  interval: 43200
+  proxy: DIRECT
+RuleSet_geosite: &RuleSet_geosite
+  type: http
+  behavior: classical
+  format: yaml
+  interval: 43200
+  proxy: DIRECT
+RuleSet_ipcidr: &RuleSet_ipcidr
+  type: http
+  behavior: ipcidr
+  format: mrs
+  interval: 43200
+  proxy: DIRECT
+
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: true
+external-controller: 127.0.0.1:9999
+secret: ''
+external-ui: ui
+external-ui-name: xd
+external-ui-url: https://ghu.nxnow.top/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
+unified-delay: true
+global-ua: ClashMetaForAndroid/2.11.18
+hosts:
+  mtalk.google.com: [142.250.107.188, 142.251.170.188]
+  alt1-mtalk.google.com: 192.178.164.188
+  alt2-mtalk.google.com: 192.178.164.188
+  alt3-mtalk.google.com: [192.178.164.188, 74.125.131.188]
+  alt4-mtalk.google.com: [192.178.164.188, 74.125.131.188]
+  alt5-mtalk.google.com: [108.177.125.188, 74.125.131.188]
+  alt6-mtalk.google.com: [192.178.131.188, 209.85.144.188]
+  alt7-mtalk.google.com: [192.178.131.188, 209.85.144.188]
+  alt8-mtalk.google.com: [192.178.131.188, 209.85.144.188]
+
+dns:
+  enable: true
+  prefer-h3: false
+  cache-algorithm: arc
+  ipv6: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-range6: fc00::/18
+  use-hosts: true
+  use-system-hosts: true
+  respect-rules: false
+  rebind: false
+  default-nameserver: [system, 119.29.29.29, 223.5.5.5]
+  nameserver:
+    - system
+    - https://cn.udns.dev:851/dns-query
+  proxy-server-nameserver:
+    - system
+    - https://cn.udns.dev:851/dns-query
+  fake-ip-filter:
+    - +.lan
+    - +.local
+    - rule-set:国内域名,连通性检测,私有域名,其他直连
+    # 构建时追加 Rule/fakeipfillter.txt 的原始 DNS 通配模式。
+  nameserver-policy:
+    'rule-set:国内域名,私有域名':
+      - system
+      - https://120.53.53.53/dns-query
+      - https://223.5.5.5/dns-query
+
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack: [any:53, tcp://any:53]
+  strict-route: true
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  mtu: 1280
+  disable-icmp-forwarding: true
+
+# 直连占位不含订阅信息。在本机替换为 <<: *ProviderTest、url 和独立 path。
+proxies: []
+proxy-providers:
+  Kitony:
+    type: inline
+    payload: [{name: 订阅直连占位, type: direct}]
+  Home_Proxy:
+    type: inline
+    payload: [{name: 家庭直连占位, type: direct}]
+proxy-groups:
+  - name: 全球互联
+    <<: *GroupSelect
+    filter: '(港*IPLC|IEPL|专线|UDPN|TX|阿里)'
+    proxies: [🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇹🇼 台湾, 🇸🇬 新加坡]
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Global.png
+  - name: 游戏娱乐
+    <<: *GroupSelect
+    filter: '(IPLC|IEPL|专线|Game|UDPN|TX)'
+    proxies: [全球互联, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇹🇼 台湾, 🇸🇬 新加坡, DIRECT]
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Game.png
+  - name: 测速下载
+    type: select
+    use: [Kitony]
+    proxies: [DIRECT, 🇭🇰 香港, 🇹🇼 台湾, 🇯🇵 日本, 🇺🇸 美国, 🇸🇬 新加坡, 全球互联]
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Download.png
+  - name: 漏网之鱼
+    type: select
+    proxies: [DIRECT, 全球互联, 🇭🇰 香港, 🇹🇼 台湾, 🇯🇵 日本, 🇺🇸 美国, 🇸🇬 新加坡, 所有地区, 直连Fallback]
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Final.png
+  - name: TelegramDC5
+    type: select
+    proxies: [全球互联, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇹🇼 台湾, 🇸🇬 新加坡]
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Telegram.png
+  - name: 直连域名
+    type: select
+    proxies: [DIRECT, 直连Fallback]
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Direct.png
+  - name: 🇭🇰 香港
+    <<: *GroupSelect
+    filter: '(^(?!.*(Frp|游戏|Game).*).*(-港|香港|HKT|HKBN))'
+    proxies: [香港LoadBalance]
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Hong_Kong.png
+  - name: 香港LoadBalance
+    <<: *GroupLoadBalance
+    filter: HKT
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Back.png
+  - name: 🇯🇵 日本
+    <<: *GroupSelect
+    filter: '(^(?!.*(Frp|游戏|Game).*).*(-日|日本))'
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Japan.png
+  - name: 🇹🇼 台湾
+    <<: *GroupSelect
+    filter: '(^(?!.*(Frp|游戏|Game).*).*(-台|台湾))'
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Taiwan.png
+  - name: 🇸🇬 新加坡
+    <<: *GroupSelect
+    filter: '(^(?!.*(Frp|游戏|Game).*).*(-坡|新加坡))'
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Singapore.png
+  - name: 🇺🇸 美国
+    <<: *GroupSelect
+    filter: '(^(?!.*(Frp|游戏|Game).*).*(-美|美国|圣何塞))'
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/United_States.png
+  - name: 所有地区
+    <<: *GroupSelect
+    filter: '(^(?!.*(Frp|游戏|Game|公告).*).*)'
+  - name: 直连Fallback
+    type: fallback
+    use: [Home_Proxy]
+    url: http://g.alicdn.com
+    interval: 7200
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Back.png
+  - name: 广告拦截
+    type: select
+    proxies: [REJECT, DIRECT]
+    icon: https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Color/Advertising.png
+
+# 完整 classical 输入保留关键词/正则；构建清单锁定 MRS 及同版补充规则。
+rule-providers:
+  开发服务:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/category-dev.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-dev.yaml
+  国内游戏:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/games-cn.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-games@cn.yaml
+  公共游戏:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/games.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-games.yaml
+  国际媒体:
+    <<: *RuleSet_classical
+    path: ./rule-providers/stream.list
+    url: https://ruleset.skk.moe/Clash/non_ip/stream.txt
+  国际媒体IP:
+    <<: *RuleSet_classical
+    path: ./rule-providers/stream-ip.list
+    url: https://ruleset.skk.moe/Clash/ip/stream.txt
+  全局规则:
+    <<: *RuleSet_classical
+    path: ./rule-providers/global.list
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/6987aa2bf0350f39db4d9f54b84b0e92118a7f6e/Clash/ProxyLite.list
+  CN_IP:
+    <<: *RuleSet_classical
+    path: ./rule-providers/china-ip.list
+    url: https://raw.githubusercontent.com/DH-Teams/DH-Geo_AS_IP_CN/e8647801fd345b0dea2f7d7ef324d9b5854df83b/Geo_AS_IP_CN_All_Surge.list
+  其他直连:
+    <<: *RuleSet_classical
+    path: ./rule-providers/Direct.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Direct.list
+  游戏娱乐:
+    <<: *RuleSet_classical
+    path: ./rule-providers/Games.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Games.list
+  游戏直连:
+    <<: *RuleSet_classical
+    path: ./rule-providers/GameDirect.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/GameDirect.list
+  海外下载:
+    <<: *RuleSet_classical
+    path: ./rule-providers/Download.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Download.list
+  其他媒体:
+    <<: *RuleSet_classical
+    path: ./rule-providers/Video.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Video.list
+  SpeedTest:
+    <<: *RuleSet_classical
+    path: ./rule-providers/Speedtest.list
+    # 该地址在首次默认分支发布后可用；运行包始终内置处理后的文本。
+    url: https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/source/Speedtest.list
+  轻量浏览:
+    <<: *RuleSet_classical
+    path: ./rule-providers/Daily.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Daily.list
+  US_List:
+    <<: *RuleSet_classical
+    path: ./rule-providers/us.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/us.list
+  JP_List:
+    <<: *RuleSet_classical
+    path: ./rule-providers/jp.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/jp.list
+  Reject_List:
+    <<: *RuleSet_classical
+    path: ./rule-providers/Reject.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/main/Rule/Reject.list
+  私有域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/private.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/private.yaml
+  FCM域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/googlefcm.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/googlefcm.yaml
+  GitHub域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/github.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/github.yaml
+  学术域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/scholar.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-scholar-!cn.yaml
+  广告域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/ads.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-ads-all.yaml
+  苹果国内:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/apple-cn.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/apple@cn.yaml
+  苹果服务:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/apple.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/apple.yaml
+  微软国内:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/microsoft-cn.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/microsoft@cn.yaml
+  微软服务:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/microsoft.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/microsoft.yaml
+  YouTube域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/youtube.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/youtube.yaml
+  Twitter域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/twitter.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/twitter.yaml
+  Telegram域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/telegram.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/telegram.yaml
+  国内域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/cn.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/cn.yaml
+  Google域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/google.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/google.yaml
+  AI域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/ai.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/category-ai-!cn.yaml
+  Netflix域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/netflix.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/netflix.yaml
+  Spotify域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/spotify.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/spotify.yaml
+  私有IP:
+    <<: *RuleSet_ipcidr
+    path: ./rule-providers/private-ip.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geoip/private.mrs
+  TelegramIP:
+    <<: *RuleSet_ipcidr
+    path: ./rule-providers/telegram-ip.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geoip/telegram.mrs
+  国内IP:
+    <<: *RuleSet_ipcidr
+    path: ./rule-providers/cn-ip.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geoip/cn.mrs
+  TelegramASN44907:
+    <<: *RuleSet_ipcidr
+    path: ./rule-providers/asn-44907.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/asn/AS44907.mrs
+  TelegramASN62014:
+    <<: *RuleSet_ipcidr
+    path: ./rule-providers/asn-62014.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/asn/AS62014.mrs
+  TelegramASN59930:
+    <<: *RuleSet_ipcidr
+    path: ./rule-providers/asn-59930.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/asn/AS59930.mrs
+  TelegramASN62041:
+    <<: *RuleSet_ipcidr
+    path: ./rule-providers/asn-62041.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/asn/AS62041.mrs
+  TelegramASN211157:
+    <<: *RuleSet_ipcidr
+    path: ./rule-providers/asn-211157.mrs
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/asn/AS211157.mrs
+  OpenAI域名:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/openai.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/openai.yaml
+  连通性检测:
+    <<: *RuleSet_geosite
+    path: ./rule-providers/connectivity-check.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/251f53ed936ccefc5ed6407b0b85a06878e3dbe1/geo/geosite/classical/connectivity-check.yaml
+  OpenAI:
+    <<: *RuleSet_classical
+    path: ./rule-providers/openai-extra.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/source/upstream-openai-extra.list
+  国际媒体2:
+    <<: *RuleSet_classical
+    path: ./rule-providers/stream-extra.list
+    url: https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/source/upstream-stream-extra.list
+  download_domainset:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rule-providers/download-domainset.txt
+    interval: 43200
+    url: https://ruleset.skk.moe/Clash/domainset/download.txt
+  lan_ip:
+    <<: *RuleSet_classical
+    path: ./rule-providers/lan.list
+    url: https://ruleset.skk.moe/Clash/ip/lan.txt
+  telegram_ip:
+    <<: *RuleSet_classical
+    path: ./rule-providers/telegram-sukka.list
+    url: https://ruleset.skk.moe/Clash/ip/telegram.txt
+
+# 首条命中；只在原位置替换 Geodata 和 provider，不重排业务策略。
+rules:
+  - IP-CIDR,192.168.32.1/24,直连Fallback,no-resolve
+  - RULE-SET,FCM域名,DIRECT
+  - DOMAIN-SUFFIX,air.114432.xyz,全球互联
+  - AND,((NETWORK,UDP),(OR,((DST-PORT,12345),(DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,mcdn)))),REJECT
+  - AND,((NETWORK,TCP),(DOMAIN-KEYWORD,stun),(OR,((DOMAIN-KEYWORD,douyu),(DOMAIN-KEYWORD,bilibili)))),REJECT
+  - AND,((NETWORK,UDP),(OR,((RULE-SET,YouTube域名),(RULE-SET,OpenAI域名)))),REJECT
+  - AND,((NETWORK,TCP),(NOT,((RULE-SET,CN_IP,no-resolve))),(OR,((DST-PORT,65022),(DST-PORT,22)))),全球互联
+  - RULE-SET,开发服务,测速下载
+  - RULE-SET,国内游戏,DIRECT
+  - RULE-SET,游戏直连,DIRECT
+  - RULE-SET,海外下载,测速下载
+  - RULE-SET,SpeedTest,测速下载
+  - RULE-SET,download_domainset,测速下载
+  - RULE-SET,轻量浏览,全球互联
+  - RULE-SET,国内域名,直连域名
+  - RULE-SET,GitHub域名,全球互联
+  - RULE-SET,学术域名,全球互联
+  - RULE-SET,Reject_List,REJECT
+  - RULE-SET,公共游戏,游戏娱乐
+  - RULE-SET,游戏娱乐,游戏娱乐
+  - RULE-SET,OpenAI域名,🇺🇸 美国
+  - RULE-SET,OpenAI,🇺🇸 美国
+  - RULE-SET,US_List,🇺🇸 美国
+  - RULE-SET,JP_List,🇯🇵 日本
+  - RULE-SET,其他直连,直连域名
+  - RULE-SET,广告域名,广告拦截
+  - RULE-SET,苹果国内,直连域名
+  - RULE-SET,苹果服务,测速下载
+  - RULE-SET,微软服务,测速下载
+  - AND,((NETWORK,UDP),(DST-PORT,3478)),测速下载
+  - RULE-SET,YouTube域名,全球互联
+  - RULE-SET,Twitter域名,全球互联
+  - RULE-SET,其他媒体,全球互联
+  - RULE-SET,telegram_ip,TelegramDC5,no-resolve
+  - RULE-SET,Telegram域名,TelegramDC5
+  - RULE-SET,国际媒体,全球互联
+  - RULE-SET,全局规则,全球互联
+  - RULE-SET,国际媒体2,全球互联
+  - RULE-SET,国际媒体IP,全球互联,no-resolve
+  - RULE-SET,lan_ip,DIRECT,no-resolve
+  - RULE-SET,CN_IP,直连域名,no-resolve
+  - MATCH,漏网之鱼

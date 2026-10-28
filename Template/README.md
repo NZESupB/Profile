@@ -1,17 +1,23 @@
-ClashProvider.yml - Clash Provider 手搓配置模板
+Meta.yaml - 当前 Mihomo 规则构建模板，基于根目录个人 `Meta.yaml` 脱敏生成。保留原路由顺序、国内提前直连、OpenAI 美国策略、TelegramDC5、台湾区域组、香港负载均衡、家庭代理组、FCM hosts、DNS 和 TUN 参数。
 
-forcerule.yml - Clash Subconvertor模板,没啥软用
+使用 [Shell/README.md](../Shell/README.md) 中的命令生成完整运行包；正式 MRS 通过 GitHub Actions「构建并同步代理规则」编译。生成的 `config.yaml` 使用同包文件，`mihomo.yaml` 引用独立 `rules` 分支。默认分支成功构建后自动同步公开产物，功能分支只验证和上传。
 
-metaProvider.yml - Mihomo 规则构建输入模板，参考 MyClash 结构；使用说明见 [Shell/README.md](../Shell/README.md)。
+`Kitony`、`Home_Proxy` 使用直连占位，使用前在本机替换订阅；这些占位不提供代理能力。控制器默认只监听环回地址，密钥留空。TUN 按新基准保持开启，BettBox 用户还需检查应用级覆写。原根目录配置含个人信息，不应提交或上传。
 
-正式 MRS 由 GitHub Actions「构建 Mihomo 规则」生成，下载运行包后在本机填写订阅。模板中的 SpeedTest 文本源由构建工具处理兼容性后生成，因此应使用产物中的 `config.yaml`。订阅 provider 默认留空，区域组无订阅时为 REJECT；添加订阅后在客户端选择实际节点。DNS 默认开启，TUN 默认关闭；BettBox 用户需同时检查脚本和应用级覆写。
+模板中的 SpeedTest、OpenAI 补充和第二份媒体净化入口需首次默认分支发布后才能远程获取；构建包内置对应文件。关键词和正则保留 classical 补充，配置及运行包不再依赖 Geodata。跨客户端文件是规则片段，使用前查看 `clients/report.json` 的能力差异和策略名。
 
-MixinTun - Clash 开启 tun 的 mixin 配置模板
+metaProvider.yml - 保留的旧 Mihomo 模板，当前脚本与 Actions 已切换到 `Meta.yaml`。
 
-QuanX.conf - Quantumult X 的懒人配置
+ClashProvider.yml - Clash Provider 手工配置模板。
 
-ShadowRocket.conf - ShadowRocket 的懒人配置
+forcerule.yml - Clash Subconverter 模板。
 
-SubconverterNginx.conf - Nginx部分集成配置文件
+MixinTun - Clash 开启 TUN 的 mixin 配置模板。
 
-Surfboard.conf - Surfboard 的懒人配置（未完成别用
+QuanX.conf - Quantumult X 配置。
+
+ShadowRocket.conf - Shadowrocket 配置。
+
+SubconverterNginx.conf - Nginx 部分集成配置。
+
+Surfboard.conf - 尚未完成的 Surfboard 模板；新的生成规则片段见构建包的 `clients/surfboard/`。

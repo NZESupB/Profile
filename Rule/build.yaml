@@ -1,5 +1,6 @@
 version: 1
-# 所有 .list 均纳入解析与编译；未接入当前模板的文件仍输出产物但不改变分流。
+# 人工维护各组的 .list；正式 MRS 由 Actions 编译，其他客户端同步导出。
+publish_base: https://raw.githubusercontent.com/NZESupB/Profile/rules
 local:
   Daily.list: {provider: 轻量浏览}
   Direct.list: {provider: 其他直连}
@@ -10,14 +11,15 @@ local:
   Speedtest.list:
     provider: SpeedTest
     exclusions:
-      USER-AGENT,SpeedTest*: Mihomo 不支持 USER-AGENT；保留原文件供其他客户端使用
+      USER-AGENT,SpeedTest*: Mihomo 不支持 USER-AGENT；其他支持的客户端继续导出
   Torrent.list: {provider: null}
   Video.list: {provider: 其他媒体}
   jp.list: {provider: JP_List}
   tw.list: {provider: null}
   us.list: {provider: US_List}
 dns_filter: fakeipfillter.txt
-# 使用全量 classical 导出，保留 GEOSITE 类别中的关键词及正则。
+# classical 输入按连续区段拆成 MRS/classical，保留关键词与原始顺序。
+# 现成 MRS 必须配套锁定同版 text 来源；Actions 校验两者匹配集合。
 upstreams:
   category-dev: {provider: 开发服务, behavior: classical, format: yaml}
   games-cn: {provider: 国内游戏, behavior: classical, format: yaml}
@@ -26,3 +28,55 @@ upstreams:
   stream-ip: {provider: 国际媒体IP, behavior: classical, format: text}
   global: {provider: 全局规则, behavior: classical, format: text}
   china-ip: {provider: CN_IP, behavior: classical, format: text}
+  private: {provider: 私有域名, behavior: domain, format: mrs}
+  googlefcm: {provider: FCM域名, behavior: domain, format: mrs}
+  github: {provider: GitHub域名, behavior: domain, format: mrs}
+  category-scholar-!cn: {provider: 学术域名, behavior: domain, format: mrs}
+  category-ads-all: {provider: 广告域名, behavior: domain, format: mrs}
+  apple@cn: {provider: 苹果国内, behavior: domain, format: mrs}
+  apple: {provider: 苹果服务, behavior: domain, format: mrs}
+  microsoft@cn: {provider: 微软国内, behavior: domain, format: mrs}
+  microsoft: {provider: 微软服务, behavior: domain, format: mrs}
+  youtube: {provider: YouTube域名, behavior: domain, format: mrs}
+  twitter: {provider: Twitter域名, behavior: domain, format: mrs}
+  telegram: {provider: Telegram域名, behavior: domain, format: mrs}
+  cn: {provider: 国内域名, behavior: domain, format: mrs}
+  google: {provider: Google域名, behavior: domain, format: mrs}
+  category-ai-!cn: {provider: AI域名, behavior: domain, format: mrs}
+  netflix: {provider: Netflix域名, behavior: domain, format: mrs}
+  spotify: {provider: Spotify域名, behavior: domain, format: mrs}
+  private-ip: {provider: 私有IP, behavior: ipcidr, format: mrs}
+  telegram-ip: {provider: TelegramIP, behavior: ipcidr, format: mrs}
+  cn-ip: {provider: 国内IP, behavior: ipcidr, format: mrs}
+  asn-44907: {provider: TelegramASN44907, behavior: ipcidr, format: mrs}
+  asn-62014: {provider: TelegramASN62014, behavior: ipcidr, format: mrs}
+  asn-59930: {provider: TelegramASN59930, behavior: ipcidr, format: mrs}
+  asn-62041: {provider: TelegramASN62041, behavior: ipcidr, format: mrs}
+  asn-211157: {provider: TelegramASN211157, behavior: ipcidr, format: mrs}
+  openai: {provider: OpenAI域名, behavior: domain, format: mrs}
+  connectivity-check: {provider: 连通性检测, behavior: domain, format: mrs}
+  openai-extra:
+    provider: OpenAI
+    behavior: classical
+    format: text
+    expand_rules:
+      IP-ASN,20473,no-resolve: AS20473
+  stream-extra: {provider: 国际媒体2, behavior: classical, format: text}
+  download-domainset: {provider: download_domainset, behavior: domain, format: text}
+  lan: {provider: lan_ip, behavior: classical, format: text}
+  telegram-sukka: {provider: telegram_ip, behavior: classical, format: text}
+# 输出片段对接现有客户端模板；策略名映射与来源独立维护。
+client_policies:
+  clash: &client_policies
+    直连域名: DIRECT
+    🇭🇰 香港: 香港
+    🇯🇵 日本: 日本
+    🇺🇸 美国: 美国
+    🇸🇬 新加坡: 新加坡
+    🇹🇼 台湾: 台湾
+    直连Fallback: 直连Fallback
+    TelegramDC5: Telegram
+  surge: *client_policies
+  surfboard: *client_policies
+  shadowrocket: *client_policies
+  quantumultx: *client_policies

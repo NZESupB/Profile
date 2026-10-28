@@ -1,19 +1,20 @@
-name: 构建 Mihomo 规则
+name: 构建并同步代理规则
 
 on:
   workflow_dispatch:
   push:
+    branches-ignore: [rules]
     paths:
       - 'Rule/**'
-      - 'Template/metaProvider.yml'
-      - 'Shell/rules.py'
+      - 'Template/Meta.yaml'
+      - 'Shell/*.py'
       - 'Shell/requirements-rules.txt'
       - '.github/workflows/build-rules.yml'
   pull_request:
     paths:
       - 'Rule/**'
-      - 'Template/metaProvider.yml'
-      - 'Shell/rules.py'
+      - 'Template/Meta.yaml'
+      - 'Shell/*.py'
       - 'Shell/requirements-rules.txt'
       - '.github/workflows/build-rules.yml'
 
@@ -21,13 +22,13 @@ permissions:
   contents: read
 
 concurrency:
-  group: mihomo-rules-${{ github.ref }}
+  group: proxy-rules-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     env:
       MIHOMO_VERSION: v1.19.33
       MIHOMO_ARCHIVE_SHA256: 8ec92e7b2fdc6b853ba00156bab7e4e965c8b0d843b8c4ac8ab98795f02ad524
@@ -42,16 +43,16 @@ jobs:
           cache-dependency-path: Shell/requirements-rules.txt
       - name: 安装检查依赖
         run: python -m pip install -r Shell/requirements-rules.txt
-      - name: 检查脚本
+      - name: 检查转换脚本
         run: |
-          ruff check Shell/rules.py
-          ruff format --check Shell/rules.py
-          python -m py_compile Shell/rules.py
-      - name: 缓存已校验的上游快照
+          ruff check Shell/*.py
+          ruff format --check Shell/*.py
+          python -m py_compile Shell/*.py
+      - name: 缓存已校验的上游
         uses: actions/cache@v4
         with:
           path: .cache/rules
-          key: mihomo-rule-snapshots-${{ hashFiles('Rule/upstreams.lock.json', 'Rule/snapshots/*') }}
+          key: proxy-rule-snapshots-${{ hashFiles('Rule/upstreams.lock.json', 'Rule/snapshots/*') }}
       - name: 下载固定内核并校验归档
         shell: bash
         run: |
@@ -65,12 +66,41 @@ jobs:
           gzip -dc "$core_dir/core.gz" > "$core_dir/mihomo"
           chmod +x "$core_dir/mihomo"
           echo "$core_dir" >> "$GITHUB_PATH"
-          "$core_dir/mihomo" -v
-      - name: 审计规则与策略覆盖
+      - name: 审计共享规则
         run: python Shell/rules.py audit --report "${{ runner.temp }}/rule-audit.json"
-      - name: 编译 MRS、回读并验证内核加载
+      - name: 编译 MRS、验证来源并生成各客户端
         run: python Shell/rules.py build --output dist/mihomo
-      - name: 验证锁定输入的重复构建一致性
+      - name: 验证单 URL 的域名和 IP MRS 接入
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          import subprocess
+          import shutil
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, 'Shell')
+          from rules import check_core, load_yaml
+          lock = json.loads(Path('dist/mihomo/upstreams.lock.json').read_text())
+          for key in ('private', 'private-ip'):
+              entry = lock['rules'][key]
+              output = Path(os.environ['RUNNER_TEMP']) / key
+              subprocess.run([
+                  'python', 'Shell/rules_url.py', entry['url'], '--sha256', entry['sha256'],
+                  '--name', 'URL验证', '--output', str(output),
+                  '--config', 'dist/mihomo/config.yaml',
+                  *(['--no-resolve'] if key == 'private-ip' else []),
+              ], check=True)
+              check_core(shutil.which('mihomo'), output)
+          config = load_yaml(Path('Template/Meta.yaml'))
+          assert not config.get('secret'), '公开模板不得含真实控制器密钥'
+          for item in config['proxy-providers'].values():
+              assert item['type'] == 'inline'
+              assert all(node['type'] == 'direct' for node in item['payload'])
+          PY
+      - name: 验证重复构建一致性与无 Geodata
         shell: bash
         run: |
           set -euo pipefail
@@ -81,16 +111,69 @@ jobs:
           from pathlib import Path
           first = json.loads(Path('dist/mihomo/manifest.json').read_text())
           second = json.loads((Path(os.environ['RUNNER_TEMP']) / 'mihomo-repeat/manifest.json').read_text())
-          assert first == second, '相同输入的两次构建产物不一致'
-          assert first['mode'] == 'mrs', '正式运行包必须包含 MRS'
-          assert any(item['format'] == 'mrs' for item in first['artifacts']), '未生成 MRS 文件'
+          assert first == second, '相同输入的两次产物不一致'
+          assert first['mode'] == 'mrs'
+          assert any(item['format'] == 'mrs' for item in first['artifacts'])
+          assert not any(Path(p).suffix in {'.dat', '.mmdb'} for p in first['files'])
+          assert set(first['clients']) == {'clash', 'surge', 'surfboard', 'shadowrocket', 'quantumultx'}
           PY
-      - name: 打包运行配置、规则与审计报告
+      - name: 打包全部运行配置和客户端规则
         run: tar -czf dist/mihomo-rules.tar.gz -C dist mihomo
-      - name: 上传运行包
+      - name: 上传完整运行包
         uses: actions/upload-artifact@v4
         with:
           name: mihomo-rules-${{ github.sha }}
           path: dist/mihomo-rules.tar.gz
           if-no-files-found: error
           retention-days: 30
+      - name: 上传待发布目录
+        if: github.ref_name == github.event.repository.default_branch && github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-proxy-rules
+          path: dist/mihomo/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    needs: build
+    if: github.ref_name == github.event.repository.default_branch && github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    concurrency:
+      group: publish-proxy-rules
+      cancel-in-progress: false
+    steps:
+      - name: 检出来源提交
+        uses: actions/checkout@v4
+      - name: 下载已验证产物
+        uses: actions/download-artifact@v4
+        with:
+          name: generated-proxy-rules
+          path: ${{ runner.temp }}/generated-rules
+      - name: 发布到独立 rules 分支
+        shell: bash
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          # 只复制公开模板和已校验规则，保留 rules 分支历史。
+          if git ls-remote --exit-code --heads origin rules >/dev/null; then
+            git fetch origin rules
+            git worktree add "$RUNNER_TEMP/publish-rules" -b rules FETCH_HEAD
+          else
+            git worktree add --detach "$RUNNER_TEMP/publish-rules"
+            git -C "$RUNNER_TEMP/publish-rules" switch --orphan rules
+          fi
+          cd "$RUNNER_TEMP/publish-rules"
+          git rm -r --ignore-unmatch .
+          cp -R "$RUNNER_TEMP/generated-rules/." .
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          if ! git diff --cached --quiet; then
+            git commit -m "同步代理规则 ${SOURCE_SHA}"
+            git push origin HEAD:rules
+          fi
