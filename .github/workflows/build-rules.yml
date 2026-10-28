@@ -2,6 +2,11 @@ name: 构建并同步代理规则
 
 on:
   workflow_dispatch:
+    inputs:
+      publish_rules:
+        description: 将本次已验证产物发布到 rules 分支
+        type: boolean
+        default: false
   push:
     branches-ignore: [rules]
     paths:
@@ -52,7 +57,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .cache/rules
-          key: proxy-rule-snapshots-${{ hashFiles('Rule/upstreams.lock.json', 'Rule/snapshots/*') }}
+          key: proxy-rule-snapshots-${{ hashFiles('Rule/*.lock.json', 'Rule/snapshots/**') }}
       - name: 下载固定内核并校验归档
         shell: bash
         run: |
@@ -227,7 +232,7 @@ jobs:
           if-no-files-found: error
           retention-days: 30
       - name: 上传待发布目录
-        if: github.ref_name == github.event.repository.default_branch && github.event_name != 'pull_request'
+        if: (github.ref_name == github.event.repository.default_branch && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && inputs.publish_rules)
         uses: actions/upload-artifact@v4
         with:
           name: generated-proxy-rules
@@ -238,7 +243,7 @@ jobs:
 
   publish:
     needs: build
-    if: github.ref_name == github.event.repository.default_branch && github.event_name != 'pull_request'
+    if: (github.ref_name == github.event.repository.default_branch && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && inputs.publish_rules)
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -248,6 +253,12 @@ jobs:
     steps:
       - name: 检出来源提交
         uses: actions/checkout@v4
+      - name: 准备发布检查环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 安装发布检查依赖
+        run: python -m pip install -r Shell/requirements-rules.txt
       - name: 下载已验证产物
         uses: actions/download-artifact@v4
         with:
@@ -277,3 +288,12 @@ jobs:
             git commit -m "同步代理规则 ${SOURCE_SHA}"
             git push origin HEAD:rules
           fi
+      - name: 验证公开配置与全部 MRS/classical 下载
+        run: python Shell/verify_public_rules.py --package "$RUNNER_TEMP/generated-rules" --report "$RUNNER_TEMP/public-rules-check.json"
+      - name: 上传公开下载验证报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-rules-check-${{ github.sha }}
+          path: ${{ runner.temp }}/public-rules-check.json
+          if-no-files-found: warn

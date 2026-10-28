@@ -55,6 +55,10 @@ dns:
   - +.lan
   - +.local
   - rule-set:国内域名,连通性检测,私有域名__001,私有域名__002,其他直连__001
+  - rule-set:私有域名__001,私有域名__002
+  - rule-set:参考_fakeip_filter
+  - rule-set:参考_geolocation-cn__001,参考_geolocation-cn__002
+  - rule-set:FCM域名
   - '*'
   - '*.lan'
   - '*.localdomain'
@@ -176,7 +180,11 @@ dns:
   - +.gcloudcs.com
   - +.gcloudsdk.com
   nameserver-policy:
-    rule-set:国内域名,私有域名__001,私有域名__002:
+    rule-set:参考_douyin:
+    - system
+    - 180.184.1.1
+    - 180.184.2.2
+    rule-set:国内域名,私有域名__001,私有域名__002,参考_cn:
     - system
     - https://120.53.53.53/dns-query
     - https://223.5.5.5/dns-query
@@ -1009,6 +1017,230 @@ rule-providers:
     <<: *mrs_ip
     path: ./rules/upstream/telegram-sukka/002.ipcidr-no-resolve.mrs
     url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/telegram-sukka/002.ipcidr-no-resolve.mrs
+  "参考_private_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-private_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-private_ip.ipcidr.mrs
+  "参考_games_cn__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-games_cn.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-games_cn.domain.mrs
+  "参考_games_cn__002":
+    <<: *classical
+    path: ./rules/upstream/aisouler-games_cn/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-games_cn/supplement/001.classical.txt
+  "参考_nvidia_cn":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-nvidia_cn.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-nvidia_cn.domain.mrs
+  "参考_apple_cn":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-apple_cn.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-apple_cn.domain.mrs
+  "参考_geolocation-cn__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-geolocation-cn.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-geolocation-cn.domain.mrs
+  "参考_geolocation-cn__002":
+    <<: *classical
+    path: ./rules/upstream/aisouler-geolocation-cn/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-geolocation-cn/supplement/001.classical.txt
+  "参考_cn_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-cn_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-cn_ip.ipcidr.mrs
+  "参考_google__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-google.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-google.domain.mrs
+  "参考_google__002":
+    <<: *classical
+    path: ./rules/upstream/aisouler-google/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-google/supplement/001.classical.txt
+  "参考_google_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-google_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-google_ip.ipcidr.mrs
+  "参考_ai__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-ai.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-ai.domain.mrs
+  "参考_ai__002":
+    <<: *classical
+    path: ./rules/upstream/aisouler-ai/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-ai/supplement/001.classical.txt
+  "参考_microsoft_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-microsoft_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-microsoft_ip.ipcidr.mrs
+  "参考_apple":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-apple.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-apple.domain.mrs
+  "参考_apple_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-apple_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-apple_ip.ipcidr.mrs
+  "参考_telegram_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-telegram_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-telegram_ip.ipcidr.mrs
+  "参考_steam":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-steam.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-steam.domain.mrs
+  "参考_steam_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-steam_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-steam_ip.ipcidr.mrs
+  "参考_tiktok":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-tiktok.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-tiktok.domain.mrs
+  "参考_tiktok_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-tiktok_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-tiktok_ip.ipcidr.mrs
+  "参考_twitter_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-twitter_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-twitter_ip.ipcidr.mrs
+  "参考_meta":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-meta.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-meta.domain.mrs
+  "参考_facebook_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-facebook_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-facebook_ip.ipcidr.mrs
+  "参考_line":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-line.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-line.domain.mrs
+  "参考_netflix_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-netflix_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-netflix_ip.ipcidr.mrs
+  "参考_emby":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-emby.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-emby.domain.mrs
+  "参考_emos":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-emos.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-emos.domain.mrs
+  "参考_pikpak":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-pikpak.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-pikpak.domain.mrs
+  "参考_spotify_ip":
+    <<: *mrs_ip
+    path: ./rules/upstream/aisouler-spotify_ip.ipcidr.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-spotify_ip.ipcidr.mrs
+  "参考_cryptocurrency":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-cryptocurrency.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-cryptocurrency.domain.mrs
+  "参考_paypal":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-paypal.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-paypal.domain.mrs
+  "参考_patreon":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-patreon.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-patreon.domain.mrs
+  "参考_ehentai":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-ehentai.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-ehentai.domain.mrs
+  "参考_geolocation-!cn__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-geolocation-!cn.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-geolocation-%21cn.domain.mrs
+  "参考_geolocation-!cn__002":
+    <<: *classical
+    path: ./rules/upstream/aisouler-geolocation-!cn/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-geolocation-%21cn/supplement/001.classical.txt
+  "参考_category-ads__001":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-category-ads.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-category-ads.domain.mrs
+  "参考_category-ads__002":
+    <<: *classical
+    path: ./rules/upstream/aisouler-category-ads/supplement/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-category-ads/supplement/001.classical.txt
+  "参考_fakeip_filter":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-fakeip_filter.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-fakeip_filter.domain.mrs
+  "参考_cn_additional":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-cn_additional.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-cn_additional.domain.mrs
+  "参考_cn":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-cn.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-cn.domain.mrs
+  "参考_douyin":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-douyin.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-douyin.domain.mrs
+  "参考_内联_001":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-inline-001/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-001/001.domain.mrs
+  "参考_内联_008":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-inline-008/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-008/001.domain.mrs
+  "参考_内联_009":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-inline-009/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-009/001.domain.mrs
+  "参考_内联_010":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-inline-010/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-010/001.domain.mrs
+  "参考_内联_038":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-inline-038/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-038/001.domain.mrs
+  "参考_内联_039":
+    <<: *mrs_domain
+    path: ./rules/upstream/aisouler-inline-039/001.domain.mrs
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-039/001.domain.mrs
+  "参考_内联_040":
+    <<: *classical
+    path: ./rules/upstream/aisouler-inline-040/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-040/001.classical.txt
+  "参考_内联_041":
+    <<: *classical
+    path: ./rules/upstream/aisouler-inline-041/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-041/001.classical.txt
+  "参考_内联_042":
+    <<: *classical
+    path: ./rules/upstream/aisouler-inline-042/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-042/001.classical.txt
+  "参考_内联_043":
+    <<: *classical
+    path: ./rules/upstream/aisouler-inline-043/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-043/001.classical.txt
+  "参考_内联_044":
+    <<: *classical
+    path: ./rules/upstream/aisouler-inline-044/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-044/001.classical.txt
+  "参考_内联_045":
+    <<: *classical
+    path: ./rules/upstream/aisouler-inline-045/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-045/001.classical.txt
+  "参考_内联_046":
+    <<: *classical
+    path: ./rules/upstream/aisouler-inline-046/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-046/001.classical.txt
+  "参考_内联_047":
+    <<: *classical
+    path: ./rules/upstream/aisouler-inline-047/001.classical.txt
+    url: https://gh-proxy.com/https://raw.githubusercontent.com/NZESupB/Profile/rules/rules/upstream/aisouler-inline-047/001.classical.txt
 
 rules:
 - IP-CIDR,192.168.32.1/24,直连Fallback,no-resolve
@@ -1109,6 +1341,65 @@ rules:
 - RULE-SET,telegram_ip__001,TelegramDC5,no-resolve
 - RULE-SET,telegram_ip__002,TelegramDC5,no-resolve
 - RULE-SET,Telegram域名,TelegramDC5
+- RULE-SET,参考_内联_001,直连域名
+- RULE-SET,私有域名__001,直连域名
+- RULE-SET,私有域名__002,直连域名
+- RULE-SET,参考_geolocation-cn__001,直连域名
+- RULE-SET,参考_geolocation-cn__002,直连域名
+- RULE-SET,参考_games_cn__001,直连域名
+- RULE-SET,参考_games_cn__002,直连域名
+- RULE-SET,参考_nvidia_cn,直连域名
+- RULE-SET,参考_apple_cn,直连域名
+- RULE-SET,微软国内,直连域名
+- RULE-SET,参考_内联_008,直连域名
+- RULE-SET,参考_内联_009,直连域名
+- RULE-SET,参考_内联_010,直连域名
+- AND,((NETWORK,UDP),(DST-PORT,443),(NOT,((OR,((RULE-SET,参考_cn_additional),(RULE-SET,参考_cn_ip,no-resolve)))))),REJECT
+- RULE-SET,参考_category-ads__001,广告拦截
+- RULE-SET,参考_category-ads__002,广告拦截
+- RULE-SET,参考_google__001,全球互联
+- RULE-SET,参考_google__002,全球互联
+- RULE-SET,参考_google_ip,全球互联,no-resolve
+- RULE-SET,参考_ai__001,🇺🇸 美国
+- RULE-SET,参考_ai__002,🇺🇸 美国
+- RULE-SET,参考_microsoft_ip,测速下载,no-resolve
+- RULE-SET,参考_apple,测速下载
+- RULE-SET,参考_apple_ip,测速下载,no-resolve
+- RULE-SET,参考_telegram_ip,TelegramDC5,no-resolve
+- RULE-SET,参考_steam,游戏娱乐
+- RULE-SET,参考_steam_ip,游戏娱乐,no-resolve
+- RULE-SET,参考_tiktok,全球互联
+- RULE-SET,参考_tiktok_ip,全球互联,no-resolve
+- RULE-SET,参考_twitter_ip,全球互联,no-resolve
+- RULE-SET,参考_meta,全球互联
+- RULE-SET,参考_facebook_ip,全球互联,no-resolve
+- RULE-SET,参考_line,全球互联
+- RULE-SET,Netflix域名__001,全球互联
+- RULE-SET,Netflix域名__002,全球互联
+- RULE-SET,参考_netflix_ip,全球互联,no-resolve
+- RULE-SET,参考_emby,全球互联
+- RULE-SET,参考_emos,全球互联
+- RULE-SET,参考_内联_038,全球互联
+- RULE-SET,参考_内联_039,全球互联
+- RULE-SET,参考_内联_040,全球互联
+- RULE-SET,参考_内联_041,全球互联
+- RULE-SET,参考_内联_042,全球互联
+- RULE-SET,参考_内联_043,全球互联
+- RULE-SET,参考_内联_044,全球互联
+- RULE-SET,参考_内联_045,全球互联
+- RULE-SET,参考_内联_046,全球互联
+- RULE-SET,参考_内联_047,全球互联
+- RULE-SET,参考_pikpak,全球互联
+- RULE-SET,Spotify域名,全球互联
+- RULE-SET,参考_spotify_ip,全球互联,no-resolve
+- RULE-SET,参考_cryptocurrency,全球互联
+- RULE-SET,参考_paypal,全球互联
+- RULE-SET,参考_patreon,全球互联
+- RULE-SET,参考_ehentai,全球互联
+- RULE-SET,参考_geolocation-!cn__001,全球互联
+- RULE-SET,参考_geolocation-!cn__002,全球互联
+- RULE-SET,参考_cn_ip,直连域名
+- RULE-SET,参考_private_ip,直连域名
 - RULE-SET,国际媒体__001,全球互联
 - RULE-SET,国际媒体__002,全球互联
 - RULE-SET,全局规则__001,全球互联

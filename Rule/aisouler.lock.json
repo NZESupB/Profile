@@ -1,0 +1,973 @@
+{
+  "version": 1,
+  "config": {
+    "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+    "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+  },
+  "commits": {
+    "AIsouler/MyClash": "071d4ec5764b4700d0c5de41797f20a8bdf6b6d8",
+    "appshubcc/bett-rules": "1f5661f8c7884de6d58bede0e4961c4aa5e83243",
+    "666OS/rules": "ab8496ff13599a75c9263714562bf439e7f71c52",
+    "binaryu/emos-proxy-rule": "c1adccf81dbf0f4fd31d695ceab955175b80c097"
+  },
+  "providers": {
+    "private": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/private.mrs",
+      "behavior": "domain",
+      "reuse": "private",
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/private.mrs",
+        "sha256": "df452ab1bfb572f366f00001fa4525f16f137dc670aed2c60af0100dc397d3ec",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/private.list",
+          "sha256": "db9b2da8d7e90f09e183dcde096f72adaacd8de21e0f09d364b413085ecb7b57"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/private.yaml",
+          "sha256": "9c76c093084df35f8f982ecfadfc7cd3208518d37750d4868e856d83578c5b98"
+        }
+      }
+    },
+    "private_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/private.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/private.mrs",
+        "sha256": "76bcc1ebe5c84aa54362441d924cf7396ddb279d2261d79034235e5ae68fd3e4",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/private.list",
+          "sha256": "06ae700eaba0fb7b812e699acf3e9fe8167344443ecc7fcfad0ca54c90ad100c"
+        }
+      }
+    },
+    "games_cn": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/category-games@cn.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/category-games@cn.mrs",
+        "sha256": "69277435faafabdc0836cf14901918302efff1f59b6eb107becc16931749c804",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/category-games@cn.list",
+          "sha256": "27de0be1d0611b373e10793077490b14dfc16631e41ff7e190d8d9ac1b3199d3"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/category-games@cn.yaml",
+          "sha256": "a97cba0c35b115a590a0368ccdc464ea6debed73d8a86a59a9b274800592ec6a"
+        }
+      }
+    },
+    "nvidia_cn": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/nvidia@cn.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/nvidia@cn.mrs",
+        "sha256": "2b2c93733c4d047e3280fc8063a4ab836fa563f3c3832080fb073e1243037c39",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/nvidia@cn.list",
+          "sha256": "b8cca8102ac2e070c32790cf5459d4a668e4d2be2e9c4f9ea934dcb71ec9837b"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/nvidia@cn.yaml",
+          "sha256": "b1406bdc6652bbcbe3621f90a8336b78019f6a4e4a77907e118df36201820c9a"
+        }
+      }
+    },
+    "apple_cn": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/apple@cn.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/apple@cn.mrs",
+        "sha256": "96af7945bb43bf91791b9f3ee4cf563177ec8146cc0b0d4c6521fbf6a066ac8e",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/apple@cn.list",
+          "sha256": "3aa9179b9baa9c15c23a89607525e9a46b1018a24c6f207029bb29d0f71085db"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/apple@cn.yaml",
+          "sha256": "86e7424935c008596a11b066f49ea30355f2ab3a78070799f1f9d13378585402"
+        }
+      }
+    },
+    "microsoft_cn": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/microsoft@cn.mrs",
+      "behavior": "domain",
+      "reuse": "microsoft@cn",
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/microsoft@cn.mrs",
+        "sha256": "ba61438136448454859e2eda5e1c0500a2415e6f794c4b0cdc35d2353b0bc009",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/microsoft@cn.list",
+          "sha256": "7e754a40cbc90f6d1746295d22dde827a36d5a18ebcfb3251ba34e512caa2986"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/microsoft@cn.yaml",
+          "sha256": "988308e7ee4c0f63f219125635c8644d63e7a55f1bfce1b500809bb3e1424572"
+        }
+      }
+    },
+    "geolocation-cn": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/geolocation-cn.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/geolocation-cn.mrs",
+        "sha256": "e9f1df7a9ebd3f484391baef95a61098ae620602bc4f8c396c8e6db0c2c7efff",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/geolocation-cn.list",
+          "sha256": "bfc4edc247f95338e42ca7e42fc23c2594086d6fa1e50cc524c55c3dbf2f23fa"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/geolocation-cn.yaml",
+          "sha256": "dfb87a22796d0989455d4ac1d47ac589642a1a336820b2c3f720fdfc2d8162f8"
+        }
+      }
+    },
+    "cn_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/cn.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/cn.mrs",
+        "sha256": "c1a292328e99f2746a7e5d6bd3aa51a3e8640de2696bb9d8f78609546f120f69",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/cn.list",
+          "sha256": "958cf6f81dcc2a5cfba8f944748b7404e8c0cf11bed30d392d5c37f906596c36"
+        }
+      }
+    },
+    "googlefcm": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/googlefcm.mrs",
+      "behavior": "domain",
+      "reuse": "googlefcm",
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/googlefcm.mrs",
+        "sha256": "7196a82539722cdaa8454f821a8ac903b9df89d6f25009667f0ffa083b006cd9",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/googlefcm.list",
+          "sha256": "ff576e511b10883408360734a909a90b7e99224d87b2a80db6e35ffd5d97934c"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/googlefcm.yaml",
+          "sha256": "03bd3e3729264987e36df9db0d15652de18e53d91eb308e0c25fd44dc0de36b0"
+        }
+      }
+    },
+    "youtube": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/youtube.mrs",
+      "behavior": "domain",
+      "reuse": "youtube",
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/youtube.mrs",
+        "sha256": "e212b2ce9f39b30f4e2ab57da9ed0937673606bc56bb46e5d55ad7dd9af00aef",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/youtube.list",
+          "sha256": "e95f241fa4357918fc1066390c352aad750b571ddea15e3421d30c84e947ac10"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/youtube.yaml",
+          "sha256": "c4e9bdb1ca911692a3887a950fe06cc09e3d525a4916ae78a9b5a2a9568d2ec1"
+        }
+      }
+    },
+    "google": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/google.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/google.mrs",
+        "sha256": "ad92420fecc12694f11af2ed86ddc5d233ec1350b1ae15e8d24959fda23bc200",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/google.list",
+          "sha256": "6468958957054b3924078c8c2966fb1d4a7c9c13d8db9f6785fe9a3faac12421"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/google.yaml",
+          "sha256": "fd3293ba84df9ab16251c03cf4d18401199ee92af4644e6ca1cfbb506dbe7222"
+        }
+      }
+    },
+    "google_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/google.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/google.mrs",
+        "sha256": "5d40d2de16782d5c9766ad89b590e67b68eac875f1f95b724416166f297a5d00",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/google.list",
+          "sha256": "8b4e355834cedb9a4de7c62ddacdf6627b150c8289281e35338fc709673474d7"
+        }
+      }
+    },
+    "ai": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/category-ai-!cn.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/category-ai-!cn.mrs",
+        "sha256": "43398e2370cdea651cbf1215ef1adecdcd7e4204210f258fe911784678874fef",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/category-ai-!cn.list",
+          "sha256": "fad78477d846b0c5b73163fff0efe067eb0a492d7e6a845fef69deac940d534c"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/category-ai-!cn.yaml",
+          "sha256": "70387a2dcdd9b9d2a366860b1a2f9abdfaaed6350d430f42daec1c0d1b00bf2c"
+        }
+      }
+    },
+    "github": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/github.mrs",
+      "behavior": "domain",
+      "reuse": "github",
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/github.mrs",
+        "sha256": "1ff37cbbd49e7962ac781014c400e2b292d09148c96791536b92c184837edf60",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/github.list",
+          "sha256": "58fad9a70ecb92de3b36ecf8fc63cab3839836e611c8a5dea58df4947cb2df0c"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/github.yaml",
+          "sha256": "d571b6cccc39417b153f6da8a247eb7fdb22b5ed80d5052dc7695f9d66a4e662"
+        }
+      }
+    },
+    "microsoft": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/microsoft.mrs",
+      "behavior": "domain",
+      "reuse": "microsoft",
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/microsoft.mrs",
+        "sha256": "7a5c1b3332662965931efdb2da22367315dfcf2c7bd399060412fe01a8cd00c1",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/microsoft.list",
+          "sha256": "e1ba1a681457f6341abe95954efe6c80ce3d4d9fbde3aed3734b344adaf0f89d"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/microsoft.yaml",
+          "sha256": "ad9d58884797af2286f80ff16eec9dc2c95f636fcd70c8199a5c06be0e2e7c8d"
+        }
+      }
+    },
+    "microsoft_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/microsoft.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/microsoft.mrs",
+        "sha256": "7d7481a6f8a18a9efeb7bb29925b04cfc913d7981c5777f8674449da80375c92",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/microsoft.list",
+          "sha256": "fe0900d95c43ec367341abc7c92a97028c22e5ea9d4aa8fe30be9ed291a5ff52"
+        }
+      }
+    },
+    "apple": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/apple.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/apple.mrs",
+        "sha256": "148852173430492d3543358da323c5117adca2c476408cc61b13fef818013882",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/apple.list",
+          "sha256": "e4899636cf39a8d6f20b9615faaa94f4e8728f1c41438006f1e64f412fd19248"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/apple.yaml",
+          "sha256": "99f7e1d24d8c4cedd61075aea13d942513d310f13bb486ba7a2d4a390dbad5ad"
+        }
+      }
+    },
+    "apple_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/apple.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/apple.mrs",
+        "sha256": "cbfa26ccde9b09d7162be9e3f38fe0ad3d0fdacdcc4df43b13ffc6ddd66f7cd4",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/apple.list",
+          "sha256": "e33a6ce9b3331d0d000b7e3523851d0c766e07bd7971125d676c96f06f6a08ca"
+        }
+      }
+    },
+    "telegram": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/telegram.mrs",
+      "behavior": "domain",
+      "reuse": "telegram",
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/telegram.mrs",
+        "sha256": "ffa4d1d3e8649965e529c1c570d8add75a0d6f70aa8503ece8add841ce48c0e7",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/telegram.list",
+          "sha256": "2448b2699519cd258b10232fcacd01e89b7db04c8ce7fc860a4962518370a329"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/telegram.yaml",
+          "sha256": "6c357c7799ad105074a318f6251d33901a1bfffd60051fa7e5fad73c04d0af4b"
+        }
+      }
+    },
+    "telegram_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/telegram.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/telegram.mrs",
+        "sha256": "a46940c553bbfa0ceeaf379ac0d97dde0372732ac2069acb55700fbcb68a912e",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/telegram.list",
+          "sha256": "c859fa95ee8e19a06c9776265c5c0391391258a3940ddc9c2bd829079148a25d"
+        }
+      }
+    },
+    "steam": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/steam.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/steam.mrs",
+        "sha256": "edfe30eb85f9e6b2b480b0a251bf4f72ace6a1b0d63aff584cb8f69698c7ee48",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/steam.list",
+          "sha256": "39d0906eee2be501771d2399a7890e2f22495d935f8e608bb1c3e3f2dc093c15"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/steam.yaml",
+          "sha256": "3a675fe06b47dedf8ca59bb8b953d745020a90ec6533a07f0c5353441aedb7a2"
+        }
+      }
+    },
+    "steam_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/steam.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/steam.mrs",
+        "sha256": "2eac080d757cbbaadd8cd8db94ea4df937e48e14dbf44d9f79f791342f835679",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/steam.list",
+          "sha256": "a8e99ae31d0f096501eb5e821191dc9bbaca3d38d88e2ad33a68b53e6b40c738"
+        }
+      }
+    },
+    "tiktok": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/tiktok.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/tiktok.mrs",
+        "sha256": "c6c2a01e6fa45f8086242ee2e197e75de3450080132e5bdf198624aced71fcd9",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/tiktok.list",
+          "sha256": "09edefc16d3913b24fa7d0d2bae1679e9be03b6f4e1d879e96d937a1d020e7db"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/tiktok.yaml",
+          "sha256": "61512676a2cf5f79b5e69fac594bbc87ff0277f74c8af6e3e921a1d667c4c16a"
+        }
+      }
+    },
+    "tiktok_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/tiktok.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/tiktok.mrs",
+        "sha256": "aab1537acf0379f4673e42cdd11150aa41ba610c37043ee2b1ae5a5adfbb488c",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/tiktok.list",
+          "sha256": "956167f48395d433e7048ba9ea2972406c505f30e911958fe64e6288d4577de0"
+        }
+      }
+    },
+    "twitter": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/twitter.mrs",
+      "behavior": "domain",
+      "reuse": "twitter",
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/twitter.mrs",
+        "sha256": "b287eac1d2a97da62e17cffddf55e0296665a289a41fba774fdba7397e6ea3f7",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/twitter.list",
+          "sha256": "7bc17d19d2fa089b36993e56275eb0eb7355963f3e90a711364086442fd369c0"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/twitter.yaml",
+          "sha256": "3c9277372816fc5fe4dc79a3a72465af12efd84a6d328f52ee7ff4b400bf6db4"
+        }
+      }
+    },
+    "twitter_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/twitter.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/twitter.mrs",
+        "sha256": "db80078a725eba2341db2c562f5585effdc2d4fd8927dcb2106c606c1276a39b",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/twitter.list",
+          "sha256": "6cf805c7c0781a348ed5320f4af70b8a7ee2cd20735b4c8cd98ad5240174025c"
+        }
+      }
+    },
+    "meta": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/meta.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/meta.mrs",
+        "sha256": "7a347ed588a6cf00c28dde246733d9c217283177a575c4d2534ab7538bdf1143",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/meta.list",
+          "sha256": "c533060957700c83901ebf8ed7ae2b437a577fe3e6b30dcb4daebe8a5ff8c27f"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/meta.yaml",
+          "sha256": "62ab92fe0fd7d7a44a4ea9a4badead0ceffdb918d0a5b1477e188089fdadb697"
+        }
+      }
+    },
+    "facebook_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/facebook.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/facebook.mrs",
+        "sha256": "bbd32c8ab76fffdc509547bc3d51fe4ca116347cfe118a012912b05d2e647307",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/facebook.list",
+          "sha256": "87713d1d772076c9fbb130210d1ab318d6c07a5aa3f0f39b6952803d45baefc1"
+        }
+      }
+    },
+    "line": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/line.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/line.mrs",
+        "sha256": "cb553fec05e5d082ce502db4d518b594ea66eb481e0db31905ce395ebee640e4",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/line.list",
+          "sha256": "d186050204edc162d7f460ec76083f37e6b80131a143eb0f639fa0a219d43361"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/line.yaml",
+          "sha256": "6d0e476fbc627090c570ab7fb69a2ca712e4155b8a44524a5a1689695bb9c1e3"
+        }
+      }
+    },
+    "netflix": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/netflix.mrs",
+      "behavior": "domain",
+      "reuse": "netflix",
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/netflix.mrs",
+        "sha256": "daecea060b67af1c82fe9624e7a164f59d16be6ee4d61257526e0be0e9a5b57c",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/netflix.list",
+          "sha256": "aa3e83152b51840332440177399fcae048733419f4dde7a65383757beedf369a"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/netflix.yaml",
+          "sha256": "36cc87b646ac7a17719a47094a21c840ec941625c4763a21d582db62d0bcaf4b"
+        }
+      }
+    },
+    "netflix_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/netflix.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/netflix.mrs",
+        "sha256": "b44f1aec75c42518743eefa5264ee8a553dac17d7214794d90f8e41fbc0e45f7",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/netflix.list",
+          "sha256": "f7ec887b1cfcef15b1bd93b77e1b90ce8f60df2f7dca3a535b38de873f0bde83"
+        }
+      }
+    },
+    "emby": {
+      "original_url": "https://cdn.jsdmirror.com/gh/666OS/rules@release/mihomo/domain/Emby.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/666OS/rules/ab8496ff13599a75c9263714562bf439e7f71c52/mihomo/domain/Emby.mrs",
+        "sha256": "ee502421f3f8fdb2e4f73fe2c90419efdb610fc841d0dd9b646eb7006e796608",
+        "text": {
+          "url": "https://raw.githubusercontent.com/666OS/rules/ab8496ff13599a75c9263714562bf439e7f71c52/mihomo/domain/Emby.txt",
+          "sha256": "104d41ae1359df835ef5c29f7d9e9dda6110526121c2e98f4f358784ee69909f"
+        }
+      }
+    },
+    "emos": {
+      "original_url": "https://cdn.jsdmirror.com/gh/binaryu/emos-proxy-rule@main/rules/emos-mihomo.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/binaryu/emos-proxy-rule/c1adccf81dbf0f4fd31d695ceab955175b80c097/rules/emos-mihomo.mrs",
+        "sha256": "50f5530146aeee0324e848193cbd4b3361f17a4390984d91cec4eb122a7b1134",
+        "text": {
+          "sha256": "bdfdf96c5b9c1956e1629d8302aaddeb477154413668daed9e92f1b9cf404bfd",
+          "snapshot": "snapshots/aisouler/emos.txt",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/binaryu/emos-proxy-rule/c1adccf81dbf0f4fd31d695ceab955175b80c097/rules/emos-mihomo-domain.yaml",
+            "sha256": "ccda50a0e03d55a6567a7a87b5b7e603759ff0354fd9c6a5443a109768241aab"
+          }
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/binaryu/emos-proxy-rule/c1adccf81dbf0f4fd31d695ceab955175b80c097/rules/emos-mihomo.yaml",
+          "sha256": "0437914cc2a2cced0c6524fbd50b0c368598e456b6b91ec90c5be884e5890963"
+        }
+      }
+    },
+    "pikpak": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/pikpak.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/pikpak.mrs",
+        "sha256": "1d985bb9ac2e7071e825138500294570b125a0163377bb8604920ab60c9c8e58",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/pikpak.list",
+          "sha256": "a0ad3b0278f3b720e37133d0641c634549b785e1264a5d5f740defdf5c487b21"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/pikpak.yaml",
+          "sha256": "f21b2e8e45c041b7bb2208208f49bf6a77e4baa62b13c7517c34adeaf5d86c32"
+        }
+      }
+    },
+    "spotify": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/spotify.mrs",
+      "behavior": "domain",
+      "reuse": "spotify",
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/spotify.mrs",
+        "sha256": "a13485a346bf4add7f8d3859453b11c9a03f34e1bf047c991f13dbe57c2a7e3f",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/spotify.list",
+          "sha256": "cc8ae18677b29c1b741ab47332f3696defe9b059d9a9a8763d7bcb5e28a53076"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/spotify.yaml",
+          "sha256": "953218339ddc9f186532b45db406f45750a317ae8867b58f075ebd21272c1ebe"
+        }
+      }
+    },
+    "spotify_ip": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geoip/spotify.mrs",
+      "behavior": "ipcidr",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/spotify.mrs",
+        "sha256": "a4fde5b8a11a64dc9a12c2384d1d92e6b18a85847cabba982a2d83dce5b9d641",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geoip/spotify.list",
+          "sha256": "6060e0611ac68c3a4a70d8532c25d34515dbc65c91e9bd546f92691f29c396dd"
+        }
+      }
+    },
+    "cryptocurrency": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/category-cryptocurrency.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/category-cryptocurrency.mrs",
+        "sha256": "1eeafd495342499595b7bc51d66cb624e8ff9a718688165201218189bced5cd9",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/category-cryptocurrency.list",
+          "sha256": "54b51c3225cf766b8a62fc9482811b4def3bd3cce5f1dbe43071558dabca46e9"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/category-cryptocurrency.yaml",
+          "sha256": "56f986f00587d65f8647579c389d3b893bcedb048442241121e1fd0df9d7f770"
+        }
+      }
+    },
+    "paypal": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/paypal.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/paypal.mrs",
+        "sha256": "280ee39cc3a7ce846b01818d0f2d07d847c19d70af23459de4c04fb6c89bf908",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/paypal.list",
+          "sha256": "ceff7120641d50e10bb1dafa2578459db50a7511d28df1176322a9730c1ccda2"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/paypal.yaml",
+          "sha256": "c3e9aa8b06072d46a164595ec29b30931447fe8eb08508ae659cf2006caa7249"
+        }
+      }
+    },
+    "patreon": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/patreon.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/patreon.mrs",
+        "sha256": "543458dbc61e075919c25038df85bc06bb2d26891c8b224f13a9132d0cd3e493",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/patreon.list",
+          "sha256": "167a9b2d07c30d79e55c4dddeb69edb339a78ba8d7375c75435f0931e8fa09fd"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/patreon.yaml",
+          "sha256": "f43fbee5b24ec8fd8f028edfc9e08c4c9872f048a5ebea3345da594037355cb0"
+        }
+      }
+    },
+    "ehentai": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/ehentai.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/ehentai.mrs",
+        "sha256": "e3f1f6972bd5afc4defb2708adf4c85aaa71eea789ae2cb90f751ae409988d88",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/ehentai.list",
+          "sha256": "b0465da3d078db69bef733acbfd6a81ba5eb527b281ab45dfc93fab02e956e0e"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/ehentai.yaml",
+          "sha256": "f7d463f6db4028c70fe812612d9fa386ce40014ccf3e67f60c64ad14d1f55d44"
+        }
+      }
+    },
+    "geolocation-!cn": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/geolocation-!cn.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/geolocation-!cn.mrs",
+        "sha256": "8306f7d15edc4d709f1fdfdcd012c12c3bbf01bce9cf4957f49ce8466506cc93",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/geolocation-!cn.list",
+          "sha256": "dd1a1997bab90b194148dd63b69f7fd98f5dc5cf8753bb0f4586d4d270d95f78"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/geolocation-!cn.yaml",
+          "sha256": "9816c99a8a3c04e96b130d2429dad413e7f5063b7ee1fd5931425c7ab3a027d0"
+        }
+      }
+    },
+    "category-ads": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/category-ads.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/category-ads.mrs",
+        "sha256": "32f9098d1b6fdca518d5019846fcac9950f189ded95d580f7eb0688afec46e27",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/category-ads.list",
+          "sha256": "77184544a2ca2d299137e859790b916b13481e1fb78dba566e27225beb06502b"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/category-ads.yaml",
+          "sha256": "3e683b7eaa71684472140addfd195110e2b9e16c4682fff9a4e23e7bfd02dfec"
+        }
+      }
+    },
+    "fakeip_filter": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/fakeip-filter.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/fakeip-filter.mrs",
+        "sha256": "9c208ea60b8cc13ef79867ed5010f9ebebd0505bc97e3cd983283ace9c583179",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/fakeip-filter.list",
+          "sha256": "7afd7d46a11b04e915183f14e9109f2a2d160fe37971049dda62e4bfbb64746c"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/fakeip-filter.yaml",
+          "sha256": "846590ceb9ba30cd160089b3bf379d6a16c7f6e38b0fcea2a975457f1cf70847"
+        }
+      }
+    },
+    "cn_additional": {
+      "original_url": "https://static-file-global.353355.xyz/rules/cn-additional-list.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://static-file-global.353355.xyz/rules/cn-additional-list.mrs",
+        "sha256": "f19b8a58a9fa30647158a79fdecfdde9a4aa66737120b27b065e57663f2265d2",
+        "snapshot": "snapshots/aisouler/cn_additional.mrs",
+        "text": {
+          "sha256": "498142b61b436d44a85c491e9dfa3d69587a43db6866d1749efc28ab0491dbbd",
+          "snapshot": "snapshots/aisouler/cn_additional.txt",
+          "derived_from_mrs_sha256": "f19b8a58a9fa30647158a79fdecfdde9a4aa66737120b27b065e57663f2265d2"
+        }
+      }
+    },
+    "cn": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/cn.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/cn.mrs",
+        "sha256": "56ff3885c876c274f5fdfc568bf1b92e688f8b2ae63cf5098c30a13d97756bbf",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/cn.list",
+          "sha256": "dbb5d1e38ae6c45e39e706f7948d8ee7b8d82803bb24a7f04f7f8f8eabe94d33"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/cn.yaml",
+          "sha256": "efdcb351416064b5873390e6a8b2c8f6470b376d1ba54192b1cb99b96c5ab4a7"
+        }
+      }
+    },
+    "douyin": {
+      "original_url": "https://cdn.jsdmirror.com/gh/appshubcc/bett-rules@meta/geo/geosite/douyin.mrs",
+      "behavior": "domain",
+      "reuse": null,
+      "entry": {
+        "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/douyin.mrs",
+        "sha256": "6b226d6f237ade66549c9b2b613a238ba62bf1f1857f2804f4297d19418be222",
+        "text": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/douyin.list",
+          "sha256": "b3cf1b6906d1f45454599955e681d4980d7434411f1d976d37550eefb6c9066d"
+        },
+        "classical": {
+          "url": "https://raw.githubusercontent.com/appshubcc/bett-rules/1f5661f8c7884de6d58bede0e4961c4aa5e83243/geo/geosite/classical/douyin.yaml",
+          "sha256": "05adddd7142fb4238054a40c78ad3955e10bae77c09f7d6a4531ca8893871759"
+        }
+      }
+    }
+  },
+  "inline": {
+    "aisouler-inline-001": {
+      "position": 1,
+      "route": "DOMAIN,cdn.jsdmirror.com,直连",
+      "provider": "参考_内联_001",
+      "behavior": "domain",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-001.txt",
+          "sha256": "b704b2162a52ada64f029e86624ce2a08b58639a5c2a7adac46f855771148d82",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-008": {
+      "position": 8,
+      "route": "DOMAIN,fsend.cn,直连",
+      "provider": "参考_内联_008",
+      "behavior": "domain",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-008.txt",
+          "sha256": "133f956a1860be9d70d127626529c98cd3dcba3c4d343c7614373bd5d9c98e5a",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-009": {
+      "position": 9,
+      "route": "DOMAIN,international-gfe.download.nvidia.com,直连",
+      "provider": "参考_内联_009",
+      "behavior": "domain",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-009.txt",
+          "sha256": "6a317713ef0ee2cf9943edfa7d5ce70b25e8762f69b5b5496c4fc9dd52b46afa",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-010": {
+      "position": 10,
+      "route": "DOMAIN-SUFFIX,ctaiot.com,直连",
+      "provider": "参考_内联_010",
+      "behavior": "domain",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-010.txt",
+          "sha256": "50c0f0a53d54df200ab0f9d8bb089ea750a0eb0f8f6e780d48805abe1073afcc",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-038": {
+      "position": 38,
+      "route": "DOMAIN-SUFFIX,mb3admin.com,Emby",
+      "provider": "参考_内联_038",
+      "behavior": "domain",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-038.txt",
+          "sha256": "61119bfe50a61fe7fed79d1b17015020c300bab83919f25ed3bb0093e3f14252",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-039": {
+      "position": 39,
+      "route": "DOMAIN-SUFFIX,nubebelle.com,Emby",
+      "provider": "参考_内联_039",
+      "behavior": "domain",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-039.txt",
+          "sha256": "f7115b80bba281639799e91d13fb0d31cbf89e10a92a903c0c0994914283764a",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-040": {
+      "position": 40,
+      "route": "DOMAIN-KEYWORD,emby,Emby",
+      "provider": "参考_内联_040",
+      "behavior": "classical",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-040.txt",
+          "sha256": "2c17dcfc4c19c39705bfd284076c0646b44763a9cf819cfd737313e09ba46f20",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-041": {
+      "position": 41,
+      "route": "PROCESS-NAME,com.mb.android,Emby",
+      "provider": "参考_内联_041",
+      "behavior": "classical",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-041.txt",
+          "sha256": "c46d5ad01cf94cf2d64b881b61c4771bbc364e11805c18b961e15501fb42dab8",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-042": {
+      "position": 42,
+      "route": "PROCESS-NAME,tv.emby.embyatv,Emby",
+      "provider": "参考_内联_042",
+      "behavior": "classical",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-042.txt",
+          "sha256": "1775c2477983997ec2e506c1b68ffe2598cf528b17125c5277dd6e2bf3a23162",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-043": {
+      "position": 43,
+      "route": "PROCESS-NAME,com.hush.yamby,Emby",
+      "provider": "参考_内联_043",
+      "behavior": "classical",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-043.txt",
+          "sha256": "1cd636a8814e2849e96dd80ee8a1196dcbb79f45be0577788dedf637a65df0e8",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-044": {
+      "position": 44,
+      "route": "PROCESS-NAME,com.jellycine.app,Emby",
+      "provider": "参考_内联_044",
+      "behavior": "classical",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-044.txt",
+          "sha256": "5b2931e730f84d0793352bce46538836e855105dcdad7b6c867b66ed0a1ecb25",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-045": {
+      "position": 45,
+      "route": "PROCESS-NAME,com.mountains.hills,Emby",
+      "provider": "参考_内联_045",
+      "behavior": "classical",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-045.txt",
+          "sha256": "1e6731f8a93745d419906f5d3fd89e3a4112e5e3fda4f87451a44d5e2b2f9c95",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-046": {
+      "position": 46,
+      "route": "PROCESS-NAME,RodelPlayer.App.exe,Emby",
+      "provider": "参考_内联_046",
+      "behavior": "classical",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-046.txt",
+          "sha256": "dbf10a9c7183a877d8f4c0f39a9bc511ad63ee0b60b344a784a158558a341d65",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    },
+    "aisouler-inline-047": {
+      "position": 47,
+      "route": "PROCESS-NAME,com.feifeiduck.capyplayer,Emby",
+      "provider": "参考_内联_047",
+      "behavior": "classical",
+      "entry": {
+        "text": {
+          "snapshot": "snapshots/aisouler/aisouler-inline-047.txt",
+          "sha256": "ddc6ec31f48886ed00ebfed0199fd83e8b56ea90ed085a69d3203311da142cc4",
+          "derived_from": {
+            "url": "https://raw.githubusercontent.com/AIsouler/MyClash/071d4ec5764b4700d0c5de41797f20a8bdf6b6d8/Config/mihomoConfig.yaml",
+            "sha256": "0d9b0eec1dc64cd1c903c537ccd85ef2180368a00d21f404f33604396a98dfa8"
+          }
+        }
+      }
+    }
+  }
+}

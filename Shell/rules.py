@@ -30,6 +30,7 @@ from rule_formats import (
     split_fields,
 )
 from rule_sources import read_local_source
+from rule_reference import integrate_reference
 from rule_templates import logical_config, mrs_config, render_template, template_payload
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -419,6 +420,24 @@ def prepare(args):
     lock = json.loads(args.lock.read_text(encoding="utf-8"))
     if spec.get("version") != 1 or lock.get("version") != 1:
         raise RuleError("不支持的构建清单或锁文件版本")
+    reference_inputs, reference_report = {}, None
+    if spec.get("reference"):
+        reference_path = contained_file(args.manifest.parent, spec["reference"]["lock"])
+        reference = json.loads(reference_path.read_text(encoding="utf-8"))
+        reference_raw = snapshot(
+            reference["config"], args.cache, args.offline, args.manifest.parent
+        )
+        reference_config = yaml.load(reference_raw, Loader=UniqueLoader)
+        spec, lock, reference_report = integrate_reference(
+            spec, lock, reference, reference_config
+        )
+        reference_inputs = {
+            "Rule/"
+            + reference_path.relative_to(args.manifest.parent).as_posix(): sha256(
+                reference_path.read_bytes()
+            ),
+            "reference/config": sha256(reference_raw),
+        }
     config = logical_config(config, spec)
     validate_config(config)
     actual = {p.name for p in args.rules_dir.glob("*.list")}
@@ -441,6 +460,9 @@ def prepare(args):
         {"removed": [], "retained_overlap": [], "excluded": [], "files": {}},
         {},
     )
+    inputs.update(reference_inputs)
+    if reference_report:
+        report["reference"] = reference_report
     for filename, item in spec["local"].items():
         path = args.rules_dir / filename
         raw, locations, files = read_local_source(
@@ -528,7 +550,20 @@ def prepare(args):
                 inputs["expansion/" + key] = sha256(cidr_raw)
             raw = ("\n".join(expanded) + "\n").encode()
         excluded = []
-        if behavior == "classical":
+        dns_only = item.get("dns_only", False)
+        if dns_only:
+            if behavior != "domain" or item["format"] != "mrs":
+                raise RuleError("DNS 专用来源必须是 domain MRS")
+            # DNS 模式不是普通路由域名；保留原始 MRS/text，不参与路由覆盖与导出。
+            lines = [
+                line
+                for line in raw.decode("utf-8-sig").splitlines()
+                if line.strip() and not line.lstrip().startswith("#")
+            ]
+            if not lines:
+                raise RuleError("DNS 专用来源为空")
+            rules = []
+        elif behavior == "classical":
             entries = classical_lines(raw, behavior, fmt)
             exclusions = {
                 line: "Mihomo 不支持 USER-AGENT；支持该规则的客户端继续导出"
@@ -546,7 +581,7 @@ def prepare(args):
             )
         native_rules = list(rules)
         supplements = []
-        if behavior != "classical" and entry.get("classical"):
+        if not dns_only and behavior != "classical" and entry.get("classical"):
             full_raw = snapshot(
                 entry["classical"], args.cache, args.offline, args.lock.parent
             )
@@ -574,9 +609,10 @@ def prepare(args):
             "provider": item["provider"],
             "rules": rules,
             "local": False,
+            "dns_only": dns_only,
             "native_rules": native_rules,
             "supplements": supplements,
-            "native_count": len(native_rules),
+            "native_count": len(lines) if dns_only else len(native_rules),
             "export_lines": (
                 [
                     text
@@ -593,6 +629,12 @@ def prepare(args):
     if declared != set(config.get("rule-providers") or {}):
         raise RuleError("模板 rule-providers 与构建清单不一致")
     routes = config.get("rules") or []
+    route_refs = set(re.findall(r"(?:^|\()RULE-SET,([^,()]+)", "\n".join(routes), re.M))
+    if any(
+        source.get("dns_only") and source["provider"] in route_refs
+        for source in sources.values()
+    ):
+        raise RuleError("DNS 专用来源不能用于路由")
     references = {}
     nested = {
         name
@@ -731,7 +773,9 @@ def run_core(core: str, args: list[str], timeout=30) -> str:
 def domain_set(lines):
     exact, suffix = set(), set()
     for line in lines:
-        line = line.strip()
+        line = line.strip().lower()
+        if not line or line.startswith(("#", ";", "//")):
+            continue
         if line.startswith("+."):
             exact.add(line[2:])
             suffix.add(line[2:])
@@ -891,11 +935,12 @@ def build_into(args, root: Path, prepared, core: str):
             key = name.split("/")[-1]
             raw, spec = upstream_records[key]
             # 含 ASN 展开的净化来源可独立公开，不再触发 Geodata 下载。
-            source_path = root / "rules/source" / (name.replace("/", "-") + ".list")
-            source_path.parent.mkdir(parents=True, exist_ok=True)
-            source_path.write_text(
-                "\n".join(r.text for r in source["rules"]) + "\n", encoding="utf-8"
-            )
+            if not source.get("dns_only"):
+                source_path = root / "rules/source" / (name.replace("/", "-") + ".list")
+                source_path.parent.mkdir(parents=True, exist_ok=True)
+                source_path.write_text(
+                    "\n".join(r.text for r in source["rules"]) + "\n", encoding="utf-8"
+                )
             if spec["format"] == "mrs":
                 behavior = spec["behavior"]
                 text_path = Path("rules/upstream") / f"{key}.{behavior}.txt"
@@ -997,6 +1042,8 @@ def build_into(args, root: Path, prepared, core: str):
     (root / "mihomo.yaml").write_text(
         yaml.safe_dump(online, allow_unicode=True, sort_keys=False), encoding="utf-8"
     )
+    if report.get("reference"):
+        save_json(root / "reference.json", report["reference"])
     save_json(root / "audit.json", report)
     save_json(root / "upstreams.lock.json", lock)
     (root / ".rules-build").write_text("Profile Mihomo build v1\n", encoding="utf-8")

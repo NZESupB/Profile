@@ -3,6 +3,57 @@ version: 1
 publish_base: https://raw.githubusercontent.com/NZESupB/Profile/rules
 # 公开 GitHub 文件下载使用 ghproxy URL 前缀，保留原始来源与 SHA-256。
 github_proxy: https://gh-proxy.com/
+# 参考规则在个人优先规则之后、综合兜底之前展开，来源逐项锁定。
+reference:
+  lock: aisouler.lock.json
+  dns_only: [fakeip_filter]
+  before: RULE-SET,国际媒体,全球互联
+  policies:
+    直连: 直连域名
+    REJECT: REJECT
+    AdBlock: 广告拦截
+    FCM: DIRECT
+    YouTube: 全球互联
+    Google: 全球互联
+    AI: 🇺🇸 美国
+    GitHub: 全球互联
+    Microsoft: 测速下载
+    Apple: 测速下载
+    Telegram: TelegramDC5
+    Steam: 游戏娱乐
+    TikTok: 全球互联
+    Twitter: 全球互联
+    Meta: 全球互联
+    Line: 全球互联
+    Netflix: 全球互联
+    Emby: 全球互联
+    PikPak: 全球互联
+    Spotify: 全球互联
+    Crypto: 全球互联
+    PayPal: 全球互联
+    Patreon: 全球互联
+    EHentai: 全球互联
+    默认代理: 全球互联
+    漏网之鱼: 漏网之鱼
+  dns_policy_reuse:
+    'rule-set:private': 'rule-set:国内域名,私有域名'
+    'rule-set:cn': 'rule-set:国内域名,私有域名'
+# 内联来源保留参考配置的一基路由序号，禁止跨位置合并。
+inline:
+  aisouler-inline-001: {provider: 参考_内联_001, route: 'DOMAIN,cdn.jsdmirror.com,直连'}
+  aisouler-inline-008: {provider: 参考_内联_008, route: 'DOMAIN,fsend.cn,直连'}
+  aisouler-inline-009: {provider: 参考_内联_009, route: 'DOMAIN,international-gfe.download.nvidia.com,直连'}
+  aisouler-inline-010: {provider: 参考_内联_010, route: 'DOMAIN-SUFFIX,ctaiot.com,直连'}
+  aisouler-inline-038: {provider: 参考_内联_038, route: 'DOMAIN-SUFFIX,mb3admin.com,Emby'}
+  aisouler-inline-039: {provider: 参考_内联_039, route: 'DOMAIN-SUFFIX,nubebelle.com,Emby'}
+  aisouler-inline-040: {provider: 参考_内联_040, route: 'DOMAIN-KEYWORD,emby,Emby'}
+  aisouler-inline-041: {provider: 参考_内联_041, route: 'PROCESS-NAME,com.mb.android,Emby'}
+  aisouler-inline-042: {provider: 参考_内联_042, route: 'PROCESS-NAME,tv.emby.embyatv,Emby'}
+  aisouler-inline-043: {provider: 参考_内联_043, route: 'PROCESS-NAME,com.hush.yamby,Emby'}
+  aisouler-inline-044: {provider: 参考_内联_044, route: 'PROCESS-NAME,com.jellycine.app,Emby'}
+  aisouler-inline-045: {provider: 参考_内联_045, route: 'PROCESS-NAME,com.mountains.hills,Emby'}
+  aisouler-inline-046: {provider: 参考_内联_046, route: 'PROCESS-NAME,RodelPlayer.App.exe,Emby'}
+  aisouler-inline-047: {provider: 参考_内联_047, route: 'PROCESS-NAME,com.feifeiduck.capyplayer,Emby'}
 local:
   Daily.list: {provider: 轻量浏览, classical: classical/Daily.list}
   Direct.list: {provider: 其他直连}

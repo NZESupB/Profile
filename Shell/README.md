@@ -10,9 +10,19 @@
 
 公开模板的控制器监听改为 `127.0.0.1:9999`，`secret` 留空。`Kitony`、`Home_Proxy` 使用明确命名的直连占位，保证缺少订阅时可以解析；它们不提供代理连接。使用前在本机替换为真实订阅，并在区域组中选择实际节点。家庭组仅使用 `Home_Proxy`，不在真实家庭节点前插入永久直连项。
 
-模板的 domain/ipcidr provider 全部使用 MRS；关键词、正则、进程等不支持 MRS 的条件使用独立 classical/text 分片。全部规则地址指向 `rules` 分支，首次默认分支发布前不能远程获取；下载 Actions 运行包后，`config.yaml` 使用同包文件，`mihomo.yaml` 使用远程文件。
+模板的 domain/ipcidr provider 全部使用 MRS；关键词、正则、进程等不支持 MRS 的条件使用独立 classical/text 分片。全部规则地址指向 `rules` 分支，首次发布前不能远程获取；下载 Actions 运行包后，`config.yaml` 使用同包文件，`mihomo.yaml` 使用远程文件。
 
 `Rule/build.yaml` 的 `github_proxy: https://gh-proxy.com/` 控制公开 GitHub 文件的 URL 反代前缀；模板、图标、生成配置和客户端引用均使用该前缀。Actions 内核下载、锁定规则源及单 URL 导入也由公共下载函数添加前缀。`proxy: DIRECT` 表示连接 ghproxy 站点，不改变业务策略或路由顺序。锁文件保留原始 URL 与 SHA-256；修改前缀时同步模板图标、面板等静态 URL，再更新模板引用。认证 Git remote 和发布推送保持原生机制。
+
+## AIsouler 来源融合
+
+`Rule/aisouler.lock.json` 锁定 AIsouler 配置与其实际引用来源。构建器按 `build.yaml.reference` 映射全部 46 个 provider、58 条参考路由及 7 项 DNS 引用：当前 10 个来源以相同二进制/classical 哈希证明复用，36 个独立接入；新增 51 条路由，6 条复用原规则，MATCH 复用原最终策略。原 42 条逻辑路由的相对顺序不变，参考规则插入个人规则之后、综合媒体和全局规则之前。因此沿用个人优先策略，并非替换成参考配置的所有优先级。
+
+AI 映射到美国，Steam 到游戏娱乐，Apple/Microsoft 到测速下载，Telegram 到 TelegramDC5，其他海外服务到全球互联。参考中的国内/私有域名 DNS 接入现有国内解析器，抖音保留专用解析器；fake-IP 引用全部接入。`fakeip_filter` 含 DNS 特殊模式，保留原始 MRS/text、禁止用于路由、不导出为其他客户端的分流规则，并写入能力差异报告。
+
+14 条参考内联规则逐条保存来源序号和文本快照，并在 `build.yaml.inline` 显式声明：6 条域名编译为 MRS，8 条关键词/进程使用 classical/text；在原插入位置替换为 RULE-SET，保留策略及 no-resolve。锁定文本必须与固定配置去掉策略后的规则完全一致，不能跨位置合并。原个人逻辑路由中的家庭网段和个人域名内联条件保持原样。
+
+构建输出 `reference.json` 逐项记录来源、内联规则、路由与 DNS 去向，漏 provider、漏策略映射、内联派生哈希不符、失效插入位置或 DNS 源误接路由均失败。来源升级使用 `Shell/update_aisouler.py`，显式提供配置、bett-rules、Emby、Emos 的完整提交 SHA、缓存路径和 Mihomo 回读路径；该工具仅下载/回读，不编译。可变的 `cn_additional` 保存已下载 MRS 与同版回读文本快照，Emos YAML 配套文本转换也记录原始哈希。升级后核对 `build.yaml.inline` 声明，再执行文本验证及模板更新。
 
 ## 本地环境与文本验证
 
@@ -77,9 +87,13 @@ SHA-256 校验只约束本次下载。普通 HTTP provider 后续由内核更新
 
 工作流为 `.github/workflows/build-rules.yml`，名称「构建并同步代理规则」。规则、脚本、新模板或工作流变动的 push/PR 触发检查，也支持手动运行。
 
-工作流使用固定 Mihomo v1.19.33 及归档 SHA-256，依赖版本见 `requirements-rules.txt`。它审计来源、编译分片、回读 MRS 比较匹配集合、执行 `mihomo -t` 和 provider 实际加载，核对完整模板的 168 个 provider、格式和地址，验证单 URL domain/ipcidr 接入，再离线重建比较清单。
+工作流使用固定 Mihomo v1.19.33 及归档 SHA-256，依赖版本见 `requirements-rules.txt`。它审计来源、编译分片、回读 MRS 比较匹配集合、执行 `mihomo -t` 和 provider 实际加载，核对完整模板的全部 provider、格式和地址，验证单 URL domain/ipcidr 接入，再离线重建比较清单。当前融合版本输出 163 MRS + 61 classical，共 224 个 provider。
 
-每次成功运行上传 `mihomo-rules-<提交SHA>` artifact。**只有默认分支的非 PR 构建成功后**，独立 publish job 才以 `contents: write` 将已验证的公开产物同步到 `rules` 分支；功能分支只验证和上传。发布保留 `rules` 分支历史，不合并业务分支，不发布 release。
+每次成功运行上传 `mihomo-rules-<提交SHA>` artifact。默认分支非 PR 构建成功后自动发布；功能分支普通 push/PR 只验证和上传，手动运行时显式设置 `publish_rules=true` 才发布。独立 publish job 使用 `contents: write` 将已验证产物同步到 `rules` 分支，不合并 main。发布后实际下载完整远程配置和全部 MRS/classical URL，与 manifest 哈希比对；404、旧缓存或下载失败都会让发布检查失败，并上传 `public-rules-check-<SHA>` 报告。CI 可达不等于中国大陆可达。
+
+```bash
+gh workflow run build-rules.yml --ref <来源分支> -f publish_rules=true
+```
 
 ```bash
 gh run list --workflow build-rules.yml
@@ -103,6 +117,7 @@ tar -xzf artifacts/mihomo-rules.tar.gz -C artifacts
 | `clients/quantumultx/rules.conf`、`routes.list` | Quantumult X 合并远程规则及 final 本地规则 |
 | `clients/report.json` | 无法等价转换的规则、原因及需要建立的策略名 |
 | `audit.json`、`manifest.json`、`upstreams.lock.json` | 覆盖证明、输入/产物哈希与来源锁定 |
+| `reference.json` | AIsouler 全部来源、路由、DNS 引用及策略映射的逐项结果 |
 
 Actions 的 `mode: mrs` 使用 MRS 与 classical 混合 provider；文本构建中的远程配置仍引用文本，不是正式 MRS 产物。两种包均不包含 `.dat`、`.mmdb`，运行配置不含 GEOSITE、GEOIP 或 IP-ASN 依赖。
 

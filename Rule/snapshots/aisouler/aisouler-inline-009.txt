@@ -1,0 +1,1 @@
+DOMAIN,international-gfe.download.nvidia.com

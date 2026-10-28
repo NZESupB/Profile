@@ -1,6 +1,6 @@
 # 统一 Mihomo MRS 配置与构建
 
-`Template/Meta.yaml` 是唯一的完整部署模板。域名/IP 规则统一使用 MRS，MRS 不支持的关键词、正则、进程等条件独立使用 classical/text 文件。配置沿用 AIsouler/MyClash 的独立规则集组织思路，并保留本仓库全部个人业务分流。
+`Template/Meta.yaml` 是唯一的完整部署模板。域名/IP provider 统一使用 MRS，MRS 不支持的关键词、正则、进程等条件使用 classical/text。AIsouler/MyClash 的实际来源、全部路由和 DNS 引用通过锁文件接入，保留本仓库个人规则的优先顺序。
 
 ## 文件职责
 
@@ -13,6 +13,8 @@
 | `../Rule/upstreams.lock.json` | 固定上游提交、SHA-256、同版文本及 classical 补充 |
 | `rules.py`、`rule_sources.py`、`rule_templates.py` | 顺序恢复、审计、分片、模板生成与验证 |
 | `../.github/workflows/build-rules.yml` | 正式编译、回读、加载、打包和独立分支发布 |
+
+`Rule/aisouler.lock.json` 锁定参考配置及 46 个 provider 的实际来源；10 个以同版哈希复用现有来源，36 个新增。58 条参考路由中 51 条插入原个人规则之后、综合兜底之前，6 条复用原路由，MATCH 复用原最终策略；不是完整替换参考配置的原优先级。新增路由中的 14 条内联条件逐条保留原序号和派生快照，6 条域名进入 MRS，8 条关键词/进程进入 classical。7 项 DNS 引用均纳入，其中私有/国内解析器保留本仓库设置。逐项结果见产物 `reference.json`，更新入口与策略表见 [README.md](README.md)。
 
 模板保留全球互联、游戏娱乐、测速下载、漏网之鱼、TelegramDC5、直连域名、地区选择、香港负载均衡、家庭回退及广告拦截。国内域名提前直连，OpenAI 使用美国，Telegram 使用 TelegramDC5。`Kitony`、`Home_Proxy` 是明确命名的直连占位，需在本机替换为真实订阅。
 
@@ -89,9 +91,9 @@ Fork 后修改 `publish_base`、静态图标/面板等 GitHub URL 前缀，再�
 
 工作流检查 Python、下载并校验固定内核，随后审计来源、正式编译 MRS、回读匹配集合、验证配置和全部 provider 加载。`--check-template` 核对完整模板，独立步骤逐项检查其 provider 名称、URL、格式、路径及 ghproxy/rules 分支引用，再验证单 URL 导入与离线重复构建。
 
-每次成功运行上传 `mihomo-rules-<提交SHA>` artifact。仅默认分支的非 PR 构建成功后，publish job 才以 `contents: write` 同步到独立 `rules` 分支；普通 build job 保持 `contents: read`，功能分支只验证和上传。工作流排除 `rules` 分支自身触发。
+每次成功运行上传 `mihomo-rules-<提交SHA>` artifact。默认分支非 PR 构建成功后自动发布；功能分支普通 push/PR 只验证，手动运行显式设置 `publish_rules=true` 可以发布。publish job 单独使用 `contents: write`，普通 build job 保持只读。发布完成后实际下载全部规则 URL 和远程配置，验证哈希并上传公开下载报告；避免仅编译成功但远程仍为 404。工作流排除 `rules` 分支自身触发。
 
-首次发布前，模板中的本仓库远程地址不可用，可先下载成功构建的完整 artifact：
+如果尚未发布 `rules` 分支，远程地址不可用；应先执行带 `publish_rules=true` 的手动构建并确认公开下载检查通过，或使用完整 artifact 的本地文件配置：
 
 ```bash
 gh run download <运行编号> -n mihomo-rules-<提交SHA> -D artifacts

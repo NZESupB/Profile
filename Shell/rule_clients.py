@@ -47,6 +47,11 @@ def emit_clients(root, config, sources, spec, split, target):
         aliases = spec.get("client_policies", {}).get(client, {})
         dropped, source_paths = [], {}
         for name, source in sources.items():
+            if source.get("dns_only"):
+                dropped.append(
+                    {"source": name, "reason": "DNS 专用模式不导出为代理分流规则"}
+                )
+                continue
             source_routes = [
                 line
                 for line in config.get("rules", [])
@@ -158,7 +163,9 @@ def emit_clients(root, config, sources, spec, split, target):
         reports[client] = {
             "excluded": dropped,
             "excluded_count": len(dropped),
-            "source_files": len(sources),
+            "source_files": sum(
+                not source.get("dns_only", False) for source in sources.values()
+            ),
             "route_references": reference_count,
             "policy_names": sorted(
                 {aliases.get(target(r), target(r)) for r in config.get("rules", [])}
