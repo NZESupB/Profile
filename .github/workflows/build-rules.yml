@@ -270,24 +270,25 @@ jobs:
           SOURCE_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
-          # 只复制公开模板和已校验规则，保留 rules 分支历史。
-          if git ls-remote --exit-code --heads origin rules >/dev/null; then
-            git fetch origin rules
-            git worktree add "$RUNNER_TEMP/publish-rules" -b rules FETCH_HEAD
-          else
-            git worktree add --detach "$RUNNER_TEMP/publish-rules"
-            git -C "$RUNNER_TEMP/publish-rules" switch --orphan rules
+          # rules 分支只作为公开产物快照：每次以本次已验证产物重建单一提交，
+          # 避免旧产物在分支历史中残留；--force-with-lease 防止并发覆盖。
+          worktree="$RUNNER_TEMP/publish-rules"
+          lease=()
+          if old=$(git ls-remote --heads origin rules | cut -f1) && [ -n "$old" ]; then
+            lease=("--force-with-lease=refs/heads/rules:$old")
           fi
-          cd "$RUNNER_TEMP/publish-rules"
-          git rm -r --ignore-unmatch .
+          git worktree add --detach "$worktree"
+          cd "$worktree"
+          git switch --orphan rules-publish
+          # rules 分支只是公开产物快照：清空后仅复制本次已验证产物，避免旧文件残留。
+          git rm -r --ignore-unmatch . >/dev/null 2>&1 || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -R "$RUNNER_TEMP/generated-rules/." .
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add --all
-          if ! git diff --cached --quiet; then
-            git commit -m "同步代理规则 ${SOURCE_SHA}"
-            git push origin HEAD:rules
-          fi
+          git commit -m "同步代理规则 ${SOURCE_SHA}"
+          git push "${lease[@]}" origin HEAD:rules
       - name: 验证公开配置与全部 MRS/classical 下载
         run: python Shell/verify_public_rules.py --package "$RUNNER_TEMP/generated-rules" --report "$RUNNER_TEMP/public-rules-check.json"
       - name: 上传公开下载验证报告
